@@ -1,0 +1,30 @@
+.active{
+    background-color: blue;
+    display: inline-block;
+    padding: 5px;
+    transition: all linear 0.5s;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+nav li{
+    padding: 5px 10px;
+    border: none;
+    display: inline-block;
+    padding: 5px;
+    transition: all linear 0.5s;
+}
+nav li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
