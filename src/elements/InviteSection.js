@@ -1,7 +1,7 @@
 
-import logo from "../assets/Images/logo.webp";
-import playStore from "../assets/Images/playStore.webp";
-import appStore from "../assets/Images/appStore.webp";
+import logo from "../assets/img/logo.webp";
+import playStore from "../assets/img/playStore.webp";
+import appStore from "../assets/img/appStore.webp";
 import video from "../assets/icons/video.webp";
 import Image from 'next/image'
 

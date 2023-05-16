@@ -21,8 +21,8 @@ module.exports = {
       colors: {
         'primary': '#00439D',
         'light-blue': '#C9DDE6',
-        'aap-red': '#ED2F05',
-        'aap-green': '#26A649',
+        'app-red': '#ED2F05',
+        'app-green': '#26A649',
         'black': '#202020',
         'black-50': '#20202080',
       },

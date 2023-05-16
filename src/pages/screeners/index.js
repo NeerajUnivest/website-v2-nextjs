@@ -2,7 +2,7 @@ import React from 'react'
 import ScreenersList from '../../components/Screeners/ScreenersList';
 // import './Screeners.css'
 
-import screenerIcon from '../../assets/Images/screenerIcon.webp';
+import screenerIcon from '../../assets/img/screenerIcon.webp';
 import newSquare from '../../assets/icons/newSquare.webp';
 import premium from '../../assets/icons/premium.webp';
 import Image from 'next/image';

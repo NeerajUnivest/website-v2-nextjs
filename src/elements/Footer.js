@@ -1,6 +1,6 @@
 
 
-import logoWhite from '../assets/Images/logoWhite.webp'
+import logoWhite from '../assets/img/logoWhite.webp'
 import Image from 'next/image'
 import Link from 'next/link';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';

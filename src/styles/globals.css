@@ -130,3 +130,39 @@ Note: Beware of modifying this element as it can break the animations - you shou
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.mySwiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.mySwiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.SharksSectionSwiper {
+  width: 100%;
+  padding: 20px 0px;
+}
+
+.SharksSectionSwiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 140px;
+  height: 160px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 746px) {
+  .SharksSectionSwiper .swiper-slide {
+    width: 250px;
+  }
+}

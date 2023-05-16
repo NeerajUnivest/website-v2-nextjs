@@ -10,11 +10,11 @@ import trackYour from '../../assets/icons/trackYour.webp'
 import insight from '../../assets/icons/insight.webp'
 
 
-import a from '../../assets/Images/1.webp';
-import b from '../../assets/Images/2.webp';
-import c from '../../assets/Images/3.webp';
-import d from '../../assets/Images/4.webp';
-import heroBg from '../../assets/Images/heroBg.webp';
+import a from '../../assets/img/1.webp';
+import b from '../../assets/img/2.webp';
+import c from '../../assets/img/3.webp';
+import d from '../../assets/img/4.webp';
+import heroBg from '../../assets/img/heroBg.webp';
 import Image from 'next/image';
 
 

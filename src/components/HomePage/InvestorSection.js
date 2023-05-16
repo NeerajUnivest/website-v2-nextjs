@@ -10,7 +10,7 @@ import Sandeep from "../../assets/invester/Sandeep-Dongree.webp";
 import Deep from "../../assets/invester/Deep+bajaj.webp";
 import Mohit from "../../assets/invester//Mohit+Bajaj.webp";
 import Chetan from "../../assets/invester/Chetan-Nigam.jpg";
-import Vijay from "../../assets/Images/Vijay+Rathi.webp";
+import Vijay from "../../assets/img/Vijay+Rathi.webp";
 import Rashi from "../../assets/invester/Rashi-Arora.jpg";
 import Image from 'next/image'
 

@@ -1,4 +1,4 @@
-import cxoLogo from './assets/Images/cxo-logo.webp'
+import cxoLogo from './assets/img/cxo-logo.webp'
 
 
 let newsData = [{

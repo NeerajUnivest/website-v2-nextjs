@@ -1,13 +1,13 @@
 
 import CommentCard from '../../elements/CommentCard'
-import rating from "../../assets/Images/rating.webp";
-import Prasanth from "../../assets/Images/Prasanth+Kuller.webp";
-import Ankush from "../../assets/Images/Ankush+Kumar.webp";
-import Piyush from "../../assets/Images/Piyush+Gupta.webp";
-import Amresh from "../../assets/Images/Amresh+Kumar.webp";
-import Vijay from "../../assets/Images/Vijay+Rathi.webp";
-import Raghav from "../../assets/Images/Raghav+Bhushan.jpg";
-import Ravi from "../../assets/Images/Ravi+Kumar.jpg";
+import rating from "../../assets/img/rating.webp";
+import Prasanth from "../../assets/img/Prasanth+Kuller.webp";
+import Ankush from "../../assets/img/Ankush+Kumar.webp";
+import Piyush from "../../assets/img/Piyush+Gupta.webp";
+import Amresh from "../../assets/img/Amresh+Kumar.webp";
+import Vijay from "../../assets/img/Vijay+Rathi.webp";
+import Raghav from "../../assets/img/Raghav+Bhushan.jpg";
+import Ravi from "../../assets/img/Ravi+Kumar.jpg";
 import Image from 'next/image'
 
 const commentsData = [

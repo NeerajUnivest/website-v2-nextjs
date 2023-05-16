@@ -3,16 +3,17 @@ import { slide as Menu } from 'react-burger-menu';
 import SearchBar from './SearchBar';
 import Image from 'next/image'
 
-import logoWhite from '../assets/Images/logoWhite.webp'
+import logoWhite from '../assets/img/logoWhite.webp'
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
+// import header_bg from '../assets/images/header_bg.png';
 
 
 
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
-    return (<nav className='bg-black-50 text-white fixed left-0 right-0 top-3 z-10 '>
+    return (<nav className={`bg-black-50 text-white fixed left-0 right-0 top-3 z-10 bg-repeat ${!isOpen && 'backdrop-blur-sm'}`} >
         <div className={`font-Inter max-w-screen-xl mx-auto flex items-center lg:justify-between lg:px-8 flex-wrap ${showSearchBar ? ' p-2' : ' p-4'}`}>
             {showSearchBar ? <SearchBar forPhone={true} setShowSearchBar={setShowSearchBar} />
                 : <>

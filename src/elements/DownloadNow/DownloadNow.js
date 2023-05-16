@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import playStore from "../../assets/Images/playStore.webp";
-import appStore from "../../assets/Images/appStore.webp";
+import playStore from "../../assets/img/playStore.webp";
+import appStore from "../../assets/img/appStore.webp";
 
 export default function DownloadNow() {
     return (

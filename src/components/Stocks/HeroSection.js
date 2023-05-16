@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { BsTelephone } from "react-icons/bs";
-import hero from '../../assets/Images/hero.png';
+import hero from '../../assets/images/hero.png';
 
 export default function HeroSection() {
     return (<>

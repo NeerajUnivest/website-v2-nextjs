@@ -1,6 +1,6 @@
 
 import TrushCard from '../../elements/TrushCard'
-import quatetion from '../../assets/Images/youCanTrush.webp'
+import quatetion from '../../assets/img/youCanTrush.webp'
 import goal from '../../assets/icons/goal.webp'
 import binoculars from '../../assets/icons/binoculars.webp'
 import rocket from '../../assets/icons/rocket.webp'

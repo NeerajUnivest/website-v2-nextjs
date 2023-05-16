@@ -1,5 +1,5 @@
 import { useState } from "react";
-import makeWish from "../../assets/Images/makeWish.webp";
+import makeWish from "../../assets/img/makeWish.webp";
 
 export default function MakeWish() {
     const [data, setData] = useState({ email: '', request_body: '', });

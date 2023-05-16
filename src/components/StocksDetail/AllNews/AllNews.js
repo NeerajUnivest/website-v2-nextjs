@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { host } from '../../../Config';
 import Image from 'next/image'
-import forEmpty from '../../../assets/Images/forEmpty.webp'
+import forEmpty from '../../../assets/img/forEmpty.webp'
 const NewsCard = React.lazy(() => import('../../../elements/NewsCard/NewsCard'));
 
 function AllNews({ name }) {
