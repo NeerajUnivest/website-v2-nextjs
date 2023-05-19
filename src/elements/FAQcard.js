@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import arrowUp from '../assets/icons/arrowUp.png'
-import arrowDown from '../assets/icons/arrowDown.png'
-import point from '../assets/icons/point.png'
+import arrowUp from '../assets/icn/arrowUp.png'
+import arrowDown from '../assets/icn/arrowDown.png'
+import point from '../assets/icn/point.png'
 import Image from 'next/image';
 
 function FAQcard({ heading, content }) {

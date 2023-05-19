@@ -30,16 +30,16 @@ export default function Stocks() {
             <meta name="msapplication-navbutton-color" content="#00439D" />
             <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
         </Head>
-        {/* <NavBar />
+        <NavBar />
         <HeroSection />
         <StockBarSection />
-        <MarketsSection /> */}
+        <MarketsSection />
         <IdeasSection />
-        {/* <SharksSection />
+        <SharksSection />
         <ScreenersSection />
         <ResultsSection />
         <NewsSection />
         <BrokersSection />
-        <Footer /> */}
+        <Footer />
     </>)
 }

@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
-import InvestorSection from '../components/HomePage/InvestorSection'
-import YouCanTrush from '../components/About/YouCanTrush';
-import MyTeam from '../components/About/MyTeam';
+// import InvestorSection from '../components/HomePage/InvestorSection'
+// import YouCanTrush from '../components/About/YouCanTrush';
+// import MyTeam from '../components/About/MyTeam';
 import NavBar from '@/elements/NavBar';
 import Footer from '@/elements/Footer';
 
@@ -16,9 +16,9 @@ export default function AboutUs() {
             <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
         </Head>
         <NavBar />
-        <YouCanTrush />
+        {/* <YouCanTrush />
         <MyTeam />
-        <InvestorSection />
+        <InvestorSection /> */}
         <Footer />
     </>
 }

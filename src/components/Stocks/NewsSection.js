@@ -24,10 +24,10 @@ export default function NewsSection() {
                         slidesPerView={'auto'}
                         spaceBetween={0}
                         className="NewsSection"
-                        // autoplay={{
-                        //     delay: 2000,
-                        //     disableOnInteraction: false
-                        // }}
+                        autoplay={{
+                            delay: 2000,
+                            disableOnInteraction: false
+                        }}
                         pagination={{
                             dynamicBullets: true,
                         }}

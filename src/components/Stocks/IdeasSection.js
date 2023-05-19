@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import moment from "moment/moment";
 import { useAxios } from "@/hooks/useAxios";
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay } from "swiper";
+import mini_trade_card from '../../assets/images/mini_trade_card.png';
 
 
 export default function IdeasSection() {
@@ -30,7 +31,7 @@ export default function IdeasSection() {
                 </div>
             </div>
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
-                <div className="w-[calc(100%-64px)] lg:max-w-[28%]">
+                <div className="w-[calc(100%-64px)] lg:max-w-[32%]">
                     <p className="mt-10 text-center text-base lg:text-xl font-extrabold text-[#414141]">
                         Pillars of advisory AdvisoryTeamCard
                     </p>
@@ -40,7 +41,7 @@ export default function IdeasSection() {
                     <AdvisoryTeamCard name='Sagar Wadhwa' disc='Lorem ipsum dolor sit amet' />
                     {/* </div> */}
                 </div>
-                <div className="w-[calc(100%-32px)] lg:max-w-[65%]">
+                <div className="w-[calc(100%-32px)] lg:max-w-[60%]">
                     <div className="flex justify-evenly">
                         <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
                         flex justify-center items-center rounded-full w-20 h-20 lg:w-[120px] lg:h-[120px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
@@ -66,16 +67,16 @@ export default function IdeasSection() {
                                 centeredSlides={true}
                                 slidesPerView={'auto'}
                                 spaceBetween={0}
-                                className="IdeasSection"
-                                // autoplay={{
-                                //     delay: 2000,
-                                //     disableOnInteraction: false
-                                // }}
+                                autoplay={{
+                                    delay: 2000,
+                                    disableOnInteraction: false
+                                }}
                                 modules={[Autoplay]}
+                                className="IdeasSection"
                             >
                                 {data?.data?.list?.map(ele =>
-                                    <SwiperSlide key={ele.id}>
-                                        <div className="overflow-hidden flex flex-col justify-between h-full w-full ">
+                                    <SwiperSlide key={ele.id} >
+                                        <div className="overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] " style={{ backgroundImage: `url(${mini_trade_card.src})` }} >
                                             <span className="mt-9 ml-3 text-[8px] font-medium text-[#606060]">
                                                 Shared on {moment(ele.createdAt).format("DD MMM YYYY")}
                                             </span>
@@ -85,7 +86,8 @@ export default function IdeasSection() {
                                                     width={24}
                                                     height={24}
                                                     className='h-[24px] w-[24px]'
-                                                    alt='demo image'
+                                                    alt={ele.stockName}
+                                                // placeholder='blur'
                                                 />
                                                 <div className="self-center ml-1">
                                                     <p className="font-semibold text-xs">{ele.stockName}</p>

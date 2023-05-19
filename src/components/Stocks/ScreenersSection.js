@@ -2,11 +2,11 @@ import { BlackButton, ScreenerCategoryChip } from "@/elements/Button/Button";
 import { useAxios } from "@/hooks/useAxios";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { BsArrowRight } from "react-icons/bs";
 
 export default function ScreenersSection() {
-    const { push } = useRouter();
+    // const { push } = useRouter();
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/screeners/v2` });
     return (
         <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10'>
@@ -33,7 +33,7 @@ export default function ScreenersSection() {
                 <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3 ">
                     {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} />)}
                 </div>
-                <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                <BlackButton onClick={() => null} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
         </section>
     )
