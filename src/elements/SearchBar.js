@@ -28,7 +28,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
 
     return (
         <div className={`flex ${forPhone ? 'mx-auto' : 'ml-5'} w-[90vw] lg:w-[28vw] max-w-[600px] rounded-full relative z-10`}>
-            {(data?.length !== 0 || forPhone) && <div onClick={clearInput} className='fixed top-0 left-0 z-20 bg-[#2e394789] w-screen h-screen' />}
+            {(data?.length !== 0 || forPhone) && <div onClick={clearInput} className='fixed top-0 left-0 z-20 bg-[#20202093] w-screen h-screen blur-3xl' />}
             <input className='z-50 w-full bg-[#F5F5F5] focus:caret-[#00439D] rounded-full h-10 pl-12 font-Inter text-base text-[#747474]'
                 type="text"
                 autoFocus={forPhone}

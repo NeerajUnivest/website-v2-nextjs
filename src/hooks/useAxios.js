@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
-// import redInfo from "../assets/redInfo.svg";
 
-axios.defaults.baseURL = 'https://api.univest.in';
+axios.defaults.baseURL = 'https://uat-api.univest.in';
 export const useAxios = (axiosParams) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -11,6 +10,7 @@ export const useAxios = (axiosParams) => {
         axios.request({
             ...axiosParams,
         }).then(res => {
+            setLoading(false)
             setData(res.data);
         }).catch(err => {
             // utils.setFeedback({
@@ -19,7 +19,7 @@ export const useAxios = (axiosParams) => {
             //     text: `Something went wrong. Try again later`,
             //     style: "border-[#EB4E2C] bg-[#FFF7F5]",
             // })
-        }).finally(() => setLoading(false))
+        })
     }, []);
     useEffect(() => {
         fetchData()

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Autoplay, EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import results_background from '../../assets/images/shark_background.png';
+import results_background from '../../assets/images/shark_background.webp';
 import result_screen1 from '../../assets/images/result_screen1.png';
 
 const sharkList = [
@@ -180,8 +180,8 @@ const sharkList = [
 ]
 export default function SharksSection() {
     return (
-        <section className='bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url(${results_background.src})` }} >
-            <div className="py-12 lg:py-4 max-w-screen-xl mx-auto lg:px-8 ">
+        <section id='Sharks' className='bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url(${results_background.src})` }} >
+            <div className="pt-12 lg:pt-4 max-w-screen-xl mx-auto lg:px-8 ">
                 <p className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Track the portfolios of Shark investors
                 </p>
@@ -214,9 +214,9 @@ export default function SharksSection() {
                     )}
                 </Swiper>
                 <div className='flex justify-evenly items-end mt-10 lg:mt-16'>
-                    <Image src={result_screen1} className='hidden lg:block w-[210px] object-contain' alt='demo image' width={'auto'} height={'auto'} />
-                    <Image src={result_screen1} className='w-[240px] object-contain' alt='demo image' width={'auto'} height={'auto'} />
-                    <Image src={result_screen1} className='hidden lg:block w-[210px] object-contain' alt='demo image' width={'auto'} height={'auto'} />
+                    <Image src={result_screen1} className='hidden lg:block w-[210px] object-contain' alt='demo image' width={210} height={'auto'} />
+                    <Image src={result_screen1} className='w-[240px] object-contain' alt='demo image' width={210} height={'auto'} />
+                    <Image src={result_screen1} className='hidden lg:block w-[210px] object-contain' alt='demo image' width={210} height={'auto'} />
                 </div>
             </div>
         </section>

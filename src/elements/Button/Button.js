@@ -18,7 +18,6 @@ function BlackButton({ text, onClick, className }) {
 function ScreenerCategoryChip({ text, onClick, className }) {
     return (
         <motion.button
-            type="button"
             onTap={onClick}
             className={`select-none px-5 whitespace-nowrap py-2 rounded-lg font-Inter text-[12px] lg:text-sm border bg-white border-primary text-primary font-extrabold ${className ?? ''}`}
             whileTap={{ scale: 0.95 }}

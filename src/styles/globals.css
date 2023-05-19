@@ -18,6 +18,15 @@
   /* Firefox */
 }
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth
+}
+
+section {
+  user-select: none;
+}
+
 body {
   /* background-color: #f6f6f6; */
   margin: 0;
@@ -100,6 +109,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 2.5em 1.5em 0 0;
   font-size: 1.15em;
   overflow: hidden !important;
+  backdrop-filter: blur(4px);
 }
 
 /* Styling of overlay */
@@ -131,18 +141,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   -webkit-text-fill-color: transparent;
 }
 
-.mySwiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.mySwiper .swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 250px;
-  height: 250px;
-  overflow: hidden;
+.uni-wise-gradient2 {
+  background: -webkit-linear-gradient(0deg, #FF8415 -37.42%, #FFCA3F 65.82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .SharksSectionSwiper {
@@ -165,4 +167,63 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .SharksSectionSwiper .swiper-slide {
     width: 250px;
   }
+}
+
+.IdeasSection .swiper-wrapper {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  column-gap: 0px;
+}
+
+.IdeasSection .swiper-slide {
+  width: 144px;
+  height: 164px;
+  margin: 0;
+  transform: scale(0.9);
+  transition: 500ms;
+  border-radius: 10px;
+  background: url(../assets/images/mini_trade_card.png);
+  /* border: 2px solid #BADDFA; */
+}
+
+.IdeasSection .swiper-slide-active {
+  margin: 10px;
+  transform: scale(1);
+}
+
+
+
+.NewsSection .swiper-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 0px;
+}
+
+.NewsSection .swiper-slide {
+  width: 248px;
+  height: 248px;
+  margin: 0;
+  transform: scale(0.8);
+  opacity: 0.5;
+  transition: 500ms;
+  border-radius: 15px;
+  background: #FFFFFF;
+  border: 1px solid #EDEDED;
+}
+
+.NewsSection .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (min-width: 976px) {
+  .NewsSection .swiper-slide {
+    width: 360px;
+    height: 320px;
+  }
+}
+
+.NewsSection.swiper-pagination-bullet {
+  background: #414141;
 }

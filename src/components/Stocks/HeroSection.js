@@ -1,10 +1,12 @@
+import { BlackButton } from "@/elements/Button/Button";
 import Image from "next/image";
 import { BsTelephone } from "react-icons/bs";
 import hero from '../../assets/images/hero.png';
+import sebi_logo from '../../assets/icons/sebi_logo.png';
 
 export default function HeroSection() {
     return (<>
-        <div className="bg-light-blue">
+        <section id="Hero" className="bg-light-blue">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
                 <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8">
                     <p className='ml-4 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141]'>
@@ -18,7 +20,12 @@ export default function HeroSection() {
                     </div>
                     <div className='mt-8 lg:mt-11 ml-4 lg:ml-0 max-w-[550px] lg:w-11/12 grid grid-cols-2 lg:grid-cols-4 justify-items-start gap-y-4 text-black'>
                         <div className="flex col-span-2">
-                            <div>sebi</div>
+                            <Image
+                                placeholder="blur"
+                                src={sebi_logo}
+                                className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
+                                alt='demo image'
+                            />
                             <div>
                                 <p className="font-semibold text-base">Registered - INA000017639</p>
                                 <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
@@ -39,24 +46,24 @@ export default function HeroSection() {
                     <div className='ml-4 lg:ml-0  w-[calc(100vw-32px)] sm:w-[480px] h-10 lg:h-14 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-xs lg:text-base font-medium'>
                         <BsTelephone className='h-4 lg:h-14 ml-4 lg:ml-6' color="#747474" size={24} />
                         <input className='w-[200px] caret-primary ml-2.5 lg:ml-4 text-[#747474]' type="email" placeholder='Enter your mobile number' required />
-                        <span className='whitespace-nowrap px-3 lg:px-6 flex items-center h-full text-[#FFF] rounded-full bg-[#333333] ml-auto'>
-                            Get free advice
-                        </span>
+                        {/* <span className='cursor-pointer whitespace-nowrap px-3 lg:px-6 flex items-center h-full text-[#FFF] rounded-full bg-[#333333] ml-auto'>
+
+                        </span> */}
+                        <BlackButton className='whitespace-nowrap px-3 lg:px-6 h-full ml-auto' text='Get free advice' />
                     </div>
                 </div>
                 <div className="basis-full md:basis-5/12 flex content-center mt-10 lg:mt-0">
                     <div className='mx-auto h-[300px] lg:h-[550px]'>
                         <Image
+                            placeholder="blur"
                             src={hero}
                             className=' h-[300px] lg:h-[550px] object-contain'
                             alt='demo image'
-                            width={'auto'}
-                            height={'auto'}
                         />
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <p className="mt-5 lg:mt-2 text-center text-sm lg:text-base font-semibold text-[#414141]">POWERED with best research tools</p>
     </>
     )
