@@ -12,7 +12,9 @@ export default function App({ Component, pageProps }) {
   //     duration: 600,
   //   });
   // });
-  return <UtilsContext>
-    <Component {...pageProps} />
-  </UtilsContext>
+  return (
+    <UtilsContext>
+      <Component {...pageProps} />
+    </UtilsContext>
+  )
 }

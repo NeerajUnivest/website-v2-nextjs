@@ -207,6 +207,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   display: flex;
   align-items: center;
   column-gap: 0px;
+  padding-bottom: 40px;
 }
 
 .NewsSection .swiper-slide {
@@ -226,13 +227,33 @@ Note: Beware of modifying this element as it can break the animations - you shou
   transform: scale(1);
 }
 
+.NewsSection .swiper-pagination-bullet {
+  background: #414141;
+  width: 14px;
+  height: 6px;
+  border-radius: 100px;
+  margin: 0px;
+}
+
+@media (max-width: 976px) {
+
+  .NewsSection .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    left: 30% !important;
+  }
+}
+
 @media (min-width: 976px) {
   .NewsSection .swiper-slide {
     width: 360px;
     height: 320px;
   }
-}
 
-.NewsSection.swiper-pagination-bullet {
-  background: #414141;
+  .NewsSection .swiper-pagination-bullet {
+    background: #414141;
+    width: 20px;
+    height: 8px;
+    border-radius: 100px;
+    margin: 3px;
+  }
 }

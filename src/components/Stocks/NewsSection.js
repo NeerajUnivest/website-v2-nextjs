@@ -15,7 +15,7 @@ export default function NewsSection() {
             <p className="my-8 lg:my-5 text-center text-xl lg:text-3xl font-extrabold text-black">
                 Now read all financial news in about 60 words
             </p>
-            <div className="mx-4 px-[1px] py-6 lg:py-12 rounded-[32px] bg-gradient-to-tr to-[#ffd87d90] from-[#F1F1F1]">
+            <div className="mx-4 px-[1px] pt-6 pb-5 lg:pt-12 rounded-[32px] bg-gradient-to-tr to-[#ffd87d90] from-[#F1F1F1] relative">
                 {!loading &&
                     <Swiper
                         grabCursor={true}
@@ -30,6 +30,7 @@ export default function NewsSection() {
                         }}
                         pagination={{
                             dynamicBullets: true,
+                            clickable: true
                         }}
                         modules={[Autoplay, Pagination]}
                     >
@@ -40,36 +41,16 @@ export default function NewsSection() {
                                     <p className="my-1 lg:my-2 line-clamp-2 text-xs lg:text-base font-bold text-black">
                                         {ele.title}
                                     </p>
-                                    <div className="flex items-center ">
-                                        {[
-                                            {
-                                                "finCode": 217376,
-                                                "name": "Life Insurance Corporation of India",
-                                                "nseSymbol": "LICI",
-                                                "bseSymbol": "LICI",
-                                                "logoUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/LICI.png",
-                                                "marketCapital": 3588803695547.4,
-                                                "stockStatus": "UP",
-                                                "todaysChange": 0.017621145374453348
-                                            },
-                                            {
-                                                "finCode": 217376,
-                                                "name": "Life Insurance Corporation of India",
-                                                "nseSymbol": "HDFC",
-                                                "bseSymbol": "HDFC",
-                                                "logoUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/LICI.png",
-                                                "marketCapital": 3588803695547.4,
-                                                "stockStatus": "DOWN",
-                                                "todaysChange": -0.017621145374453348
-                                            }
-                                        ]?.map((e, i) =>
-                                            <div key={i} className='flex items-center font-Inter border-r border-[#EDEDED] pr-1 mr-1'>
-                                                <span className="text-[10px] font-medium text-[#606060] mr-1.5">{e.nseSymbol ?? e.bseSymbol}</span>
-                                                <TbTriangleFilled size={8} color={e.stockStatus === 'DOWN' ? '#EB4E2C' : '#26A649'} />
-                                                <span className={`text-[10px] ml-1 ${e.stockStatus === 'DOWN' ? 'text-[#EB4E2C]' : 'text-[#26A649]'}`}>{e.todaysChange?.toFixed(2)}</span>
-                                            </div>)}
-                                        <span className="text-[10px] font-medium text-[#606060] mr-1.5">+3 stocks</span>
-                                    </div>
+                                    {ele.companies?.[0] &&
+                                        <div className="flex items-center ">
+                                            {ele.companies?.slice(0, 2).map((e, i) =>
+                                                <div key={i} className='flex items-center font-Inter border-r border-[#EDEDED] pr-1 mr-1'>
+                                                    <span className="text-[10px] font-medium text-[#606060] mr-1.5">{e.nseSymbol ?? e.bseSymbol}</span>
+                                                    <TbTriangleFilled size={8} color={e.stockStatus === 'DOWN' ? '#EB4E2C' : '#26A649'} />
+                                                    <span className={`text-[10px] ml-1 ${e.stockStatus === 'DOWN' ? 'text-[#EB4E2C]' : 'text-[#26A649]'}`}>{e.todaysChange?.toFixed(2)}</span>
+                                                </div>)}
+                                            <span className="text-[10px] font-medium text-[#606060] mr-1.5">+3 stocks</span>
+                                        </div>}
                                     <div className="flex items-center">
                                         <span className="text-[8px] font-medium text-[#414141]">{ele.source}</span>
                                         <span className="mx-2 h-[5px] w-[5px] bg-[#414141] rounded-full" />
@@ -78,6 +59,9 @@ export default function NewsSection() {
                                 </div>
                             </SwiperSlide>)}
                     </Swiper>}
+                <span className="absolute bottom-6 right-6 text-[10px] lg:text-sm font-medium text-[#414141]">
+                    Powered by
+                </span>
             </div>
         </section>
     )
