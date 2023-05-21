@@ -26,7 +26,7 @@ export default function ResultsSection() {
         exitBeforeEnter: true,
     })
     return (
-        <section id="Results" className='my-16 lg:my-4 font-Inter'>
+        <section id="Results" className='py-16 lg:py-4 font-Inter bg-[#FFFFFF]'>
             <div className="py-0 lg:py-8 max-w-screen-xl mx-auto lg:px-8 h-[500px] lg:h-[666px] w-full bg-no-repeat bg-center bg-cover flex flex-col justify-between" style={{ backgroundImage: `url(${results_background.src})` }} >
                 <p className="text-center text-2xl lg:text-3xl font-semibold text-[#414141]">
                     Stay updated on the <br className="lg:hidden" />

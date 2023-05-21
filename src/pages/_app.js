@@ -1,9 +1,14 @@
 import { UtilsContext } from '@/contexts/UtilsContext'
 import '@/styles/globals.css'
+import { Inter } from 'next/font/google'
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
 
 export default function App({ Component, pageProps }) {
   // useEffect(() => {
@@ -13,8 +18,10 @@ export default function App({ Component, pageProps }) {
   //   });
   // });
   return (
-    <UtilsContext>
-      <Component {...pageProps} />
-    </UtilsContext>
+    <main className={`${inter.variable}`}>
+      <UtilsContext>
+        <Component {...pageProps} />
+      </UtilsContext>
+    </main>
   )
 }

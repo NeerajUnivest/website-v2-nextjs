@@ -1,6 +1,6 @@
 import { BlackButton } from "@/elements/Button/Button";
 import Image from "next/image";
-import { useTransition, animated } from 'react-spring'
+import { useTransition, animated, useInView } from 'react-spring'
 import logoWhite from '../../assets/img/logoWhite.webp'
 import Marquee from "react-fast-marquee";
 import { useState } from "react";
@@ -118,7 +118,7 @@ const stocksList = [
 
 export default function BrokersSection() {
     const [state, setState] = useState(0);
-
+    const [ref, inView] = useInView()
     const transitions = useTransition(state, {
         key: state,
         from: { opacity: 1, scale: 1 },
@@ -138,7 +138,7 @@ export default function BrokersSection() {
     })
     return (
         <section className='bg-[#F5F5F5] py-[72px] font-Inter'>
-            <div className="max-w-screen-xl mx-auto lg:px-8" >
+            <div className="max-w-screen-xl mx-auto lg:px-8" ref={ref}>
                 <p className="text-center text-xl lg:text-5xl font-black text-black">
                     Integrated with India’s Top 16+ brokers
                 </p>
@@ -147,14 +147,15 @@ export default function BrokersSection() {
                 </p>
                 <div className="flex justify-center items-center mt-[48px] lg:mt-[96px] mb-[32px] lg:mb-[64px]">
                     <div className="h-[72px] w-[72px] px-2 lg:px-3 lg:h-[160px] lg:w-[160px] bg-[#FFFFFF] border-2 border-[#EDEDED] rounded-full flex place-content-center">
-                        {transitions((style, i) => (
-                            <animated.img
-                                style={style}
-                                src={brokerList[state]}
-                                className='w-full object-contain'
-                                alt='broker logo'
-                            />
-                        ))}
+                        {inView &&
+                            transitions((style, i) => (
+                                <animated.img
+                                    style={style}
+                                    src={brokerList[state]}
+                                    className='w-full object-contain'
+                                    alt='broker logo'
+                                />
+                            ))}
                         {/* <Image src='https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Growww.png' width='160' height='160' className='w-full object-contain' alt='icon' /> */}
                     </div>
                     <div className="text-[32px] lg:text-[64px] mx-[32px] lg:mx-[48px]">
@@ -170,6 +171,7 @@ export default function BrokersSection() {
                 </div>
 
                 <Marquee
+                    play={inView}
                     speed={30}
                     delay={2}
                     pauseOnHover>

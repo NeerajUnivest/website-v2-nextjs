@@ -5,21 +5,21 @@ import HeroSection from "@/components/Stocks/HeroSection";
 import Footer from "@/elements/Footer";
 import NavBar from "@/elements/NavBar";
 import StockBarSection from "@/components/Stocks/StockBarSection";
-// import MarketsSection from "@/components/Stocks/MarketsSection";
-// import IdeasSection from "@/components/Stocks/IdeasSection";
-// import SharksSection from "@/components/Stocks/SharksSection";
-// import ScreenersSection from "@/components/Stocks/ScreenersSection";
-// import ResultsSection from "@/components/Stocks/ResultsSection";
-// import NewsSection from "@/components/Stocks/NewsSection";
-// import BrokersSection from "@/components/Stocks/BrokersSection";
+import MarketsSection from "@/components/Stocks/MarketsSection";
+import IdeasSection from "@/components/Stocks/IdeasSection";
+import SharksSection from "@/components/Stocks/SharksSection";
+import ScreenersSection from "@/components/Stocks/ScreenersSection";
+import ResultsSection from "@/components/Stocks/ResultsSection";
+import NewsSection from "@/components/Stocks/NewsSection";
+import BrokersSection from "@/components/Stocks/BrokersSection";
 
-const BrokersSection = dynamic(() => import('@/components/Stocks/BrokersSection'))
-const NewsSection = dynamic(() => import('@/components/Stocks/NewsSection'))
-const ResultsSection = dynamic(() => import('@/components/Stocks/ResultsSection'))
-const ScreenersSection = dynamic(() => import('@/components/Stocks/ScreenersSection'))
-const SharksSection = dynamic(() => import('@/components/Stocks/SharksSection'))
-const IdeasSection = dynamic(() => import('@/components/Stocks/IdeasSection'))
-const MarketsSection = dynamic(() => import('@/components/Stocks/MarketsSection'))
+// const BrokersSection = dynamic(() => import('@/components/Stocks/BrokersSection'))
+// const NewsSection = dynamic(() => import('@/components/Stocks/NewsSection'))
+// const ResultsSection = dynamic(() => import('@/components/Stocks/ResultsSection'))
+// const ScreenersSection = dynamic(() => import('@/components/Stocks/ScreenersSection'))
+// const SharksSection = dynamic(() => import('@/components/Stocks/SharksSection'))
+// const IdeasSection = dynamic(() => import('@/components/Stocks/IdeasSection'))
+// const MarketsSection = dynamic(() => import('@/components/Stocks/MarketsSection'))
 
 export default function Stocks() {
     return (<>
@@ -30,16 +30,16 @@ export default function Stocks() {
             <meta name="msapplication-navbutton-color" content="#00439D" />
             <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
         </Head>
-        {/* <NavBar />
+        <NavBar />
         <HeroSection />
         <StockBarSection />
         <MarketsSection />
         <IdeasSection />
         <SharksSection />
         <ScreenersSection />
-        <ResultsSection /> */}
+        <ResultsSection />
         <NewsSection />
-        {/* <BrokersSection />
-        <Footer /> */}
+        <BrokersSection />
+        <Footer />
     </>)
 }

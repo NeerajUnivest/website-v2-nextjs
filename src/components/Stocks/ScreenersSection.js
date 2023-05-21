@@ -9,7 +9,7 @@ export default function ScreenersSection() {
     // const { push } = useRouter();
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/screeners/v2` });
     return (
-        <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10'>
+        <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10 bg-[#FFFFFF]'>
             <p className="my-8 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-black">
                 Powered by robust algorithms built by a highly experienced research team.
             </p>

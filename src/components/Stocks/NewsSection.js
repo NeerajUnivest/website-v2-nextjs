@@ -11,7 +11,7 @@ import { Autoplay, Pagination } from "swiper";
 export default function NewsSection() {
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/convey/news?page=0` });
     return (
-        <section id="News" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10'>
+        <section id="News" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10 bg-[#FFFFFF]'>
             <p className="my-8 lg:my-5 text-center text-xl lg:text-3xl font-extrabold text-black">
                 Now read all financial news in about 60 words
             </p>

@@ -29,7 +29,7 @@ export default function MarketsSection() {
     const transitions = useTransition(state, {
         key: state,
         from: { opacity: 1, scale: 1 },
-        enter: { opacity: 0, scale: 0.9, delay: 2000, },
+        enter: { opacity: 0, scale: 0.9, delay: 2000 },
         leave: { opacity: 1, scale: 1 },
         config: { duration: 300 },
         onRest: (_a, _b, item) => {
@@ -44,7 +44,7 @@ export default function MarketsSection() {
         exitBeforeEnter: true,
     })
     return (
-        <section id="Markets" className='max-w-screen-xl mx-auto lg:px-8'>
+        <section id="Markets" className='max-w-screen-xl mx-auto lg:px-8 bg-[#FFFFFF]'>
             <p className="my-5 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]"
                 onClick={() => set(open => !open)}>
                 Stay on top of the markets
