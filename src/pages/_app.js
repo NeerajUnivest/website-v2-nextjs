@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
   //   });
   // });
   return (
-    <main className={`${inter.variable}`}>
+    <main className={`${inter.variable} min-w-[346px]`}>
       <UtilsContext>
         <Component {...pageProps} />
       </UtilsContext>

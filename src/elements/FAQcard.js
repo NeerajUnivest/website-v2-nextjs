@@ -1,31 +1,19 @@
-import React, { useState } from 'react'
-import arrowUp from '../assets/icn/arrowUp.png'
 import arrowDown from '../assets/icn/arrowDown.png'
-import point from '../assets/icn/point.png'
 import Image from 'next/image';
 
-function FAQcard({ heading, content }) {
-    const [showFull, setShowFull] = useState(false);
+function FAQcard({ heading, content, active, setActive, i }) {
     return (
-        <div className='border-[1px] border-solid border-[#E5E5E5] rounded-[4px] mx-4 my-3'>
-            <div className='flex flex-row justify-between px-2 my-2'
-                onClick={() => setShowFull(!showFull)}>
-                <div className='flex flex-row w-11/12'>
-                    <Image src={point} className="h-[6px] mt-1.5 w-[6px] mx-2" alt="point" />
-                    <div className='font-Inter font-medium text-[12px] leading-[20px]'>{heading}</div>
-                </div>
-                <div className='mt-2'>
-                    <Image src={showFull ? arrowUp : arrowDown} className="h-[9.47px] w-auto mr-2" alt="arrow" />
-                </div>
+        <div className={`ease-in-out duration-300 border lg:border-2 rounded-xl cursor-pointer bg-white ${active === i ? 'border-[#00439D]' : 'border-[#E5E5E5]'} `}
+            onClick={() => setActive(active === i ? -1 : i)}>
+            <div className='flex flex-row p-3'>
+                <div className='mr-3 mt-1.5 h-1 w-1 lg:h-2 lg:w-2 bg-[#202020] rounded-full' />
+                <p className='w-10/12 font-semibold text-xs lg:text-base'>{heading}</p>
+                <Image src={arrowDown} className={`ml-auto mt-1.5 h-2 lg:h-3 w-auto mr-2 ease-in-out duration-300 ${active === i ? 'rotate-180' : 'rotate-0'}`} alt="arrow" />
             </div>
-            {showFull ?
-                <div
-                    className='mx-8 font-Inter font-medium text-[10px] leading-[18px] text-[#0b0b0b] my-4 text-justify'>
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
-                </div>
-                :
-                null
-            }
+            <div className={`overflow-hidden ease-in-out duration-300 mx-4 text-justify
+            ${active === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className='mb-4 mt-2 font-normal text-xs lg:text-base text-[#202020]' dangerouslySetInnerHTML={{ __html: content }} />
+            </div>
         </div>
     )
 }

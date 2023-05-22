@@ -12,7 +12,6 @@ const nextConfig = {
       'public-assets-univest.s3.ap-south-1.amazonaws.com',
       'univest.s3.ap-south-1.amazonaws.com',
       'cdn-icons-png.flaticon.com',
-      'aws-news-feed.s3.ap-south-1.amazonaws.com'
     ],
   },
 }
