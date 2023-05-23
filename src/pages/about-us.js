@@ -3,8 +3,6 @@ import Head from 'next/head';
 // import InvestorSection from '../components/HomePage/InvestorSection'
 // import YouCanTrush from '../components/About/YouCanTrush';
 // import MyTeam from '../components/About/MyTeam';
-import NavBar from '@/elements/NavBar';
-import Footer from '@/elements/Footer';
 
 export default function AboutUs() {
     return <>
@@ -15,10 +13,8 @@ export default function AboutUs() {
             <meta name="msapplication-navbutton-color" content="#00439D" />
             <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
         </Head>
-        <NavBar />
         {/* <YouCanTrush />
         <MyTeam />
         <InvestorSection /> */}
-        <Footer />
     </>
 }

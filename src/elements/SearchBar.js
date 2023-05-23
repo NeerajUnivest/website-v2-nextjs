@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
+import { useDebouncedCallback } from 'use-debounce';
 
 
 export default function SearchBar({ forPhone, setShowSearchBar }) {
@@ -9,17 +10,21 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
     const [focus, setFocus] = useState(false);
     const [wordEntered, setWordEntered] = useState("");
 
-    const handleFilter = async (event) => {
+    const handleOnChange = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
 
         if (searchWord === "" || searchWord.length < 3) {
             setData([]);
         } else {
-            const result = await axios.get(`https://api.univest.in/resources/stock-details/search?searchTerm=${encodeURIComponent(searchWord)}`)
-            setData(result.data?.data?.list);
+            apiCall(searchWord)
         }
     };
+
+    const apiCall = useDebouncedCallback(async (searchWord) => {
+        const result = await axios.get(`https://api.univest.in/resources/stock-details/search?searchTerm=${encodeURIComponent(searchWord)}`)
+        setData(result.data?.data?.list);
+    }, 500)
 
     const clearInput = () => {
         setData([]);
@@ -35,7 +40,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
                 autoFocus={forPhone}
                 placeholder='Search for stock'
                 value={wordEntered}
-                onChange={handleFilter}
+                onChange={handleOnChange}
                 onFocus={() => setFocus(true)}
                 onBlur={() => setFocus(false)}
             />
@@ -55,7 +60,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
                                 </div>
                             </div>
                         </Link>) :
-                        <p className='ml-8 my-2 font-Inter text-xs text-[#8A8A8A]'>Enter at least 3 words</p>}
+                        <p className='ml-8 my-2 font-Inter text-xs text-[#8A8A8A]'>Enter at least 3 character</p>}
                     <hr className='mx-4' />
                 </div>
             }

@@ -2,8 +2,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 
 import HeroSection from "@/components/Stocks/HeroSection";
-import Footer from "@/elements/Footer";
-import NavBar from "@/elements/NavBar";
 import StockBarSection from "@/components/Stocks/StockBarSection";
 import MarketsSection from "@/components/Stocks/MarketsSection";
 import IdeasSection from "@/components/Stocks/IdeasSection";
@@ -30,7 +28,6 @@ export default function Stocks() {
             <meta name="msapplication-navbutton-color" content="#00439D" />
             <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
         </Head>
-        <NavBar />
         <HeroSection />
         <StockBarSection />
         <MarketsSection />
@@ -40,6 +37,5 @@ export default function Stocks() {
         <ResultsSection />
         <NewsSection />
         <BrokersSection />
-        <Footer />
     </>)
 }

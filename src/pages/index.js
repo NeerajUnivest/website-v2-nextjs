@@ -14,13 +14,11 @@ export default function HomePage() {
       <title>Univest is a one-stop solution for all investment problems.</title>
       <meta name="description" content="We will look into the basics of stock trading, tips to choose the right stocks for trading and how to start stock trading online, and also get expert views." />
     </Head>
-    <NavBar />
     <div className='h-60' />
     {/*<MainScreen />
     <WhyshouldSection />
     <CommentSection />
     <MakeWish />
     <InvestorSection /> */}
-    <Footer />
   </>
 }

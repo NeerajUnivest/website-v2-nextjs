@@ -1,7 +1,7 @@
 import Footer from '@/elements/Footer'
 import NavBar from '@/elements/NavBar'
-import React, { useEffect } from 'react'
-import FAQcard from '../elements/FAQcard'
+import { useState } from 'react'
+import FAQcard from '@/elements/FAQcard'
 
 let data = [
     {
@@ -72,29 +72,20 @@ let data = [
 
 
 function GeneralFAQs() {
-    useEffect(() => {
-        // utils.changeTitle('Univest | FAQs')
-    }, [])
-    return (<React.Fragment>
-        <NavBar />
-        <div className='grid grid-cols-12 gap-4 py-2 md:py-6 lg:py-20'>
-            <div className='
-            col-start-1 col-span-12 
-            md:col-start-2 md:col-span-10
-            lg:col-start-3 lg:col-span-8
-            h-full py-6 
-            md:border-[1px] md:border-[#E5E5E5] md:border-solid 
-            rounded-[12px]'>
+    const [active, setActive] = useState(-1);
+    return (<>
+
+        <section className='font-Inter max-w-screen-xl py-24 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
+            <div className='flex flex-col gap-4'>
                 <div className='font-Inter text-[32px] leading-[40px] font-semibold mx-4 mb-6 hidden md:flex'>
                     FAQs
                 </div>
                 {data.map((ele, i) =>
-                    <FAQcard key={i} heading={ele.question} content={ele.answer} />
+                    <FAQcard key={i} heading={ele.question} content={ele.answer} active={active} i={i} setActive={setActive} />
                 )}
             </div>
-        </div>
-        <Footer />
-    </React.Fragment>
+        </section>
+    </>
     )
 }
 
