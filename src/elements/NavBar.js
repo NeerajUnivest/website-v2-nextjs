@@ -32,10 +32,14 @@ export default function NavBar() {
                             className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                             <span>Stocks</span>
                         </Link>
-                        <a href={`https://univest.in/blogs`}
+                        <Link href='/blogs' onClick={() => setIsOpen(false)}
                             className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                             <span>Blogs</span>
-                        </a>
+                        </Link>
+                        {/* <a href={`https://univest.in/blogs`}
+                            className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
+                            <span>Blogs</span>
+                        </a> */}
                         <Link href='/screeners' onClick={() => setIsOpen(false)}
                             className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                             <span>Screeners</span>
@@ -50,10 +54,13 @@ export default function NavBar() {
                 <Link href='/stocks' className="mx-4 px-3 py-2 hover:hover:opacity-75">
                     Stocks
                 </Link>
-                <a href={`https://univest.in/blogs`}
+                {/* <a href={`https://univest.in/blogs`}
                     className="mx-4 px-3 py-2 hover:hover:opacity-75">
                     Blogs
-                </a>
+                </a> */}
+                <Link href='/blogs' className="mx-4 px-3 py-2 hover:hover:opacity-75">
+                    Blogs
+                </Link>
                 <Link href='/screeners' className="mx-4 px-3 py-2  hover:hover:opacity-75">
                     Screeners
                 </Link>

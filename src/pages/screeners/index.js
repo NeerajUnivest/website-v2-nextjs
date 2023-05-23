@@ -1,4 +1,3 @@
-import React from 'react'
 // import ScreenersList from '../../components/Screeners/ScreenersList';
 // import './Screeners.css'
 
@@ -7,12 +6,26 @@ import React from 'react'
 // import premium from '../../assets/icn/premium.webp';
 import Image from 'next/image';
 import axios from 'axios';
-import NavBar from '@/elements/NavBar';
-import Footer from '@/elements/Footer';
+import Head from 'next/head';
 
 export default function Screeners({ data }) {
     return (<>
-        <NavBar />
+        <Head>
+            <title>Univest is a one-stop solution for all investment problems.</title>
+            <meta name="description" content="We will look into the basics of stock trading, tips to choose the right stocks for trading and how to start stock trading online, and also get expert views." />
+            <meta name="theme-color" content="#00439D" />
+            <meta name="msapplication-navbutton-color" content="#00439D" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
+        </Head>
+        <section className='font-Inter max-w-screen-xl h-[70vh] mx-auto lg:px-8 bg-[#FFFFFF] flex justify-center'>
+            <div className='self-center h-10 w-10 border-e-4 lg:h-20 lg:w-20 lg:border-e-8 border-[#00439D] animate-spin rounded-full' />
+        </section>
+        <div className='bg-[#e5e5e5]'>
+            <div className='mx-4 py-2 lg:mx-20 font-normal text-[#414141] text-[10px] leading-[12px] md:text-[16px] md:leading-[24px] text-center'>
+                Find the best stocks | Investing less time & energy into the research | Earn higher ROIs | Premium and advanced screeners
+            </div>
+        </div>
+
         {/* <div className='relative overflow-hidden ml-4 lg:ml-20 pt-4 lg:pt-0'>
             <div className='-z-10 rounded-[50px] absolute left-[50vw] top-[30vh] bg-[#e3f0fb96] h-[100vh] w-[60vw]' />
 
@@ -45,12 +58,6 @@ export default function Screeners({ data }) {
             </div>
             <ScreenersList data={data} />
         </div> */}
-        <div className='bg-[#e5e5e5]'>
-            <div className='mx-4 py-2 lg:mx-20 font-normal text-[#414141] text-[10px] leading-[12px] md:text-[16px] md:leading-[24px] text-center'>
-                Find the best stocks | Investing less time & energy into the research | Earn higher ROIs | Premium and advanced screeners
-            </div>
-        </div>
-        <Footer />
     </>)
 }
 

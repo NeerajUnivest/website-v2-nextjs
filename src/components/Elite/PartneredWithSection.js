@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import rbi from '../../assets/icons/rbi.png';
 
 export default function PartneredWithSection() {
     return (
@@ -15,6 +17,12 @@ export default function PartneredWithSection() {
                     </div>
                 </div>
                 <div className="mt-2 lg:mt-4 flex justify-center items-center">
+                    <Image
+                        placeholder="blur"
+                        src={rbi}
+                        className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px] mr-4'
+                        alt='demo image'
+                    />
                     <p className='max-w-[60%] text-base lg:text-2xl text-black font-extrabold'>
                         India`s first and largest RBI-regulated NBFC-P2P
                     </p>

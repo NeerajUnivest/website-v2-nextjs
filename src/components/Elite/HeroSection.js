@@ -1,5 +1,6 @@
 import Image from "next/image";
 import hero from '../../assets/images/hero.png';
+import univest_elite from '../../assets/images/univest_elite.png';
 import HeroSideSection from "@/elements/HeroSideSection";
 import Marquee from "react-fast-marquee";
 
@@ -8,9 +9,15 @@ export default function HeroSection() {
         <section id="Hero" className="bg-light-blue">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
                 <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8">
-                    <p className='ml-4 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141]'>
+                    {/* <div className='ml-4 w-20 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url(${univest_elite.src})` }}>
                         Elite
-                    </p>
+                    </div> */}
+                    <Image
+                        placeholder="blur"
+                        src={univest_elite}
+                        className='ml-4 lg:ml-0 h-[32px] lg:h-[40px] object-contain max-w-[140px] lg:max-w-[160px]'
+                        alt='demo image'
+                    />
                     <div className='mt-4 lg:mt-8 ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020] whitespace-nowrap'>
                         Earn up to  <span className="text-[#437587] font-black">12% p.a.</span>
                     </div>
