@@ -1,10 +1,11 @@
 import Image from "next/image";
 import hero from '../../assets/images/hero.png';
 import univest_elite from '../../assets/images/univest_elite.png';
-import HeroSideSection from "@/elements/HeroSideSection";
+import HeroSideSection from "@/elements/HeroSearchBox";
 import Marquee from "react-fast-marquee";
+import sebi_logo from '../../assets/icons/rbi.png';
 
-export default function HeroSection() {
+export default function EliteHeroSection() {
     return (<>
         <section id="Hero" className="bg-light-blue">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
@@ -23,6 +24,28 @@ export default function HeroSection() {
                     </div>
                     <div className='ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020]'>
                         with Elite
+                    </div>
+                    <div className='mt-8 lg:mt-11 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
+                        <div className="flex col-span-3">
+                            <Image
+                                placeholder="blur"
+                                src={sebi_logo}
+                                className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
+                                alt='demo image'
+                            />
+                            <div className="self-center ml-5">
+                                <p className="font-semibold text-base">Registered - INA000017639</p>
+                                <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
+                            </div>
+                        </div>
+                        <div className="self-center">
+                            <p className="font-semibold text-base">3.5 Lac+</p>
+                            <p className="font-medium text-xs text-[#606060]">Active users</p>
+                        </div>
+                        <div className="self-center">
+                            <p className="font-semibold text-base">1,200 Cr+</p>
+                            <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
+                        </div>
                     </div>
                     <HeroSideSection />
                 </div>

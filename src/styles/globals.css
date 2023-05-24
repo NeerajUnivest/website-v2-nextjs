@@ -20,6 +20,8 @@ html {
   scroll-behavior: smooth
 }
 
+nav,
+footer,
 section {
   user-select: none;
 }

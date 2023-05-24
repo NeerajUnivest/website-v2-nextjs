@@ -10,9 +10,8 @@ import mini_trade_card from '../../assets/images/mini_trade_card.png';
 
 export default function IdeasSection() {
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/trade-cards/hit` });
-
     return (
-        <section id="Ideas" className='max-w-screen-xl py-5 lg:py-4 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
+        <section id="Ideas" className='max-w-screen-xl py-6 lg:py-20 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row justify-between items-center">
                 <span className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Investment & trading ideas
