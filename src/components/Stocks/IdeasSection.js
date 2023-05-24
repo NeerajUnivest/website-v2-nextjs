@@ -12,7 +12,7 @@ export default function IdeasSection() {
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/trade-cards/hit` });
 
     return (
-        <section id="Ideas" className='max-w-screen-xl py-5 lg:py-4 mx-auto lg:px-8 bg-[#FFFFFF]'>
+        <section id="Ideas" className='max-w-screen-xl py-5 lg:py-4 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row justify-between items-center">
                 <span className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Investment & trading ideas
@@ -31,7 +31,7 @@ export default function IdeasSection() {
                 </div>
             </div>
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
-                <div className="w-[calc(100%-64px)] lg:max-w-[32%]">
+                <div className="w-full lg:max-w-[32%]">
                     <p className="mt-10 text-center text-base lg:text-xl font-extrabold text-[#414141]">
                         Pillars of advisory AdvisoryTeamCard
                     </p>
@@ -41,7 +41,7 @@ export default function IdeasSection() {
                     <AdvisoryTeamCard name='Sagar Wadhwa' disc='Lorem ipsum dolor sit amet' />
                     {/* </div> */}
                 </div>
-                <div className="w-[calc(100%-32px)] lg:max-w-[60%]">
+                <div className="w-full lg:max-w-[60%]">
                     <div className="flex justify-evenly">
                         <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
                         flex justify-center items-center rounded-full w-20 h-20 lg:w-[120px] lg:h-[120px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">

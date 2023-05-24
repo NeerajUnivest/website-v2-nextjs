@@ -317,3 +317,28 @@ code {
     box-shadow: 0 2px 3px #BCBCBC !important;
   }
 }
+
+/* ******************************* */
+/*----------- home -------------*/
+/* ******************************* */
+
+.UserFeedbacksSection .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.UserFeedbacksSection .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 316px;
+  margin: 0;
+}
+
+@media (min-width: 976px) {
+  .UserFeedbacksSection .swiper-slide {
+    width: 300px;
+    height: 376px;
+  }
+}

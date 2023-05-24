@@ -73,8 +73,7 @@ let data = [
 
 function GeneralFAQs() {
     const [active, setActive] = useState(-1);
-    return (<>
-
+    return (
         <section className='font-Inter max-w-screen-xl py-24 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
             <div className='flex flex-col gap-4'>
                 <div className='font-Inter text-[32px] leading-[40px] font-semibold mx-4 mb-6 hidden md:flex'>
@@ -85,7 +84,6 @@ function GeneralFAQs() {
                 )}
             </div>
         </section>
-    </>
     )
 }
 

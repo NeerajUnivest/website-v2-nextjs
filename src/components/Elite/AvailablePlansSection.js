@@ -37,6 +37,7 @@ export default function AvailablePlansSection() {
                 className="AvailablePlansSection"
                 breakpoints={{
                     768: {
+                        centeredSlides: false,
                         slidesPerView: 3,
                         spaceBetween: 36
                     },

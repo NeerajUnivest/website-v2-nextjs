@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { createContext, useState, useEffect } from 'react';
 // import loader from '../assets/Icons/loader.gif';
 
@@ -22,6 +23,16 @@ const UtilsContext = (props) => {
         <UtilsProvider.Provider value={{
             // sendData, setFeedback, authToken, setShowLoader, handleBack 
         }}>
+
+            <Head>
+                <title>Univest is a one-stop solution for all investment problems.</title>
+                <meta name="description" content="We will look into the basics of stock trading, tips to choose the right stocks for trading and how to start stock trading online, and also get expert views." />
+                <meta name="theme-color" content="#00439D" />
+                <meta name="msapplication-navbutton-color" content="#00439D" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
+            </Head>
+
+
             {props.children}
 
             {/* <div className={`fixed ease-in duration-500 left-1/2 -translate-y-1/2 -translate-x-1/2 h-[48px] w-11/12 pl-4 rounded-[4px] flex flex-row justify-between  border ${feedback.style} ${feedback.show ? 'bottom-16 z-50' : '-bottom-32 -z-50'}`}>

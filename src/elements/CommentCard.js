@@ -1,5 +1,5 @@
 
-import quatetion from '../assets/icons/comment.webp'
+import quatetion from '../assets/icn/comment.webp'
 import Image from 'next/image'
 
 export default function CommentCard({ content }) {
