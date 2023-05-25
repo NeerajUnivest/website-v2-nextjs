@@ -9,8 +9,8 @@ import WhyShouldSection from '@/components/Elite/WhyShouldSection'
 
 export default function Elite() {
     return (<>
-        <EliteHeroSection />
-        <AvailablePlansSection show={true} />
+        <EliteHeroSection show={true} />
+        <AvailablePlansSection />
         <WhyShouldSection />
         <HowItWork />
         <EarnExtraSection />

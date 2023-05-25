@@ -45,8 +45,7 @@ export default function MarketsSection() {
     })
     return (
         <section id="Markets" className='max-w-screen-xl mx-auto lg:px-8 bg-[#FFFFFF]'>
-            <p className="my-5 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]"
-                onClick={() => set(open => !open)}>
+            <p className="my-5 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                 Stay on top of the markets
             </p>
             <div className='w-full  bg-white p-5 flex flex-col lg:flex-row justify-center items-center'>

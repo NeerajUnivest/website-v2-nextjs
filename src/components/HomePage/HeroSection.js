@@ -4,6 +4,10 @@ import HeroSearchBox from "@/elements/HeroSearchBox";
 import StocksHeroSection from "../Stocks/StocksHeroSection";
 import heroBG from "../../assets/images/heroBG.svg";
 import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import Image from "next/image";
+import rating from "@/assets/Images/rating.png";
 
 export default function HeroSection() {
     return (
@@ -16,7 +20,7 @@ export default function HeroSection() {
                     dynamicBullets: true,
                     clickable: true
                 }}
-                className=''
+                className='HeroSection'
                 modules={[Pagination]}
             >
                 <SwiperSlide>
@@ -26,11 +30,12 @@ export default function HeroSection() {
                     <EliteHeroSection show={false} />
                 </SwiperSlide>
             </Swiper>
-            <div className="absolute -bottom-[2px] z-[9] bg-no-repeat h-[100px] lg:h-[200px] w-screen xxl:h-[270px] bg-cover bg-center" style={{ backgroundImage: `url(${heroBG.src})` }}>
-                <div className=" max-w-screen-xl mx-auto flex items-center h-full">
+            <div className="absolute -bottom-[2px] z-[2] bg-no-repeat h-[110px] lg:h-[200px] w-screen xxl:h-[270px] bg-cover bg-center" style={{ backgroundImage: `url(${heroBG.src})` }}>
+                <div className="lg:pb-10 max-w-screen-xl mx-auto flex items-end justify-between h-full">
                     <div className="flex flex-col ">
                         <HeroSearchBox />
                     </div>
+                    <Image src={rating} className='hidden lg:block h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
                 </div>
             </div>
         </section>
