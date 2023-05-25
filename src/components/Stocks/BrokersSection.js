@@ -142,7 +142,7 @@ export default function BrokersSection() {
                 <p className="text-center text-xl lg:text-5xl font-black text-black">
                     Integrated with India’s Top 16+ brokers
                 </p>
-                <p className="mt-4 lg:mt-3 text-center text-sm lg:text-4xl font-medium text-black">
+                <p className="mt-4 lg:mt-10 text-center text-sm lg:text-4xl font-medium text-black">
                     Get Buy-Sell-Hold insights on over 2000 stocks
                 </p>
                 <div className="flex justify-center items-center mt-[48px] lg:mt-[96px] mb-[32px] lg:mb-[64px]">

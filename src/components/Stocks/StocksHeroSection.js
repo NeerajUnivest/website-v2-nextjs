@@ -5,7 +5,7 @@ import sebi_logo from '../../assets/icons/sebi_logo.png';
 
 export default function StocksHeroSection({ show }) {
     return (<>
-        <section id="Hero" className="bg-light-blue">
+        <section id="Hero" className="bg-[#EFF7FF]">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
                 <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8">
                     <p className='ml-4 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141]'>

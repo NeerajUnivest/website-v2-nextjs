@@ -30,7 +30,7 @@ export default function ResultsSection() {
             <div className="py-0 lg:py-8 max-w-screen-xl mx-auto lg:px-8 h-[500px] lg:h-[666px] w-full bg-no-repeat bg-center bg-cover flex flex-col justify-between" style={{ backgroundImage: `url(${results_background.src})` }} >
                 <p className="text-center text-2xl lg:text-3xl font-semibold text-[#414141]">
                     Stay updated on the <br className="lg:hidden" />
-                    <span className="text-[#0862BC] font-extrabold">Upcoming & Declared</span>
+                    <span className="uni-wise-gradient3 font-extrabold">Upcoming & Declared</span>
                     <br className="lg:hidden" /> results in your demat
                 </p>
                 {transitions(style => (

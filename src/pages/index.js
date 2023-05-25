@@ -11,7 +11,7 @@ export default function HomePage() {
 
   return (<>
     <HeroSection />
-    <Section />
+    {/* <Section /> */}
     <IdeasSection />
     <InThePressSection />
     <UserFeedbacksSection />

@@ -9,7 +9,7 @@ export default function ScreenersSection() {
     // const { push } = useRouter();
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/screeners/v2` });
     return (
-        <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10 bg-[#FFFFFF]'>
+        <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-32 bg-[#FFFFFF]'>
             <p className="my-8 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-black">
                 Powered by robust algorithms built by a highly experienced research team.
             </p>
@@ -26,11 +26,11 @@ export default function ScreenersSection() {
                     <span className="text-app-red font-extrabold">New</span> screeners added every month
                 </p>
             </div>
-            <div className="mx-4 mt-8 lg:mt-12 flex flex-col lg:flex-row items-center justify-between gap-y-4 lg:gap-x-5">
+            <div className="mx-4 mt-8 py-2 lg:mt-12 flex flex-col lg:flex-row items-center justify-between gap-y-4 lg:gap-x-5">
                 <div className="text-sm lg:text-base font-semibold text-black">
                     Explore by categories
                 </div>
-                <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3 ">
+                <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3">
                     {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} />)}
                 </div>
                 <BlackButton onClick={() => null} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />

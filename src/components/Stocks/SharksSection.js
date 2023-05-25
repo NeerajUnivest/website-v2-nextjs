@@ -6,34 +6,6 @@ import result_screen1 from '../../assets/images/result_screen1.png';
 
 const sharkList = [
     {
-        id: 64, name: "Punjab National Bank",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/punjab_national_bank.png"
-    },
-    {
-        id: 65, name: "The Oriental Insurance Company Ltd",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/the_oriental_insurance_company.png"
-    },
-    {
-        id: 66, name: "Jm Financial Services Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/jm_financial.png"
-    },
-    {
-        id: 67, name: "Plutus Wealth",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/plutus_wealth.png"
-    },
-    {
-        id: 68, name: "Abakkus Fund",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/abakkus_fund.png"
-    },
-    {
-        id: 69, name: "Goldman Sachs (Singapore) Pte",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/goldman_sachs.png"
-    },
-    {
-        id: 70, name: "Bajaj Allianz Life Insurance Company Ltd.",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/bajaj_allianz.png"
-    },
-    {
         id: 21, name: "Rakesh Jhunjhunwala & Assoc.",
         imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/rakesh_jhujhunwala.png"
     },
@@ -93,99 +65,16 @@ const sharkList = [
         id: 35, name: "Dolly Khanna",
         imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/dolly_khanna.png"
     },
-    {
-        id: 36, name: "Govenment of Singapore",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/government_of_singapore.png"
-    },
-    {
-        id: 37, name: "Europacific Growth Fund",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/europacific_growth_fund.png"
-    },
-    {
-        id: 38, name: "Government Pension Fund Global",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/government_pension_fund_global.png"
-    },
-    {
-        id: 39, name: "Elara India Opportunities Fund Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/elara_india_oppurtunities_fund.png"
-    },
-    {
-        id: 40, name: "Nalanda India Fund Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/nalanda_india_fund_limited.png"
-    },
-    {
-        id: 41, name: "Smallcap World Fund Inc",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/smallcap_world_fund.png"
-    },
-    {
-        id: 42, name: "LTS Investment Fund Ltd",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/lts_Investment_fund.png"
-    },
-    {
-        id: 43, name: "New World Fund Inc",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/new_world_fund.png"
-    },
-    {
-        id: 44, name: "Amansa Holdings Private Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/amansa_holdings_pvt_ltd.png"
-    },
-    {
-        id: 45, name: "East Bridge Capital Master Fund Ltd",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/east_bridge_capital_fund.png"
-    },
-    {
-        id: 46, name: "Bridge India Fund",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/bridge_india_fund.png"
-    },
-    {
-        id: 48, name: "Steadview Capital Mauritius Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/steadview_capital_mauritius_ltd.png"
-    },
-    {
-        id: 50, name: "Bank Muscat India Fund",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/bank_muscat_india_ltd.png"
-    },
-    {
-        id: 51, name: "Baron Emerging Markets Fund",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/baron_emerging_markets_fund.png"
-    },
-    {
-        id: 55, name: "India Capital Fund Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/india_capital_fund.png"
-    },
-    {
-        id: 56, name: "Abu Dhabi Investment Authority",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/abu_dhabi_investment_authority.png"
-    },
-    {
-        id: 57, name: "Elm Park Fund Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/elm_park_capital_fund.png"
-    },
-    {
-        id: 58, name: "The New India Assurance Company Ltd",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/the_new_india_assurance_company.png"
-    },
-    {
-        id: 59, name: "Enam Securities Pvt Ltd",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/enam_securities.png"
-    },
-    {
-        id: 60, name: "Mirae Asset Emerging Bluechip Fund",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/mirae_asset_emerging_blue_chip_fund.png"
-    },
-    {
-        id: 62, name: "Vistra Itcl India Limited",
-        imageUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/vistra_itcl.png"
-    }
 ]
 export default function SharksSection() {
     return (
         <section id='Sharks' className='bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url(${results_background.src})` }} >
-            <div className="pt-12 lg:pt-4 max-w-screen-xl mx-auto lg:px-8 ">
-                <p className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
+            <div className=" max-w-screen-xl mx-auto lg:px-8 ">
+                <p className="py-12 lg:py-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Track the portfolios of Shark investors
                 </p>
                 <Swiper
+                speed={300}
                     effect={"coverflow"}
                     grabCursor={true}
                     loop={true}
@@ -201,7 +90,7 @@ export default function SharksSection() {
                         slideShadows: false
                     }}
                     autoplay={{
-                        delay: 500,
+                        delay: 2000,
                         disableOnInteraction: false
                     }}
                     modules={[EffectCoverflow, Autoplay]}
@@ -209,14 +98,20 @@ export default function SharksSection() {
                 >
                     {sharkList.map(ele =>
                         <SwiperSlide key={ele.id}>
-                            <Image width={80} height={80} src={ele.imageUrl} className='rounded-full w-20 lg:w-24' alt='shark-logo' />
+                            {({isActive})=><div className='flex flex-col justify-center items-center'>
+                                <Image width={80} height={80} src={ele.imageUrl} className='rounded-full w-20 lg:w-24 shadow-xl' alt='shark-logo' />
+                                {isActive&&
+                                <p className="mt-5 text-center text-sm lg:text-xl lg:font-extrabold text-[#414141]">
+                                   {ele.name?.slice(0,20)}
+                                </p>}
+                                </div>}
                         </SwiperSlide>
                     )}
                 </Swiper>
-                <div className='flex justify-evenly items-end mt-10 lg:mt-16'>
-                    <Image src={result_screen1} className='hidden lg:block w-[210px] object-contain' alt='demo image' width={210} height={'auto'} />
-                    <Image src={result_screen1} className='w-[240px] object-contain' alt='demo image' width={210} height={'auto'} />
-                    <Image src={result_screen1} className='hidden lg:block w-[210px] object-contain' alt='demo image' width={210} height={'auto'} />
+                <div className='flex justify-evenly items-end mt-10 lg:mt-6'>
+                    <Image src={result_screen1} className='hidden lg:block w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
+                    <Image src={result_screen1} className='w-[264px] object-contain' alt='demo image' width={210} height={'auto'} />
+                    <Image src={result_screen1} className='hidden lg:block w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
                 </div>
             </div>
         </section>

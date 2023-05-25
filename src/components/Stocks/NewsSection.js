@@ -6,14 +6,15 @@ import moment from "moment/moment";
 import { useAxios } from "@/hooks/useAxios";
 import { TbTriangleFilled } from "react-icons/tb";
 import { Autoplay, Pagination } from "swiper";
+import { BlackButton, ScreenerCategoryChip } from "@/elements/Button/Button";
 
 
 export default function NewsSection() {
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/convey/news?page=0` });
     return (
         <section id="News" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10 bg-[#FFFFFF]'>
-            <p className="my-8 lg:my-5 text-center text-xl lg:text-3xl font-extrabold text-black">
-                Now read all financial news in about 60 words
+            <p className="mt-8 lg:mt-5 mb-8 lg:mb-10 text-center text-xl lg:text-3xl font-extrabold text-black">
+                Now read all financial news<br className="lg:hidden block"/> in about 60 words
             </p>
             <div className="mx-4 px-[1px] pt-6 pb-5 lg:pt-12 rounded-[32px] bg-gradient-to-tr to-[#ffd87d90] from-[#F1F1F1] relative">
                 {!loading &&
@@ -62,6 +63,19 @@ export default function NewsSection() {
                 <span className="absolute bottom-6 right-6 text-[10px] lg:text-sm font-medium text-[#414141]">
                     Powered by
                 </span>
+            </div>
+            <div className="mx-4 mt-8 py-2 lg:mt-12 flex flex-col lg:flex-row items-center justify-between gap-y-4 lg:gap-x-5">
+                <div className="text-sm lg:text-base font-semibold text-black">
+                    Explore by categories
+                </div>
+                <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3">
+                    {[
+                        {name:'Stocks'},
+                        {name:'Stocks'},
+                        {name:'Stocks'},
+                        {name:'Stocks'}]?.map(ele => <ScreenerCategoryChip key={ele.name} text={ele.name} />)}
+                </div>
+                <BlackButton onClick={() => null} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
         </section>
     )

@@ -11,7 +11,7 @@ import mini_trade_card from '../../assets/images/mini_trade_card.png';
 export default function IdeasSection() {
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/trade-cards/hit` });
     return (
-        <section id="Ideas" className='max-w-screen-xl py-6 lg:py-20 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
+        <section id="Ideas" className='max-w-screen-xl py-6 lg:py-32 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row justify-between items-center">
                 <span className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Investment & trading ideas
@@ -41,10 +41,12 @@ export default function IdeasSection() {
                     {/* </div> */}
                 </div>
                 <div className="w-full lg:max-w-[60%]">
-                    <div className="flex justify-evenly">
-                        <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
-                        flex justify-center items-center rounded-full w-20 h-20 lg:w-[120px] lg:h-[120px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
-                            <span className="font-extrabold text-center text-sm lg:text-xl text-[#98520B]">Short<br />term</span>
+                    <div className="flex justify-evenly items-center">
+                        <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
+                            <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
+                            flex justify-center items-center rounded-full w-20 h-20 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
+                                <span className="font-extrabold text-center text-sm lg:text-xl text-[#98520B]">Short<br />term</span>
+                            </div>
                         </div>
                         <div className="flex justify-center items-center rounded-full w-20 h-20 lg:w-[120px] lg:h-[120px] bg-white bg-gradient-to-l to-[#00439D40] from-[#00439D99]">
                             <span className="font-medium text-center text-sm lg:text-xl text-[#00439D]">Medium<br />term</span>
@@ -53,7 +55,7 @@ export default function IdeasSection() {
                             <span className="font-medium text-center text-sm lg:text-xl text-[#005251]">Long<br />term</span>
                         </div>
                     </div>
-                    <div className="-mt-10 lg:-mt-14 pt-12 lg:pt-20 pb-4  bg-[#202020] rounded-3xl">
+                    <div className="-mt-14 lg:-mt-20 pt-16 lg:pt-24 pb-4  bg-[#202020] rounded-3xl">
                         <div className="flex items-center justify-center mb-5 text-sm font-medium text-[#F5F5F5] gap-1">
                             <span>Past performance </span>
                             <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">81.4% Accuracy</span>
@@ -84,7 +86,7 @@ export default function IdeasSection() {
                                                     src={ele.logoUrl}
                                                     width={24}
                                                     height={24}
-                                                    className='h-[24px] w-[24px]'
+                                                    className='object-contain w-[24px]'
                                                     alt={ele.stockName}
                                                 // placeholder='blur'
                                                 />

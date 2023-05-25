@@ -7,7 +7,6 @@ import screeners from '../../assets/icons/screeners.png';
 import results from '../../assets/icons/results.png';
 import news from '../../assets/icons/news.png';
 import { useState } from "react";
-import Link from "next/link";
 import { useSmoothScrollToId } from "@/hooks/useSmoothScrollToId";
 
 export default function StockBarSection() {
@@ -31,7 +30,7 @@ export function BarChip({ icon, text, active, setActive }) {
     const smoothScrollTo = useSmoothScrollToId()
     return (
         <section onClick={() => { setActive(text); smoothScrollTo(text) }}
-            className={`flex flex-col lg:flex-row justify-center items-center rounded-lg py-2 cursor-pointer hover:bg-[#f6f3f388] ${active === text ? 'bg-[#F6F3F3]' : ''}`}>
+            className={`flex flex-col lg:flex-row justify-center items-center rounded-lg py-3 cursor-pointer hover:bg-[#f6f3f388] ${active === text ? 'bg-[#F6F3F3]' : ''}`}>
             <Image
                 placeholder="blur"
                 src={icon}

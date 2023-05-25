@@ -163,7 +163,9 @@ code {
   justify-content: center;
   align-items: center;
 }
-
+.SharksSectionSwiper .swiper-slide-active {
+  height: 200px;
+}
 @media only screen and (min-width: 746px) {
   .SharksSectionSwiper .swiper-slide {
     width: 250px;
