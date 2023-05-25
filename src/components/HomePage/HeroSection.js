@@ -1,6 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import EliteHeroSection from "../Elite/EliteHeroSection";
+import HeroSearchBox from "@/elements/HeroSearchBox";
 import StocksHeroSection from "../Stocks/StocksHeroSection";
+import heroBG from "../../assets/images/heroBG.svg";
+import { Pagination } from "swiper";
 
 export default function HeroSection() {
     return (
@@ -9,20 +12,27 @@ export default function HeroSection() {
                 grabCursor={true}
                 slidesPerView={1}
                 spaceBetween={0}
+                pagination={{
+                    dynamicBullets: true,
+                    clickable: true
+                }}
+                className=''
+                modules={[Pagination]}
             >
                 <SwiperSlide>
-                    <StocksHeroSection />
+                    <StocksHeroSection show={false} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <EliteHeroSection />
+                    <EliteHeroSection show={false} />
                 </SwiperSlide>
             </Swiper>
-            {/* <div className="absolute bottom-56 h-40 w-full z-10 bg-transparent">
-                trans
+            <div className="absolute -bottom-[2px] z-[9] bg-no-repeat h-[100px] lg:h-[200px] w-screen xxl:h-[270px] bg-cover bg-center" style={{ backgroundImage: `url(${heroBG.src})` }}>
+                <div className=" max-w-screen-xl mx-auto flex items-center h-full">
+                    <div className="flex flex-col ">
+                        <HeroSearchBox />
+                    </div>
+                </div>
             </div>
-            <div className="absolute bottom-0 h-80 w-full z-10 bg-white">
-                kfk
-            </div> */}
         </section>
     )
 }

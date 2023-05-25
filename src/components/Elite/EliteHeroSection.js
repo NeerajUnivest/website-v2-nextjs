@@ -1,11 +1,11 @@
 import Image from "next/image";
 import hero from '../../assets/images/hero.png';
 import univest_elite from '../../assets/images/univest_elite.png';
-import HeroSideSection from "@/elements/HeroSearchBox";
+import HeroSearchBox from "@/elements/HeroSearchBox";
 import Marquee from "react-fast-marquee";
 import sebi_logo from '../../assets/icons/rbi.png';
 
-export default function EliteHeroSection() {
+export default function EliteHeroSection({ show }) {
     return (<>
         <section id="Hero" className="bg-light-blue">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
@@ -47,7 +47,7 @@ export default function EliteHeroSection() {
                             <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>
-                    <HeroSideSection />
+                    {show && <HeroSearchBox />}
                 </div>
                 <div className="basis-full md:basis-5/12 flex content-center mt-10 lg:mt-0">
                     <div className='mx-auto h-[300px] lg:h-[550px]'>
@@ -61,40 +61,42 @@ export default function EliteHeroSection() {
                 </div>
             </div>
         </section>
-        <Marquee
-            speed={30}
-            delay={1}>
-            <div className='select-none flex items-center gap-x-12 lg:gap-x-24 p-4 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F]'>
-                {/* TODO */}
-                <span className="text-base lg:text-2xl font-semibold text-black">
-                    Hassle free withdrawals
-                </span>
-                <span className="h-[5px] w-[5px] bg-black rounded-full" />
-                <span className="text-lg lg:text-3xl font-extrabold uni-wise-gradient ">
-                    100%
-                </span>
-                <span className="text-base lg:text-2xl font-semibold text-black">
-                    Withdraw anytime
-                </span>
-                <span className="h-[5px] w-[5px] bg-black rounded-full" />
-                <span className="text-base lg:text-2xl font-semibold text-black">
-                    Hassle free withdrawals
-                </span>
-                <span className="h-[5px] w-[5px] bg-black rounded-full" />
-                <span className="text-base lg:text-2xl font-semibold text-black">
-                    Hassle free withdrawals
-                </span>
-                <span className="h-[5px] w-[5px] bg-black rounded-full" />
-                <span className="text-base lg:text-2xl font-semibold text-black">
-                    Withdraw anytime
-                </span>
-                <span className="h-[5px] w-[5px] bg-black rounded-full" />
-                <span className="text-base lg:text-2xl font-semibold text-black">
-                    Hassle free withdrawals
-                </span>
-                <span className="h-[5px] w-[5px] bg-black rounded-full" />
-            </div>
-        </Marquee>
+        {show &&
+            <Marquee
+                speed={30}
+                delay={1}>
+                <div className='select-none flex items-center gap-x-12 lg:gap-x-24 p-4 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F]'>
+                    {/* TODO */}
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Hassle free withdrawals
+                    </span>
+                    <span className="h-[5px] w-[5px] bg-black rounded-full" />
+                    <span className="text-lg lg:text-3xl font-extrabold uni-wise-gradient ">
+                        100%
+                    </span>
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Withdraw anytime
+                    </span>
+                    <span className="h-[5px] w-[5px] bg-black rounded-full" />
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Hassle free withdrawals
+                    </span>
+                    <span className="h-[5px] w-[5px] bg-black rounded-full" />
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Hassle free withdrawals
+                    </span>
+                    <span className="h-[5px] w-[5px] bg-black rounded-full" />
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Withdraw anytime
+                    </span>
+                    <span className="h-[5px] w-[5px] bg-black rounded-full" />
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Hassle free withdrawals
+                    </span>
+                    <span className="h-[5px] w-[5px] bg-black rounded-full" />
+                </div>
+            </Marquee>
+        }
     </>
     )
 }

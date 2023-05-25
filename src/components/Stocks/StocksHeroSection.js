@@ -1,9 +1,9 @@
 import Image from "next/image";
 import hero from '../../assets/images/hero.png';
-import HeroSideSection from "@/elements/HeroSearchBox";
+import HeroSearchBox from "@/elements/HeroSearchBox";
 import sebi_logo from '../../assets/icons/sebi_logo.png';
 
-export default function StocksHeroSection() {
+export default function StocksHeroSection({ show }) {
     return (<>
         <section id="Hero" className="bg-light-blue">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
@@ -39,7 +39,7 @@ export default function StocksHeroSection() {
                             <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>
-                    <HeroSideSection />
+                    {show && <HeroSearchBox />}
                 </div>
                 <div className="basis-full md:basis-5/12 flex content-center mt-10 lg:mt-0">
                     <div className='mx-auto h-[300px] lg:h-[550px]'>
@@ -53,7 +53,8 @@ export default function StocksHeroSection() {
                 </div>
             </div>
         </section>
-        <p className="mt-5 lg:mt-2 text-center text-sm lg:text-base font-semibold text-[#414141]">POWERED with best research tools</p>
+        {show &&
+            <p className="mt-5 lg:mt-2 text-center text-sm lg:text-base font-semibold text-[#414141]">POWERED with best research tools</p>}
     </>
     )
 }
