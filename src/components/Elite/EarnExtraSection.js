@@ -7,7 +7,6 @@ import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
 
-const putComma = (n) => n
 
 
 const periodLabels = {
@@ -43,10 +42,10 @@ export default function EarnExtraSection() {
     return (
         <section className=' bg-gradient-to-b from-[#d3cce301] to-[#d3cce3a4] py-[72px] font-Inter'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
-                <div className='font-Inter mx-0 lg:mx-auto lg:w-[75%] py-2 px-3 lg:py-5 lg:px-10 flex justify-between w-auto rounded-2xl border-2 border-[#A192C3]'>
+                <div className='font-Inter mx-0 lg:mx-auto lg:w-[75%] py-2 px-3 lg:py-5 lg:px-10 flex justify-between w-auto rounded-lg lg:rounded-2xl border-2 lg:border-4 border-[#A192C3]'>
                     <div>
-                        <p className='text-xs lg:text-2xl text-black'>
-                            Fix term @12%
+                        <p className='text-xs lg:text-xl text-black'>
+                            Fix term @12%*
                         </p>
                         <p className='mt-1 lg:mt-5 font-semibold text-sm lg:text-3xl '>
                             ₹{CI(amountToRupee?.[value.amount], 12, value.period)?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
@@ -56,7 +55,7 @@ export default function EarnExtraSection() {
                         -
                     </span>
                     <div>
-                        <p className='text-xs lg:text-2xl text-black'>
+                        <p className='text-xs lg:text-xl text-black'>
                             Bank FD @6%
                         </p>
                         <p className='mt-1 lg:mt-5 font-semibold text-sm lg:text-3xl '>
@@ -67,10 +66,10 @@ export default function EarnExtraSection() {
                         =
                     </span>
                     <div>
-                        <p className='text-xs lg:text-2xl text-black'>
+                        <p className='text-xs lg:text-xl text-black'>
                             Extra Interest
                         </p>
-                        <p className='mt-1 lg:mt-5 font-semibold text-sm lg:text-3xl text-[#26A649]'>
+                        <p className='mt-1 lg:mt-5 font-extrabold text-sm lg:text-3xl text-[#26A649]'>
                             ₹{(CI(amountToRupee?.[value.amount], 12, value.period) - CI(amountToRupee?.[value.amount], 6, value.period))?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                         </p>
                     </div>
@@ -82,8 +81,8 @@ export default function EarnExtraSection() {
                     <div className='text-base lg:text-2xl font-medium text-black'>
                         Invested amount
                     </div>
-                    <div className='text-base lg:text-2xl font-semibold text-black'>
-                        ₹{putComma(amountToRupee?.[value.amount])}
+                    <div className='text-base lg:text-2xl font-bold text-black'>
+                        ₹{amountToRupee?.[value.amount]?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                     </div>
                 </div>
                 <div className='my-7 lg:my-14'>
@@ -101,9 +100,9 @@ export default function EarnExtraSection() {
                 <hr className='w-full mt-20 mb-6 lg:mt-28 lg:mb-10 bg-[#BCBCBC] lg:h-[1px]' />
                 <div className='flex justify-between font-Inter'>
                     <div className='text-base lg:text-2xl font-medium text-black'>
-                        Tenure
+                    Plan duration
                     </div>
-                    <div className='text-base lg:text-2xl font-semibold text-black'>
+                    <div className='text-base lg:text-2xl font-bold text-black'>
                         {formatPeriod(value.period) + ' months'}
                     </div>
                 </div>

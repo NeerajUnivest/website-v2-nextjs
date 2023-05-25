@@ -275,7 +275,7 @@ code {
   .AvailablePlansSection .swiper-slide {
     width: 288px;
     height: 368px;
-    transform: scale(0.8) !important;
+    transform: scale(0.86) !important;
     transition: 500ms;
   }
 
@@ -311,13 +311,13 @@ code {
 
 @media (min-width: 976px) {
   .rangeslider__label-item {
-    font-size: 24px !important;
+    font-size: 20px !important;
     top: 32px !important;
   }
 
   .rangeslider__handle {
-    height: 48px !important;
-    width: 48px !important;
+    height: 32px !important;
+    width: 32px !important;
     box-shadow: 0 2px 3px #BCBCBC !important;
   }
 }

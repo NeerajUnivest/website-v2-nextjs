@@ -35,7 +35,7 @@ export default function EliteFAQSection() {
                 </div>
                 {/* TODO */}
                 <div className='flex items-center justify-center' onClick={() => alert('TODO')}>
-                    <div className='text-sm font-semibold lg:text-xl underline cursor-pointer text-black'>
+                    <div className='text-sm font-bold lg:text-xl cursor-pointer text-primary'>
                         Read more FAQs
                     </div>
                 </div>

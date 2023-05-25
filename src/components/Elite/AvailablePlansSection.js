@@ -11,8 +11,8 @@ import d from '../../assets/icons/plans/4.png';
 export default function AvailablePlansSection() {
     return (
         <section className='font-Inter max-w-screen-xl py-16 lg:py-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
-            <div className="mx-4 lg:mx-0 mb-8 lg:mb-14 flex flex-col lg:flex-row justify-between items-center">
-                <span className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
+            <div className="mx-4 lg:mx-0 mb-8 lg:mb-14 flex flex-col lg:flex-row justify-between items-center gap-4">
+                <span className="text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Available Investment plans
                 </span>
                 <div className="flex items-center">
@@ -24,7 +24,7 @@ export default function AvailablePlansSection() {
                     />
                     <div className="self-center ml-5 text-base text-black">
                         <p className="font-medium ">Secured with</p>
-                        <p className="font-extrabold ">RBI regulated P2P-NBFC</p>
+                        <p className="font-extrabold ">RBI regulated NBFC-P2P</p>
                     </div>
                 </div>
             </div>
@@ -32,11 +32,12 @@ export default function AvailablePlansSection() {
                 initialSlide={1}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={1.35}
+                slidesPerView={1.3}
                 spaceBetween={0}
                 className="AvailablePlansSection"
                 breakpoints={{
                     768: {
+                        initialSlide:0,
                         centeredSlides: false,
                         slidesPerView: 3,
                         spaceBetween: 36

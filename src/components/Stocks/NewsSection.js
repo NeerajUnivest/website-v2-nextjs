@@ -1,12 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import Image from "next/image";
 import moment from "moment/moment";
 import { useAxios } from "@/hooks/useAxios";
 import { TbTriangleFilled } from "react-icons/tb";
 import { Autoplay, Pagination } from "swiper";
-import { BlackButton, ScreenerCategoryChip } from "@/elements/Button/Button";
+import { BlackButton, NewsCategoryChip } from "@/elements/Button/Button";
 
 
 export default function NewsSection() {
@@ -68,14 +67,36 @@ export default function NewsSection() {
                 <div className="text-sm lg:text-base font-semibold text-black">
                     Explore by categories
                 </div>
-                <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3">
-                    {[
-                        {name:'Stocks'},
-                        {name:'Stocks'},
-                        {name:'Stocks'},
-                        {name:'Stocks'}]?.map(ele => <ScreenerCategoryChip key={ele.name} text={ele.name} />)}
+                <div className="grid grid-cols-3 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3">
+                    { [
+        {
+            "id": 1,
+            "title": "Stocks",
+            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/candlestick.png"
+        },
+        {
+            "id": 2,
+            "title": "Business",
+            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/growth.png"
+        },
+        {
+            "id": 3,
+            "title": "IPOs",
+            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/ipo.png"
+        },
+        {
+            "id": 6,
+            "title": "Startups",
+            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/start-up.png"
+        },
+        {
+            "id": 7,
+            "title": "World",
+            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/worldwide.png"
+        }
+    ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 </div>
-                <BlackButton onClick={() => null} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                <BlackButton onClick={() => null} text='Read on app' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
         </section>
     )

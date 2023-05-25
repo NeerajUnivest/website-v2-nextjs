@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 function BlackButton({ text, onClick, className }) {
     return (
@@ -29,6 +30,21 @@ function ScreenerCategoryChip({ text, onClick, className }) {
     );
 }
 
+function NewsCategoryChip({ text, onClick, icon }) {
+    return (
+        <motion.button
+            onTap={onClick}
+            className={`select-none px-5 flex items-center py-2 rounded-full font-Inter text-[12px] lg:text-sm border bg-white border-primary text-black font-semibold shadow`}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+                <Image src={icon} className='mr-2 h-[20px] w-[20px]' width={20} height={20} alt='icon' />
+            {text}
+        </motion.button>
+    );
+}
+
 function IconBtn(props) {
     return (
         <motion.button
@@ -44,6 +60,7 @@ function IconBtn(props) {
 
 
 export {
+    NewsCategoryChip,
     ScreenerCategoryChip,
     IconBtn,
     BlackButton,

@@ -12,7 +12,7 @@ export default function IdeasSection() {
     const { data, loading } = useAxios({ method: 'GET', url: `/resources/trade-cards/hit` });
     return (
         <section id="Ideas" className='max-w-screen-xl py-6 lg:py-32 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
-            <div className="flex flex-col lg:flex-row justify-between items-center">
+            <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
                 <span className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Investment & trading ideas
                 </span>

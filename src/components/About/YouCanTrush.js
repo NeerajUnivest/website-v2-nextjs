@@ -1,9 +1,9 @@
 
 import TrushCard from '../../elements/TrushCard'
 import quatetion from '../../assets/img/youCanTrush.webp'
-import goal from '../../assets/icons/goal.webp'
-import binoculars from '../../assets/icons/binoculars.webp'
-import rocket from '../../assets/icons/rocket.webp'
+import goal from '../../assets/icn/goal.webp'
+import binoculars from '../../assets/icn/binoculars.webp'
+import rocket from '../../assets/icn/rocket.webp'
 import Team_Univest_1 from '../../assets/team/Team_Univest_1.webp'
 import Team_Univest_2 from '../../assets/team/Team_Univest_2.webp'
 import Team_Univest_3 from '../../assets/team/Team_Univest_3.webp'
@@ -34,41 +34,26 @@ let style = {
 }
 export default function YouCanTrush() {
     return (
-        <div className='pt-6 lg:pt-10'>
-            <div className='w-10/12 mx-auto font-Inter text-[12px] leading-[18px] text-[#00439D] text-center lg:text-[22px] lg:leading-[40px]'>
-                Here’s the team
-            </div>
-            <div className='font-Inter font-semibold text-[18px] leading-[24px] text-[#00439D] text-center lg:text-[32px] lg:leading-[54px]'>
-                You can trust on
-            </div>
-            <div className='bg-gradient-to-t from-[#B3D5F4] relative pb-[100px] lg:pb-[180px] '>
-                <Image src={quatetion} className='absolute bottom-0 w-full z-10' alt='icon' width='100%' height='auto' loading="lazy" />
+        <section className='bg-gradient-to-t from-[#B3D5F4] py-24 lg:pt-32 lg:pb-44 font-Inter relative'>
+                <Image src={quatetion} className='absolute bottom-0 w-full z-1' alt='icon' width='100%' height='auto' loading="lazy" />
 
-                <div className='my-6 lg:my-10 overflow-x-auto overflow-y-hidden no-scrollbar px-7 lg:px-14'>
-                    <div className='w-auto h-[380px] flex flex-row space-x-[2px]'>
-                        <div className='h-full w-[312px]'>
-                            <Image src={Team_Univest_1} width='312px' height='auto' loading="lazy" className='h-full min-w-[312px]' alt="team_img" />
-                        </div>
-                        <div className='flex flex-col space-y-[2px]'>
-                            <div className='h-1/2'>
-                                <Image src={Team_Univest_2} width='312px' height='auto' loading="lazy" className='h-full min-w-[312px]' alt="team_img" />
-                            </div>
-                            <div className='h-1/2'>
-                                <Image src={Team_Univest_3} width='312px' height='auto' loading="lazy" className='h-full min-w-[312px]' alt="team_img" />
-                            </div>
-                        </div>
-                        <div className='h-full min-w-[380px]'>
-                            <Image src={Team_Univest_4} width='380px' height='auto' loading="lazy" className='h-full min-w-[380px]' alt="team_img" />
-                        </div>
-                        <div className='h-full min-w-[252px]'>
-                            <Image src={Team_Univest_5} width='252px' height='auto' loading="lazy" className='h-full min-w-[252px]' alt="team_img" />
-                        </div>
-                    </div>
+            <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
+            <div className='w-10/12 mx-auto font-Inter text-[12px] leading-[18px] text-[#00439D] text-center lg:text-[22px] lg:leading-[40px]'>
+                Here's the team
+            </div>
+                <p className="font-Inter font-semibold text-[18px] leading-[24px] text-[#00439D] text-center md:text-[32px] md:leading-[54px]">
+                Our Team
+                </p>
+                <div className=' py-8 grid grid-cols-12 grid-rows-2 grid-flow-col gap-2 h-[400px]'>
+                    <Image src={Team_Univest_1} alt="gallery" className='col-span-8 lg:col-span-4 lg:row-span-2 inset-0 h-full w-full object-cover object-center rounded-lg' />
+                    <Image src={Team_Univest_2} alt="gallery" className='col-span-4 lg:col-span-4 inset-0 h-full w-full object-cover object-center rounded-lg' />
+                    <Image src={Team_Univest_3} alt="gallery" className='col-span-8 lg:col-span-4 inset-0 h-full w-full object-cover object-center rounded-lg ' />
+                    <Image src={Team_Univest_4} alt="gallery" className='col-span-4 lg:col-span-4 lg:row-span-2 inset-0 h-full w-full object-cover object-center rounded-lg ' />
                 </div>
-                <div className='snap-mandatory snap-x flex flex-row lg:justify-between overflow-x-auto no-scrollbar px-4 lg:px-10'>
+                <div className='snap-mandatory snap-x flex flex-row lg:justify-between overflow-x-auto no-scrollbar gap-4 mt-6'>
                     {content.map((ele, i) => <TrushCard key={i} content={ele} style={style} />)}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

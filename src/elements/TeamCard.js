@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function NewsCard({ data }) {
     return (
-        <div className={`snap-center select-none min-w-[220px] lg:w-[360px] lg:min-w-[360px] h-[344px] lg:h-[500px] rounded-2xl p-5 bg-white shadow mx-4 relative`}>
+        <div className={`snap-center select-none min-w-[220px] lg:w-[360px] lg:min-w-[360px] h-[344px] lg:h-[500px] rounded-2xl p-5 bg-white shadow relative`}>
             <div className="flex flex-col">
                 <div className='font-Inter font-semibold text-[14px] lg:text-[24px] leading-[24px] lg:leading-[32px]'>
                     {data.name}

@@ -3,7 +3,7 @@ import rbi from '../../assets/icons/rbi.png';
 
 export default function PartneredWithSection() {
     return (
-        <section className='py-12 font-Inter bg-gradient-to-br from-[#F5F5F5] to-[#E3E3E3]'>
+        <section className='py-5 font-Inter bg-gradient-to-br from-[#F5F5F5] to-[#E3E3E3] mt-10'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
                 <div className="flex justify-center items-center">
                     <p className='text-sm lg:text-2xl text-[#414141] mr-2 lg:mr-4'>
@@ -24,7 +24,7 @@ export default function PartneredWithSection() {
                         alt='demo image'
                     />
                     <p className='max-w-[60%] text-base lg:text-2xl text-black font-extrabold'>
-                        India`s first and largest RBI-regulated NBFC-P2P
+                        India's first and largest RBI-regulated NBFC-P2P
                     </p>
                 </div>
             </div>

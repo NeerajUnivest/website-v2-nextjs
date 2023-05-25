@@ -3,12 +3,12 @@ export default function AboutFaircent() {
     return (
         <section className='py-[72px] font-Inter'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
-                <p className='mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
+                <p className='mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
                     About <span className="text-[#B3161B]">FAI<span className="text-[#0075B8]">₹</span>CENT</span>
                 </p>
                 <div className=' flex flex-col lg:flex-row justify-between items-center'>
                     <div className="w-full lg:w-[47%]">
-                        <div className=' py-2 px-4 lg:py-7 lg:px-5 flex justify-start w-auto rounded-xl border-2 border-[#A192C3]'>
+                        <div className=' py-2 px-4 lg:py-7 lg:px-5 flex justify-start w-auto rounded-lg border-2 border-[#A192C3]'>
                             <p className='font-extrabold mr-2 lg:mr-6 text-transparent text-2xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#4158D0] to-[#C850C0]'>
                                 100%
                             </p>
@@ -16,7 +16,7 @@ export default function AboutFaircent() {
                                 payouts and withdrawals have been honoured at Faircent
                             </p>
                         </div>
-                        <p className='my-3 lg:my-0 lg:mt-8 text-xs lg:text-base text-[#606060]'>
+                        <p className='my-4 lg:my-0 lg:mt-8 text-xs lg:text-base leading-6 text-[#606060]'>
                             Faircent is <b>India`s first and largest RBI-regulated NBFC-P2P</b> that started with the vision of financially empowering the country’s eligible individuals and SMEs. Whether you are a lender or a borrower, you get the best of rates at Faircent. Because we know every % counts!
                         </p>
                     </div>

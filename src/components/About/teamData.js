@@ -32,20 +32,6 @@ let teamData = [{
     bio: "Leading SEBI registered investment advisor and content writer for leading financial data analytics platforms."
 },
 {
-    id: 5,
-    name: "Aditya Kumar Goyal",
-    post: "Lead backend engineer",
-    img: `https://univest-prod.s3.ap-south-1.amazonaws.com/team/Aditya.webp`,
-    bio: "11 years of technology experience across Valtech, NTT Data Global Pvt Ltd and many other companies."
-},
-// {
-//     id: 6,
-//     name: "Kaushal Sihra",
-//     post: "Marketing",
-//     img: `https://univest-prod.s3.ap-south-1.amazonaws.com/team/Kaushal.webp`,
-//     bio: "DCE alum. Led esteemed companies such as Lemonade, Urban Company, Collegedunia as Director Performance Marketing."
-// },
-{
     id: 7,
     name: "Ritik Kumar",
     post: "Mobile developer",
@@ -100,13 +86,6 @@ let teamData = [{
     post: "Mobile developer",
     img: `https://univest-prod.s3.ap-south-1.amazonaws.com/team/Siddhant.webp`,
     bio: "NSIT alum. A software engineer with prior experience from Easyops Technologies."
-},
-{
-    id: 17,
-    name: "Arif Pullat",
-    post: "Content",
-    img: `https://univest-prod.s3.ap-south-1.amazonaws.com/team/Arif.webp`,
-    bio: "SRCC alum, working as an Equity Research Associate."
 },
 {
     id: 19,

@@ -1,8 +1,5 @@
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Grid } from 'swiper';
-import 'swiper/css';
-import "swiper/css/grid";
+
 import a from '../../assets/icons/plans/1.png';
 import Image from 'next/image';
 
@@ -49,7 +46,7 @@ export default function WhyShouldSection() {
     return (
         <section className='font-Inter max-w-screen-xl py-16 lg:py-24 mx-auto lg:px-8'>
             <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
-                Why should i invest?
+                Why should I invest?
             </p>
             <div className='px-4 lg:px-0 grid  grid-flow-col grid-rows-2 overflow-x-auto no-scrollbar'>
                 {data.map((ele, i) =>

@@ -31,7 +31,7 @@ export default function HowItWork() {
                 {data.map((ele, i) =>
                     <div key={i} className='flex'>
                         <div className='w-1/12'>
-                            <div className={`text-center mt-3 mx-auto text-[14px] leading-[24px] h-6 w-6 rounded-full font-semibold text-black border border-black`}>
+                            <div className={`text-center mt-3 mx-auto text-[14px] leading-[24px] h-[60%] lg:h-3/4 flex items-center w-6 rounded-full font-semibold text-black border border-black`}>
                                 <span className='mx-auto'>{ele.id}</span>
                             </div>
                         </div>
