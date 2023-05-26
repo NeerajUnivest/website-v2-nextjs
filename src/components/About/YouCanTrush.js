@@ -39,7 +39,7 @@ export default function YouCanTrush() {
 
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
             <div className='w-10/12 mx-auto font-Inter text-[12px] leading-[18px] text-[#00439D] text-center lg:text-[22px] lg:leading-[40px]'>
-                Here's the team
+                Here&apos;s the team
             </div>
                 <p className="font-Inter font-semibold text-[18px] leading-[24px] text-[#00439D] text-center md:text-[32px] md:leading-[54px]">
                 Our Team
