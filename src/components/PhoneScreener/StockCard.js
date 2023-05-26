@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import forEmpty from '../../assets/img/forEmpty.webp'
-import viewChat from "../../assets/icons/viewChat.webp";
+import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
 
 
