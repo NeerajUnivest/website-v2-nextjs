@@ -30,8 +30,8 @@ export default function HeroSection() {
                     <EliteHeroSection show={false} />
                 </SwiperSlide>
             </Swiper>
-            <div className="absolute -bottom-[2px] z-[2] bg-no-repeat h-[110px] lg:h-[200px] w-screen xxl:h-[270px] bg-cover bg-center" style={{ backgroundImage: `url(${heroBG.src})` }}>
-                <div className="lg:pb-10 max-w-screen-xl mx-auto flex items-end justify-between h-full">
+            <div className="absolute -bottom-[2px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-screen xxl:h-[220px] bg-cover bg-center" style={{ backgroundImage: `url(${heroBG.src})` }}>
+                <div className="lg:pb-6 max-w-screen-xl mx-auto flex items-end justify-between h-full">
                     <div className="flex flex-col ">
                         <HeroSearchBox />
                     </div>

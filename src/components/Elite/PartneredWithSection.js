@@ -18,7 +18,7 @@ export default function PartneredWithSection() {
                 </div>
                 <div className="mt-2 lg:mt-4 flex justify-center items-center">
                     <Image
-                        placeholder="blur"
+                        placeholder="empty"
                         src={rbi}
                         className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px] mr-4'
                         alt='demo image'

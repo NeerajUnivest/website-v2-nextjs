@@ -18,7 +18,7 @@ export default function IdeasSection() {
                 </span>
                 <div className="flex">
                     <Image
-                        placeholder="blur"
+                        placeholder="empty"
                         src={sebi_logo}
                         className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
                         alt='demo image'
@@ -88,7 +88,6 @@ export default function IdeasSection() {
                                                     height={24}
                                                     className='object-contain w-[24px]'
                                                     alt={ele.stockName}
-                                                // placeholder='blur'
                                                 />
                                                 <div className="self-center ml-1">
                                                     <p className="font-semibold text-xs">{ele.stockName}</p>

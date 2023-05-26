@@ -14,7 +14,7 @@ export default function EliteHeroSection({ show }) {
                         Elite
                     </div> */}
                     <Image
-                        placeholder="blur"
+                        placeholder="empty"
                         src={univest_elite}
                         className='ml-4 lg:ml-0 h-[32px] lg:h-[40px] object-contain max-w-[140px] lg:max-w-[160px]'
                         alt='demo image'
@@ -28,7 +28,7 @@ export default function EliteHeroSection({ show }) {
                     <div className='mt-8 lg:mt-11 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
                         <div className="flex col-span-3">
                             <Image
-                                placeholder="blur"
+                                placeholder="empty"
                                 src={sebi_logo}
                                 className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
                                 alt='demo image'
@@ -52,7 +52,7 @@ export default function EliteHeroSection({ show }) {
                 <div className="basis-full md:basis-5/12 flex content-center mt-10 lg:mt-0">
                     <div className='mx-auto h-[300px] lg:h-[550px]'>
                         <Image
-                            placeholder="blur"
+                            placeholder="empty"
                             src={hero}
                             className=' h-[300px] lg:h-[550px] object-contain'
                             alt='demo image'
@@ -68,32 +68,15 @@ export default function EliteHeroSection({ show }) {
                 <div className='select-none flex items-center gap-x-12 lg:gap-x-16 p-4 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F] -mx-1'>
                     {/* TODO */}
                     <span className="text-base lg:text-2xl font-semibold text-black">
-                       Withdraw anytime
+                        Withdraw anytime
                     </span>
                     <span className="h-[12px] w-[12px] bg-black rounded-full" />
-                    
+
                     <span className="text-base lg:text-2xl font-semibold text-black">
-                    Withdraw anytime
+                        Withdraw anytime
                     </span>
                     <span className="h-[12px] w-[12px] bg-black rounded-full" />
-                    
-                    <span className="text-base lg:text-2xl font-semibold text-black">
-                        <span className="text-lg lg:text-3xl font-extrabold uni-wise-gradient mr-4">
-                            100%
-                        </span>
-                        withdrawals honoured
-                    </span>
-                    <span className="h-[12px] w-[12px] bg-black rounded-full" />
-                    <span className="text-base lg:text-2xl font-semibold text-black">
-                       Withdraw anytime
-                    </span>
-                    <span className="h-[12px] w-[12px] bg-black rounded-full" />
-                    
-                    <span className="text-base lg:text-2xl font-semibold text-black">
-                    Withdraw anytime
-                    </span>
-                    <span className="h-[12px] w-[12px] bg-black rounded-full" />
-                    
+
                     <span className="text-base lg:text-2xl font-semibold text-black">
                         <span className="text-lg lg:text-3xl font-extrabold uni-wise-gradient mr-4">
                             100%
@@ -102,15 +85,32 @@ export default function EliteHeroSection({ show }) {
                     </span>
                     <span className="h-[12px] w-[12px] bg-black rounded-full" />
                     <span className="text-base lg:text-2xl font-semibold text-black">
-                       Withdraw anytime
+                        Withdraw anytime
                     </span>
                     <span className="h-[12px] w-[12px] bg-black rounded-full" />
-                    
+
                     <span className="text-base lg:text-2xl font-semibold text-black">
-                    Withdraw anytime
+                        Withdraw anytime
                     </span>
                     <span className="h-[12px] w-[12px] bg-black rounded-full" />
-                    
+
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        <span className="text-lg lg:text-3xl font-extrabold uni-wise-gradient mr-4">
+                            100%
+                        </span>
+                        withdrawals honoured
+                    </span>
+                    <span className="h-[12px] w-[12px] bg-black rounded-full" />
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Withdraw anytime
+                    </span>
+                    <span className="h-[12px] w-[12px] bg-black rounded-full" />
+
+                    <span className="text-base lg:text-2xl font-semibold text-black">
+                        Withdraw anytime
+                    </span>
+                    <span className="h-[12px] w-[12px] bg-black rounded-full" />
+
                     <span className="text-base lg:text-2xl font-semibold text-black">
                         <span className="text-lg lg:text-3xl font-extrabold uni-wise-gradient mr-4">
                             100%

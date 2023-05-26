@@ -20,7 +20,7 @@ export default function StocksHeroSection({ show }) {
                     <div className='mt-8 lg:mt-11 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
                         <div className="flex col-span-3">
                             <Image
-                                placeholder="blur"
+                                placeholder="empty"
                                 src={sebi_logo}
                                 className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
                                 alt='demo image'
@@ -44,7 +44,7 @@ export default function StocksHeroSection({ show }) {
                 <div className="basis-full md:basis-5/12 flex content-center mt-10 lg:mt-0">
                     <div className='mx-auto h-[300px] lg:h-[550px]'>
                         <Image
-                            placeholder="blur"
+                            placeholder="empty"
                             src={hero}
                             className=' h-[300px] lg:h-[550px] object-contain'
                             alt='demo image'

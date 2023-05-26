@@ -22,11 +22,11 @@ export default function NavBar() {
                             <Image src={logoWhite} className='w-24 lg:w-36 object-contain' alt='icon' />
                         </Link>
                         <GoSearch color='#FFFFFF' size={16} onClick={() => setShowSearchBar(true)} className='cursor-pointer h-4 object-contain lg:hidden ml-auto mr-8' />
-                       <div onClick={()=>setIsOpen(true)}>
+                        <div onClick={() => setIsOpen(true)} className='lg:hidden'>
                             <span className='block w-4 h-[2px] rounded bg-white mt-1 ml-1' />
                             <span className='block w-5 h-[2px] rounded bg-white my-1' />
                             <span className='block w-4 h-[2px] rounded bg-white ml-1' />
-                       </div>
+                        </div>
                     </>}
                 <div className="hidden text-base font-semibold lg:flex flex-row items-center w-auto">
                     <Link href='/stocks' className="mx-4 px-3 py-2 hover:hover:opacity-75">
@@ -63,5 +63,5 @@ export default function NavBar() {
                 </Link>
             </Menu>
         </nav>
-       )
+    )
 }

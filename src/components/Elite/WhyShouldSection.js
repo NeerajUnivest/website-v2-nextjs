@@ -53,7 +53,7 @@ export default function WhyShouldSection() {
                     <div key={i} className={`flex min-w-[80vw] lg:min-w-[25%] items-center m-3 py-3 pl-4 border rounded-xl bg-gradient-to-b from-[#fff] ${ele.to} ${ele.border}`}>
                         {/* <img src={ele.img} alt='icon' className=' min-w-[44px] w-11 h-11 object-contain' /> */}
                         <Image
-                            placeholder="blur"
+                            placeholder="empty"
                             src={ele.img}
                             className='h-[44px] w-[44px] lg:h-[50px] lg:w-[50px]'
                             alt='demo image'

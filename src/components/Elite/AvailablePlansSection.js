@@ -17,7 +17,7 @@ export default function AvailablePlansSection() {
                 </span>
                 <div className="flex items-center">
                     <Image
-                        placeholder="blur"
+                        placeholder="empty"
                         src={rbi}
                         className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px]'
                         alt='demo image'
@@ -37,7 +37,7 @@ export default function AvailablePlansSection() {
                 className="AvailablePlansSection"
                 breakpoints={{
                     768: {
-                        initialSlide:0,
+                        initialSlide: 0,
                         centeredSlides: false,
                         slidesPerView: 3,
                         spaceBetween: 36
@@ -69,7 +69,7 @@ export function AvailablePlansCard() {
                 {[1, 2, 3, 4]?.map((ele, i) =>
                     <div key={i} className='text-base flex gap-2 items-center'>
                         <Image
-                            placeholder="blur"
+                            placeholder="empty"
                             src={a}
                             className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
                             alt='demo image'

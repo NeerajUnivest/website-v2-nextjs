@@ -32,7 +32,7 @@ export function BarChip({ icon, text, active, setActive }) {
         <section onClick={() => { setActive(text); smoothScrollTo(text) }}
             className={`flex flex-col lg:flex-row justify-center items-center rounded-lg py-3 cursor-pointer hover:bg-[#f6f3f388] ${active === text ? 'bg-[#F6F3F3]' : ''}`}>
             <Image
-                placeholder="blur"
+                placeholder="empty"
                 src={icon}
                 className='h-[20px] lg:h-[28px] w-[20px] lg:w-[28px] object-contain'
                 alt='demo image'

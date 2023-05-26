@@ -37,16 +37,16 @@ export default function Section() {
 
     const transitions = useTransition(state, {
         key: state,
-        from: { opacity: 0,  transform:'translateY(10%)'},
-        enter: { opacity: 1, transform:'translateY(0)'  },
-        leave: { opacity: 0,  transform:'translateY(-10%)', delay: 2000, },
+        from: { opacity: 0, transform: 'translateY(10%)' },
+        enter: { opacity: 1, transform: 'translateY(0)' },
+        leave: { opacity: 0, transform: 'translateY(-10%)', delay: 2000, },
         config: { duration: 300 },
         onRest: (_a, _b, item) => {
             // if (_a.value?.opacity === 0) {
-                if (state > brokerList.length - 2) {
-                    setState(0)
-                } else {
-                    setState(state + 1)
+            if (state > brokerList.length - 2) {
+                setState(0)
+            } else {
+                setState(state + 1)
                 // }
             }
         },
@@ -68,14 +68,14 @@ export default function Section() {
                             //     {ele.name}
                             // </span>
                             <div key={ele.name} onClick={() => { setActive(text); smoothScrollTo(text) }}
-                                     className={`flex flex-col lg:flex-row justify-center lg:justify-start items-center rounded-lg py-2 px-3 cursor-pointer border border-[#8EC8F7] ${false ? 'bg-[#F6F3F3]' : ''}`}>
-                                    <Image
-                                        placeholder="blur"
-                                        src={ele.icon}
-                                        className='h-[20px] lg:h-[40px] w-[20px] lg:w-[40px] object-contain'
-                                        alt='demo image'
-                                    />
-                                    <span className="ml-2.5 text-xs lg:text-xl text-black">
+                                className={`flex flex-col lg:flex-row justify-center lg:justify-start items-center rounded-lg py-2 px-3 cursor-pointer border border-[#8EC8F7] ${false ? 'bg-[#F6F3F3]' : ''}`}>
+                                <Image
+                                    placeholder="empty"
+                                    src={ele.icon}
+                                    className='h-[20px] lg:h-[40px] w-[20px] lg:w-[40px] object-contain'
+                                    alt='demo image'
+                                />
+                                <span className="ml-2.5 text-xs lg:text-xl text-black">
                                     {ele.name}
                                 </span>
                             </div>
