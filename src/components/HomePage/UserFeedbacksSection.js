@@ -5,7 +5,7 @@ import Amresh from "../../assets/img/Amresh+Kumar.webp";
 import Vijay from "../../assets/img/Vijay+Rathi.webp";
 import Raghav from "../../assets/img/Raghav+Bhushan.jpg";
 import Ravi from "../../assets/img/Ravi+Kumar.jpg";
-import rating from "../../assets/images/rating.png";
+import ratingLg from "../../assets/images/ratingLg.png";
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -64,7 +64,7 @@ export default function UserFeedbacksSection() {
                     <p className="font-medium text-base lg:text-3xl text-black">Trusted by <span className='font-extrabold'>400k+ users</span></p>
                     <p className="font-semibold text-xs lg:text-2xl text-[#414141]">Read what they say about us</p>
                 </div>
-                <Image src={rating} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
+                <Image src={ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
             </div>
             <Swiper
                 grabCursor={true}

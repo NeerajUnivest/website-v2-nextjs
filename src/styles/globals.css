@@ -163,9 +163,11 @@ code {
   justify-content: center;
   align-items: center;
 }
+
 .SharksSectionSwiper .swiper-slide-active {
   height: 200px;
 }
+
 @media only screen and (min-width: 746px) {
   .SharksSectionSwiper .swiper-slide {
     width: 250px;
@@ -349,10 +351,11 @@ code {
 
 
 .HeroSection .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-.HeroSection .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{
+.HeroSection .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
   z-index: 10 !important;
-  bottom: 180px !important;
+  bottom: 80px !important;
 }
+
 .HeroSection .swiper-pagination-bullet {
   background: #414141;
   width: 12px;
@@ -362,10 +365,11 @@ code {
 }
 
 @media (max-width: 976px) {
+
   .HeroSection .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
   .HeroSection .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
     left: 10% !important;
-    bottom: 100px !important;
+    bottom: 70px !important;
   }
 }
 

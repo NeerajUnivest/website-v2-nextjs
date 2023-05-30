@@ -53,7 +53,7 @@ export default function ProductSection() {
         exitBeforeEnter: true,
     })
     return (
-        <section className=' px-4 lg:px-8 py-20 bg-[#EDF5FF] font-Inter'>
+        <section className=' px-4 lg:px-8 py-20 bg-[#EDF5FF] font-Inter overflow-hidden'>
             <div className='max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-5/12'>
                     <p className="my-5 lg:my-4 text-center lg:text-left text-xl lg:text-3xl font-extrabold text-[#414141]">
@@ -64,7 +64,7 @@ export default function ProductSection() {
                     </p>
                     <div className='mt-8 mb-12 flex flex-row gap-y-6 lg:flex-col justify-between w-full'>
                         {brokerList.map((ele, i) =>
-                            <div key={ele.name} className={`min-w-[70px] flex flex-col rounded-lg py-2 px-3 ${i === state ? 'bg-[#F6F3F3]  border-2 border-[#0862BC]' : ' border border-[#8EC8F7]'}`}
+                            <div key={ele.name} className={`min-w-[70px] flex flex-col rounded-lg py-2 px-3 duration-300 ease-in ${i === state ? 'bg-[#F6F3F3]  border-2 border-[#0862BC]' : ' border border-[#8EC8F7]'}`}
                             //  onClick={() => setState(i)}
                             >
                                 <div className={`flex flex-col lg:flex-row justify-center lg:justify-start items-center `}>
@@ -78,10 +78,14 @@ export default function ProductSection() {
                                         {ele.name}
                                     </span>
                                 </div>
-                                {i === state && <div className='hidden lg:block mt-1 text-black text-xs lg:text-base font-semibold'>Read financial news like never before in 60 words.</div>}
+                                <div className={`hidden lg:block mt-1 text-black text-xs lg:text-base duration-300 ease-in font-semibold overflow-hidden ${i === state ? 'max-h-8' : 'max-h-0'}`}>
+                                    Read financial news like never before in 60 words.
+                                </div>
                             </div>)}
                     </div>
-                    <BlackButton text='Explore more' className='mt-6 py-3 px-9 lg:px-24 text-base font-extrabold hidden lg:block' onClick={() => null} />
+                    <div className='flex justify-center'>
+                        <BlackButton text='Explore more' className='mb-10 lg:mb-0 lg:w-full mx-auto py-3 px-9 lg:px-24 text-base font-extrabold' onClick={() => null} />
+                    </div>
                 </div>
                 <div className="w-full lg:w-5/12 h-[451px] px-2 lg:px-3 lg:h-[451px] flex place-content-center">
                     {transitions(style => (
@@ -94,7 +98,6 @@ export default function ProductSection() {
                     ))}
                 </div>
             </div>
-            <BlackButton text='Explore more' className='mt-10 mx-auto py-2 px-9 text-base font-extrabold lg:hidden block' onClick={() => null} />
         </section>
     )
 }
