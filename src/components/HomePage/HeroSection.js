@@ -7,7 +7,7 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
-import ratingLg from "@/assets/Images/ratingLg.png";
+import ratingLg from "@/assets/images/ratingLg.png";
 
 export default function HeroSection() {
     return (

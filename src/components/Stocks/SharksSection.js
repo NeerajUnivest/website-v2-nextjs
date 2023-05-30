@@ -74,7 +74,7 @@ export default function SharksSection() {
                     Track the portfolios of Shark investors
                 </p>
                 <Swiper
-                speed={300}
+                    speed={300}
                     effect={"coverflow"}
                     grabCursor={true}
                     loop={true}
@@ -98,13 +98,13 @@ export default function SharksSection() {
                 >
                     {sharkList.map(ele =>
                         <SwiperSlide key={ele.id}>
-                            {({isActive})=><div className='flex flex-col justify-center items-center'>
+                            {({ isActive }) => <div className='flex flex-col justify-center items-center'>
                                 <Image width={80} height={80} src={ele.imageUrl} className='rounded-full w-20 lg:w-24 shadow-xl' alt='shark-logo' />
-                                {isActive&&
-                                <p className="mt-5 text-center text-sm lg:text-xl lg:font-extrabold text-[#414141]">
-                                   {ele.name?.slice(0,20)}
-                                </p>}
-                                </div>}
+                                {isActive &&
+                                    <p className="mt-5 text-center text-sm lg:text-xl lg:font-extrabold text-[#414141]">
+                                        {ele.name?.slice(0, 20)}
+                                    </p>}
+                            </div>}
                         </SwiperSlide>
                     )}
                 </Swiper>
