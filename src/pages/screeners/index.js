@@ -1,44 +1,28 @@
-// import ScreenersList from '../../components/Screeners/ScreenersList';
-// import './Screeners.css'
+import ScreenersList from '../../components/Screeners/ScreenersList';
 
-// import screenerIcon from '../../assets/img/screenerIcon.webp';
-// import newSquare from '../../assets/icn/newSquare.webp';
-// import premium from '../../assets/icn/premium.webp';
+import screenerIcon from '../../assets/img/screenerIcon.webp';
+import newSquare from '../../assets/icn/newSquare.webp';
+import premium from '../../assets/icn/premium.webp';
 import Image from 'next/image';
 import axios from 'axios';
 
 export default function Screeners({ data }) {
-    return (<>
-        <section className='font-Inter max-w-screen-xl h-[70vh] mx-auto lg:px-8 bg-[#FFFFFF] flex justify-center'>
-            <div className='self-center h-10 w-10 border-e-4 lg:h-20 lg:w-20 lg:border-e-8 border-[#00439D] animate-spin rounded-full' />
-        </section>
-        <div className='bg-[#e5e5e5]'>
-            <div className='mx-4 py-2 lg:mx-20 font-normal text-[#414141] text-[10px] leading-[12px] md:text-[16px] md:leading-[24px] text-center'>
-                Find the best stocks | Investing less time & energy into the research | Earn higher ROIs | Premium and advanced screeners
-            </div>
-        </div>
-
-        {/* <div className='relative overflow-hidden ml-4 lg:ml-20 pt-4 lg:pt-0'>
+    return (
+        <section className='font-Inter relative overflow-hidden  pt-20 lg:pt-24'>
             <div className='-z-10 rounded-[50px] absolute left-[50vw] top-[30vh] bg-[#e3f0fb96] h-[100vh] w-[60vw]' />
 
-            <div className='absolute top-4 lg:top-10 right-4 font-Inter flex flex-row justify-center lg:justify-end  lg:mr-4 h-10'>
-                <div className='ml-2 mr-1'>
-                    <Image src={premium} className='-mt-[2px] h-5 lg:h-6' alt='icon' />
-                </div>
+            <div className='absolute top-18 lg:top-32 right-4 font-Inter flex flex-row justify-center lg:justify-end  lg:mr-4 h-10'>
+                <Image src={premium} className='ml-2 mr-1 -mt-[2px] h-5 lg:h-6 w-5 lg:w-6' alt='icon' />
                 <div className='lg:mt-[2px] text-[12px] leading-[16px] text-[#202020]'>
                     Premium
                 </div>
-                <div className='ml-6 mr-1'>
-                    <Image src={newSquare} className='h-4 lg:h-5' alt='icon' />
-                </div>
+                <Image src={newSquare} className='ml-6 mr-1 h-4 lg:h-5 w-10 lg:w-14' alt='icon' />
                 <div className='lg:mt-[2px] text-[12px] leading-[16px] text-[#202020]'>
                     Newly added
                 </div>
             </div>
-            <div className='hidden lg:flex flex-row content-center items-center mt-4 lg:mt-8 lg:mb-12'>
-                <div className='mr-4'>
-                    <Image src={screenerIcon} className='h-8 lg:h-20' alt='icon' />
-                </div>
+            <div className='ml-32 hidden lg:flex flex-row content-center items-center lg:mt-5 lg:mb-12'>
+                    <Image src={screenerIcon} className='h-8 lg:h-20 w-8 lg:w-20 mr-4' alt='icon' />
                 <div>
                     <div className='font-Inter font-bold text-[18px] leading-[24px] text-[#202020] lg:text-[32px] lg:leading-[40px]'>
                         Screener homepage
@@ -49,12 +33,11 @@ export default function Screeners({ data }) {
                 </div>
             </div>
             <ScreenersList data={data} />
-        </div> */}
-    </>)
+        </section>)
 }
 
 export async function getStaticProps() {
-    let res = await axios.get(`https://uat-api.univest.in/resources/screeners/v2`)
+    let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
     return {
         props: {
             data: res.data.data.list

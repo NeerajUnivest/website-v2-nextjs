@@ -56,8 +56,8 @@ export default function PhoneScreener({ loading, name, screenersList, data }) {
     // }
   }
   return (
-    <div>
-      <div className='sticky top-0 bg-white z-10 shadow-sm'>
+    <div className='pt-20'>
+      <div className='bg-white z-1 shadow-sm'>
         {/* <div className='mx-4 py-3 flex flex-row justify-center'>
           <button>
             <Image src={arrowUp} className='h-6' alt='back' />

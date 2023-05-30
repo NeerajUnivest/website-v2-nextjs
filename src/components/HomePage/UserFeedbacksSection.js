@@ -61,7 +61,7 @@ export default function UserFeedbacksSection() {
         <section className='font-Inter max-w-screen-xl py-16 lg:py-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
                 <div className="">
-                    <p className="font-medium text-base lg:text-3xl text-black">Trusted by <spam className='font-extrabold'>400k+ users</spam></p>
+                    <p className="font-medium text-base lg:text-3xl text-black">Trusted by <span className='font-extrabold'>400k+ users</span></p>
                     <p className="font-semibold text-xs lg:text-2xl text-[#414141]">Read what they say about us</p>
                 </div>
                 <Image src={rating} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />

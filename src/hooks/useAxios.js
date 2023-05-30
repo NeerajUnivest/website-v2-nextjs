@@ -2,7 +2,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://api.univest.in';
+axios.defaults.baseURL = 'https://uat-api.univest.in';
 export const useAxios = (axiosParams) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);

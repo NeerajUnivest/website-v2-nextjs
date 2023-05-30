@@ -4,6 +4,10 @@ import univest_elite from '../../assets/images/univest_elite.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import Marquee from "react-fast-marquee";
 import sebi_logo from '../../assets/icons/rbi.png';
+import CountUpBox from "@/elements/CountUpBox";
+
+
+
 
 export default function EliteHeroSection({ show }) {
     return (<>
@@ -39,11 +43,11 @@ export default function EliteHeroSection({ show }) {
                             </div>
                         </div>
                         <div className="self-center">
-                            <p className="font-semibold text-base">3.5 Lac+</p>
+                            <p className="font-semibold text-base"><CountUpBox end={3.5} decimals={1}/> Lac+</p>
                             <p className="font-medium text-xs text-[#606060]">Active users</p>
                         </div>
                         <div className="self-center">
-                            <p className="font-semibold text-base">1,200 Cr+</p>
+                            <p className="font-semibold text-base"><CountUpBox start={1000} end={1200} duration={3}/> Cr+</p>
                             <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>
