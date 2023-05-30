@@ -35,14 +35,14 @@ let style = {
 export default function YouCanTrush() {
     return (
         <section className='bg-gradient-to-t from-[#B3D5F4] py-24 lg:pt-32 lg:pb-44 font-Inter relative'>
-                <Image src={quatetion} className='absolute bottom-0 w-full z-1' alt='icon' width='100%' height='auto' loading="lazy" />
+            <Image src={quatetion} className='absolute bottom-0 w-full z-1' alt='icon' width='100%' height='auto' loading="lazy" />
 
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
-            <div className='w-10/12 mx-auto font-Inter text-[12px] leading-[18px] text-[#00439D] text-center lg:text-[22px] lg:leading-[40px]'>
-                Here's the team
-            </div>
+                <div className='w-10/12 mx-auto font-Inter text-[12px] leading-[18px] text-[#00439D] text-center lg:text-[22px] lg:leading-[40px]'>
+                    Here&apos;s the team
+                </div>
                 <p className="font-Inter font-semibold text-[18px] leading-[24px] text-[#00439D] text-center md:text-[32px] md:leading-[54px]">
-                Our Team
+                    Our Team
                 </p>
                 <div className=' py-8 grid grid-cols-12 grid-rows-2 grid-flow-col gap-2 h-[400px]'>
                     <Image src={Team_Univest_1} alt="gallery" className='col-span-8 lg:col-span-4 lg:row-span-2 inset-0 h-full w-full object-cover object-center rounded-lg' />

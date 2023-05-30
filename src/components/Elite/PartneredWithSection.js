@@ -24,7 +24,7 @@ export default function PartneredWithSection() {
                         alt='demo image'
                     />
                     <p className='max-w-[60%] text-base lg:text-2xl text-black font-extrabold'>
-                        India's first and largest RBI-regulated NBFC-P2P
+                        India&apos;s first and largest RBI-regulated NBFC-P2P
                     </p>
                 </div>
             </div>
