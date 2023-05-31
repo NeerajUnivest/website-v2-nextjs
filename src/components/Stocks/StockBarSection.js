@@ -6,12 +6,32 @@ import sharks from '../../assets/icons/sharks.png';
 import screeners from '../../assets/icons/screeners.png';
 import results from '../../assets/icons/results.png';
 import news from '../../assets/icons/news.png';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSmoothScrollToId } from "@/hooks/useSmoothScrollToId";
+import { useDebounce } from "use-debounce";
 
+let sec = [0, 1265, 2040, 2780, 3500, 4300, 7000]
 export default function StockBarSection() {
     const scrollPosition = useScrollPosition();
+    const [scrolled] = useDebounce(scrollPosition, 200);
     const [active, setActive] = useState('Markets');
+
+    useEffect(() => {
+        if (sec[0] < scrolled && scrolled < sec[1]) {
+            setActive('Markets')
+        } else if (sec[1] < scrolled && scrolled < sec[2]) {
+            setActive('Ideas')
+        } else if (sec[2] < scrolled && scrolled < sec[3]) {
+            setActive('Sharks')
+        } else if (sec[3] < scrolled && scrolled < sec[4]) {
+            setActive('Screeners')
+        } else if (sec[4] < scrolled && scrolled < sec[5]) {
+            setActive('Results')
+        } else if (sec[5] < scrolled && scrolled < sec[6]) {
+            setActive('News')
+        }
+    }, [scrolled])
+
     return (
         <div className={`duration-300 ease-linear sticky top-16 lg:top-20 py-2 z-[2] bg-white ${scrollPosition > 800 ? 'shadow' : ''}`}>
             <div className='max-w-screen-xl px-4 lg:px-8 mx-auto grid grid-cols-3 lg:grid-cols-6 justify-items-stretch gap-3'>

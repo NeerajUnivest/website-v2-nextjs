@@ -22,7 +22,7 @@ export default function Screeners({ data }) {
                 </div>
             </div>
             <div className='ml-32 hidden lg:flex flex-row content-center items-center lg:mt-5 lg:mb-12'>
-                    <Image src={screenerIcon} className='h-8 lg:h-20 w-8 lg:w-20 mr-4' alt='icon' />
+                <Image src={screenerIcon} className='h-8 lg:h-20 w-8 lg:w-20 mr-4' alt='icon' />
                 <div>
                     <div className='font-Inter font-bold text-[18px] leading-[24px] text-[#202020] lg:text-[32px] lg:leading-[40px]'>
                         Screener homepage
@@ -36,7 +36,7 @@ export default function Screeners({ data }) {
         </section>)
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
     return {
         props: {

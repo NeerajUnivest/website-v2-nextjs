@@ -21,21 +21,21 @@ export default function WhyUnivestSection() {
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 200,
-                        depth: 1,
+                        depth: 50,
                         scale: 0.8,
                         modifier: 1,
-                        slideShadows: false
+                        slideShadows: true
                     }}
                     breakpoints={{
                         768: {
                             slidesPerView: 3,
                             coverflowEffect: {
                                 rotate: 0,
-                                stretch: 250,
+                                stretch: 100,
                                 depth: 100,
                                 scale: 0.9,
                                 modifier: 0.9,
-                                slideShadows: false
+                                slideShadows: true
                             }
                         },
                     }}
