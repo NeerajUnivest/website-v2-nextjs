@@ -8,6 +8,53 @@ import b from '../../assets/icons/plans/2.png';
 import c from '../../assets/icons/plans/3.png';
 import d from '../../assets/icons/plans/4.png';
 
+const cardData = [
+    {
+        id: 0,
+        cashBack: 0.50,
+        title: `12`,
+        type: `Fixed term: <b>12 Months</b>`,
+        desc: `Saving for a long term expense / goal`,
+        typeForEvent: `fixed_term_12_months`,
+        // icon: fixedPlanIcon,
+        recommended: true,
+        interest: `At maturity`,
+        principal: `At maturity`,
+        minInvestment: `25k`,
+        lockInPeriod: `12 months`,
+        detail: `Investors who seek to build a stable portfolio that can withstand market volatility and beat inflation. This can be helpful in achieving financial goals over time.`
+    },
+    {
+        id: 1,
+        cashBack: 0.25,
+        title: `11`,
+        type: `Fixed term: <b>6 Months</b>`,
+        desc: `Saving for a medium term expense / goal`,
+        typeForEvent: `fixed_term_6_months`,
+        // icon: fixedPlanIcon,
+        recommended: false,
+        interest: `At maturity`,
+        principal: `At maturity`,
+        minInvestment: `25K`,
+        lockInPeriod: `6 months`,
+        detail: `Earning high and stable returns of up to 11% on the money you are saving for a medium term expense / goal. An effective way to grow your wealth over time. `
+    },
+    {
+        id: 2,
+        cashBack: null,
+        title: `8.25`,
+        type: `Freedom Plan: <b>No lock-in</b>`,
+        desc: `Earning more while saving for upcoming expenses`,
+        typeForEvent: `freedom_plan_mo_lock_in`,
+        // icon: freedomPlanIcon,
+        recommended: false,
+        interest: `Accrued daily`,
+        principal: `Anytime`,
+        minInvestment: `25K`,
+        lockInPeriod: `No lock-in `,
+        detail: `Earning higher while saving for an upcoming expense / goal while having the freedom to withdraw funds any time without any restrictions.`
+    },
+]
 export default function AvailablePlansSection() {
     return (
         <section className='font-Inter max-w-screen-xl py-16 lg:py-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
@@ -36,7 +83,13 @@ export default function AvailablePlansSection() {
                 spaceBetween={0}
                 className="AvailablePlansSection"
                 breakpoints={{
-                    768: {
+                    610: {
+                        initialSlide: 0,
+                        centeredSlides: false,
+                        slidesPerView: 2,
+                        spaceBetween: 36
+                    },
+                    1020: {
                         initialSlide: 0,
                         centeredSlides: false,
                         slidesPerView: 3,
@@ -44,9 +97,9 @@ export default function AvailablePlansSection() {
                     },
                 }}
             >
-                {[1, 2, 3]?.map(ele =>
+                {cardData?.map(ele =>
                     <SwiperSlide key={ele}>
-                        <AvailablePlansCard />
+                        <AvailablePlansCard data={ele} />
                     </SwiperSlide>)}
             </Swiper>
             <div className="mt-6 flex flex-col justify-center items-center gap-8">
@@ -60,27 +113,55 @@ export default function AvailablePlansSection() {
 }
 
 
-export function AvailablePlansCard() {
+export function AvailablePlansCard({ data }) {
     return (
         <div className="h-full w-full px-4 py-6 rounded-2xl bg-[#C9DDE680] flex flex-col">
             <p className="font-medium text-center text-xl">Earn up to
-                <span className='font-extrabold text-[#437587]'> 12% p.a.</span></p>
+                <span className='font-extrabold text-[#437587]'> {data.title}% p.a.</span></p>
             <div className="bg-white grow px-3 py-4 rounded-lg my-4 flex flex-col justify-between">
-                {[1, 2, 3, 4]?.map((ele, i) =>
-                    <div key={i} className='text-base flex gap-2 items-center'>
-                        <Image
-                            placeholder="empty"
-                            src={a}
-                            className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
-                            alt='demo image'
-                        />
-                        <div className='text-[#606060] '>Interest paid : </div>
-                        <div className='font-bold text-black'>At maturity</div>
-                    </div>
-                )}
+                <div className='text-base flex gap-2 items-center'>
+                    <Image
+                        placeholder="empty"
+                        src={a}
+                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        alt='demo image'
+                    />
+                    <div className='text-[#606060] '>Interest paid : </div>
+                    <div className='font-bold text-black'>{data.interest}</div>
+                </div>
+                <div className='text-base flex gap-2 items-center'>
+                    <Image
+                        placeholder="empty"
+                        src={b}
+                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        alt='demo image'
+                    />
+                    <div className='text-[#606060] '>Lock-in period : </div>
+                    <div className='font-bold text-black'>{data.lockInPeriod}</div>
+                </div>
+                <div className='text-base flex gap-2 items-center'>
+                    <Image
+                        placeholder="empty"
+                        src={c}
+                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        alt='demo image'
+                    />
+                    <div className='text-[#606060] '>Low risk : </div>
+                    <div className='font-bold text-black'>100% safe</div>
+                </div>
+                <div className='text-base flex gap-2 items-center'>
+                    <Image
+                        placeholder="empty"
+                        src={d}
+                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        alt='demo image'
+                    />
+                    <div className='text-[#606060] '>Principal repaid : </div>
+                    <div className='font-bold text-black'>{data.principal}</div>
+                </div>
             </div>
             <p className="bg-white p-3 text-xs font-semibold rounded-lg text-center">
-                Ideal when saving for a long term expense/goal
+                {data.desc}
             </p>
         </div>
     )

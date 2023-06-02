@@ -53,7 +53,7 @@ export default function ProductSection() {
         exitBeforeEnter: true,
     })
     return (
-        <section className=' px-4 lg:px-8 py-20 bg-[#EDF5FF] font-Inter overflow-hidden'>
+        <section className=' px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden'>
             <div className='max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-5/12'>
                     <p className="my-5 lg:my-4 text-center lg:text-left text-xl lg:text-3xl font-extrabold text-[#414141]">
@@ -62,19 +62,19 @@ export default function ProductSection() {
                     <p className="text-sm lg:text-xl font-medium text-[#414141]">
                         Lorem ipsum dolor sit amet consectetur. Vel cursus sit lacinia ut facilisi malesuada scelerisque suspendisse.
                     </p>
-                    <div className='mt-8 mb-12 flex flex-row gap-y-6 lg:flex-col justify-between w-full'>
+                    <div className='mt-8 mb-12 flex flex-row  lg:flex-col justify-between w-full lg:min-h-[370px]'>
                         {brokerList.map((ele, i) =>
-                            <div key={ele.name} className={`min-w-[70px] flex flex-col rounded-lg py-2 px-3 duration-300 ease-in ${i === state ? 'bg-[#F6F3F3]  border-2 border-[#0862BC]' : ' border border-[#8EC8F7]'}`}
+                            <div key={ele.name} className={`min-w-[70px] flex flex-col rounded-xl py-2 px-3 duration-300 ease-in ${i === state ? 'bg-[#FFFFFF80]  border-2 border-[#0862BC]' : ' border border-[#8EC8F7]'}`}
                             //  onClick={() => setState(i)}
                             >
                                 <div className={`flex flex-col lg:flex-row justify-center lg:justify-start items-center `}>
                                     <Image
                                         placeholder="empty"
                                         src={ele.icon}
-                                        className='h-[20px] lg:h-[40px] w-[20px] lg:w-[40px] object-contain'
+                                        className={`h-[36px] lg:h-[44px] w-[36px] lg:w-[44px] object-contain rounded-md lg:p-1 ${i === state ? 'lg:border-2 border-[#0862BC]' : 'lg:border border-[#8EC8F7]'}`}
                                         alt='demo image'
                                     />
-                                    <span className={`lg:ml-2.5 text-black ${i === state ? 'text-xs lg:text-2xl font-semibold' : 'text-xs lg:text-xl'}`}>
+                                    <span className={`mt-2 lg:mt-0 lg:ml-2.5 text-black ${i === state ? 'text-xs lg:text-2xl font-semibold' : 'text-xs lg:text-xl'}`}>
                                         {ele.name}
                                     </span>
                                 </div>
@@ -87,7 +87,7 @@ export default function ProductSection() {
                         <BlackButton text='Explore more' className='mb-10 lg:mb-0 lg:w-full mx-auto py-3 px-9 lg:px-24 text-base font-extrabold' onClick={() => null} />
                     </div>
                 </div>
-                <div className="w-full lg:w-5/12 h-[451px] px-2 lg:px-3 lg:h-[451px] flex place-content-center">
+                <div className="w-full lg:w-5/12 h-[451px] px-2 lg:px-3 lg:h-[551px] flex place-content-center">
                     {transitions(style => (
                         <animated.img
                             style={style}

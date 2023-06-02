@@ -2,6 +2,7 @@
 
 import a from '../../assets/icons/plans/1.png';
 import Image from 'next/image';
+import elite_banner from '../../assets/lottiefiles/elite_banner.gif';
 
 
 
@@ -42,28 +43,36 @@ let data = [{
     to: 'to-[#F7E4DA]',
     border: 'border-[#FF9F40]'
 }]
-export default function WhyShouldSection() {
+export default function WhyShouldSection({ bgClass }) {
     return (
-        <section className='font-Inter max-w-screen-xl py-16 lg:py-24 mx-auto lg:px-8'>
-            <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
-                Why should I invest?
-            </p>
-            <div className='px-4 lg:px-0 grid  grid-flow-col grid-rows-2 overflow-x-auto no-scrollbar'>
-                {data.map((ele, i) =>
-                    <div key={i} className={`flex min-w-[80vw] lg:min-w-[25%] items-center m-3 py-3 pl-4 border rounded-xl bg-gradient-to-b from-[#fff] ${ele.to} ${ele.border}`}>
-                        {/* <img src={ele.img} alt='icon' className=' min-w-[44px] w-11 h-11 object-contain' /> */}
-                        <Image
-                            placeholder="empty"
-                            src={ele.img}
-                            className='h-[44px] w-[44px] lg:h-[50px] lg:w-[50px]'
-                            alt='demo image'
-                        />
-                        <div className='font-Inter ml-4 text-sm lg:text-base text-black font-extrabold'>
-                            {ele.header}
-                            <div className='text-xs lg:text-sm landing-[20px] text-[#414141] font-medium'
-                                dangerouslySetInnerHTML={{ __html: ele.text }} />
-                        </div>
-                    </div>)}
+        <section className={`font-Inter py-16 lg:py-24 ${bgClass}`}>
+            <div className=' max-w-screen-xl mx-auto lg:px-8'>
+                <Image
+                    placeholder="empty"
+                    src={elite_banner}
+                    className='w-[calc(100vw-32px)] object-contain rounded-3xl mb-7 lg:mb-24 mx-auto'
+                    alt='demo image'
+                />
+                <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
+                    Why should I invest?
+                </p>
+                <div className='px-4 lg:px-0 grid  grid-flow-col grid-rows-2 overflow-x-auto no-scrollbar'>
+                    {data.map((ele, i) =>
+                        <div key={i} className={`flex min-w-[80vw] lg:min-w-[25%] items-center m-3 py-3 pl-4 border rounded-xl bg-gradient-to-b from-[#fff] ${ele.to} ${ele.border}`}>
+                            {/* <img src={ele.img} alt='icon' className=' min-w-[44px] w-11 h-11 object-contain' /> */}
+                            <Image
+                                placeholder="empty"
+                                src={ele.img}
+                                className='h-[44px] w-[44px] lg:h-[50px] lg:w-[50px]'
+                                alt='demo image'
+                            />
+                            <div className='font-Inter ml-4 text-sm lg:text-base text-black font-extrabold'>
+                                {ele.header}
+                                <div className='text-xs lg:text-sm landing-[20px] text-[#414141] font-medium'
+                                    dangerouslySetInnerHTML={{ __html: ele.text }} />
+                            </div>
+                        </div>)}
+                </div>
             </div>
         </section>
     )

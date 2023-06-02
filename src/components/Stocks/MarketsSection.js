@@ -1,25 +1,28 @@
 import { BlackButton } from '@/elements/Button/Button';
 import { useState } from 'react'
 import { useTransition, animated, } from 'react-spring'
-import mornging_digest from '../../assets/images/mornging_digest.png';
+import bulk_block_deals from '../../assets/images/bulk_block_deals.png';
+import global_indices from '../../assets/images/global_indices.png';
+import morning_digest from '../../assets/images/morning_digest.png';
+import market_sentiment from '../../assets/images/market_sentiment.png';
 
 
 const brokerList = [
     {
         name: "Market Sentiment",
-        img: mornging_digest.src
+        img: market_sentiment.src
     },
     {
         name: "Morning digest",
-        img: mornging_digest.src
+        img: morning_digest.src
     },
     {
         name: "Global indices",
-        img: mornging_digest.src
+        img: global_indices.src
     },
     {
         name: "Bulk/Block deals",
-        img: mornging_digest.src
+        img: bulk_block_deals.src
     },
 ]
 
@@ -48,7 +51,7 @@ export default function MarketsSection() {
             <p className="my-5 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                 Stay on top of the markets
             </p>
-            <div className='w-full  bg-white p-5 flex flex-col lg:flex-row justify-center items-center'>
+            <div className='w-full  bg-white p-5 flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-1/2'>
                     <p className="text-sm lg:text-xl font-medium text-[#414141]">
                         Lorem ipsum dolor sit amet consectetur. Vel cursus sit lacinia ut facilisi malesuada scelerisque suspendisse.
@@ -62,7 +65,7 @@ export default function MarketsSection() {
                     </div>
                     <BlackButton text='Explore more' className='mt-10 py-2 px-9 text-base font-extrabold hidden lg:block' onClick={() => null} />
                 </div>
-                <div className="w-full lg:w-1/2 h-[451px] px-2 lg:px-3 lg:h-[451px] flex place-content-center">
+                <div className="w-full lg:w-5/12 h-[451px] px-2 lg:px-3 lg:h-[451px] flex place-content-center">
                     {transitions(style => (
                         <animated.img
                             style={style}

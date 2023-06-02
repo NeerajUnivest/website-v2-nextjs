@@ -1,11 +1,14 @@
 import Image from "next/image";
-import sebi_logo from '../../assets/icons/sebi_logo.png';
+import sebi_logo from '@/assets/icons/sebi_logo.png';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import moment from "moment/moment";
 import { useAxios } from "@/hooks/useAxios";
 import { Autoplay } from "swiper";
-import mini_trade_card from '../../assets/images/mini_trade_card.png';
+import mini_trade_card from '@/assets/images/mini_trade_card.png';
+import yashpal_arora from '@/assets/images/yashpal_arora.png';
+import ketan_sonalkar from '@/assets/images/ketan_sonalkar.png';
+import sagar_wadhwa from '@/assets/images/sagar_wadhwa.png';
 
 
 export default function IdeasSection() {
@@ -24,7 +27,7 @@ export default function IdeasSection() {
                         alt='demo image'
                     />
                     <div className="self-center ml-5">
-                        <p className="font-semibold text-base">Registered - INA000017639</p>
+                        <p className="font-semibold text-base">Registered - <b>INA000017639</b></p>
                         <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
                     </div>
                 </div>
@@ -32,12 +35,16 @@ export default function IdeasSection() {
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
                 <div className="w-full lg:max-w-[32%]">
                     <p className="mt-10 text-center text-base lg:text-xl font-extrabold text-[#414141]">
-                        Pillars of advisory AdvisoryTeamCard
+                        Pillars of advisory team
                     </p>
                     {/* <div className="flex flex-row lg:flex-col overflow-x-scroll"> */}
-                    <AdvisoryTeamCard name='Ketan Sonalkar' disc='Lorem ipsum dolor sit amet' />
-                    <AdvisoryTeamCard name='Yashpal Arora' disc='Lorem ipsum dolor sit amet' />
-                    <AdvisoryTeamCard name='Sagar Wadhwa' disc='Lorem ipsum dolor sit amet' />
+                    {[
+                        { name: 'Ketan Sonalkar', img: ketan_sonalkar },
+                        { name: 'Yashpal Arora', img: yashpal_arora },
+                        { name: 'Sagar Wadhwa', img: sagar_wadhwa },
+                    ].map(ele =>
+                        <AdvisoryTeamCard key={ele.name} data={ele} />
+                    )}
                     {/* </div> */}
                 </div>
                 <div className="w-full lg:max-w-[60%]">
@@ -116,25 +123,19 @@ export default function IdeasSection() {
 }
 
 
-export function AdvisoryTeamCard(
-    {
-        dp = 'https://univest-prod.s3.ap-south-1.amazonaws.com/superstars/rakesh_jhujhunwala.png',
-        name,
-        disc
-    }
-) {
+export function AdvisoryTeamCard({ data }) {
     return (
         <div className="mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4 shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)]">
             <Image
-                src={dp}
+                src={data.img}
                 width={64}
                 height={64}
                 alt='demo image'
                 className="rounded-full h-[48px] lg:h-[64px] w-[48px] lg:w-[64px]"
             />
             <div className="self-center ml-5">
-                <p className="font-semibold text-sm lg:text-xl text-black">{name}</p>
-                <p className="font-medium text-xs lg:text-base text-[#747474]">{disc}</p>
+                <p className="font-semibold text-sm lg:text-xl text-black">{data.name}</p>
+                <p className="font-medium text-xs lg:text-base text-[#747474]">{data.disc ?? 'Lorem ipsum dolor sit amet'}</p>
             </div>
         </div>
     )

@@ -2,7 +2,9 @@ import Image from 'next/image';
 import { Autoplay, EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import results_background from '../../assets/images/shark_background.webp';
-import result_screen1 from '../../assets/images/result_screen1.png';
+import shark1 from '../../assets/images/shark1.png';
+import shark2 from '../../assets/images/shark2.png';
+import shark3 from '../../assets/images/shark3.png';
 
 const sharkList = [
     {
@@ -70,7 +72,7 @@ export default function SharksSection() {
     return (
         <section id='Sharks' className='bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url(${results_background.src})` }} >
             <div className=" max-w-screen-xl mx-auto lg:px-8 ">
-                <p className="py-12 lg:py-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
+                <p className="py-12 lg:pt-12 lg:pb-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Track the portfolios of Shark investors
                 </p>
                 <Swiper
@@ -108,10 +110,10 @@ export default function SharksSection() {
                         </SwiperSlide>
                     )}
                 </Swiper>
-                <div className='flex justify-evenly items-end mt-10 lg:mt-6'>
-                    <Image src={result_screen1} className='hidden lg:block w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
-                    <Image src={result_screen1} className='w-[264px] object-contain' alt='demo image' width={210} height={'auto'} />
-                    <Image src={result_screen1} className='hidden lg:block w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
+                <div className='flex justify-center lg:justify-evenly items-end mt-10 lg:mt-6 max-w-[100vw] overflow-hidden'>
+                    <Image src={shark1} className='w-[110px] lg:w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
+                    <Image src={shark2} className='w-[140px] lg:w-[264px] object-contain' alt='demo image' width={210} height={'auto'} />
+                    <Image src={shark3} className='w-[110px] lg:w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
                 </div>
             </div>
         </section>

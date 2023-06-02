@@ -13,7 +13,7 @@ import { useDebounce } from "use-debounce";
 let sec = [0, 1265, 2040, 2780, 3500, 4300, 7000]
 export default function StockBarSection() {
     const scrollPosition = useScrollPosition();
-    const [scrolled] = useDebounce(scrollPosition, 200);
+    const [scrolled] = useDebounce(scrollPosition, 10);
     const [active, setActive] = useState('Markets');
 
     useEffect(() => {
@@ -57,7 +57,7 @@ export function BarChip({ icon, text, active, setActive }) {
                 className='h-[20px] lg:h-[28px] w-[20px] lg:w-[28px] object-contain'
                 alt='demo image'
             />
-            <span className="ml-2.5 text-xs lg:text-base text-black font-extrabold ">
+            <span className="lg:ml-2.5 text-xs lg:text-base text-black font-extrabold ">
                 {text}
             </span>
         </section>

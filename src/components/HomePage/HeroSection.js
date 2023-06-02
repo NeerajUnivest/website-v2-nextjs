@@ -2,8 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import EliteHeroSection from "../Elite/EliteHeroSection";
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import StocksHeroSection from "../Stocks/StocksHeroSection";
-import heroBG from "@/assets/images/heroBG.svg";
-import { Pagination } from "swiper";
+import heroBG from "@/assets/images/heroBG.png";
+import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
@@ -21,7 +21,11 @@ export default function HeroSection() {
                     clickable: true
                 }}
                 className='HeroSection'
-                modules={[Pagination]}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false
+                }}
+                modules={[Pagination, Autoplay]}
             >
                 <SwiperSlide>
                     <StocksHeroSection show={false} />
@@ -30,8 +34,8 @@ export default function HeroSection() {
                     <EliteHeroSection show={false} />
                 </SwiperSlide>
             </Swiper>
-            <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-screen xxl:h-[220px] bg-cover bg-center" style={{ backgroundImage: `url(${heroBG.src})` }}>
-                <div className="pb-3 lg:pb-6 max-w-screen-xl mx-auto flex items-end justify-between h-full">
+            <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>
+                <div className="lg:px-8 pb-3 lg:pb-8 max-w-screen-xl mx-auto flex items-end justify-between h-full">
                     <div className="flex flex-col ">
                         <HeroSearchBox />
                     </div>

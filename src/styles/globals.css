@@ -137,7 +137,7 @@ code {
 }
 
 .uni-wise-gradient2 {
-  background: -webkit-linear-gradient(0deg, #FF8415 -37.42%, #FFCA3F 65.82%);
+  background: -webkit-linear-gradient(180deg, #FF8415 -37.42%, #FFCA3F 65.82%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

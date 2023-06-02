@@ -6,7 +6,7 @@ function BlackButton({ text, onClick, className }) {
         <motion.button
             type="button"
             onTap={onClick}
-            className={`select-none rounded-full font-Inter bg-black text-[#FFFFFF] shadow-md ${className ?? 'px-6 lg:px-8 py-2 lg:py-4 text-sm lg:text-xl font-extrabold lg:font-semibold '}`}
+            className={`select-none rounded-full font-Inter bg-black text-[#FFFFFF] shadow-md border lg:border-2 border-white ${className ?? 'px-6 lg:px-8 py-2 lg:py-4 text-sm lg:text-xl font-extrabold lg:font-semibold '}`}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -39,7 +39,7 @@ function NewsCategoryChip({ text, onClick, icon }) {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
-                <Image src={icon} className='mr-2 h-[20px] w-[20px]' width={20} height={20} alt='icon' />
+            <Image src={icon} className='mr-2 h-[20px] w-[20px]' width={20} height={20} alt='icon' />
             {text}
         </motion.button>
     );
@@ -58,10 +58,25 @@ function IconBtn(props) {
     );
 }
 
+function ResultButton({ active, text, onClick, className }) {
+    return (
+        <motion.button
+            type="button"
+            onTap={onClick}
+            className={`select-none px-4 py-1 text-xs rounded-full font-Inter text-[#FFFFFF] shadow-md border lg:border-2  ${active ? 'text-white bg-[#1684FD] border-white' : ' text-black bg-white border-[#F5F5F5]'} ${className}`}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            {text}
+        </motion.button>
+    );
+}
 
 export {
     NewsCategoryChip,
     ScreenerCategoryChip,
     IconBtn,
     BlackButton,
+    ResultButton,
 };
