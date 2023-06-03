@@ -1,7 +1,7 @@
-import { useContext } from 'react'
 import forEmpty from '../../assets/img/forEmpty.webp'
 import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 
 
 const ltpClosePrice = (ltp, close) => {
@@ -24,18 +24,10 @@ const nseBsePrice = (nseLtpPrice, nseClosePrice, bseLtpPrice, bseClosePrice) => 
 
 
 export default function StockCard({ data, name }) {
-    const handleNavigate = (to, nseDiff) => {
-        // navigate(`/stocks/${to}?backTo=/screeners/${name}`)
-        //mixpanel
-        // utils.sendData(
-        //     'stock_clicked',
-        //     {
-        //         'page': 'screener_page',
-        //         'screener': name.toLowerCase(),
-        //         'fincode': to,
-        //         'days_gain': nseDiff > 0 ? 'up' : 'down',
-        //     }
-        // )
+    const router = useRouter();
+
+    const handleNavigate = (ele) => {
+        router.push(`/stocks/${ele.nseSymbol ?? ele.bseSymbol}/${ele.compName}?finCode=${ele.finCode}`)
     }
     return (
         <div className='px-4'>
@@ -43,7 +35,7 @@ export default function StockCard({ data, name }) {
                 return (
                     <div key={i}>
                         <div className='flex flex-row justify-between items-center font-Inter'>
-                            <div className='flex flex-row cursor-pointer' onClick={() => handleNavigate(ele.finCode, ltpClosePrice(ele.nseLtpPrice, ele.nseClosePrice))}>
+                            <div className='flex flex-row cursor-pointer' onClick={() => handleNavigate(ele)}>
                                 <div className='h-10 w-10 grid place-content-center mr-3'>
                                     {ele.logoUrl === null || ele.logoUrl === '' ?
                                         <div className='h-10 w-10 font-Inter font-extrabold text-[22px] text-[#606060] bg-[#ededed] text-center py-1 rounded-full'>

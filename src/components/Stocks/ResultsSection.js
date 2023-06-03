@@ -10,7 +10,7 @@ let data = [
 ]
 export default function ResultsSection() {
     const [state, setState] = useState(0);
-    console.log(state);
+
     const transitions = useTransition(state, {
         key: state,
         from: { opacity: 1, scale: 1 },

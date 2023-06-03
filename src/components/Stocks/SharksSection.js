@@ -110,9 +110,9 @@ export default function SharksSection() {
                         </SwiperSlide>
                     )}
                 </Swiper>
-                <div className='flex justify-center lg:justify-evenly items-end mt-10 lg:mt-6 max-w-[100vw] overflow-hidden'>
+                <div className='flex justify-center lg:justify-evenly items-end mt-10 lg:mt-6 max-w-[100vw] overflow-hidden -space-x-10 lg:space-x-0'>
                     <Image src={shark1} className='w-[110px] lg:w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
-                    <Image src={shark2} className='w-[140px] lg:w-[264px] object-contain' alt='demo image' width={210} height={'auto'} />
+                    <Image src={shark2} className='z-[1] w-[140px] lg:w-[264px] object-contain' alt='demo image' width={210} height={'auto'} />
                     <Image src={shark3} className='w-[110px] lg:w-[232px] object-contain' alt='demo image' width={210} height={'auto'} />
                 </div>
             </div>

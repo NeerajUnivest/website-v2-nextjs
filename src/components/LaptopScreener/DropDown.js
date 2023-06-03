@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import newSquare from '../../assets/icons/newSquare.webp';
-import premium from '../../assets/icons/premium.webp';
-import arrowUp from '../../assets/icons/arrowUp.png'
-import arrowDown from '../../assets/icons/arrowDown.png'
-import arrowLeft from '../../assets/icons/arrowLeft.webp'
+import newSquare from '../../assets/icn/newSquare.webp';
+import premium from '../../assets/icn/premium.webp';
+import arrowUp from '../../assets/icn/arrowUp.png'
+import arrowDown from '../../assets/icn/arrowDown.png'
+import arrowLeft from '../../assets/icn/arrowLeft.webp'
 import { useEffect } from 'react';
 import DownloadNow from '../../elements/DownloadNow/DownloadNow';
 import Image from 'next/image'
@@ -39,7 +39,7 @@ export default function DropDown({ list, selected }) {
 
     const handleDropdown = (cat) => {
         setShow(cat.categoryId)
-        // navigate(`/screeners/${list.screenersList?.filter(f => f.categoryId === cat.categoryId)[0].code}`)
+        router.push(`/screeners/${list.screenersList?.filter(f => f.categoryId === cat.categoryId)[0].code}`)
     }
     return (<div className=' sticky -top-[16px] py-10 ml-4'>
         <div className='m-4 font-Inter border-[2px] rounded-lg overflow-hidden'>

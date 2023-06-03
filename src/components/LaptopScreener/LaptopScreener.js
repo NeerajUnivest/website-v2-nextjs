@@ -1,7 +1,7 @@
 import StockCard from './StockCard';
-import newSquare from '../../assets/icons/newSquare.webp';
-import premium from '../../assets/icons/premium.webp';
-import premiumLarge from '../../assets/icons/premiumLarge.webp';
+import newSquare from '../../assets/icn/newSquare.webp';
+import premium from '../../assets/icn/premium.webp';
+import premiumLarge from '../../assets/icn/premiumLarge.webp';
 import Image from 'next/image'
 
 export default function LaptopScreener({ data }) {

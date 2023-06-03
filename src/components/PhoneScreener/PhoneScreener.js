@@ -33,8 +33,7 @@ let passiveStyle = {
 }
 
 let screeners = [];
-export default function PhoneScreener({ loading, name, screenersList, data }) {
-
+export default function PhoneScreener({ name, screenersList, data }) {
   const router = useRouter();
   const [viewMore, setViewMore] = useState(true);
 
@@ -47,13 +46,13 @@ export default function PhoneScreener({ loading, name, screenersList, data }) {
   // element?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" })
 
   const handleSwipe = n => {
-    // if (n === 0 && screeners?.indexOf(name) > 0) {
-    //   navigate(`/screeners/${screeners[screeners?.indexOf(name) - 1]}?backTo=screeeners`, { replace: true })
-    // } else if (n === 2 && screeners?.indexOf(name) < screeners?.length - 1) {
-    //   navigate(`/screeners/${screeners[screeners?.indexOf(name) + 1]}?backTo=screeeners`, { replace: true })
-    // } else if (n === 1 && screeners.indexOf(name) === 0) {
-    //   navigate(`/screeners/${screeners[1]}?backTo=screeeners`, { replace: true })
-    // }
+    if (n === 0 && screeners?.indexOf(name) > 0) {
+      router.push(`/screeners/${screeners[screeners?.indexOf(name) - 1]}?backTo=screeeners`)
+    } else if (n === 2 && screeners?.indexOf(name) < screeners?.length - 1) {
+      router.push(`/screeners/${screeners[screeners?.indexOf(name) + 1]}?backTo=screeeners`)
+    } else if (n === 1 && screeners.indexOf(name) === 0) {
+      router.push(`/screeners/${screeners[1]}?backTo=screeeners`)
+    }
   }
   return (
     <div className='pt-20'>
@@ -79,60 +78,55 @@ export default function PhoneScreener({ loading, name, screenersList, data }) {
             > {ele.title}
             </Link>)}
         </div>
-        {loading ?
-          <Fragment>
-            <div className='h-40 w-full animate-pulse bg-[#D9D9D9] rounded' />
-            <LazyPhoneScreener />
-          </Fragment>
-          :
-          <Fragment>
-            <div className='w-full h-22 py-5' style={{ backgroundColor: data.colorCode }}>
-              <div className='mx-4 flex justify-between '>
-                <div className='font-Inter leading-[28px] font-medium text-[16px] text-[#FFFFFF]'>
-                  {data.title}
-                  <div className='font-Inter leading-[20px] font-normal text-[12px] text-[#FFFFFF]'>
-                    {data.list?.length + ' stocks'}</div>
-                </div>
-                <div className='h-[32px]'>
-                  <Image src={data.imageUrl} width={24} height={24} className='h-14' alt='screenerIcon' />
-                </div>
+
+        <Fragment>
+          <div className='w-full h-22 py-5' style={{ backgroundColor: data.colorCode }}>
+            <div className='mx-4 flex justify-between '>
+              <div className='font-Inter leading-[28px] font-medium text-[16px] text-[#FFFFFF]'>
+                {data.title}
+                <div className='font-Inter leading-[20px] font-normal text-[12px] text-[#FFFFFF]'>
+                  {data.list?.length + ' stocks'}</div>
+              </div>
+              <div className='h-[32px]'>
+                <Image src={data.imageUrl} width={24} height={24} className='h-14' alt='screenerIcon' />
               </div>
             </div>
-            <div className='w-full mb-4 flex justify-between -mt-[1px]' style={{ backgroundImage: `linear-gradient(${data.colorCode}, #FFFFFF)` }}>
-              <div className={`mx-4 w-full p-3 bg-white rounded-lg font-Inter leading-[16px] ease-in-out duration-300 shadow
+          </div>
+          <div className='w-full mb-4 flex justify-between -mt-[1px]' style={{ backgroundImage: `linear-gradient(${data.colorCode}, #FFFFFF)` }}>
+            <div className={`mx-4 w-full p-3 bg-white rounded-lg font-Inter leading-[16px] ease-in-out duration-300 shadow
                text-[10px] text-[#747474] ${viewMore ? 'min-h-10' : 'min-h-16'}`}>
-                {viewMore ? (data.description?.length > 100 ? data.description.slice(0, 100) + '...' : data.description) :
-                  data.description}
-                {data.description?.length >= 100 &&
-                  <button className='text-[#00439D] text-[10px] leading-[20px] font-medium font-Inter ml-2'
-                    onClick={() => setViewMore(!viewMore)}>
-                    {viewMore ? 'Read more' : 'Read less'}
-                  </button>}
-              </div>
+              {viewMore ? (data.description?.length > 100 ? data.description.slice(0, 100) + '...' : data.description) :
+                data.description}
+              {data.description?.length >= 100 &&
+                <button className='text-[#00439D] text-[10px] leading-[20px] font-medium font-Inter ml-2'
+                  onClick={() => setViewMore(!viewMore)}>
+                  {viewMore ? 'Read more' : 'Read less'}
+                </button>}
             </div>
-            <Swiper
-              autoHeight
-              initialSlide={screeners?.indexOf(name) > 0 ? 1 : 0}
-              spaceBetween={0}
-              slidesPerView={1}
-              onSlideChange={(e) => handleSwipe(e.activeIndex)}>
+          </div>
+          <Swiper
+            autoHeight
+            initialSlide={screeners?.indexOf(name) > 0 ? 1 : 0}
+            spaceBetween={0}
+            slidesPerView={1}
+            onSlideChange={(e) => handleSwipe(e.activeIndex)}>
 
-              {screeners?.indexOf(name) > 0 &&
-                <SwiperSlide>
-                  <LazyPhoneScreener />
-                </SwiperSlide>}
-
+            {screeners?.indexOf(name) > 0 &&
               <SwiperSlide>
-                <StockCard data={data} name={name} />
-              </SwiperSlide>
+                <LazyPhoneScreener />
+              </SwiperSlide>}
 
-              {screeners?.indexOf(name) < screeners?.length - 1 &&
-                <SwiperSlide>
-                  <LazyPhoneScreener />
-                </SwiperSlide>}
+            <SwiperSlide>
+              <StockCard data={data} name={name} />
+            </SwiperSlide>
 
-            </Swiper>
-          </Fragment>}
+            {screeners?.indexOf(name) < screeners?.length - 1 &&
+              <SwiperSlide>
+                <LazyPhoneScreener />
+              </SwiperSlide>}
+
+          </Swiper>
+        </Fragment>
       </div>
     </div>
   )

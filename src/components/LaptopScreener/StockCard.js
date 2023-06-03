@@ -1,6 +1,7 @@
 
-import viewChat from "../../assets/icons/viewChat.webp";
+import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
+import { useRouter } from "next/router";
 
 
 const ltpClosePrice = (ltp, close) => {
@@ -22,20 +23,10 @@ const nseBsePrice = (nseLtpPrice, nseClosePrice, bseLtpPrice, bseClosePrice) => 
 }
 
 export default function StockCard({ data }) {
-    // const navigate = useNavigate();
+    const router = useRouter();
 
-    const handleNavigate = (to, nseDiff) => {
-        // navigate(`/stocks/${to}?backTo=/screeners`)
-        //mixpanel
-        // utils.sendData(
-        //     'stock_clicked',
-        //     {
-        //         'page': 'screener_page',
-        //         'screener': name.toLowerCase(),
-        //         'fincode': to,
-        //         'days_gain': nseDiff > 0 ? 'up' : 'down',
-        //     }
-        // )
+    const handleNavigate = (ele) => {
+        router.push(`/stocks/${ele.nseSymbol ?? ele.bseSymbol}/${ele.compName}?finCode=${ele.finCode}`)
     }
     return <div className='overflow-x-auto no-scrollbar mx-4'>
         <div className='my-4 flex bg-[#CFE8FC] flex-row justify-between items-center font-Inter font-medium text-[14px] leading-[24px] text-[#414141]'>
@@ -84,7 +75,7 @@ export default function StockCard({ data }) {
         <div className='my-4  '>
             {data.list?.map((ele, i) => <div key={i}>
                 <div className='flex flex-row justify-between items-center font-Inter px-1 py-3 font-semibold text-[14px] leading-[24px] text-[#414141]'>
-                    <div className='mr-10 sticky left-5 bg-white z- flex flex-row min-w-[360px] max-w-[360px] cursor-pointer' onClick={() => handleNavigate(ele.finCode, ltpClosePrice(ele.nseLtpPrice, ele.nseClosePrice))}>
+                    <div className='mr-10 sticky left-5 bg-white z- flex flex-row min-w-[360px] max-w-[360px] cursor-pointer' onClick={() => handleNavigate(ele)}>
                         <div className='h-11 w-11 grid place-content-center'>
                             {ele.logoUrl === null || ele.logoUrl === '' ?
                                 <div className='h-11 w-11 font-Inter font-extrabold text-[24px] text-[#606060] bg-[#ededed] text-center  rounded-full pt-2.5'>
