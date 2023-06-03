@@ -97,8 +97,8 @@ export default function AvailablePlansSection() {
                     },
                 }}
             >
-                {cardData?.map(ele =>
-                    <SwiperSlide key={ele}>
+                {cardData?.map((ele, i) =>
+                    <SwiperSlide key={i}>
                         <AvailablePlansCard data={ele} />
                     </SwiperSlide>)}
             </Swiper>
