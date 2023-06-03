@@ -11,7 +11,7 @@ export default function Elite() {
     return (<>
         <EliteHeroSection show={true} />
         <AvailablePlansSection />
-        <WhyShouldSection />
+        <WhyShouldSection homePage={false} />
         <HowItWork />
         <EarnExtraSection />
         <AboutFaircent />

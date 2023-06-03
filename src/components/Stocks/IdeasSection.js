@@ -63,10 +63,12 @@ export default function IdeasSection() {
                         </div>
                     </div>
                     <div className="-mt-14 lg:-mt-20 pt-16 lg:pt-24 pb-4  bg-[#202020] rounded-3xl">
-                        <div className="flex items-center justify-center mb-5 text-sm font-medium text-[#F5F5F5] gap-1">
+                        <div className="flex flex-col lg:flex-row items-center justify-center mb-5 text-sm font-medium text-[#F5F5F5] gap-1">
                             <span>Past performance </span>
-                            <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">81.4% Accuracy</span>
-                            <span className="font-semibold text-sm lg:text-xl"> | Hit: 35 | Miss: 8</span>
+                            <div>
+                                <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">81.4% Accuracy</span>
+                                <span className="font-semibold text-sm lg:text-xl"> | Hit: 35 | Miss: 8</span>
+                            </div>
                         </div>
                         {!loading &&
                             <Swiper

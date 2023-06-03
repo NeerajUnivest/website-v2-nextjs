@@ -9,7 +9,9 @@ import ratingLg from "../../assets/images/ratingLg.png";
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
+import { Autoplay, Navigation, Pagination } from "swiper";
 
 const commentsData = [
     {
@@ -58,7 +60,7 @@ const commentsData = [
 
 export default function UserFeedbacksSection() {
     return (
-        <section className='font-Inter max-w-screen-xl py-16 lg:py-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
+        <section className='font-Inter max-w-screen-xl pb-6 lg:pb-10 pt-16 lg:pt-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
                 <div className="">
                     <p className="font-medium text-base lg:text-3xl text-black">Trusted by <span className='font-extrabold'>400k+ users</span></p>
@@ -69,6 +71,7 @@ export default function UserFeedbacksSection() {
             <Swiper
                 grabCursor={true}
                 initialSlide={1}
+                loop={true}
                 slidesPerView='auto'
                 spaceBetween={16}
                 centeredSlides={true}
@@ -82,8 +85,15 @@ export default function UserFeedbacksSection() {
                         spaceBetween: 32,
                     },
                 }}
-                // navigation={false}
-                // modules={[Navigation]}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false
+                }}
+                pagination={{
+                    dynamicBullets: true,
+                    clickable: true
+                }}
+                modules={[Autoplay, Pagination]}
                 className="UserFeedbacksSection"
             >
                 {commentsData?.map(ele =>

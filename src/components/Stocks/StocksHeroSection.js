@@ -27,16 +27,16 @@ export default function StocksHeroSection({ show }) {
                                 alt='demo image'
                             />
                             <div className="self-center ml-5">
-                                <p className="font-semibold text-base">Registered - INA000017639</p>
+                                <p className="font-semibold text-base">Registered - <b>INA000017639</b></p>
                                 <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
                             </div>
                         </div>
                         <div className="self-center">
-                            <p className="font-semibold text-base"><CountUpBox end={3.5} decimals={1}/> Lac+</p>
+                            <p className="font-semibold text-base"><CountUpBox end={3.5} decimals={1} /> Lac+</p>
                             <p className="font-medium text-xs text-[#606060]">Active users</p>
                         </div>
                         <div className="self-center">
-                            <p className="font-semibold text-base"><CountUpBox start={1000} end={1200} duration={2}/> Cr+</p>
+                            <p className="font-semibold text-base"><CountUpBox start={1000} end={1200} duration={2} /> Cr+</p>
                             <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>

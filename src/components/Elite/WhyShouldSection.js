@@ -1,5 +1,7 @@
 
 
+import rbi from '@/assets/icons/rbi.png';
+import univest_elite from '@/assets/images/univest_elite.png';
 import a from '../../assets/icons/plans/1.png';
 import Image from 'next/image';
 import elite_banner from '../../assets/lottiefiles/elite_banner.gif';
@@ -43,14 +45,39 @@ let data = [{
     to: 'to-[#F7E4DA]',
     border: 'border-[#FF9F40]'
 }]
-export default function WhyShouldSection({ bgClass }) {
+export default function WhyShouldSection({ homePage }) {
     return (
-        <section className={`font-Inter py-16 lg:py-24 ${bgClass}`}>
+        <section className={`font-Inter py-16 lg:py-24 ${homePage && 'bg-[#C9DDE6]'}`}>
             <div className=' max-w-screen-xl mx-auto lg:px-8'>
+                <div className='ml-4 lg:ml-0 lg:pb-14 flex flex-col lg:flex-row lg:items-center justify-between'>
+                    <div>
+                        <Image
+                            placeholder="empty"
+                            src={univest_elite}
+                            className='h-[32px] lg:h-[40px] object-contain max-w-[140px] lg:max-w-[160px] mb-6 lg:mb-8'
+                            alt='demo image'
+                        />
+                        <p className='text-2xl lg:text-4xl text-black font-semibold lg:font-extrabold'>
+                            Earn up to  <span className="text-[#437587] font-black">12% p.a.</span>
+                        </p>
+                    </div>
+                    <div className="flex my-8 lg:my-0">
+                        <Image
+                            placeholder="empty"
+                            src={rbi}
+                            className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px]'
+                            alt='demo image'
+                        />
+                        <div className="self-center ml-3 lg:ml-4">
+                            <p className="font-medium text-sm lg:text-base text-[#606060]">Secured with</p>
+                            <p className="font-semibold text-sm lg:text-base">RBI regulated <b>NBFC - P2P</b></p>
+                        </div>
+                    </div>
+                </div>
                 <Image
                     placeholder="empty"
                     src={elite_banner}
-                    className='w-[calc(100vw-32px)] object-contain rounded-3xl mb-7 lg:mb-24 mx-auto'
+                    className='w-[calc(100vw-32px)] object-contain rounded-xl lg:rounded-3xl mb-7 lg:mb-24 mx-auto'
                     alt='demo image'
                 />
                 <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>

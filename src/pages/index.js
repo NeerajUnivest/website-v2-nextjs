@@ -16,7 +16,7 @@ export default function HomePage() {
     <HeroSection />
     <WhyUnivestSection />
     <ProductSection />
-    <WhyShouldSection bgClass='bg-[#C9DDE6]' />
+    <WhyShouldSection homePage={true} />
     <IdeasSection />
     <InThePressSection />
     <UserFeedbacksSection />
