@@ -9,7 +9,8 @@ import DownloadNow from '../../elements/DownloadNow/DownloadNow';
 import Image from 'next/image'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
+import { BsArrowLeft } from 'react-icons/bs';
+import { SlArrowDown } from 'react-icons/sl'
 
 const activeStyle = {
     backgroundColor: '#F3F9FE',
@@ -20,7 +21,8 @@ const activeStyle = {
     display: 'flex',
     flexDirection: 'row',
     padding: 12 + 'px',
-    position: 'relative'
+    position: 'relative',
+    alignItems: 'center'
 }
 const anActiveStyle = {
     backgroundColor: '#ffffff',
@@ -29,7 +31,8 @@ const anActiveStyle = {
     display: 'flex',
     flexDirection: 'row',
     padding: 12 + 'px',
-    position: 'relative'
+    position: 'relative',
+    alignItems: 'center'
 }
 export default function DropDown({ list, selected }) {
     const router = useRouter();
@@ -41,31 +44,31 @@ export default function DropDown({ list, selected }) {
         setShow(cat.categoryId)
         router.push(`/screeners/${list.screenersList?.filter(f => f.categoryId === cat.categoryId)[0].code}`)
     }
-    return (<div className=' sticky -top-[16px] py-10 ml-4'>
+    return (<div className=' sticky top-[60px] py-10 ml-4'>
         <div className='m-4 font-Inter border-[2px] rounded-lg overflow-hidden'>
-            <div className='py-2 flex flex-row'>
-                <div className='mx-4 '>
-                    <Link href='/screeners'>
-                        <Image src={arrowLeft} alt='icon' className='mt-2 max-h-4 max-w-4 ' />
-                    </Link>
+            <Link href='/screeners'>
+                <div className='py-2 flex items-center'>
+                    {/* <Image src={arrowLeft} alt='icon' className='mt-2 max-h-4 max-w-4 ' /> */}
+                    <BsArrowLeft className='mx-4' size={25} />
+                    <div className='text-[18px] leading-[32px] text-[#202020] font-semibold '>
+                        Go to screeners home
+                    </div>
                 </div>
-                <div className='text-[20px] leading-[32px] text-[#202020] font-semibold '>
-                    Go to screeners home
-                </div>
-            </div>
+            </Link>
+
             {list.screenersCategories?.map((cat, i) =>
                 <div key={i}>
-                    <div className={`border-t flex flex-row justify-between cursor-pointer w-fdivl px-4 py-2 text-[16px] text-[#202020] leading-[28px] text-left ${show === cat.categoryId && 'bg-[#c2e0f9] cursor-default font-semibold'}`} onClick={() => handleDropdown(cat)}>
+                    <div className={`border-t flex items-center justify-between cursor-pointer w-full px-4 py-2 text-[16px] text-[#202020] leading-[28px] text-left ${show === cat.categoryId && 'bg-[#c2e0f9] cursor-default font-semibold'}`} onClick={() => handleDropdown(cat)}>
                         {cat.categoryTitle}
-                        <Image src={show === cat.categoryId ? arrowUp : arrowDown} alt='icon' className='h-3 mt-2' />
+                        {/* <Image src={show === cat.categoryId ? arrowUp : arrowDown} alt='icon' className='h-3 mt-2' /> */}
+                        <SlArrowDown size={20} className={show === cat.categoryId ? 'rotate-180' : 'rotate-0'} />
                     </div>
                     <div className={`ease-in-out duration-500 overflow-y-auto no-scrollbar ${show === cat.categoryId ? 'max-h-[275px]' : 'max-h-0 '}`}>
                         {list.screenersList?.filter(f => f.categoryId === cat.categoryId)?.map((ele, i) =>
-                            <Link href='#' key={i}
-                                style={router.asPath === `/screeners/${ele.code}?backTo=screeeners` ? activeStyle : anActiveStyle}
-                            >
+                            <Link href={`/screeners/${ele.code}`} key={i}
+                                style={router.asPath === `/screeners/${ele.code}?backTo=screeeners` ? activeStyle : anActiveStyle}>
                                 <div className='relative h-8 w-8 m-0'>
-                                    <Image src={ele.imageUrl} width={20} height={20} alt='logo' className='max-h-8 max-w-8 ' />
+                                    <Image src={ele.imageUrl} width={32} height={32} alt='logo' className='max-h-8 max-w-8 ' />
                                     {ele.premium && <Image src={premium} width={20} alt='logo' className='absolute -bottom-2 left-4 h-[20px] w-[20px]' />}
                                 </div>
                                 <div className='ml-3 '>
@@ -76,7 +79,7 @@ export default function DropDown({ list, selected }) {
                                         {ele.stocksCount} Stocks
                                     </div>
                                 </div>
-                                {ele.newFlag && <Image src={newSquare} alt='icon' className='absolute top-5 right-3 h-[16px]' />}
+                                {ele.newFlag && <Image src={newSquare} alt='icon' className='absolute top-5 right-3 w-9' />}
                             </Link>)}
                     </div>
                 </div>

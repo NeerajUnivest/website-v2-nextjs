@@ -57,17 +57,6 @@ export default function PhoneScreener({ name, screenersList, data }) {
   return (
     <div className='pt-20'>
       <div className='bg-white z-1 shadow-sm'>
-        {/* <div className='mx-4 py-3 flex flex-row justify-center'>
-          <button>
-            <Image src={arrowUp} className='h-6' alt='back' />
-          </button>
-          <div className='font-Inter leading-[28px] text-[16px] font-medium'>
-            Screeners
-          </div>
-          <button >
-            <Image src={arrowUp} className='h-6' alt='icon' />
-          </button>
-        </div> */}
         <div className='snap-mandatory snap-x flex flex-row justify-between pt-2 my-1 overflow-x-auto no-scrollbar scroll-smooth'>
           {screenersList?.map((ele, i) =>
             <Link key={i}
@@ -87,9 +76,7 @@ export default function PhoneScreener({ name, screenersList, data }) {
                 <div className='font-Inter leading-[20px] font-normal text-[12px] text-[#FFFFFF]'>
                   {data.list?.length + ' stocks'}</div>
               </div>
-              <div className='h-[32px]'>
-                <Image src={data.imageUrl} width={24} height={24} className='h-14' alt='screenerIcon' />
-              </div>
+              <Image src={data.imageUrl} width={56} height={56} alt='screener logo' />
             </div>
           </div>
           <div className='w-full mb-4 flex justify-between -mt-[1px]' style={{ backgroundImage: `linear-gradient(${data.colorCode}, #FFFFFF)` }}>

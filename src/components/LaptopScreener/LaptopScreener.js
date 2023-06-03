@@ -15,14 +15,14 @@ export default function LaptopScreener({ data }) {
                 Premium
             </div>
             <div className='ml-2 mr-1'>
-                <Image width={24} height={24} src={newSquare} className='h-4 lg:h-5' alt='icon' />
+                <Image width={48} height={24} src={newSquare} className='h-4 lg:h-5' alt='icon' />
             </div>
             <div className='lg:mt-[2px] text-[12px] leading-[16px] text-[#202020]'>
                 Newly added
             </div>
         </div>
-        <div className='rounded m-4 py-3 px-4'
-        // style={{ backgroundImage: `linear-gradient(90deg, ${data.colorCode}25, ${data.colorCode}50)` }}
+        <div className='rounded-lg m-4 py-3 px-4'
+            style={{ backgroundImage: `linear-gradient(90deg, ${data.colorCode}25, ${data.colorCode}50)` }}
         >
             <div className='flex flex-row justify-between'>
                 <div>

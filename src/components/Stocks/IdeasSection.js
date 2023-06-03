@@ -3,7 +3,7 @@ import sebi_logo from '@/assets/icons/sebi_logo.png';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import moment from "moment/moment";
-import { useAxios } from "@/hooks/useAxios";
+import useSWR from 'swr'
 import { Autoplay } from "swiper";
 import mini_trade_card from '@/assets/images/mini_trade_card.png';
 import yashpal_arora from '@/assets/images/yashpal_arora.png';
@@ -11,8 +11,9 @@ import ketan_sonalkar from '@/assets/images/ketan_sonalkar.png';
 import sagar_wadhwa from '@/assets/images/sagar_wadhwa.png';
 
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function IdeasSection() {
-    const { data, loading } = useAxios({ method: 'GET', url: `/resources/trade-cards/hit` });
+    const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
     return (
         <section id="Ideas" className='max-w-screen-xl py-6 lg:py-32 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
@@ -70,8 +71,13 @@ export default function IdeasSection() {
                                 <span className="font-semibold text-sm lg:text-xl"> | Hit: 35 | Miss: 8</span>
                             </div>
                         </div>
-                        {!loading &&
-                            <Swiper
+                        {isLoading ?
+                            <div className="flex">
+                                {[1, 2, 3, 4, 5,].map(ele =>
+                                    <div key={ele} className="overflow-hidden m-4 h-[164px] min-w-[144px] bg-white rounded-lg" />
+                                )}
+                            </div>
+                            : <Swiper
                                 grabCursor={true}
                                 loop={true}
                                 centeredSlides={true}

@@ -1,14 +1,15 @@
 import { BlackButton, ScreenerCategoryChip } from "@/elements/Button/Button";
-import { useAxios } from "@/hooks/useAxios";
+import useSWR from 'swr'
 import Image from "next/image";
 import Link from "next/link";
 // import { useRouter } from 'next/navigation';
 import { BsArrowRight } from "react-icons/bs";
 import ScreenerCard from "../Screeners/ScreenerCard";
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function ScreenersSection() {
     // const { push } = useRouter();
-    const { data, loading } = useAxios({ method: 'GET', url: `/resources/screeners/v2` });
+    const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/screeners/v2`, fetcher)
     return (
         <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-32 bg-[#FFFFFF]'>
             <p className="my-8 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-black">
@@ -19,9 +20,11 @@ export default function ScreenersSection() {
                     Popular screeners
                 </p>
                 <div className="pt-2 pb-4 lg:pt-6 lg:pb-12 grid grid-rows-2 lg:grid-rows-1 grid-flow-col overflow-x-auto gap-x-3 lg:gap-x-14 gap-y-6 px-4 lg:px-8" >
-                    {data?.data?.list?.screenersList?.filter(f => f.mobile)?.map((ele, i) =>
-                        <ScreenerCard key={i} ele={ele} />
-                    )}
+                    {isLoading ?
+                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(ele => <div key={ele} className={`bg-white w-[120px] min-w-[120px] h-[132px] lg:w-[200px] lg:min-w-[200px] lg:h-[156px] border-[1px] border-[#E5E5E5] rounded-[12px] overflow-hidden shadow-md z-[1]`} />)
+                        : data?.data?.list?.screenersList?.filter(f => f.mobile)?.map((ele, i) =>
+                            <ScreenerCard key={i} ele={ele} />
+                        )}
                 </div>
                 <p className="mb-11 text-center text-sm lg:text-xl font-semibold text-black">
                     <span className="text-app-red font-extrabold">New</span> screeners added every month

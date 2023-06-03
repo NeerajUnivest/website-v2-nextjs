@@ -13,7 +13,6 @@ const inter = Inter({
 
 export default function App({ Component, pageProps }) {
   const { isPageLoading } = usePageLoading();
-  console.log(isPageLoading);
   return (
     <main className={`${inter.variable} min-w-[346px]`}>
       <UtilsContext>

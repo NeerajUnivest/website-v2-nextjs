@@ -4,11 +4,10 @@ import screenerIcon from '../../assets/img/screenerIcon.webp';
 import newSquare from '../../assets/icn/newSquare.webp';
 import premium from '../../assets/icn/premium.webp';
 import Image from 'next/image';
-import axios from 'axios';
 
 export default function Screeners({ data }) {
     return (
-        <section className='font-Inter relative overflow-hidden  pt-20 lg:pt-24'>
+        <section className='font-Inter relative overflow-hidden  pt-24 lg:pt-28'>
             <div className='-z-10 rounded-[50px] absolute left-[50vw] top-[30vh] bg-[#e3f0fb96] h-[100vh] w-[60vw]' />
 
             <div className='absolute top-18 lg:top-32 right-4 font-Inter flex flex-row justify-center lg:justify-end  lg:mr-4 h-10'>
@@ -36,11 +35,12 @@ export default function Screeners({ data }) {
         </section>)
 }
 
-export async function getStaticProps() {
-    let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
+export async function getServerSideProps() {
+    const res = await fetch(`${process.env.apiBaseURL}/resources/screeners/v2`);
+    const data = await res.json();
     return {
         props: {
-            data: res.data.data.list
-        }
+            data: data.data.list
+        },
     };
 }

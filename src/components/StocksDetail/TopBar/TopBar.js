@@ -13,7 +13,7 @@ export default function TopBar() {
     }, [])
     const listenToScroll = () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        // console.log(winScroll);
+
         clearInterval(myInterval);
 
         myInterval = setTimeout(() => {

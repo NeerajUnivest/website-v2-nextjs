@@ -2,22 +2,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import moment from "moment/moment";
-import { useAxios } from "@/hooks/useAxios";
+import useSWR from 'swr'
 import { TbTriangleFilled } from "react-icons/tb";
 import { Autoplay, Pagination } from "swiper";
 import { BlackButton, NewsCategoryChip } from "@/elements/Button/Button";
 
-
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function NewsSection() {
-    const { data, loading } = useAxios({ method: 'GET', url: `/resources/convey/news?page=0` });
+    const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/convey/news?page=0`, fetcher)
     return (
         <section id="News" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10 bg-[#FFFFFF]'>
             <p className="mt-8 lg:mt-5 mb-8 lg:mb-10 text-center text-xl lg:text-3xl font-extrabold text-black">
                 Now read all financial news<br className="lg:hidden" /> in about 60 words
             </p>
             <div className="mx-4 px-[1px] pt-6 pb-5 lg:pt-12 rounded-[32px] bg-gradient-to-tr to-[#ffd87d90] from-[#F1F1F1] relative">
-                {!loading &&
-                    <Swiper
+                {isLoading ?
+                    <div className="w-[246px] h-[256px] lg:w-[346px] lg:h-[350px]" />
+                    : <Swiper
                         grabCursor={true}
                         loop={true}
                         centeredSlides={true}
