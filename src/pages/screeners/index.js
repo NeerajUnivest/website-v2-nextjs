@@ -36,7 +36,7 @@ export default function Screeners({ data }) {
         </section>)
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
     return {
         props: {

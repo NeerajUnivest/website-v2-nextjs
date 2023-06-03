@@ -35,9 +35,12 @@ export async function getServerSideProps(context) {
     const { query } = context;
     const { name } = query;
 
-    let screenersList = await getScreenersList()
-    let screenerDetails = await getScreenerDetails(name)
-
+    // let screenersList = await getScreenersList()
+    // let screenerDetails = await getScreenerDetails(name)
+    const [screenersList, screenerDetails] = await Promise.all([
+        getScreenersList(),
+        getScreenerDetails(name)
+    ]);
     return {
         props: {
             screenersList,
