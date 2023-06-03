@@ -22,7 +22,7 @@ export default function HeroSection() {
                 }}
                 className='HeroSection'
                 autoplay={{
-                    delay: 3000,
+                    delay: 4000,
                     disableOnInteraction: false
                 }}
                 modules={[Pagination, Autoplay]}

@@ -172,7 +172,7 @@ export default function BrokersSection() {
             </div>
             <Marquee
                 play={inView}
-                speed={30}
+                speed={50}
                 delay={2}
                 pauseOnHover>
                 <div className='flex overflow-y-auto gap-x-8 py-12 lg:py-16 mx-4'>

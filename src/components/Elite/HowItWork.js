@@ -23,7 +23,7 @@ const data = [
 ]
 export default function HowItWork() {
     return (
-        <section className={`font-Inter py-16 lg:py-24 lg:px-8`}>
+        <section className={`font-Inter py-16 lg:py-24 px-4 lg:px-8`}>
             <div className=' max-w-screen-xl mx-auto'>
                 <p className='mb-8 text-xl lg:text-4xl text-black font-extrabold'>
                     How is my money invested?

@@ -49,7 +49,7 @@ export default function WhyShouldSection({ homePage }) {
     return (
         <section className={`font-Inter py-16 lg:py-24 ${homePage && 'bg-[#C9DDE6]'}`}>
             <div className=' max-w-screen-xl mx-auto lg:px-8'>
-                <div className='ml-4 lg:ml-0 lg:pb-14 flex flex-col lg:flex-row lg:items-center justify-between'>
+                {homePage && <div className='ml-4 lg:ml-0 lg:pb-14 flex flex-col lg:flex-row lg:items-center justify-between'>
                     <div>
                         <Image
                             placeholder="empty"
@@ -73,7 +73,7 @@ export default function WhyShouldSection({ homePage }) {
                             <p className="font-semibold text-sm lg:text-base">RBI regulated <b>NBFC - P2P</b></p>
                         </div>
                     </div>
-                </div>
+                </div>}
                 <Image
                     placeholder="empty"
                     src={elite_banner}
