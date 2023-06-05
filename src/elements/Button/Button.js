@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { HiArrowRight } from "react-icons/hi";
 
 function BlackButton({ text, onClick, className }) {
     return (
@@ -73,10 +74,26 @@ function ResultButton({ active, text, onClick, className }) {
     );
 }
 
+function ExploreMore({ onClick, className }) {
+    return (
+        <motion.button
+            type="button"
+            onTap={onClick}
+            className={`flex items-center text-sm lg:text-base font-semibold text-black border-2 border-black rounded-full px-6 py-2 ${className}`}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            Explore more
+            <HiArrowRight size={16} className='ml-2' />
+        </motion.button>
+    );
+}
 export {
     NewsCategoryChip,
     ScreenerCategoryChip,
     IconBtn,
     BlackButton,
     ResultButton,
+    ExploreMore,
 };

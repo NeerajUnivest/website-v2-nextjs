@@ -21,7 +21,7 @@ import BrokersSection from "@/components/Stocks/BrokersSection";
 
 export default function Stocks() {
     return (<>
-        <StocksHeroSection show={true} />
+        <StocksHeroSection homePage={false} />
         <StockBarSection />
         <MarketsSection />
         <IdeasSection />

@@ -6,7 +6,6 @@ import IdeasSection from "@/components/Stocks/IdeasSection";
 import ProductSection from "@/components/HomePage/ProductSection";
 import WhyUnivestSection from "@/components/HomePage/WhyUnivestSection";
 import WhyShouldSection from "@/components/Elite/WhyShouldSection";
-import HowItWork from "@/components/Elite/HowItWork";
 
 
 

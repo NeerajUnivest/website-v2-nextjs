@@ -398,7 +398,7 @@ code {
 
   .HeroSection .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
   .HeroSection .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-    left: 10% !important;
+    left: 16% !important;
     bottom: 70px !important;
   }
 }

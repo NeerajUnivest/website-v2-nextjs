@@ -1,35 +1,43 @@
 import { BlackButton } from '@/elements/Button/Button';
 import { useState } from 'react'
 import { useTransition, animated, } from 'react-spring'
-import mornging_digest from '../../assets/images/mornging_digest.png';
+import crisp_stock_research from '../../assets/images/crisp_stock_research.png';
+import marketsImg from '../../assets/images/markets.png';
+import sharksImg from '../../assets/images/sharks.png';
+import resultsImg from '../../assets/images/results.png';
+import newsImg from '../../assets/images/news.png';
 import markets from '../../assets/icons/markets.png';
 import sharks from '../../assets/icons/sharks.png';
 import results from '../../assets/icons/results.png';
 import news from '../../assets/icons/news.png';
 import Image from "next/image";
+import background_circles from '../../assets/images/background_circles.png';
 
 
 const brokerList = [
     {
         name: "Markets",
         icon: markets,
-        img: mornging_digest.src
+        img: marketsImg.src
     },
     {
         name: "News",
         icon: news,
-        img: mornging_digest.src
+        img: newsImg.src
     },
     {
         name: "Results",
         icon: results,
-        img: mornging_digest.src
+        img: resultsImg.src
     },
     {
         name: "Sharks",
         icon: sharks,
-        img: mornging_digest.src
+        img: sharksImg.src
     },
+    {
+        img: crisp_stock_research.src
+    }
 ]
 
 export default function ProductSection() {
@@ -38,10 +46,10 @@ export default function ProductSection() {
     const transitions = useTransition(state, {
         key: state,
         from: { opacity: 0, transform: 'translateY(30%)' },
-        enter: { opacity: 1, transform: 'translateY(0)' },
-        leave: { opacity: 0, transform: 'translateY(-10%)', delay: 2000, },
+        enter: { opacity: 1, transform: 'translateY(0)', },
+        leave: { opacity: 0, transform: 'translateY(-10%)', delay: 3000, },
         config: { duration: 300 },
-        onRest: (_a, _b, item) => {
+        onStart: (_a, _b, item) => {
             if (item === state) {
                 if (state > brokerList.length - 2) {
                     setState(0)
@@ -53,7 +61,7 @@ export default function ProductSection() {
         exitBeforeEnter: true,
     })
     return (
-        <section className=' px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden'>
+        <section className=' px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden bg-no-repeat bg-right-bottom lg:bg-center bg-[length:200vw_50%] lg:bg-cover' style={{ backgroundImage: `url(${background_circles.src})` }} >
             <div className='max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-5/12'>
                     <p className="my-5 lg:my-4 text-center lg:text-left text-xl lg:text-3xl font-extrabold text-[#414141]">
@@ -63,7 +71,7 @@ export default function ProductSection() {
                         Lorem ipsum dolor sit amet consectetur. Vel cursus sit lacinia ut facilisi malesuada scelerisque suspendisse.
                     </p>
                     <div className='mt-8 mb-12 flex flex-row  lg:flex-col justify-between w-full lg:min-h-[370px]'>
-                        {brokerList.map((ele, i) =>
+                        {brokerList?.slice(0, -1).map((ele, i) =>
                             <div key={ele.name} className={`min-w-[70px] flex flex-col rounded-xl py-2 px-3 duration-300 ease-in ${i === state ? 'bg-[#FFFFFF80]  border-2 border-[#0862BC]' : ' border border-[#8EC8F7]'}`}
                             //  onClick={() => setState(i)}
                             >
