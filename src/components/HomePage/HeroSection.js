@@ -7,7 +7,7 @@ import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
-import users from "@/assets/Icons/users.png";
+import users from "@/assets/icons/users.png";
 import { BsApple } from "react-icons/bs";
 
 export default function HeroSection() {

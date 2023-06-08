@@ -30,7 +30,7 @@ export default function EliteHeroSection({ homePage }) {
                         Earn up to  <span className="text-[#437587] font-black">12% p.a.</span>
                     </div>
                     <div className='ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020]'>
-                        with Elite
+                        with Elite.<br className="lg:hidden" /> No lock-in
                     </div>
                     <div className='mt-8 lg:mt-11 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
                         <div className="flex col-span-3">

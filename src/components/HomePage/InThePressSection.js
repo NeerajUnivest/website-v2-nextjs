@@ -42,9 +42,9 @@ const newsList = [
 export default function InThePressSection() {
     const [ref, inView] = useInView()
     return (
-        <section className=' bg-[#f5f5f5] py-10 lg:py-20 font-Inter'>
+        <section className=' bg-[#f5f5f5] pt-10 lg:pt-24 font-Inter'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8' ref={ref}>
-                <p className="font-extrabold text-center py-8 text-lg lg:text-4xl text-black">
+                <p className="font-extrabold text-center pb-8 text-lg lg:text-4xl text-black">
                     In The Press
                 </p>
                 <div className='grid grid-cols-12 grid-rows-2 grid-flow-col gap-2 h-[400px]'>
@@ -58,7 +58,7 @@ export default function InThePressSection() {
                 play={inView}
                 speed={30}
                 delay={2}>
-                <div className='flex overflow-y-auto gap-x-14 lg:gap-x-40 pt-10 lg:pt-20 mx-10'>
+                <div className='flex overflow-y-auto gap-x-14 lg:gap-x-40 py-10 lg:py-24 mx-10'>
                     {/* TODO */}
                     {newsList
                         .map((ele, i) =>

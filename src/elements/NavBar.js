@@ -18,12 +18,12 @@ export default function NavBar() {
             <div className={`font-Inter max-w-screen-xl mx-auto flex items-center lg:justify-between lg:px-8 flex-wrap backdrop-blur-sm ${showSearchBar ? ' p-2' : ' p-4'}`}>
                 {showSearchBar ? <SearchBar forPhone={true} setShowSearchBar={setShowSearchBar} />
                     : <>
-                        <Link href='/' className="mr-2 inline-flex items-center">
+                        <Link href='/' className="inline-flex items-center">
                             <Image src={logoWhite} className='w-24 lg:w-36 object-contain' alt='icon' />
                         </Link>
-                        <GoSearch color='#FFFFFF' size={16} onClick={() => setShowSearchBar(true)} className='cursor-pointer h-4 object-contain lg:hidden ml-auto mr-8' />
+                        <GoSearch color='#FFFFFF' size={22} onClick={() => setShowSearchBar(true)} className='cursor-pointer w-[22px] object-contain lg:hidden ml-auto mr-8' />
                         <div onClick={() => setIsOpen(true)} className='lg:hidden'>
-                            <span className='block w-4 h-[2px] rounded bg-white mt-1 ml-1' />
+                            <span className='block w-4 h-[2px] rounded bg-white ml-1' />
                             <span className='block w-5 h-[2px] rounded bg-white my-1' />
                             <span className='block w-4 h-[2px] rounded bg-white ml-1' />
                         </div>

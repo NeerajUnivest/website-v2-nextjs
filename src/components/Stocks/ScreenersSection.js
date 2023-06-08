@@ -34,7 +34,7 @@ export default function ScreenersSection() {
                 <div className="text-sm lg:text-base font-semibold text-black">
                     Explore by categories
                 </div>
-                <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3">
+                <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-4">
                     {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} />)}
                 </div>
                 <BlackButton onClick={() => null} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />

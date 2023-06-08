@@ -6,6 +6,9 @@ import useSWR from 'swr'
 import { TbTriangleFilled } from "react-icons/tb";
 import { Autoplay, Pagination } from "swiper";
 import { BlackButton, NewsCategoryChip } from "@/elements/Button/Button";
+import conveyLogo from '../../assets/images/conveyLogo.png'
+import Image from "next/image";
+
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function NewsSection() {
@@ -19,6 +22,7 @@ export default function NewsSection() {
                 {isLoading ?
                     <div className="w-[246px] h-[256px] lg:w-[346px] lg:h-[350px]" />
                     : <Swiper
+                        speed={500}
                         grabCursor={true}
                         loop={true}
                         centeredSlides={true}
@@ -60,11 +64,14 @@ export default function NewsSection() {
                                 </div>
                             </SwiperSlide>)}
                     </Swiper>}
-                <span className="absolute bottom-6 right-6 text-[10px] lg:text-sm font-medium text-[#414141]">
-                    Powered by
-                </span>
+                <div className="flex items-center absolute bottom-6 right-6 ">
+                    <p className="text-[10px] lg:text-sm font-medium text-[#414141] mr-2">
+                        Powered by
+                    </p>
+                    <Image src={conveyLogo} alt='demo image' className="w-14 lg:w-20 object-contain" width={80} height={24} />
+                </div>
             </div>
-            <div className="mx-4 mt-8 py-2 lg:mt-12 flex flex-col lg:flex-row items-center justify-between gap-y-4 lg:gap-x-5">
+            <div className="mx-4 mt-8 py-2 lg:mt-12 flex flex-col lg:flex-row items-center gap-y-4 lg:gap-x-5">
                 <div className="text-sm lg:text-base font-semibold text-black">
                     Explore by categories
                 </div>
@@ -97,7 +104,7 @@ export default function NewsSection() {
                         }
                     ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 </div>
-                <BlackButton onClick={() => null} text='Read on app' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                <BlackButton onClick={() => null} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
         </section>
     )

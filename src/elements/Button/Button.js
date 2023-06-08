@@ -21,7 +21,7 @@ function ScreenerCategoryChip({ text, onClick, className }) {
     return (
         <motion.button
             onTap={onClick}
-            className={`select-none px-5 whitespace-nowrap py-2 rounded-lg font-Inter text-[12px] lg:text-sm border bg-white border-primary text-primary font-extrabold shadow-md ${className ?? ''}`}
+            className={`select-none px-4 whitespace-nowrap py-2 rounded-lg font-Inter text-[12px] lg:text-sm border bg-white border-primary text-primary font-extrabold shadow-md ${className ?? ''}`}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}

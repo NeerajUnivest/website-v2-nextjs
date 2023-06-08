@@ -12,6 +12,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { Autoplay, Navigation, Pagination } from "swiper";
+import { BsArrowRight } from "react-icons/bs";
+import { useState } from "react";
 
 const commentsData = [
     {
@@ -59,6 +61,8 @@ const commentsData = [
 ]
 
 export default function UserFeedbacksSection() {
+    const [swiper, setSwiper] = useState(null);
+
     return (
         <section className='font-Inter max-w-screen-xl pb-6 lg:pb-10 pt-16 lg:pt-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
@@ -75,6 +79,7 @@ export default function UserFeedbacksSection() {
                 slidesPerView='auto'
                 spaceBetween={16}
                 centeredSlides={true}
+                onSwiper={setSwiper}
                 breakpoints={{
                     768: {
                         centeredSlides: false,
@@ -89,17 +94,24 @@ export default function UserFeedbacksSection() {
                     delay: 3000,
                     disableOnInteraction: false
                 }}
-                pagination={{
-                    dynamicBullets: true,
-                    clickable: true
-                }}
+                // pagination={{
+                //     dynamicBullets: true,
+                //     clickable: true
+                // }}
                 modules={[Autoplay, Pagination]}
-                className="UserFeedbacksSection"
+                className="UserFeedbacksSection relative"
             >
+                <div className="hidden absolute inset-y-0 left-0 z-10 lg:flex items-center backdrop-blur bg-[#ffffffd5] w-10">
+                    <BsArrowRight size={40} className=' rotate-180' color="#747474" onClick={() => swiper.slidePrev()} />
+                </div>
                 {commentsData?.map(ele =>
                     <SwiperSlide key={ele.name}>
                         <AvailablePlansCard data={ele} />
                     </SwiperSlide>)}
+
+                <div className="hidden absolute inset-y-0 right-0 z-10 lg:flex items-center backdrop-blur bg-[#ffffffd5] w-10">
+                    <BsArrowRight size={40} className='' color="#747474" onClick={() => swiper.slideNext()} />
+                </div>
             </Swiper>
         </section>
     )

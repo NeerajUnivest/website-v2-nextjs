@@ -36,7 +36,7 @@ export default function WhyUnivestSection() {
                         spaceBetween={0}
                         coverflowEffect={{
                             rotate: 0,
-                            stretch: 200,
+                            stretch: 180,
                             depth: 50,
                             scale: 0.8,
                             modifier: 1,

@@ -10,21 +10,6 @@ import d from '../../assets/icons/plans/4.png';
 
 const cardData = [
     {
-        id: 0,
-        cashBack: 0.50,
-        title: `12`,
-        type: `Fixed term: <b>12 Months</b>`,
-        desc: `Saving for a long term expense / goal`,
-        typeForEvent: `fixed_term_12_months`,
-        // icon: fixedPlanIcon,
-        recommended: true,
-        interest: `At maturity`,
-        principal: `At maturity`,
-        minInvestment: `25k`,
-        lockInPeriod: `12 months`,
-        detail: `Investors who seek to build a stable portfolio that can withstand market volatility and beat inflation. This can be helpful in achieving financial goals over time.`
-    },
-    {
         id: 1,
         cashBack: 0.25,
         title: `11`,
@@ -38,6 +23,21 @@ const cardData = [
         minInvestment: `25K`,
         lockInPeriod: `6 months`,
         detail: `Earning high and stable returns of up to 11% on the money you are saving for a medium term expense / goal. An effective way to grow your wealth over time. `
+    },
+    {
+        id: 0,
+        cashBack: 0.50,
+        title: `12`,
+        type: `Fixed term: <b>12 Months</b>`,
+        desc: `Saving for a long term expense / goal`,
+        typeForEvent: `fixed_term_12_months`,
+        // icon: fixedPlanIcon,
+        recommended: true,
+        interest: `At maturity`,
+        principal: `At maturity`,
+        minInvestment: `25k`,
+        lockInPeriod: `12 months`,
+        detail: `Investors who seek to build a stable portfolio that can withstand market volatility and beat inflation. This can be helpful in achieving financial goals over time.`
     },
     {
         id: 2,

@@ -5,41 +5,47 @@ import univest_elite from '@/assets/images/univest_elite.png';
 import a from '../../assets/icons/plans/1.png';
 import Image from 'next/image';
 import elite_banner from '../../assets/lottiefiles/elite_banner.gif';
+import elite1 from '../../assets/images/elite/elite1.png';
+import elite2 from '../../assets/images/elite/elite2.png';
+import elite3 from '../../assets/images/elite/elite3.png';
+import elite4 from '../../assets/images/elite/elite4.png';
+import elite5 from '../../assets/images/elite/elite5.png';
+import elite6 from '../../assets/images/elite/elite6.png';
 
 
 
 let data = [{
-    img: a,
+    img: elite1,
     header: 'Payouts & withdrawals',
     text: '100% investors at Faircent have<br/>earned promised returns so far',
     to: 'to-[#E6EBF2]',
     border: 'border-[#0862BC]'
 }, {
-    img: a,
+    img: elite2,
     header: 'Decade long experience',
     text: 'Trusted by 2.5 lac+ investors with<br/>avg. investment of 3.2 lacs',
     to: 'to-[#4E657440]',
     border: 'border-[#4E6574]'
 }, {
-    img: a,
+    img: elite3,
     header: 'See money grow everyday',
     text: 'Interest added daily to your portfolio<br/>Track investments grow daily',
     to: 'to-[#F4FFFF]',
     border: 'border-[#388E3C]'
 }, {
-    img: a,
+    img: elite4,
     header: 'RBI regulated',
     text: 'India`s first & largest RBI regulated <br/> NBFC Your money in safe hands',
     to: 'to-[#FFFCF3]',
     border: 'border-[#FFB133]'
 }, {
-    img: a,
+    img: elite5,
     header: 'Easy withdrawals',
     text: 'Withdraw your investments easily<br/>with option to reinvest & compound',
     to: 'to-[#F2EEFF]',
     border: 'border-[#9270FF]'
 }, {
-    img: a,
+    img: elite6,
     header: 'Returns not linked to markets',
     text: 'Earn stable and steady returns with<br/>low to zero risk',
     to: 'to-[#F7E4DA]',
