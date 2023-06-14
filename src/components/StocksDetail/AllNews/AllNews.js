@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import { host } from '../../../Config';
 import Image from 'next/image'
 import forEmpty from '../../../assets/img/forEmpty.webp'
 const NewsCard = React.lazy(() => import('../../../elements/NewsCard/NewsCard'));
@@ -8,7 +7,7 @@ const NewsCard = React.lazy(() => import('../../../elements/NewsCard/NewsCard'))
 function AllNews({ name }) {
     const [data, setData] = useState([]);
     useEffect(() => {
-        axios.get(`${host}/resources/stock-details/news?fin-code=${name}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/news?fin-code=${name}`)
             .then((res) => setData(res.data))
     }, [name]);
 

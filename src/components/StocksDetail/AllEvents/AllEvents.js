@@ -1,6 +1,5 @@
-import React, { Suspense, useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
-import { host } from '../../../Config';
 import forEmpty from '../../../assets/img/forEmpty.webp';
 // import { UtilsContext } from '../../UtilsProvider/UtilsProvider';
 import Image from 'next/image'
@@ -16,7 +15,7 @@ function AllEvents({ showAll, name, limit }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`${host}/resources/stock-details/corporate-actions?fin-code=${name}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/corporate-actions?fin-code=${name}`)
             .then((res) => {
                 data = res.data
             }).then(setTimeout(() => setLoading(false), 300))
@@ -101,11 +100,7 @@ function AllEvents({ showAll, name, limit }) {
                 </button>
             </div>
             <div className='mx-4 my-2'>
-                <Suspense fallback={
-                    <div className='bg-gray-500 h-[100px]'>loading...</div>
-                }>
-                    {!loading ? filterEvents(data) : <div className="mx-4 bg-[#D9D9D9] rounded-lg px-3 pt-5 pb-4 h-[305px] w-full animate-pulse"></div>}
-                </Suspense>
+                {!loading ? filterEvents(data) : <div className="mx-4 bg-[#D9D9D9] rounded-lg px-3 pt-5 pb-4 h-[305px] w-full animate-pulse"></div>}
             </div>
         </div>
     )

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
-import { host } from '../../../Config';
 
 function BalanceSheetCard(props) {
     const [data, setData] = useState({});
@@ -19,7 +18,7 @@ function BalanceSheetCard(props) {
         durations = [];
         data1 = [];
         data2 = [];
-        axios.get(`${host}/resources/stock-details/${props.name}/company-financials/${duration === 0 ? 'standalone' : 'consolidated'}/${props.indicator}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/${props.name}/company-financials/${duration === 0 ? 'standalone' : 'consolidated'}/${props.indicator}`)
             .then((response) => {
                 let dataArray = response.data.data.reverse();
                 dataArray.forEach(element => {

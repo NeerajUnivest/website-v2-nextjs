@@ -1,5 +1,5 @@
 
-import InfoIcon from '../../../assets/icons/info.png'
+import InfoIcon from '../../../assets/icn/info.png'
 import expertVerdictPhone from "../../../assets/img/expertVerdictPhone.webp";
 import Image from 'next/image'
 

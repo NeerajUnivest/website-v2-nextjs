@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate } from "react-router-dom";
-import InfoIcon from '../../../assets/icons/info.png';
+import InfoIcon from '../../../assets/icn/info.png';
 import arrows from '../../../assets/compImages/arrowTwoWays.png';
 import axios from 'axios';
-import { host } from '../../../Config';
-import { ModalContext } from '../../../UtilsProvider/StockPageModal';
+import { ModalContext } from '../../../contexts/StockPageModal';
 import Image from 'next/image'
 
 let roundBG = ['bg-[#BFA161]', 'bg-[#F36F23]', 'bg-[#107AC4]', 'bg-[#356DB1]', 'bg-[#BFA161]', 'bg-[#F36F23]', 'bg-[#107AC4]', 'bg-[#356DB1]']
@@ -18,15 +16,12 @@ const modalData = [
 function PeerComparison({ name }) {
     const modal = useContext(ModalContext)
 
-    const navigate = useNavigate();
-
 
     const [show, setShow] = useState(false)
     const [data, setData] = useState([])
 
     useEffect(() => {
-
-        axios.get(`${host}/resources/stock-details/${name}/peer-comparison`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/${name}/peer-comparison`)
             .then((response) => {
                 setData(response.data);
                 setShow(true)

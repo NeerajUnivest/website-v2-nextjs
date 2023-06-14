@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { host } from '../../Config';
-import redArrow from '../../assets/icons/redArrow.png';
-import greenArrow from '../../assets/icons/greenArrow.png';
+import redArrow from '../../assets/icn/redArrow.png';
+import greenArrow from '../../assets/icn/greenArrow.png';
 import moment from 'moment/moment';
 import Image from 'next/image'
 
@@ -41,7 +40,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
     useEffect(() => {
         let finCodes = [];
         finCodes.push(name);
-        axios.get(`${host}/resources/stock-details/prices?finCodes=${finCodes}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${finCodes}`)
             .then((res) => {
                 let stockDatas = res.data.data.list[0]
                 if (stockDatas) {
@@ -66,7 +65,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
     function stockUpDown(text, leading) {
         return <div className={`flex flex-row font-Inter font-bold ml-2 mb-0.5 ${text} ${leading} tracking-[.5px] self-end
                 ${nseBseData[activeChartType]?.dfPrice > 0 ? 'text-[#26A649]' : 'text-[#EB4E2C]'} `}>
-            <Image src={nseBseData[activeChartType]?.dfPrice > 0 ? greenArrow : redArrow} className='h-2.5 mr-1 mt-1.5' alt='icon' />
+            <Image src={nseBseData[activeChartType]?.dfPrice > 0 ? greenArrow : redArrow} className='h-2.5 mr-1 mt-1.5' width={10} alt='icon' />
             {(nseBseData[activeChartType]?.ltpPrice)?.toFixed(2)}
             ({((nseBseData[activeChartType]?.ltpPrice * 100) / nseBseData[activeChartType]?.closePrice)?.toFixed(2)})
         </div>
@@ -102,9 +101,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
                                 <div className='h-11 w-11 font-Inter font-extrabold text-[24px] text-[#606060] bg-[#ededed] text-center py-1 rounded-full '>
                                     {data.compName && data.compName.slice(0, 1)}
                                 </div> :
-                                <div>
-                                    <Image src={data.logoUrl} alt='stock logo' />
-                                </div>}
+                                <Image src={data.logoUrl} alt='stock logo' width={44} height={44} />}
                         </div>
                         <div>
                             <div className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { host } from '../../Config';
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
@@ -12,7 +11,7 @@ function FinancialCard(props) {
         let durations = [];
         let values = [];
 
-        axios.get(`${host}/resources/stock-details/${props.name}/financial-indicators/${props.indicator}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/${props.name}/financial-indicators/${props.indicator}`)
             .then((response) => {
                 setData(response.data);
                 let dataArray = response.data.data.reverse();

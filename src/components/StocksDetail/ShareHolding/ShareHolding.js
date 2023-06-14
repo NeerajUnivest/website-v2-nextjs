@@ -1,13 +1,12 @@
 import React, { useState, useContext } from 'react';
-import InfoIcon from '../../../assets/icons/info.png';
+import InfoIcon from '../../../assets/icn/info.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useEffect } from 'react';
 import axios from "axios";
-import { host } from '../../../Config';
-import nextArrow from '../../../assets/icons/nextArrow.png';
-import prevArrow from '../../../assets/icons/prevArrow.png';
-import { ModalContext } from '../../../UtilsProvider/StockPageModal';
+import nextArrow from '../../../assets/icn/nextArrow.png';
+import prevArrow from '../../../assets/icn/prevArrow.png';
+import { ModalContext } from '../../../contexts/StockPageModal';
 import Image from 'next/image'
 
 import OverallCard from '../../../elements/HoldingsCards/OverallCard/OverallCard';
@@ -38,7 +37,7 @@ function ShareHolding({ name }) {
 
     useEffect(() => {
         setLoading(true)
-        axios.get(`${host}/resources/stock-details/${name}/holdings/all`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/${name}/holdings/all`)
             .then((res) => {
                 setData(res.data);
                 setTimeout(() => setLoading(false), 300)

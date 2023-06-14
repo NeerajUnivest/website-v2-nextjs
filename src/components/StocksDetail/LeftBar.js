@@ -1,9 +1,8 @@
 import { useEffect, useState, memo } from 'react';
 import axios from "axios";
 import moment from 'moment/moment';
-import { host } from '../../Config';
-import redArrow from '../../assets/icons/redArrow.png';
-import greenArrow from '../../assets/icons/greenArrow.png';
+import redArrow from '../../assets/icn/redArrow.png';
+import greenArrow from '../../assets/icn/greenArrow.png';
 // import { UtilsContext } from '../../UtilsProvider/UtilsProvider';
 import expertVerdictPhone from "../../assets/img/expertVerdictPhone.webp";
 import DownloadNow from '../../elements/DownloadNow/DownloadNow';
@@ -27,7 +26,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
     useEffect(() => {
         let finCodes = [];
         finCodes.push(name);
-        axios.get(`${host}/resources/stock-details/prices?finCodes=${finCodes}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${finCodes}`)
             .then((res) => {
                 if (res.data.data.list[0]) {
                     let obj = res.data.data.list[0]

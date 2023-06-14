@@ -2,7 +2,6 @@ import { useState } from 'react'
 import axios from 'axios';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
-import { useDebouncedCallback } from 'use-debounce';
 
 
 export default function SearchBar({ forPhone, setShowSearchBar }) {
@@ -21,10 +20,10 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
         }
     };
 
-    const apiCall = useDebouncedCallback(async (searchWord) => {
+    const apiCall = async (searchWord) => {
         const result = await axios.get(`https://api.univest.in/resources/stock-details/search?searchTerm=${encodeURIComponent(searchWord)}`)
         setData(result.data?.data?.list);
-    }, 500)
+    }
 
     const clearInput = () => {
         setData([]);

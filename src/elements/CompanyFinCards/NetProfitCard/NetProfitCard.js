@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
-import { host } from '../../../Config';
 import moment from 'moment';
 
 
@@ -20,7 +19,7 @@ function NetProfitCard(props) {
     const fetchData = (duration = 0) => {
         durations = [];
         values = [];
-        axios.get(`${host}/resources/stock-details/${props.name}/company-financials/${duration === 0 ? 'quarterly' : 'annual'}/${props.indicator}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/${props.name}/company-financials/${duration === 0 ? 'quarterly' : 'annual'}/${props.indicator}`)
             .then((response) => {
                 let dataArray = response.data.data.reverse();
                 dataArray.forEach(element => {

@@ -2,7 +2,6 @@ import { useState, useEffect, memo } from 'react';
 import Marquee from "react-fast-marquee";
 
 import axios from "axios";
-import { host } from '../../Config';
 
 const ltpClosePrice = (ltp, close) => {
     return (ltp - close)?.toFixed(1);
@@ -30,7 +29,7 @@ const Ticker = () => {
     }, [])
 
     const apiCall = () => {
-        axios.get(`${host}/resources/stock-details/indian-main-indices`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/indian-main-indices`)
             .then((res) => setData(res.data?.data.list))
     }
     return (

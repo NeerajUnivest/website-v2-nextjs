@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './HighLowCard.css'
+// import './HighLowCard.css'
 
 export default function HighLowCard(props) {
     const [data, setData] = useState({});

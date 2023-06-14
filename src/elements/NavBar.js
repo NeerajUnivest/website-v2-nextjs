@@ -6,17 +6,17 @@ import Image from 'next/image'
 import logoWhite from '../assets/img/logoWhite.webp'
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
-// import header_bg from '../assets/images/header_bg.png';
-
+import { useWindowSize } from "@uidotdev/usehooks";
 
 
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
+    const { width } = useWindowSize();
     return (
         <nav className={`bg-black-50 text-white fixed left-0 right-0 top-3 z-10`} >
             <div className={`font-Inter max-w-screen-xl mx-auto flex items-center lg:justify-between lg:px-8 flex-wrap backdrop-blur-sm ${showSearchBar ? ' p-2' : ' p-4'}`}>
-                {showSearchBar ? <SearchBar forPhone={true} setShowSearchBar={setShowSearchBar} />
+                {showSearchBar ? (width < 976 && <SearchBar forPhone={true} setShowSearchBar={setShowSearchBar} />)
                     : <>
                         <Link href='/' className="inline-flex items-center">
                             <Image src={logoWhite} className='w-24 lg:w-36 object-contain' alt='icon' />
@@ -41,7 +41,7 @@ export default function NavBar() {
                     <Link href='/elite' className="mx-4 px-3 py-2  hover:hover:opacity-75">
                         Elite
                     </Link>
-                    <SearchBar forPhone={false} />
+                    {width > 976 && <SearchBar forPhone={false} />}
                 </div>
             </div>
             <Menu right onStateChange={(e) => setIsOpen(e.isOpen)} isOpen={isOpen} burgerButtonClassName='hidden'>

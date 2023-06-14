@@ -1,9 +1,6 @@
-import React, { Suspense, useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Highcharts from "highcharts/highstock";
-import './Stocks.css';
 import axios from "axios";
-import { host } from '../../Config';
-import { UtilsContext } from '../../UtilsProvider/UtilsProvider';
 import HighLowCard from '../../elements/HighLowCard/HighLowCard';
 
 const HighchartsReact = React.lazy(() => import('highcharts-react-official'));
@@ -145,8 +142,6 @@ const options = {
 };
 
 function StockGraph({ name, activeChartType, list }) {
-    //mixpanel
-    const utils = useContext(UtilsContext)
 
     const [duration, setDuration] = useState(0);
     const [chartOptions, setChartOptions] = useState(options);
@@ -159,7 +154,7 @@ function StockGraph({ name, activeChartType, list }) {
         results.splice(0, results.length)
         exchange = chartType === 1 ? 'NSE' : 'BSE';
         let stringDuration = getStringDuration(inputDuration);
-        axios.get(`${host}/resources/stock-details/${name}/prices/${exchange}/${stringDuration}`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/${name}/prices/${exchange}/${stringDuration}`)
             .then(response => {
                 if (!!response.data && response.data.length > 0) {
                     setData(response.data);
@@ -280,18 +275,16 @@ function StockGraph({ name, activeChartType, list }) {
 
     return (
         <div>
-            <Suspense fallback={<div className="mx-4 my-3 bg-[#D9D9D9] rounded px-3 pt-5 pb-4 h-[300px] animate-pulse"></div>}>
-                {loading ? <div className="mx-4 my-3 bg-[#D9D9D9] rounded px-3 pt-5 pb-4 h-[300px] animate-pulse"></div>
-                    :
-                    <div className='ml-1 mr-4 my-0 p-0 swiper-no-swiping'>
-                        <HighchartsReact
-                            containerProps={{ style: { height: "300px", paddingLeft: "0px", paddingRight: "0px", width: '100%' } }}
-                            options={options}
-                            highcharts={Highcharts}
-                            constructorType={"stockChart"}
-                        />
-                    </div>}
-            </Suspense>
+            {loading ? <div className="mx-4 my-3 bg-[#D9D9D9] rounded px-3 pt-5 pb-4 h-[300px] animate-pulse"></div>
+                :
+                <div className='ml-1 mr-4 my-0 p-0 swiper-no-swiping'>
+                    <HighchartsReact
+                        containerProps={{ style: { height: "300px", paddingLeft: "0px", paddingRight: "0px", width: '100%' } }}
+                        options={options}
+                        highcharts={Highcharts}
+                        constructorType={"stockChart"}
+                    />
+                </div>}
             <div className='grid grid-cols-10'>
                 <HighLowCard stringDuration={getStringDuration(duration)} duration={duration} finCode={name}
                     exchange={activeChartType === 1 ? 'NSE' : 'BSE'} list={list} data={data} />

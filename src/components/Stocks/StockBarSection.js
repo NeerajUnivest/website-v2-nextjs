@@ -8,12 +8,12 @@ import results from '../../assets/icons/results.png';
 import news from '../../assets/icons/news.png';
 import { useEffect, useState } from "react";
 import { useSmoothScrollToId } from "@/hooks/useSmoothScrollToId";
-import { useDebounce } from "use-debounce";
+import { useDebounce } from "@uidotdev/usehooks";
 
 let sec = [0, 1265, 2040, 2780, 3500, 4300, 7000]
 export default function StockBarSection() {
     const scrollPosition = useScrollPosition();
-    const [scrolled] = useDebounce(scrollPosition, 10);
+    const scrolled = useDebounce(scrollPosition, 10);
     const [active, setActive] = useState('Markets');
 
     useEffect(() => {

@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
-import { host } from '../../../Config';
-import InfoIcon from '../../../assets/icons/info.png'
-import { ModalContext } from '../../../UtilsProvider/StockPageModal';
+import InfoIcon from '../../../assets/icn/info.png'
+import { ModalContext } from '../../../contexts/StockPageModal';
 import Image from 'next/image'
 
 import key from '../../../assets/compImages/key.png';
@@ -44,7 +43,7 @@ function KeyIndicatorCard({ name }) {
 
     useEffect(() => {
 
-        axios.get(`${host}/resources/stock-details/${name}/key-indicators`)
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/${name}/key-indicators`)
             .then((response) => {
                 setData(response.data);
             });

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import moment from 'moment';
-import { ModalContext } from '../../UtilsProvider/StockPageModal';
+import { ModalContext } from '../../contexts/StockPageModal';
 import announcements from '../../assets/eventIcon/announcements.svg';
 import dividends from '../../assets/eventIcon/dividends.svg';
 import others from '../../assets/eventIcon/others.svg';

@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
-import InfoIcon from '../../../assets/icons/info.png'
+import InfoIcon from '../../../assets/icn/info.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image'
 
-import nextArrow from '../../../assets/icons/nextArrow.png';
-import prevArrow from '../../../assets/icons/prevArrow.png';
-import { ModalContext } from '../../../UtilsProvider/StockPageModal';
+import nextArrow from '../../../assets/icn/nextArrow.png';
+import prevArrow from '../../../assets/icn/prevArrow.png';
+import { ModalContext } from '../../../contexts/StockPageModal';
 
-const FinancialCard = React.lazy(() => import('../../../elements/FinancialIndCards/FinancialCard'));
+import FinancialCard from '../../../elements/FinancialIndCards/FinancialCard';
 
 const modalData = [
     {
