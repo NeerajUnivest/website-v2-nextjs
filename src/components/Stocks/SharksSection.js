@@ -87,7 +87,7 @@ export default function SharksSection() {
                         rotate: 0,
                         stretch: 5,
                         depth: 100,
-                        scale: 0.85,
+                        scale: 0.9,
                         modifier: 1.5,
                         slideShadows: false
                     }}

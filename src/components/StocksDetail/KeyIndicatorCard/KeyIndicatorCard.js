@@ -57,10 +57,8 @@ function KeyIndicatorCard({ name }) {
     }
 
 
-    return (<div>
-        <div className="relative">
-            <div id='key-indicators' className='absolute -top-44' />
-
+    return (
+        <section id='key-indicators' className='relative'>
             <Image src={key} alt="news" className='w-[80px] h-[54px] absolute top-0 right-0 -z-10 mx-4' />
             <div className=' flex flex-row mx-4 mt-6 mb-4  md:mt-10'>
                 <div className='font-Inter text-[16px] text-black mr-4 font-semibold'>Key indicators</div>
@@ -191,8 +189,7 @@ function KeyIndicatorCard({ name }) {
                     figures are from last trading day
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
     )
 }
 

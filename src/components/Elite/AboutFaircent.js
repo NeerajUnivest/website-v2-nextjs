@@ -1,14 +1,15 @@
 
 export default function AboutFaircent() {
     return (
-        <section className='py-[72px] font-Inter'>
-            <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
+        <section className='py-[72px] font-Inter relative overflow-hidden'>
+            <div className='rounded-full absolute left-[-20vw] top-[50vh] bg-gradient-to-r from-[#c1eef4] to-[#fff] h-[30vh] w-[50vw] blur-3xl opacity-50' />
+            <div className='max-w-screen-xl mx-auto px-4 lg:px-8  z-[2]'>
                 <p className='mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
                     About <span className="text-[#B3161B]">FAI<span className="text-[#0075B8]">₹</span>CENT</span>
                 </p>
                 <div className=' flex flex-col lg:flex-row justify-between items-center'>
                     <div className="w-full lg:w-[47%]">
-                        <div className=' py-2 px-4 lg:py-7 lg:px-5 flex justify-start w-auto rounded-lg border-2 border-[#A192C3]'>
+                        <div className=' py-2 px-4 lg:py-7 lg:px-5 flex justify-start w-auto rounded-lg border-[3px] border-[#0862BC] items-center'>
                             <p className='font-extrabold mr-2 lg:mr-6 text-transparent text-2xl lg:text-5xl bg-clip-text bg-gradient-to-r from-[#4158D0] to-[#C850C0]'>
                                 100%
                             </p>

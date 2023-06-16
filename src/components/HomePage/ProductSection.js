@@ -64,10 +64,10 @@ export default function ProductSection() {
         exitBeforeEnter: true,
     })
     return (
-        <section ref={ref} className=' px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden bg-no-repeat bg-right-bottom lg:bg-center bg-[length:200vw_50%] lg:bg-cover' style={{ backgroundImage: `url(${background_circles.src})` }} >
+        <section ref={ref} className='mt-8 px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden bg-no-repeat bg-right-bottom lg:bg-center bg-[length:200vw_50%] lg:bg-cover' style={{ backgroundImage: `url(${background_circles.src})` }} >
             <div className='max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-5/12'>
-                    <p className="my-5 lg:my-4 text-center lg:text-left text-xl lg:text-3xl font-extrabold text-[#414141]">
+                    <p className="my-5 lg:my-4 text-center lg:text-left text-xl lg:text-5xl font-extrabold text-[#414141]">
                         Crisp stock research
                     </p>
                     <p className=" text-center lg:text-left text-sm lg:text-xl font-medium text-[#414141]">

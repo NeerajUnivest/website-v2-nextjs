@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LazyEventCard from '../../elements/EventCard/LazyEventCard';
 
-const EventCard = React.lazy(() => import('../../elements/EventCard/EventCard'));
+import EventCard from '../../elements/EventCard/EventCard';
 
 function LazyAllEvents() {
     const [eventType, setEventType] = useState('All');

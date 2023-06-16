@@ -10,10 +10,10 @@ import Image from 'next/image'
 
 
 
-function LeftBar({ name, activeChartType, setActiveChartType }) {
+function LeftBar({ name, activeChartType, setActiveChartType, stockDetails }) {
     //mixpanel
     // const utils = useContext(UtilsContext)
-    const [data, setData] = useState({});
+    const [data, setData] = useState(stockDetails);
     const [refresh, setRefresh] = useState(0);
 
     var time;
@@ -28,8 +28,8 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
         finCodes.push(name);
         axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${finCodes}`)
             .then((res) => {
-                if (res.data.data.list[0]) {
-                    let obj = res.data.data.list[0]
+                if (res.data?.data?.list?.[0]) {
+                    let obj = res.data?.data?.list?.[0]
                     setData(obj)
                     // utils.setStockdata({ ...obj })
                 }
@@ -48,7 +48,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
         switch (key > 0) {
             case true:
                 return <div className={`flex flex-row font-Inter font-bold ml-2 mb-0.5 ${text} ${leading} tracking-[.5px] self-end text-[#26A649]`}>
-                    <Image src={greenArrow} className='h-2.5 mr-1 mt-1.5' alt='icon' />
+                    <Image src={greenArrow} className='h-2.5 w-3 mr-1 mt-1.5' alt='icon' />
                     {activeChartType === 2 ?
                         data.bseLtpPrice === null ? '- ' : dfBseLtpPrice.toFixed(2) :
                         data.nseLtpPrice === null ? '- ' : dfNseLtpPrice.toFixed(2)}
@@ -59,7 +59,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                 </div>
             case false:
                 return <div className={`flex flex-row font-Inter font-bold ml-2 mb-0.5 ${text} ${leading} tracking-[.5px] self-end text-[#EB4E2C]`}>
-                    <Image src={redArrow} className='h-2.5 mr-1 mt-1.5' alt='icon' />
+                    <Image src={redArrow} className='h-2.5 w-3 mr-1 mt-1.5' alt='icon' />
                     {activeChartType === 2 ?
                         data.bseLtpPrice === null ? '- ' : Math.abs(dfBseLtpPrice).toFixed(2) :
                         data.nseLtpPrice === null ? '- ' : Math.abs(dfNseLtpPrice).toFixed(2)}
@@ -71,7 +71,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
         }
     }
 
-    return <div className=' bg-white z-20 sticky top-[74px] lg:top-[94px] pt-2'>
+    return <div className=' bg-white z-[9] sticky top-[74px] lg:top-[94px] pt-2'>
         <div className='mx-4 relative lg:pb-8'>
             <div className='mt-3 border border-1 p-2 rounded-md'>
                 {data.compName ?
@@ -82,7 +82,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                                     {data.compName && data.compName.slice(0, 1)}
                                 </div> :
                                 <div>
-                                    <Image src={data.logoUrl} alt='stock logo' />
+                                    <Image src={data.logoUrl} alt='stock logo' width={44} height={44} />
                                 </div>}
                         </div>
                         <div>

@@ -64,18 +64,18 @@ export default function NewsSection() {
                                 </div>
                             </SwiperSlide>)}
                     </Swiper>}
-                <div className="flex items-center absolute bottom-6 right-6 ">
+                <div className="flex items-center absolute bottom-6 lg:right-6 right-1/2 transform translate-x-1/2 lg:translate-x-0">
                     <p className="text-[10px] lg:text-sm font-medium text-[#414141] mr-2">
                         Powered by
                     </p>
                     <Image src={conveyLogo} alt='demo image' className="w-14 lg:w-20 object-contain" width={80} height={24} />
                 </div>
             </div>
-            <div className="mx-4 mt-8 py-2 lg:mt-12 flex flex-col lg:flex-row items-center gap-y-4 lg:gap-x-5">
+            <div className="mx-4 mt-8 py-2 flex flex-col items-center gap-y-4 lg:hidden">
                 <div className="text-sm lg:text-base font-semibold text-black">
                     Explore by categories
                 </div>
-                <div className="grid grid-cols-3 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-3">
+                <div className="flex gap-3">
                     {[
                         {
                             "id": 1,
@@ -91,7 +91,11 @@ export default function NewsSection() {
                             "id": 3,
                             "title": "IPOs",
                             "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/ipo.png"
-                        },
+                        }
+                    ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
+                </div>
+                <div className="flex gap-3">
+                    {[
                         {
                             "id": 6,
                             "title": "Startups",
@@ -104,6 +108,39 @@ export default function NewsSection() {
                         }
                     ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 </div>
+                <BlackButton onClick={() => null} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+            </div>
+            <div className="mx-4 py-2 mt-12 hidden lg:flex items-center gap-x-5 ">
+                <div className="text-sm lg:text-base font-semibold text-black">
+                    Explore by categories
+                </div>
+                {[
+                    {
+                        "id": 1,
+                        "title": "Stocks",
+                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/candlestick.png"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Business",
+                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/growth.png"
+                    },
+                    {
+                        "id": 3,
+                        "title": "IPOs",
+                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/ipo.png"
+                    },
+                    {
+                        "id": 6,
+                        "title": "Startups",
+                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/start-up.png"
+                    },
+                    {
+                        "id": 7,
+                        "title": "World",
+                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/worldwide.png"
+                    }
+                ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 <BlackButton onClick={() => null} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
         </section>

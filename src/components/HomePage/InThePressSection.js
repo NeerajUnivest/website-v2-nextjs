@@ -44,7 +44,7 @@ export default function InThePressSection() {
     return (
         <section className=' bg-[#f5f5f5] pt-10 lg:pt-24 font-Inter'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8' ref={ref}>
-                <p className="font-extrabold text-center pb-8 text-lg lg:text-4xl text-black">
+                <p className="font-extrabold text-center pb-6 lg:pb-10 text-xl lg:text-5xl text-black">
                     In The Press
                 </p>
                 <div className='grid grid-cols-12 grid-rows-2 grid-flow-col gap-2 h-[400px]'>

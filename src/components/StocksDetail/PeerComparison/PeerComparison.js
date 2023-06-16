@@ -49,7 +49,45 @@ function PeerComparison({ name }) {
                     <Image src={InfoIcon} alt='info' className='w-[16px] h-[16px] self-center' />
                 </button>
             </div>
-            <div className='ml-4 my-3 flex flex-row font-Inter'>
+            <div className='ml-4 pr-4 my-3 flex flex-row font-Inter w-full overflow-x-scroll no-scrollbar'>
+                <table className="table border-collapse swiper-no-swiping">
+                    <thead>
+                        <tr className='h-10'>
+                            <th className='rounded sticky -left-[2px] bg-white text-[12px] text-[#979797] font-medium border border-[#E5E5E5] min-w-[130px]'>Stocks</th>
+                            <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-[#E5E5E5] text-left min-w-[70px]'>P/B ratio</th>
+                            <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-[#E5E5E5] text-left min-w-[70px]'>P/E ratio</th>
+                            <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-[#E5E5E5] text-left min-w-[70px]'>Div yield</th>
+                            <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-[#E5E5E5] text-left min-w-[80px]'>LTP</th>
+                            <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-[#E5E5E5] text-left min-w-[130px]'>Market Capital</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {!data?.[0] ? <tr className="m-4 bg-[#D9D9D9] w-full rounded-lg h-[260px] animate-pulse" /> :
+                            data?.map((item, i) =>
+                                <tr key={i} className='h-[52px]'>
+                                    <td className='pt-2 sticky -left-[2px] bg-white text-[10px] text-[#1c1c1c] font-medium leading-[18px] px-2 min-w-[25vw] border border-[#E5E5E5] cursor-pointer' onClick={() => navigate(`/stocks/${item.finCode}?backTo=stocks`)}>
+                                        <div className='flex flex-row font-Inter'>
+                                            <div className={`mt-[3px] rounded-full h-[10px] w-[10px] ${roundBG[i]}`}></div>
+                                            <div className=' text-[10px] leading-[16px] font-medium ml-1'>
+                                                {(item.symbol === null || item.symbol === '') ? item.bseSymbol : item.symbol}</div>
+                                        </div>
+                                        <div className='text-[8px] leading-[12px] text-[#979797]'>{item.name}</div>
+                                    </td>
+                                    <td className='text-[12px] text-[#1c1c1c] font-medium leading-[18px] items-center px-2 border border-x-0 border-[#E5E5E5]'>
+                                        {item.pbRatio.toFixed(2)}</td>
+                                    <td className='text-[12px] text-[#1c1c1c] font-medium leading-[18px] items-center px-2 border border-x-0  border-[#E5E5E5]'>
+                                        {item.peRatio.toFixed(2)} </td>
+                                    <td className='text-[12px] text-[#1c1c1c] font-medium leading-[18px] items-center px-2 border border-x-0  border-[#E5E5E5]'>
+                                        {item.divYield.toFixed(2)}</td>
+                                    <td className='text-[12px] text-[#1c1c1c] font-medium leading-[18px] items-center px-2 border border-x-0  border-[#E5E5E5]'>
+                                        {item.currentMarketPrice?.toFixed(2)}</td>
+                                    <td className='text-[12px] text-[#1c1c1c] font-medium leading-[18px] items-center px-2 border border-x-0  border-[#E5E5E5]'>
+                                        {(item.marketCap / 10000000)?.toFixed(2) + ' Cr.'}</td>
+                                </tr>)}
+                    </tbody>
+                </table>
+            </div>
+            {/* <div className='ml-4 my-3 flex flex-row font-Inter'>
                 <div className=''>
                     <div className='text-[12px] h-[40px] text-[#979797] font-medium leading-[18px] border-b-[1px] border-r-[1px] border-[#E5E5E5] rounded-tl-[8px] flex flex-row justify-evenly items-center min-w-[30vw] md:min-w-[10vw]  border-[1px] '>Stocks
                     </div>
@@ -112,7 +150,7 @@ function PeerComparison({ name }) {
                         </div>))
                         : <div className="mx-4 bg-[#D9D9D9] rounded-lg px-3 pt-5 pb-4 h-[305px] w-full animate-pulse"></div>}
                 </div>
-            </div>
+            </div> */}
         </div>
     </div>
     )

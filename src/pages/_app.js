@@ -17,9 +17,9 @@ export default function App({ Component, pageProps }) {
     <main className={`${inter.variable} min-w-[346px]`}>
       <UtilsContext>
         <NavBar />
-        {isPageLoading ? <Loading /> : (
-          <Component {...pageProps} />
-        )}
+        {/* {isPageLoading ? <Loading /> : ( */}
+        <Component {...pageProps} />
+        {/* )} */}
         <Footer />
       </UtilsContext>
     </main>

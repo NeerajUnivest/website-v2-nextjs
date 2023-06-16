@@ -1,4 +1,3 @@
-import React, { useState, useEffect, Fragment, useContext } from 'react'
 import axios from "axios";
 
 import DropDown from '../../components/LaptopScreener/DropDown'

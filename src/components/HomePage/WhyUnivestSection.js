@@ -17,7 +17,7 @@ export default function WhyUnivestSection() {
                 <p className="text-center text-xl lg:text-5xl font-extrabold text-[#202020]">
                     Why Univest?
                 </p>
-                <p className=" mt-5 lg:mt-4 text-center text-xl font-semibold text-[#747474]">
+                <p className=" mt-5 lg:mt-6 text-center text-xl font-semibold text-[#747474]">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                 </p>
                 <div className='flex flex-col-reverse lg:flex-col pt-11 lg:pt-12 gap-16'>
@@ -79,7 +79,7 @@ export function IconBox({ icon, name }) {
     return (
         <div className='flex flex-col'>
             <Image src={icon} className='w-[46px] h-[46px] mx-auto' alt='icon' />
-            <p className=" mt-5 lg:mt-4 text-center text-base lg:text-2xl font-semibold text-[#202020]"
+            <p className=" mt-5 lg:mt-6 text-center text-base lg:text-xl font-semibold text-[#202020]"
                 dangerouslySetInnerHTML={{ __html: name }} />
         </div>
     )

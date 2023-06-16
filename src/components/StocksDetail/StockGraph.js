@@ -3,7 +3,7 @@ import Highcharts from "highcharts/highstock";
 import axios from "axios";
 import HighLowCard from '../../elements/HighLowCard/HighLowCard';
 
-const HighchartsReact = React.lazy(() => import('highcharts-react-official'));
+import HighchartsReact from 'highcharts-react-official';
 
 
 let results = [];
@@ -274,7 +274,7 @@ function StockGraph({ name, activeChartType, list }) {
     }
 
     return (
-        <div>
+        <section className='mt-24'>
             {loading ? <div className="mx-4 my-3 bg-[#D9D9D9] rounded px-3 pt-5 pb-4 h-[300px] animate-pulse"></div>
                 :
                 <div className='ml-1 mr-4 my-0 p-0 swiper-no-swiping'>
@@ -382,7 +382,7 @@ function StockGraph({ name, activeChartType, list }) {
                     </button>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

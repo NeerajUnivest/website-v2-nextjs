@@ -19,7 +19,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
     }, [])
 
     const listenToScroll = () => {
-        let heightToHideFrom = 20;
+        let heightToHideFrom = 30;
         const winScroll = document.body.scrollTop ||
             document.documentElement.scrollTop;
 
@@ -74,7 +74,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
     return <React.Fragment>
 
         <div className={`shadow font-Inter text-[12px] leading-[20px] text-[#0D0D0D] w-full h-[58px] flex flex-row fixed 
-         top-[74px] lg:top-[94px] z-[2] bg-white justify-between px-4 ease-in-out duration-500 ${!isVisible && 'opacity-0 '}`}>
+         top-[60px] lg:top-[94px] z-[2] bg-white justify-between px-4 ease-in-out duration-500 ${!isVisible && 'opacity-0 '}`}>
             <div className={`mt-2 mr-auto overflow-hidden`}>
                 <div className={`flex flex-row ease-in-out duration-500 relative top-0 ${!isVisible && 'top-14 opacity-0'}`}>
                     <div>
@@ -92,7 +92,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
                 </div>
             </div>
         </div>
-        <div className='mx-4  relative'>
+        <div className='mx-4 mt-20 relative'>
             <div className='my-4'>
                 {data.compName ?
                     <div className='flex flex-row'>

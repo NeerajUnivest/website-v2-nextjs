@@ -46,7 +46,7 @@ function News({ name }) {
                             <a href={ele.url} target="_blank">
                                 <div className='h-[170px] min-w-[190px] ml-2 flex flex-col rounded-[8px] border-[1px] border-[#E5E5E5]'>
                                     <div className='min-w-[188px] h-[100px]'>
-                                        <Image alt="news" src={ele.imageUrl} className='w-full h-full rounded-t-[8px]' />
+                                        <img alt="news" src={ele.imageUrl} className='w-full h-full rounded-t-[8px]' />
                                     </div>
                                     <div className='p-2 font-Inter'>
                                         <div className='text-[#202020] text-[10px] font-medium leading-[16px] h-8 overflow-hidden'>

@@ -67,8 +67,8 @@ export default function UserFeedbacksSection() {
         <section className='font-Inter max-w-screen-xl pb-6 lg:pb-10 pt-16 lg:pt-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
                 <div className="">
-                    <p className="font-medium text-base lg:text-3xl text-black">Trusted by <span className='font-extrabold'>400k+ users</span></p>
-                    <p className="font-semibold text-xs lg:text-2xl text-[#414141]">Read what they say about us</p>
+                    <p className="hidden lg:flex font-medium text-base lg:text-4xl text-black mb-3">Trusted by <span className='font-extrabold'>400k+ users</span></p>
+                    <p className="font-extrabold lg:font-semibold text-xl lg:text-2xl text-[#414141]">Read what they say about us</p>
                 </div>
                 <Image src={ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
             </div>
@@ -101,7 +101,7 @@ export default function UserFeedbacksSection() {
                 modules={[Autoplay, Pagination]}
                 className="UserFeedbacksSection relative"
             >
-                <div className="hidden absolute inset-y-0 left-0 z-10 lg:flex items-center backdrop-blur bg-[#ffffffd5] w-10">
+                <div className="hidden absolute inset-y-0 left-0 z-10 lg:flex items-center justify-start backdrop-blur bg-[#ffffff] w-20">
                     <BsArrowRight size={40} className=' rotate-180' color="#747474" onClick={() => swiper.slidePrev()} />
                 </div>
                 {commentsData?.map(ele =>
@@ -109,7 +109,7 @@ export default function UserFeedbacksSection() {
                         <AvailablePlansCard data={ele} />
                     </SwiperSlide>)}
 
-                <div className="hidden absolute inset-y-0 right-0 z-10 lg:flex items-center backdrop-blur bg-[#ffffffd5] w-10">
+                <div className="hidden absolute inset-y-0 right-0 z-10 lg:flex items-center justify-end backdrop-blur bg-[#ffffff] w-20">
                     <BsArrowRight size={40} className='' color="#747474" onClick={() => swiper.slideNext()} />
                 </div>
             </Swiper>
