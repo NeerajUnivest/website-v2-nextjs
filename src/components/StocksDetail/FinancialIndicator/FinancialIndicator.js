@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 import nextArrow from '../../../assets/icn/nextArrow.png';
 import prevArrow from '../../../assets/icn/prevArrow.png';
-import { ModalContext } from '../../../contexts/StockPageModal';
+import { ModalProvider } from '../../../contexts/StockPageModal';
 
 import FinancialCard from '../../../elements/FinancialIndCards/FinancialCard';
 
@@ -41,7 +41,7 @@ const modalData = [
     },
 ]
 function FinancialIndicator({ name }) {
-    const modal = useContext(ModalContext)
+    const modal = useContext(ModalProvider)
 
     const [finIndicator, setFinIndicator] = useState(0);
     const [swiper, setSwiper] = useState(0);

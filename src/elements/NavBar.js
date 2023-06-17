@@ -7,6 +7,7 @@ import logoWhite from '../assets/img/logoWhite.webp'
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import { useWindowSize } from "@uidotdev/usehooks";
+import { toast } from './Toast/Toast';
 
 
 export default function NavBar() {
@@ -21,7 +22,7 @@ export default function NavBar() {
                         <Link href='/' className="inline-flex items-center">
                             <Image src={logoWhite} className='w-24 lg:w-36 object-contain' alt='icon' />
                         </Link>
-                        <GoSearch color='#FFFFFF' size={22} onClick={() => setShowSearchBar(true)} className='cursor-pointer w-[22px] object-contain lg:hidden ml-auto mr-8' />
+                        <GoSearch color='#FFFFFF' size={22} onClick={() => toast.notify('msg', '#00439D')} className='cursor-pointer w-[22px] object-contain lg:hidden ml-auto mr-8' />
                         <div onClick={() => setIsOpen(true)} className='lg:hidden'>
                             <span className='block w-4 h-[2px] rounded bg-white ml-1' />
                             <span className='block w-5 h-[2px] rounded bg-white my-1' />

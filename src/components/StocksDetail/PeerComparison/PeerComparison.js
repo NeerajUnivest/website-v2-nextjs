@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import InfoIcon from '../../../assets/icn/info.png';
 import arrows from '../../../assets/compImages/arrowTwoWays.png';
 import axios from 'axios';
-import { ModalContext } from '../../../contexts/StockPageModal';
+import { ModalProvider } from '../../../contexts/StockPageModal';
 import Image from 'next/image'
 
 let roundBG = ['bg-[#BFA161]', 'bg-[#F36F23]', 'bg-[#107AC4]', 'bg-[#356DB1]', 'bg-[#BFA161]', 'bg-[#F36F23]', 'bg-[#107AC4]', 'bg-[#356DB1]']
@@ -14,7 +14,7 @@ const modalData = [
     }
 ]
 function PeerComparison({ name }) {
-    const modal = useContext(ModalContext)
+    const modal = useContext(ModalProvider)
 
 
     const [show, setShow] = useState(false)
@@ -35,8 +35,8 @@ function PeerComparison({ name }) {
         modal.setModal(true);
     }
 
-    return (<div>
-        <div className='relative'>
+    return (
+        <div className='relative overflow-hidden'>
             <div id='peer-comparison' className='absolute -top-44' />
 
             <Image src={arrows} alt="news" className='w-[64px] h-[93px] absolute top-0 right-0 -z-10 mx-4' />
@@ -152,7 +152,6 @@ function PeerComparison({ name }) {
                 </div>
             </div> */}
         </div>
-    </div>
     )
 }
 

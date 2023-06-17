@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
 import InfoIcon from '../../../assets/icn/info.png'
-import { ModalContext } from '../../../contexts/StockPageModal';
+import { ModalProvider } from '../../../contexts/StockPageModal';
 import Image from 'next/image'
 
 import key from '../../../assets/compImages/key.png';
@@ -36,7 +36,7 @@ const modalData = [
 ]
 
 function KeyIndicatorCard({ name }) {
-    const modal = useContext(ModalContext)
+    const modal = useContext(ModalProvider)
 
     const [data, setData] = useState({});
 

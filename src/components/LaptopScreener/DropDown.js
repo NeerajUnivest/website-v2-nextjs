@@ -34,7 +34,7 @@ const anActiveStyle = {
     position: 'relative',
     alignItems: 'center'
 }
-export default function DropDown({ list, selected }) {
+export default function DropDown({ list, selected, name }) {
     const router = useRouter();
 
     const [show, setShow] = useState(selected);
@@ -48,7 +48,6 @@ export default function DropDown({ list, selected }) {
         <div className='m-4 font-Inter border-[2px] rounded-lg overflow-hidden'>
             <Link href='/screeners'>
                 <div className='py-2 flex items-center'>
-                    {/* <Image src={arrowLeft} alt='icon' className='mt-2 max-h-4 max-w-4 ' /> */}
                     <BsArrowLeft className='mx-4' size={25} />
                     <div className='text-[18px] leading-[32px] text-[#202020] font-semibold '>
                         Go to screeners home
@@ -60,26 +59,25 @@ export default function DropDown({ list, selected }) {
                 <div key={i}>
                     <div className={`border-t flex items-center justify-between cursor-pointer w-full px-4 py-2 text-[16px] text-[#202020] leading-[28px] text-left ${show === cat.categoryId && 'bg-[#c2e0f9] cursor-default font-semibold'}`} onClick={() => handleDropdown(cat)}>
                         {cat.categoryTitle}
-                        {/* <Image src={show === cat.categoryId ? arrowUp : arrowDown} alt='icon' className='h-3 mt-2' /> */}
                         <SlArrowDown size={20} className={show === cat.categoryId ? 'rotate-180' : 'rotate-0'} />
                     </div>
                     <div className={`ease-in-out duration-500 overflow-y-auto no-scrollbar ${show === cat.categoryId ? 'max-h-[275px]' : 'max-h-0 '}`}>
                         {list.screenersList?.filter(f => f.categoryId === cat.categoryId)?.map((ele, i) =>
                             <Link href={`/screeners/${ele.code}`} key={i}
-                                style={router.asPath === `/screeners/${ele.code}?backTo=screeeners` ? activeStyle : anActiveStyle}>
+                                style={name === ele.code ? activeStyle : anActiveStyle}>
                                 <div className='relative h-8 w-8 m-0'>
                                     <Image src={ele.imageUrl} width={32} height={32} alt='logo' className='max-h-8 max-w-8 ' />
                                     {ele.premium && <Image src={premium} width={20} alt='logo' className='absolute -bottom-2 left-4 h-[20px] w-[20px]' />}
                                 </div>
                                 <div className='ml-3 '>
-                                    <div className='font-Inter text-[14px] leading-[24px] text-[#202020]'>
+                                    <div className='font-Inter text-[14px] leading-[24px] text-[#202020] line-clamp-1'>
                                         {ele.title}
                                     </div>
                                     <div className='text-left font-Inter text-[10px] leading-[16px] text-[#606060]'>
                                         {ele.stocksCount} Stocks
                                     </div>
                                 </div>
-                                {ele.newFlag && <Image src={newSquare} alt='icon' className='absolute top-5 right-3 w-9' />}
+                                {ele.newFlag && <Image src={newSquare} alt='icon' className='absolute bottom-3 right-3 w-8' />}
                             </Link>)}
                     </div>
                 </div>

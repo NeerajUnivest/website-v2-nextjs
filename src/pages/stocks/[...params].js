@@ -21,17 +21,16 @@ import ShareHolding from '@/components/StocksDetail/ShareHolding/ShareHolding';
 export default function StockDetails({ stockDetails }) {
     const router = useRouter();
     let { finCode } = router.query;
-    console.log(finCode);
     const { width } = useWindowSize();
     const [activeChartType, setActiveChartType] = useState(1);
 
     return (<>
-        <div className='grid grid-cols-12'>
+        <div className='grid grid-cols-12 select-none font-Inter max-w-screen-xl mx-auto'>
             {width > 976 &&
-                <div className='lg:ml-8 col-span-12 lg:col-span-3'>
+                <div className='col-span-12 lg:col-span-3'>
                     <LeftBar name={finCode} activeChartType={activeChartType} setActiveChartType={setActiveChartType} stockDetails={stockDetails} />
                 </div>}
-            <div className='lg:ml-8 col-span-12 lg:col-span-9 min-h-screen mb-8' id=''>
+            <div className='lg:ml-8 col-span-12 lg:col-span-9 min-h-screen mb-8 '>
                 <div id='overall' className='absolute -top-40' />
                 {finCode && (finCode < 100000000) &&
                     <>
@@ -58,10 +57,11 @@ export async function getServerSideProps(context) {
     const { finCode } = query;
 
     let res = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${finCode}`)
-    console.log(res.data?.data?.list?.[0]);
+
     return {
         props: {
-            stockDetails: res.data?.data?.list?.[0]
+            stockDetails: res.data?.data?.list?.[0],
+            pageName: 'stock-details'
         }
     };
 }

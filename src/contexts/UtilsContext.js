@@ -1,6 +1,6 @@
+import { ToastContainer } from '@/elements/Toast/Toast';
 import Head from 'next/head';
 import { createContext } from 'react';
-
 const UtilsProvider = createContext();
 
 const UtilsContext = (props) => {
@@ -14,9 +14,9 @@ const UtilsContext = (props) => {
                 <meta name="msapplication-navbutton-color" content="#00439D" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
             </Head>
-
             {props.children}
 
+            <ToastContainer />
         </UtilsProvider.Provider>
     )
 }

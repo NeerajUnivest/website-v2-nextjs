@@ -22,7 +22,7 @@ export default function ScreenerPage({ name, screenersList, screenerDetails }) {
                 </div>
                 <div className='hidden md:grid grid-cols-12 min-h-screen'>
                     <div className='col-span-12 lg:col-span-3'>
-                        <DropDown list={screenersList} selected={screenerDetails.categoryId} />
+                        <DropDown list={screenersList} selected={screenerDetails.categoryId} name={name} />
                     </div>
                     <LaptopScreener data={screenerDetails} />
                 </div>

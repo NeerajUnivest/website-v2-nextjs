@@ -59,17 +59,38 @@ export default function WhyUnivestSection() {
                         className="WhyUnivestSection"
                     >
                         <SwiperSlide>
-                            <Image src={play} className='w-full h-full rounded-3xl' alt='play' />
+                            <Image src={play} className='w-full h-full rounded-xl' alt='play' />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <Image src={play} className='w-full h-full rounded-3xl' alt='play' />
+                            <Image src={play} className='w-full h-full rounded-xl' alt='play' />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <Image src={play} className='w-full h-full rounded-3xl' alt='play' />
+                            <Image src={play} className='w-full h-full rounded-xl' alt='play' />
                         </SwiperSlide>
                     </Swiper>
                 </div>
             </div>
+            <style>{`
+                .WhyUnivestSection {
+                    display: flex !important;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                }
+                
+                .WhyUnivestSection .swiper-slide 
+                    width: 296px;
+                    height: 172px;
+                }
+                
+                @media (min-width: 976px) {
+                    .WhyUnivestSection .swiper-slide {
+                        width: 490px;
+                        height: 290px;
+                    }
+                }
+            `}</style>
         </section>
     )
 }

@@ -2,13 +2,13 @@ import { BlackButton, ScreenerCategoryChip } from "@/elements/Button/Button";
 import useSWR from 'swr'
 import Image from "next/image";
 import Link from "next/link";
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { BsArrowRight } from "react-icons/bs";
 import ScreenerCard from "../Screeners/ScreenerCard";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function ScreenersSection() {
-    // const { push } = useRouter();
+    const { push } = useRouter();
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/screeners/v2`, fetcher)
     return (
         <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-32 bg-[#FFFFFF]'>
@@ -35,16 +35,16 @@ export default function ScreenersSection() {
                     Explore by categories
                 </div>
                 <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-4">
-                    {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} />)}
+                    {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} />)}
                 </div>
-                <BlackButton onClick={() => null} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
             <div className="mx-4 py-2 mt-12 lg:flex items-center justify-between gap-x-5 hidden">
                 <div className="text-base font-semibold text-black">
                     Explore by categories
                 </div>
-                {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} />)}
-                <BlackButton onClick={() => null} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} />)}
+                <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
         </section>
     )

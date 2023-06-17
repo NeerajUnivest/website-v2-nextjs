@@ -130,14 +130,14 @@ export function AvailablePlansCard({ data }) {
                 <BsStarFill color='#FFB133' size={20} />
                 <BsStarHalf color='#FFB133' size={20} />
             </div>
-            <p className='my-4 lg:w-10/12 text-base font-medium text-[#606060] grow'>
+            <p className='my-4 lg:w-10/12 text-sm lg:text-base font-medium text-[#606060] grow'>
                 {data.comment}
             </p>
             <div>
-                <p className={`text-sm font-semibold`}>
+                <p className={`text-xs lg:text-sm font-semibold`}>
                     {data.name}
                 </p>
-                <p className='mt-1 text-sm text-[#606060]'>
+                <p className='mt-1 text-xs lg:text-sm text-[#606060]'>
                     {data.details}
                 </p>
             </div>

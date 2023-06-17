@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -42,7 +43,7 @@ export default function NewsSection() {
                         {data.data?.map(ele =>
                             <SwiperSlide key={ele.id}>
                                 <div className="p-3 overflow-hidden flex flex-col justify-between h-full select-none">
-                                    <img className="rounded-t-lg mx-auto w-full h-[132px] lg:h-[164px] object-cover" src={ele.img_large} alt={ele.title} width={200} height={200} />
+                                    <img className="rounded-t-lg mx-auto w-full h-[132px] lg:h-[164px] object-cover" src={ele.img_large} alt={ele.title} width={200} height={200} loading='lazy' decoding="async" data-nimg="1" />
                                     <p className="my-1 lg:my-2 line-clamp-2 text-xs lg:text-base font-bold text-black">
                                         {ele.title}
                                     </p>

@@ -174,44 +174,6 @@ code {
   }
 }
 
-.IdeasSection {
-  width: 100%;
-  /* padding: 20px 0px; */
-}
-
-.IdeasSection .swiper-wrapper {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  column-gap: 0px;
-}
-
-.IdeasSection .swiper-slide,
-.IdeasSection .swiper-slide-prev,
-.IdeasSection .swiper-slide-next {
-  width: 144px;
-  height: 164px;
-  margin: 0px 10px;
-  transform: scale(0.9);
-  transition: 500ms;
-  border-radius: 10px;
-  background: #f5f5f5;
-  border: 2px solid #BADDFA;
-}
-
-.IdeasSection .swiper-slide-active {
-  transform: scale(1);
-}
-
-@media (max-width: 746px) {
-
-  .IdeasSection .swiper-slide,
-  .IdeasSection .swiper-slide-prev,
-  .IdeasSection .swiper-slide-next {
-    margin: 0px 2px;
-  }
-}
-
 
 .NewsSection .swiper-wrapper {
   display: flex;
@@ -425,26 +387,6 @@ code {
     height: 8px;
     border-radius: 100px;
     margin: 3px;
-  }
-}
-
-.WhyUnivestSection {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.WhyUnivestSection .swiper-slide {
-  width: 296px;
-  height: 172px;
-}
-
-@media (min-width: 976px) {
-  .WhyUnivestSection .swiper-slide {
-    width: 540px;
-    height: 280px;
   }
 }
 

@@ -260,18 +260,6 @@ function StockGraph({ name, activeChartType, list }) {
                 return '1D';
         }
     }
-    const handleEvent = (n) => {
-        utils.sendData(
-            'cta_clicked',
-            {
-                'page': 'stock_page',
-                'fincode': name,
-                'symbol': utils.stockData?.nseSymbol,
-                'cta_text': getStringDuration(n),
-                'cta_type': 'stock_graph',
-            }
-        )
-    }
 
     return (
         <section className='mt-24'>
@@ -294,7 +282,6 @@ function StockGraph({ name, activeChartType, list }) {
                             'rounded-[4px] px-3 py-1 border-[1px] border-[#00439D] text-[#FFFFFF] bg-[#00439D] outline-none font-medium ' :
                             'rounded-[4px] px-3 py-1 font-medium border-[1px] border-[#FFFFFF]'}
                         onClick={() => {
-                            handleEvent(0);
                             setDuration(0);
                             fetchData(0, activeChartType);
                             setChartOptions(chartOptions);
@@ -307,7 +294,6 @@ function StockGraph({ name, activeChartType, list }) {
                             'rounded-[4px] px-3 py-1 border-[1px] border-[#00439D] text-[#FFFFFF] bg-[#00439D] outline-none font-medium ' :
                             'rounded-[4px] px-3 py-1 font-medium border-[1px] border-[#FFFFFF]'}
                         onClick={() => {
-                            handleEvent(1);
                             setDuration(1);
                             fetchData(1, activeChartType);
                             setChartOptions(chartOptions);
@@ -320,7 +306,6 @@ function StockGraph({ name, activeChartType, list }) {
                             'rounded-[4px] px-3 py-1 border-[1px] border-[#00439D] text-[#FFFFFF] bg-[#00439D] outline-none font-medium ' :
                             'rounded-[4px] px-3 py-1 font-medium border-[1px] border-[#FFFFFF]'}
                         onClick={() => {
-                            handleEvent(2);
                             setDuration(2);
                             fetchData(2, activeChartType);
                             setChartOptions(chartOptions);
@@ -333,7 +318,6 @@ function StockGraph({ name, activeChartType, list }) {
                             'rounded-[4px] px-3 py-1 border-[1px] border-[#00439D] text-[#FFFFFF] bg-[#00439D] outline-none font-medium ' :
                             'rounded-[4px] px-3 py-1 font-medium border-[1px] border-[#FFFFFF]'}
                         onClick={() => {
-                            handleEvent(3);
                             setDuration(3);
                             fetchData(3, activeChartType);
                             setChartOptions(chartOptions);
@@ -346,7 +330,6 @@ function StockGraph({ name, activeChartType, list }) {
                             'rounded-[4px] px-3 py-1 border-[1px] border-[#00439D] text-[#FFFFFF] bg-[#00439D] outline-none font-medium ' :
                             'rounded-[4px] px-3 py-1 font-medium border-[1px] border-[#FFFFFF]'}
                         onClick={() => {
-                            handleEvent(4);
                             setDuration(4);
                             fetchData(4, activeChartType);
                             setChartOptions(chartOptions);
@@ -359,7 +342,6 @@ function StockGraph({ name, activeChartType, list }) {
                             'rounded-[4px] px-3 py-1 border-[1px] border-[#00439D] text-[#FFFFFF] bg-[#00439D] outline-none font-medium ' :
                             'rounded-[4px] px-3 py-1 font-medium border-[1px] border-[#FFFFFF]'}
                         onClick={() => {
-                            handleEvent(5);
                             setDuration(5);
                             fetchData(5, activeChartType);
                             setChartOptions(chartOptions);
@@ -372,7 +354,6 @@ function StockGraph({ name, activeChartType, list }) {
                             'rounded-[4px] px-3 py-1 border-[1px] border-[#00439D] text-[#FFFFFF] bg-[#00439D] outline-none font-medium ' :
                             'rounded-[4px] px-3 py-1 font-medium border-[1px] border-[#FFFFFF]'}
                         onClick={() => {
-                            handleEvent(6);
                             setDuration(6);
                             fetchData(6, activeChartType);
                             setChartOptions(chartOptions);

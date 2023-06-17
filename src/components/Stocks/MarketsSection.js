@@ -56,9 +56,11 @@ export default function MarketsSection() {
                     <p className="text-sm lg:text-xl font-medium text-[#414141]">
                         Lorem ipsum dolor sit amet consectetur. Vel cursus sit lacinia ut facilisi malesuada scelerisque suspendisse.
                     </p>
-                    <div className='mt-8 mb-12 flex flex-row gap-5 lg:gap-11 lg:flex-col overflow-scroll no-scrollbar w-full'>
+                    <div className='mt-8 mb-12 flex flex-row gap-5 lg:gap-11 lg:flex-col overflow-scroll no-scrollbar w-full snap-x snap-mandatory'>
                         {brokerList.map((ele, i) =>
-                            <span key={ele.name} className={`ease-in-out min-w-[150px] lg:w-auto duration-300 ${state === i ? 'uni-wise-gradient3 text-base lg:text-3xl font-extrabold ' : 'text-[#414141] text-base lg:text-2xl font-medium '}`}>
+                            <span key={ele.name} className={`ease-in-out whitespace-nowrap lg:w-auto duration-300 mx-3 lg:mx-0
+                                ${state === i ? 'snap-center uni-wise-gradient3 text-base lg:text-3xl font-extrabold border-b-2 border-[#0862bcef] lg:border-0'
+                                    : 'snap-none text-[#414141] text-base lg:text-2xl font-medium '}`}>
                                 {ele.name}
                             </span>)
                         }

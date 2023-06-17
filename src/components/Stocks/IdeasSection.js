@@ -20,15 +20,15 @@ export default function IdeasSection() {
                 <span className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                     Investment & trading ideas
                 </span>
-                <div className="flex">
+                <div className="flex my-6 lg:my-0">
                     <Image
                         placeholder="empty"
                         src={sebi_logo}
-                        className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
+                        className=' h-[40px] lg:h-[64px] w-[40px] lg:w-[64px]'
                         alt='demo image'
                     />
-                    <div className="self-center ml-5">
-                        <p className="font-semibold text-base">Registered - <b>INA000017639</b></p>
+                    <div className="self-center ml-4 lg:ml-5">
+                        <p className="font-semibold text-sm lg:text-base">Registered - <b>INA000017639</b></p>
                         <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
                     </div>
                 </div>
@@ -126,6 +126,47 @@ export default function IdeasSection() {
             <p className='mt-8 text-center text-sm lg:text-base font-medium text-[#414141]'>
                 Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
             </p>
+
+
+            <style >{`
+                .IdeasSection {
+                width: 100%;
+                /* padding: 20px 0px; */
+                }
+
+                .IdeasSection .swiper-wrapper {
+                height: 200px;
+                display: flex;
+                align-items: center;
+                column-gap: 0px;
+                }
+
+                .IdeasSection .swiper-slide,
+                .IdeasSection .swiper-slide-prev,
+                .IdeasSection .swiper-slide-next {
+                width: 144px;
+                height: 164px;
+                margin: 0px 10px;
+                transform: scale(0.9);
+                transition: 500ms;
+                border-radius: 10px;
+                background: #f5f5f5;
+                border: 2px solid #BADDFA;
+                }
+
+                .IdeasSection .swiper-slide-active {
+                transform: scale(1);
+                }
+
+                @media (max-width: 746px) {
+
+                .IdeasSection.swiper - slide,
+                .IdeasSection.swiper - slide - prev,
+                .IdeasSection.swiper - slide - next {
+                margin: 0px 2px;
+                }
+                }
+            `}</style>
         </section>
     )
 }
