@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function Screeners({ data }) {
     return (
         <section className='font-Inter relative overflow-hidden  pt-24 lg:pt-28'>
-            <div className='-z-10 rounded-[50px] absolute left-[50vw] top-[30vh] bg-[#e3f0fb96] h-[200vh] w-[60vw]' />
+            <div className='-z-10 rounded-[50px] absolute left-[50vw] top-[128px] lg:top-[270px] bg-[#e3f0fb96] h-[200vh] w-[60vw]' />
             <div className='absolute top-18 lg:top-32 right-4 font-Inter flex flex-row justify-center lg:justify-end items-center lg:mr-4'>
                 <Image src={premium} className='ml-2 mr-1 -mt-[2px] h-5 lg:h-6 w-5 lg:w-6' alt='icon' />
                 <div className='lg:mt-[2px] text-[12px] leading-[16px] text-[#202020]'>

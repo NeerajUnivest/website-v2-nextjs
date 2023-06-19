@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import users from "@/assets/icons/users.png";
 import { BsApple } from "react-icons/bs";
+import Link from "next/link";
 
 export default function HeroSection() {
     return (
@@ -37,7 +38,7 @@ export default function HeroSection() {
             </Swiper>
             <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>
                 <div className="lg:px-8 pb-3 lg:pb-8 max-w-screen-xl mx-auto flex items-end justify-between h-full">
-                    <div className="flex flex-col ">
+                    <div className="flex flex-col w-full lg:w-auto">
                         <HeroSearchBox />
                     </div>
                     <div className="hidden lg:flex items-center">
@@ -46,8 +47,13 @@ export default function HeroSection() {
                             Trusted by<br />
                             <b>500k+ </b>Indians
                         </p>
-                        <BsApple color='#202020' size={36} className='mx-7' />
-                        <Image src="https://cdn-icons-png.flaticon.com/512/888/888857.png" width={32} height={32} className="w-8" alt='Google Play' />
+                        <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" className='mx-7' >
+                            <BsApple color='#202020' size={36} />
+                        </Link>
+
+                        <Link href="https://play.google.com/store/apps/details?id=com.univest.capp"  >
+                            <Image src="https://cdn-icons-png.flaticon.com/512/888/888857.png" width={32} height={32} className="w-8" alt='Google Play' />
+                        </Link>
                     </div>
                 </div>
             </div>

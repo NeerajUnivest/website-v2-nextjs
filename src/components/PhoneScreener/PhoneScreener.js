@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 let activeStyle = {
-  FontFace: 'Poppins',
   lineHeight: '21px',
   fontSize: '14px',
   color: '#00439D',
@@ -21,7 +20,6 @@ let activeStyle = {
 }
 
 let passiveStyle = {
-  FontFace: 'Poppins',
   lineHeight: '21px',
   fontSize: '12px',
   color: '#424242',

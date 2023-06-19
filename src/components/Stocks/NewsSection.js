@@ -9,10 +9,17 @@ import { Autoplay, Pagination } from "swiper";
 import { BlackButton, NewsCategoryChip } from "@/elements/Button/Button";
 import conveyLogo from '../../assets/images/conveyLogo.png'
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { popUp } from "@/elements/PopUp/PopUp";
 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function NewsSection() {
+    const router = useRouter();
+
+    const handleNavigate = (ele) => {
+        router.push(`/stocks/${ele.nseSymbol ?? ele.bseSymbol}/${ele.name}?finCode=${ele.finCode}`)
+    }
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/convey/news?page=0`, fetcher)
     return (
         <section id="News" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10 bg-[#FFFFFF]'>
@@ -50,7 +57,7 @@ export default function NewsSection() {
                                     {ele.companies?.[0] &&
                                         <div className="flex items-center ">
                                             {ele.companies?.slice(0, 2).map((e, i) =>
-                                                <div key={i} className='flex items-center font-Inter border-r border-[#EDEDED] pr-1 mr-1'>
+                                                <div key={i} className='flex items-center font-Inter border-r border-[#EDEDED] pr-1 mr-1 cursor-pointer' onClick={() => handleNavigate(e)}>
                                                     <span className="text-[10px] font-medium text-[#606060] mr-1.5">{e.nseSymbol ?? e.bseSymbol}</span>
                                                     <TbTriangleFilled size={8} color={e.stockStatus === 'DOWN' ? '#EB4E2C' : '#26A649'} />
                                                     <span className={`text-[10px] ml-1 ${e.stockStatus === 'DOWN' ? 'text-[#EB4E2C]' : 'text-[#26A649]'}`}>{e.todaysChange?.toFixed(2)}</span>
@@ -109,7 +116,7 @@ export default function NewsSection() {
                         }
                     ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 </div>
-                <BlackButton onClick={() => null} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                <BlackButton onClick={() => popUp.open()} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
             <div className="mx-4 py-2 mt-12 hidden lg:flex items-center gap-x-5 ">
                 <div className="text-sm lg:text-base font-semibold text-black">
@@ -142,8 +149,78 @@ export default function NewsSection() {
                         "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/worldwide.png"
                     }
                 ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
-                <BlackButton onClick={() => null} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                <BlackButton onClick={() => popUp.open()} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
+            <style>{`
+
+                .NewsSection .swiper-wrapper {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 0px;
+                    padding-bottom: 40px;
+                    height: 320px;
+                }
+                
+                .NewsSection .swiper-slide {
+                    margin: 0 12px;
+                    transform: scale(1);
+                    opacity: 0.5;
+                    transition: 500ms;
+                    border-radius: 15px;
+                    background: #FFFFFF;
+                    border: 1px solid #EDEDED;
+                }
+                
+                .NewsSection .swiper-slide-active {
+                    margin: 0 30px;
+                    opacity: 1;
+                    transform: scale(1.1);
+                }
+                
+                .NewsSection .swiper-pagination-bullet {
+                    background: #414141;
+                    width: 14px;
+                    height: 6px;
+                    border-radius: 100px;
+                    margin: 0px;
+                }
+                
+                @media (max-width: 976px) {
+                    .NewsSection .swiper-slide {
+                    width: 232px;
+                    height: 240px;
+                    }
+                
+                    .NewsSection .swiper-wrapper {
+                    height: 280px;
+                    }
+                
+                    .NewsSection .swiper-slide-active {
+                    margin: 0 12px;
+                    }
+                
+                    .NewsSection .swiper-pagination-bullets {
+                    left: 30% !important;
+                    display: none;
+                    }
+                }
+                
+                @media (min-width: 976px) {
+                    .NewsSection .swiper-slide {
+                    width: 288px;
+                    height: 290px;
+                    }
+                
+                
+                    .NewsSection .swiper-pagination-bullet {
+                    background: #414141;
+                    width: 20px;
+                    height: 8px;
+                    border-radius: 100px;
+                    margin: 3px;
+                    }
+                }
+                `}</style>
         </section>
     )
 }

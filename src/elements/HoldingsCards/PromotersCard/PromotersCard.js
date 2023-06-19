@@ -46,7 +46,7 @@ function PromotersCard(props) {
                     y: 30,
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
+                        fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'semibold',
                         color: '#979797',
 
@@ -89,7 +89,7 @@ function PromotersCard(props) {
                 itemStyle: {
                     color: '#455154',
                     fontWeight: 'semibold',
-                    fontFamily: "'Poppins', 'sans-serif'",
+                    fontFamily: "'Inter', 'sans-serif'",
                     fontSize: 10,
                 }
             },
@@ -112,7 +112,7 @@ function PromotersCard(props) {
                     },
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
+                        fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'semibold',
                         color: '#232A31',
                         textOutline: 0
@@ -139,7 +139,7 @@ function PromotersCard(props) {
                     },
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
+                        fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'semibold',
                         color: '#232A31',
                         textOutline: 0

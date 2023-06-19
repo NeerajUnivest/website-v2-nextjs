@@ -9,6 +9,7 @@ import c from '../../assets/icons/plans/3.png';
 import d from '../../assets/icons/plans/4.png';
 import recommend_tag from '../../assets/images/elite/recommend_tag.png';
 import elite_background from '../../assets/images/elite_background.png';
+import { popUp } from "@/elements/PopUp/PopUp";
 
 const cardData = [
     {
@@ -106,7 +107,7 @@ export default function AvailablePlansSection() {
                     <button className="bg-[#C9DDE680] px-8 py-3 text-sm lg:text-xl font-medium rounded-full">
                         Start investing with as low as ₹25k /-
                     </button>
-                    <BlackButton onClick={() => alert('TODO')} text='Invest now' className='px-8 lg:px-12 py-3 text-sm lg:text-xl font-extrabold' />
+                    <BlackButton onClick={() => popUp.open()} text='Invest now' className='px-8 lg:px-12 py-3 text-sm lg:text-xl font-extrabold' />
                 </div>
             </div>
         </section>

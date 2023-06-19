@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 
-function BlackButton({ text, onClick, className }) {
+function BlackButton({ text, onClick, className, icon }) {
     return (
         <motion.button
             type="button"
@@ -12,7 +12,7 @@ function BlackButton({ text, onClick, className }) {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
-            {text}
+            {icon ? <HiArrowRight size={30} /> : text}
         </motion.button>
     );
 }
@@ -21,7 +21,7 @@ function ScreenerCategoryChip({ text, onClick, className }) {
     return (
         <motion.button
             onTap={onClick}
-            className={`select-none px-4 whitespace-nowrap py-2 rounded-lg font-Inter text-[12px] lg:text-sm border bg-white border-primary text-primary font-extrabold shadow-md ${className ?? ''}`}
+            className={`ml-4 select-none px-4 whitespace-nowrap py-2 rounded-lg font-Inter text-[12px] lg:text-sm border bg-white border-primary text-primary font-extrabold shadow-md ${className ?? ''}`}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -64,7 +64,7 @@ function ResultButton({ active, text, onClick, className }) {
         <motion.button
             type="button"
             onTap={onClick}
-            className={`select-none px-4 py-1 text-xs rounded-full font-Inter text-[#FFFFFF] shadow-md border lg:border-2  ${active ? 'text-white bg-[#1684FD] border-white' : ' text-black bg-white border-[#F5F5F5]'} ${className}`}
+            className={`select-none px-4 lg:px-7 py-1 text-xs lg:text-lg rounded-full font-Inter text-[#FFFFFF] shadow-md border lg:border-2  ${active ? 'text-white bg-[#1684FD] border-white' : ' text-black bg-white border-[#F5F5F5]'} ${className}`}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}

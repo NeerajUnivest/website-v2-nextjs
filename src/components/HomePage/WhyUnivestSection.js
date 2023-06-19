@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css/effect-coverflow";
 import Image from 'next/image';
 import play from "@/assets/images/play.png";
-import no_hidden_charges from '../../assets/icons/no_hidden_charges.png';
+import trusted_stock_ideas from '../../assets/icons/trusted_stock_ideas.png';
 import insights from '../../assets/icons/insights.png';
 import portfolio_analysis from '../../assets/icons/portfolio_analysis.png';
 import interest_rate from '../../assets/icons/interest_rate.png';
@@ -13,19 +13,19 @@ import interest_rate from '../../assets/icons/interest_rate.png';
 export default function WhyUnivestSection() {
     return (
         <section className=' px-4 lg:px-8 py-20 bg-[#F5F5F5] font-Inter'>
-            <div className='max-w-screen-xl mx-auto flex flex-col '>
+            <div className='max-w-screen-xl mx-auto flex flex-col overflow-hidden'>
                 <p className="text-center text-xl lg:text-5xl font-extrabold text-[#202020]">
                     Why Univest?
                 </p>
-                <p className=" mt-5 lg:mt-6 text-center text-xl font-semibold text-[#747474]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                <p className=" mt-5 lg:mt-6 text-center text-sm lg:text-xl font-semibold text-[#747474]">
+                    Your one-stop solution for all your investment needs. Maximise your ROIs with exiting bad investments on time and invest in trusted investment ideas and high return investment plans all from a single place
                 </p>
                 <div className='flex flex-col-reverse lg:flex-col pt-11 lg:pt-12 gap-16'>
                     <div className="grid grid-cols-2 lg:grid-cols-4 grid-flow-row lg:grid-rows-1 gap-x-8 gap-y-14 mx-4 lg:mx-16">
-                        <IconBox icon={no_hidden_charges} name='No hidden<br/>charges' />
+                        <IconBox icon={portfolio_analysis} name='Free Portfolio<br/>analysis' />
                         <IconBox icon={insights} name='Buy-Sell-Hold<br/>insights' />
-                        <IconBox icon={portfolio_analysis} name='Free portfolio<br/>analysis' />
-                        <IconBox icon={interest_rate} name='Best returns<br/>offered' />
+                        <IconBox icon={trusted_stock_ideas} name='Trusted stock<br/>ideas' />
+                        <IconBox icon={interest_rate} name='High return<br/>investments' />
                     </div>
                     <Swiper
                         initialSlide={1}

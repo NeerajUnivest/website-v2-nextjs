@@ -38,18 +38,16 @@ export default function IdeasSection() {
                     <p className="mt-10 text-center text-base lg:text-xl font-extrabold text-[#414141]">
                         Pillars of advisory team
                     </p>
-                    {/* <div className="flex flex-row lg:flex-col overflow-x-scroll"> */}
                     {[
-                        { name: 'Ketan Sonalkar', img: ketan_sonalkar },
-                        { name: 'Yashpal Arora', img: yashpal_arora },
-                        { name: 'Sagar Wadhwa', img: sagar_wadhwa },
+                        { name: 'Ketan Sonalkar', img: ketan_sonalkar, disc: 'SEBI reg. advisory' },
+                        { name: 'Yashpal Arora', img: yashpal_arora, disc: 'Senior consultant' },
+                        { name: 'Sagar Wadhwa', img: sagar_wadhwa, disc: 'Senior Research Analyst' },
                     ].map(ele =>
                         <AdvisoryTeamCard key={ele.name} data={ele} />
                     )}
-                    {/* </div> */}
                 </div>
                 <div className="w-full lg:max-w-[60%]">
-                    <div className="flex justify-evenly items-center">
+                    <div className="flex justify-evenly items-center px-10">
                         <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
                             <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
                             flex justify-center items-center rounded-full w-20 h-20 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
@@ -67,8 +65,8 @@ export default function IdeasSection() {
                         <div className="flex flex-col lg:flex-row items-center justify-center mb-5 text-sm font-medium text-[#F5F5F5] gap-1">
                             <span>Past performance </span>
                             <div>
-                                <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">81.4% Accuracy</span>
-                                <span className="font-semibold text-sm lg:text-xl"> | Hit: 35 | Miss: 8</span>
+                                <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(1)}% Accuracy</span>
+                                <span className="font-semibold text-sm lg:text-xl"> | Hit: {data?.data?.hit} | Miss: {data?.data?.miss}</span>
                             </div>
                         </div>
                         {isLoading ?
@@ -123,7 +121,7 @@ export default function IdeasSection() {
                     </div>
                 </div>
             </div>
-            <p className='mt-8 text-center text-sm lg:text-base font-medium text-[#414141]'>
+            <p className='mt-8 text-center text-sm lg:text-lg font-medium text-[#414141]'>
                 Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
             </p>
 
@@ -184,7 +182,7 @@ export function AdvisoryTeamCard({ data }) {
             />
             <div className="self-center ml-5">
                 <p className="font-semibold text-sm lg:text-xl text-black">{data.name}</p>
-                <p className="font-medium text-xs lg:text-base text-[#747474]">{data.disc ?? 'Lorem ipsum dolor sit amet'}</p>
+                <p className="font-medium text-xs lg:text-base text-[#747474]">{data.disc}</p>
             </div>
         </div>
     )

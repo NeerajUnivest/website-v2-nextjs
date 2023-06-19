@@ -22,7 +22,7 @@ const section = [
 
 export default function TopBar() {
     const scrollPosition = useScrollPosition();
-    const scrolled = useDebounce(scrollPosition, 20);
+    const scrolled = useDebounce(scrollPosition, 10);
     const [active, setActive] = useState('overall');
 
     useEffect(() => {

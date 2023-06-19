@@ -1,5 +1,5 @@
 import Image from "next/image";
-import hero from '../../assets/images/hero.png';
+import hero from '../../assets/images/hero_image_1.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import sebi_logo from '../../assets/icons/sebi_logo.png';
 import CountUpBox from "@/elements/CountUpBox";
@@ -10,7 +10,7 @@ export default function StocksHeroSection({ homePage }) {
     const router = useRouter();
     return (<>
         <section id="Hero" className="bg-[#EFF7FF]">
-            <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
+            <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto '>
                 <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8 relative">
                     <p className='ml-4 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141]'>
                         Stocks
@@ -26,7 +26,7 @@ export default function StocksHeroSection({ homePage }) {
                             <Image
                                 placeholder="empty"
                                 src={sebi_logo}
-                                className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
+                                className=' h-[48px] lg:h-[64px] w-[48px] lg:w-[64px]'
                                 alt='demo image'
                             />
                             <div className="self-center ml-5">
@@ -43,13 +43,15 @@ export default function StocksHeroSection({ homePage }) {
                             <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>
-                    {homePage ? <ExploreMore className='absolute -bottom-24 left-4 lg:bottom-32 lg:left-8' onClick={() => router.push('/stocks')} /> : <HeroSearchBox />}
+                    {homePage ?
+                        <ExploreMore className='absolute -bottom-20 left-4 lg:bottom-28 lg:left-8' onClick={() => router.push('/stocks')} />
+                        : <HeroSearchBox />}
                 </div>
-                <div className="basis-full md:basis-5/12 flex content-center mt-10 lg:mt-0">
+                <div className={`basis-full md:basis-5/12 flex content-center lg:mt-10 ${homePage ? 'mt-28' : 'mt-6'}`}>
                     <Image
                         placeholder="empty"
                         src={hero}
-                        className={`lg:h-[550px] lg:w-[450px]  ${homePage ? 'ml-auto w-[210px] h-[280px] mr-8' : 'mx-auto w-[240px] h-[300px]'}`}
+                        className={`lg:w-[500px] lg:min-w-[500px] object-contain ${homePage ? 'ml-auto w-[80%]  mr-8' : 'mx-auto w-[80%]'}`}
                         alt='demo image'
                     />
                 </div>

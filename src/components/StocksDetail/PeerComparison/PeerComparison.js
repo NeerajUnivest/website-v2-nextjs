@@ -4,6 +4,7 @@ import arrows from '../../../assets/compImages/arrowTwoWays.png';
 import axios from 'axios';
 import { ModalProvider } from '../../../contexts/StockPageModal';
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 
 let roundBG = ['bg-[#BFA161]', 'bg-[#F36F23]', 'bg-[#107AC4]', 'bg-[#356DB1]', 'bg-[#BFA161]', 'bg-[#F36F23]', 'bg-[#107AC4]', 'bg-[#356DB1]']
 
@@ -15,7 +16,7 @@ const modalData = [
 ]
 function PeerComparison({ name }) {
     const modal = useContext(ModalProvider)
-
+    const router = useRouter()
 
     const [show, setShow] = useState(false)
     const [data, setData] = useState([])
@@ -65,13 +66,13 @@ function PeerComparison({ name }) {
                         {!data?.[0] ? <tr className="m-4 bg-[#D9D9D9] w-full rounded-lg h-[260px] animate-pulse" /> :
                             data?.map((item, i) =>
                                 <tr key={i} className='h-[52px]'>
-                                    <td className='pt-2 sticky -left-[2px] bg-white text-[10px] text-[#1c1c1c] font-medium leading-[18px] px-2 min-w-[25vw] border border-[#E5E5E5] cursor-pointer' onClick={() => navigate(`/stocks/${item.finCode}?backTo=stocks`)}>
+                                    <td className='pt-2 sticky -left-[2px] bg-white text-[10px] text-[#1c1c1c] font-medium leading-[18px] px-2 min-w-[120px] lg:min-w-[200px] border border-[#E5E5E5] cursor-pointer' onClick={() => router.push(`/stocks/${item.symbol ?? item.bseSymbol}/${item.name}?finCode=${item.finCode}`)}>
                                         <div className='flex flex-row font-Inter'>
                                             <div className={`mt-[3px] rounded-full h-[10px] w-[10px] ${roundBG[i]}`}></div>
                                             <div className=' text-[10px] leading-[16px] font-medium ml-1'>
                                                 {(item.symbol === null || item.symbol === '') ? item.bseSymbol : item.symbol}</div>
                                         </div>
-                                        <div className='text-[8px] leading-[12px] text-[#979797]'>{item.name}</div>
+                                        <div className='text-[8px] leading-[12px] text-[#979797] line-clamp-1'>{item.name}</div>
                                     </td>
                                     <td className='text-[12px] text-[#1c1c1c] font-medium leading-[18px] items-center px-2 border border-x-0 border-[#E5E5E5]'>
                                         {item.pbRatio.toFixed(2)}</td>
@@ -87,70 +88,6 @@ function PeerComparison({ name }) {
                     </tbody>
                 </table>
             </div>
-            {/* <div className='ml-4 my-3 flex flex-row font-Inter'>
-                <div className=''>
-                    <div className='text-[12px] h-[40px] text-[#979797] font-medium leading-[18px] border-b-[1px] border-r-[1px] border-[#E5E5E5] rounded-tl-[8px] flex flex-row justify-evenly items-center min-w-[30vw] md:min-w-[10vw]  border-[1px] '>Stocks
-                    </div>
-                    <div className=''>
-                        {show ?
-                            data.map((item, index) =>
-                            (<div key={index} className='pl-2 py-2 h-[52px] flex flex-col justify-start border-l-[1px] border-b-[1px] border-r-[1px] border-[#E5E5E5] cursor-pointer' onClick={() => navigate(`/stocks/${item.finCode}?backTo=stocks`)}>
-                                <div className='flex flex-row items-center'>
-                                    <div className={`rounded-full h-[10px] w-[10px] ${roundBG[index]}`}></div>
-                                    <div className='font-Inter text-[10px] leading-[18px] font-medium ml-1'>
-                                        {(item.symbol === null || item.symbol === '') ? item.bseSymbol : item.symbol}</div>
-                                </div>
-                                <div className='text-[8px] text-[#979797]'>{item.name}</div>
-                            </div>))
-                            : <div className="mx-4 bg-[#D9D9D9] rounded-lg px-3 pt-5 pb-4 h-[305px] w-full animate-pulse"></div>}
-                    </div>
-                </div>
-                <div className='overflow-x-auto w-3/4 scroller swiper-no-swiping'>
-                    <div className='flex flex-row h-[40px]'>
-                        <div
-                            className='text-[12px] text-[#979797] font-medium leading-[18px] border-b-[1px] border-t-[1px] border-[#E5E5E5] flex flex-row justify-start items-center px-2 min-w-[70px]'>
-                            P/B ratio
-                        </div>
-                        <div
-                            className='text-[12px] text-[#979797] font-medium leading-[18px] border-b-[1px] border-t-[1px] border-[#E5E5E5] flex flex-row justify-start items-center px-2 min-w-[70px]'>
-                            P/E ratio
-                        </div>
-                        <div
-                            className='text-[12px] text-[#979797] font-medium leading-[18px] border-b-[1px] border-t-[1px] border-[#E5E5E5] flex flex-row justify-start items-center px-2 min-w-[70px]'>
-                            Div yield
-                        </div>
-                        <div
-                            className='text-[12px] text-[#979797] font-medium leading-[18px] border-b-[1px] border-t-[1px] border-[#E5E5E5] flex flex-row justify-start items-center px-2 min-w-[80px]'>
-                            Ltp
-                        </div>
-                        <div
-                            className='text-[12px] text-[#979797] font-medium leading-[18px] border-b-[1px] border-t-[1px] border-r-[1px] rounded-tr-[8px] flex flex-row justify-start items-center px-2 min-w-[120px] border-[#E5E5E5]'>
-                            Market Capital
-                        </div>
-                    </div>
-
-                    {show ?
-                        data.map((item, index) =>
-                        (<div className='flex flex-row h-[52px]' key={index}>
-                            <div
-                                className='flex flex-row justify-start items-center px-2 min-w-[70px] text-[12px] leading-[16px] font-medium border-b-[1px] border-[#E5E5E5] '>{item.pbRatio.toFixed(2)}
-                            </div>
-                            <div
-                                className='flex flex-row justify-start items-center px-2 min-w-[70px] text-[12px] leading-[16px] font-medium border-b-[1px] border-[#E5E5E5]'>{item.peRatio.toFixed(2)}
-                            </div>
-                            <div
-                                className='flex flex-row justify-start items-center px-2 min-w-[70px] text-[12px] leading-[16px] font-medium border-b-[1px] border-[#E5E5E5]'>{item.divYield.toFixed(2)}
-                            </div>
-                            <div
-                                className='flex flex-row justify-start items-center px-2 min-w-[80px] text-[12px] leading-[16px] font-medium border-b-[1px] border-[#E5E5E5]'>{item.currentMarketPrice?.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
-                            </div>
-                            <div
-                                className='flex flex-row justify-start items-center px-2 min-w-[120px] text-[12px] leading-[16px] font-medium  border-r-[1px] border-b-[1px] border-[#E5E5E5]'>{(item.marketCap / 10000000)?.toLocaleString('en-IN', { maximumFractionDigits: 2 }) + ' Cr.'}
-                            </div>
-                        </div>))
-                        : <div className="mx-4 bg-[#D9D9D9] rounded-lg px-3 pt-5 pb-4 h-[305px] w-full animate-pulse"></div>}
-                </div>
-            </div> */}
         </div>
     )
 }

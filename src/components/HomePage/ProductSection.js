@@ -14,37 +14,43 @@ import news from '../../assets/icons/news.png';
 import Image from "next/image";
 import background_circles from '../../assets/images/background_circles.png';
 import { useWindowSize } from '@uidotdev/usehooks';
+import { useRouter } from 'next/router';
 
 
 const brokerList = [
     {
         name: "Markets",
         icon: markets,
-        img: marketsImg.src
+        img: marketsImg,
+        text: 'Stay up to date with market and get daily pre - market analysis'
     },
     {
         name: "News",
         icon: news,
-        img: newsImg.src
+        img: newsImg,
+        text: 'Read all your financial news in just about 60 words '
     },
     {
         name: "Results",
         icon: results,
-        img: resultsImg.src
+        img: resultsImg,
+        text: 'Track upcoming analyse declared company results'
     },
     {
         name: "Sharks",
         icon: sharks,
-        img: sharksImg.src
+        img: sharksImg,
+        text: 'Track the holdings and changes of India’s top investors'
     },
     {
-        img: crisp_stock_research.src
+        name: false,
+        img: crisp_stock_research
     }
 ]
 
 export default function ProductSection() {
+    const router = useRouter()
     const [state, setState] = useState(3);
-    const { width } = useWindowSize();
 
     const transitions = useTransition(state, {
         key: state,
@@ -65,10 +71,10 @@ export default function ProductSection() {
         exitBeforeEnter: true,
     })
     return (
-        <section className='mt-8 px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden bg-no-repeat bg-right-bottom lg:bg-center bg-[length:200vw_50%] lg:bg-cover' style={{ backgroundImage: width > 746 && `url(${background_circles.src})` }} >
+        <section className='mt-8 px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden bg-no-repeat bg-right-bottom lg:bg-center bg-[length:200vw_50%] lg:bg-cover' style={{ backgroundImage: `url(${background_circles.src})` }} >
             <div className='max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-5/12'>
-                    <p className="my-5 lg:my-4 text-center lg:text-left text-xl lg:text-5xl font-extrabold text-[#414141]">
+                    <p className="my-5 lg:my-0 lg:mb-7 text-center lg:text-left text-xl lg:text-5xl font-extrabold text-[#414141]">
                         Crisp stock research
                     </p>
                     <div className="flex lg:hidden justify-center mt-4 mb-6">
@@ -84,12 +90,12 @@ export default function ProductSection() {
                         </div>
                     </div>
                     <p className=" text-center lg:text-left text-sm lg:text-xl font-medium text-[#414141]">
-                        Lorem ipsum dolor sit amet consectetur. Vel cursus sit lacinia ut facilisi malesuada scelerisque suspendisse.
+                        Personalise your investment experience with trade ideas from SEBI experts, AI based ‘Buy/Sell/Hold’ insights, advanced screeners and a lot more!
                     </p>
                     <div className='mt-8 mb-12 flex flex-row  lg:flex-col justify-between w-full lg:min-h-[370px]'>
                         {brokerList?.slice(0, -1).map((ele, i) =>
                             <div key={ele.name} className={`min-w-[70px] flex flex-col rounded-xl py-2 px-3 duration-300 ease-in ${i === state ? 'bg-[#FFFFFF80]  border-2 border-[#0862BC]' : ' border border-[#8EC8F7]'}`}
-                            //  onClick={() => setState(i)}
+                                onClick={() => setState(i)}
                             >
                                 <div className={`flex flex-col lg:flex-row justify-center lg:justify-start items-center `}>
                                     <Image
@@ -103,24 +109,22 @@ export default function ProductSection() {
                                     </span>
                                 </div>
                                 <div className={`hidden lg:block mt-1 text-black text-xs lg:text-base duration-300 ease-in font-semibold overflow-hidden ${i === state ? 'max-h-8' : 'max-h-0'}`}>
-                                    Read financial news like never before in 60 words.
+                                    {ele.text}
                                 </div>
                             </div>)}
                     </div>
                     <div className='flex justify-center'>
-                        <BlackButton text='Explore more' className='mb-10 lg:mb-0 lg:w-full mx-auto py-3 px-9 lg:px-24 text-base font-extrabold' onClick={() => null} />
+                        <BlackButton text='Explore more' className='mb-10 lg:mb-0 lg:w-full mx-auto py-3 px-9 lg:px-24 text-base font-extrabold' onClick={() => router.push('/stocks')} />
                     </div>
                 </div>
-                <div className="w-full lg:w-5/12 px-2 lg:px-3 h-[430px] lg:h-[551px] flex place-content-center">
-                    {transitions(style => (
-                        <animated.img
-                            style={style}
-                            src={brokerList[state].img}
-                            className='w-full object-cover object-top lg:object-right lg:object-contain'
-                            alt='broker logo'
-                        />
-                    ))}
-                </div>
+                {transitions(style => (
+                    <animated.div
+                        style={style}
+                        className="w-full lg:w-5/12 px-2 lg:px-3 h-[430px] lg:h-[551px] flex place-content-center"
+                    >
+                        <Image src={brokerList[state].img} className={`w-full object-top lg:object-right lg:object-contain ${!brokerList[state].name ? 'object-contain' : 'object-cover'}`} alt='demo image' />
+                    </animated.div>
+                ))}
             </div>
         </section>
     )

@@ -39,12 +39,12 @@ export default function ScreenersSection() {
                 </div>
                 <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
-            <div className="mx-4 py-2 mt-12 lg:flex items-center justify-between gap-x-5 hidden">
-                <div className="text-base font-semibold text-black">
+            <div className="mx-4 py-2 mt-12 lg:flex items-center hidden">
+                <div className="text-base font-semibold text-black mr-8">
                     Explore by categories
                 </div>
                 {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} />)}
-                <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
+                <BlackButton onClick={() => push('/screeners')} text='View all' className='ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
         </section>
     )

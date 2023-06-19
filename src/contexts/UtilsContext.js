@@ -17,6 +17,7 @@ const UtilsContext = (props) => {
             {props.children}
 
             <ToastContainer />
+            <div id="pop-up-container" />
         </UtilsProvider.Provider>
     )
 }

@@ -80,6 +80,6 @@ export const toast = {
             color={color || null} />,
             document.getElementById('toast-container'));
         toast.currentToast = true
-        toast.timeout = setTimeout(toast.remove, 30000)
+        toast.timeout = setTimeout(toast.remove, 3000)
     }
 }

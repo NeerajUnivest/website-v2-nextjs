@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import moment from 'moment';
-import { ModalContext } from '../../contexts/StockPageModal';
+import { ModalProvider } from '../../contexts/StockPageModal';
 import announcements from '../../assets/eventIcon/announcements.svg';
 import dividends from '../../assets/eventIcon/dividends.svg';
 import others from '../../assets/eventIcon/others.svg';
@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 
 function EventCard(props) {
-    const modal = useContext(ModalContext)
+    const modal = useContext(ModalProvider)
 
     const openModalHandler = (modalData) => {
         modal.setTitle('Events')

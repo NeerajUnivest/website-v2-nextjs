@@ -67,7 +67,7 @@ export default function UserFeedbacksSection() {
         <section className='font-Inter max-w-screen-xl pb-6 lg:pb-10 pt-16 lg:pt-24 mx-auto lg:px-8 bg-[#FFFFFF]'>
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
                 <div className="">
-                    <p className="hidden lg:flex font-medium text-base lg:text-4xl text-black mb-3">Trusted by <span className='font-extrabold'>400k+ users</span></p>
+                    <p className="hidden lg:flex font-medium text-base lg:text-4xl text-black mb-3 whitespace-pre">Trusted by<span className='font-extrabold'> 400k+ users</span></p>
                     <p className="font-extrabold lg:font-semibold text-xl lg:text-2xl text-[#414141]">Read what they say about us</p>
                 </div>
                 <Image src={ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
@@ -128,7 +128,8 @@ export function AvailablePlansCard({ data }) {
                 <BsStarFill color='#FFB133' size={20} />
                 <BsStarFill color='#FFB133' size={20} />
                 <BsStarFill color='#FFB133' size={20} />
-                <BsStarHalf color='#FFB133' size={20} />
+                <BsStarFill color='#FFB133' size={20} />
+                {/* <BsStarHalf color='#FFB133' size={20} /> */}
             </div>
             <p className='my-4 lg:w-10/12 text-sm lg:text-base font-medium text-[#606060] grow'>
                 {data.comment}

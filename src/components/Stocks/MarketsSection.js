@@ -5,24 +5,26 @@ import bulk_block_deals from '../../assets/images/bulk_block_deals.png';
 import global_indices from '../../assets/images/global_indices.png';
 import morning_digest from '../../assets/images/morning_digest.png';
 import market_sentiment from '../../assets/images/market_sentiment.png';
+import Image from 'next/image';
+import { popUp } from '@/elements/PopUp/PopUp';
 
 
 const brokerList = [
     {
         name: "Market Sentiment",
-        img: market_sentiment.src
+        img: market_sentiment
     },
     {
         name: "Morning digest",
-        img: morning_digest.src
+        img: morning_digest
     },
     {
         name: "Global indices",
-        img: global_indices.src
+        img: global_indices
     },
     {
         name: "Bulk/Block deals",
-        img: bulk_block_deals.src
+        img: bulk_block_deals
     },
 ]
 
@@ -48,13 +50,13 @@ export default function MarketsSection() {
     })
     return (
         <section id="Markets" className='max-w-screen-xl mx-auto lg:px-8 bg-[#FFFFFF]'>
-            <p className="my-5 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
+            <p className="mt-5 lg:my-4 text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
                 Stay on top of the markets
             </p>
             <div className='w-full  bg-white p-5 flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-1/2'>
-                    <p className="text-sm lg:text-xl font-medium text-[#414141]">
-                        Lorem ipsum dolor sit amet consectetur. Vel cursus sit lacinia ut facilisi malesuada scelerisque suspendisse.
+                    <p className="text-sm lg:text-xl font-medium text-[#414141] text-center lg:text-left">
+                        Harness the power of data and valuable insights that help you stay ahead of market trends and make well-informed decisions.
                     </p>
                     <div className='mt-8 mb-12 flex flex-row gap-5 lg:gap-11 lg:flex-col overflow-scroll no-scrollbar w-full snap-x snap-mandatory'>
                         {brokerList.map((ele, i) =>
@@ -65,20 +67,23 @@ export default function MarketsSection() {
                             </span>)
                         }
                     </div>
-                    <BlackButton text='Explore more' className='mt-10 py-2 px-9 text-base font-extrabold hidden lg:block' onClick={() => null} />
+                    <BlackButton text='Explore more' className='mt-10 py-2 px-9 text-base font-extrabold hidden lg:block' onClick={() => popUp.open()} />
                 </div>
                 <div className="w-full lg:w-5/12 h-[451px] px-2 lg:px-3 lg:h-[451px] flex place-content-center">
                     {transitions(style => (
-                        <animated.img
-                            style={style}
-                            src={brokerList[state].img}
-                            className='w-full object-contain'
-                            alt='broker logo'
-                        />
+                        <animated.div style={style} >
+                            <Image
+                                width={400}
+                                height={450}
+                                quality={30}
+                                src={brokerList[state].img}
+                                className='w-full object-contain'
+                                alt='broker logo' />
+                        </animated.div>
                     ))}
                 </div>
             </div>
-            <BlackButton text='Explore more' className='mt-10 mx-auto py-2 px-9 text-base font-extrabold lg:hidden block' onClick={() => null} />
+            <BlackButton text='Explore more' className='mt-10 mx-auto py-2 px-9 text-base font-extrabold lg:hidden block' onClick={() => popUp.open()} />
         </section>
     )
 }

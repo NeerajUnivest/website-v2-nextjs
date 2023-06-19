@@ -1,26 +1,28 @@
 import { useState } from 'react'
 import FAQcard from '@/elements/FAQcard';
+import { useRouter } from 'next/router';
 
 let data = [
     {
-        question: "What are the risks? How are they managed?",
-        answer: "At Faircent, the safety of your investment is a top priority. We minimize risk by conducting thorough identity, credit, and risk assessments on every borrower based on 200+ criterion and 400+ data points. Your investments are further protected by diversification across number of borrowers. In case of defaults we use legally-compliant collection agencies to follow-up. If you have any questions, feel free to write to us at invest@univest.in",
+        question: "What does the Univest app do",
+        answer: "Univest is a one-stop investment platform that is trusted by 400K+ users. It helps people exit their bad stock market investments and provides them with alternative investment options in stock market and also non market linked high fixed return income products under the Elite program where they can earn upto 12% p.a."
     },
     {
-        question: "How safe is the invested money? Who is this money lent to?",
-        answer: "Your funds are secure.To safeguard the investments, on an average, one lender's money is distributed across more than 250+ borrowers. All borrowers undergo thorough verification and are screened through 200+ criteria and over 400 data points. The funds are also managed by an SEBI approved independent trustee and routed through an escrow bank account for added security only on your approval.",
+        question: "Is Univest SEBI registered?",
+        answer: "Univest is not SEBI registered directly. Uniapps, a wholly owned subsidiary of Univest is SEBI registered under the number INA0000017369"
     },
     {
-        question: "How can I withdraw my money? Are there any charges?",
-        answer: "The Freedom Plan allows for convenient withdrawals at any time. However, withdrawals within first 30 days of investment, may attract 4% to 5% interest rate. In the Fixed term plans, on the other hand, withdrawals prior to maturity are not permitted except in emergency cases. For such requests, please contact us via email at invest@univest.in",
+        question: "Is there a video tour to understand how Univest app works or how to best use the Univest app?",
+        answer: "Yes you refer to this video and understand how Univest works in just 60 seconds https://www.youtube.com/watch?v=Y_AqmfAIVc0"
     },
     {
-        question: "Are there any additional / processing charges while investing or withdrawing?",
-        answer: "There is no additional fees for investing or withdrawing after maturity. A payment gateway fee might apply, depending on the payment method chosen. For example, UPI is free, net banking is Rs 17.7, while Debit card transactions are subject to a fee of up to 0.9%. etc <br/> ",
+        question: "Why should I link my demat account / portfolio with the Univest app?",
+        answer: "To get the best out of Univest, you can link your demat account. You get Buy-Sell trend changes, track results, news and events happening on all your portfolio stocks"
     },
 ]
 export default function EliteFAQSection() {
     const [active, setActive] = useState(-1);
+    const router = useRouter()
 
     return (
         <section className='py-12 font-Inter bg-gradient-to-br from-[#E4EEF301] to-[#E0ECF247]'>
@@ -33,13 +35,12 @@ export default function EliteFAQSection() {
                         <FAQcard key={i} heading={ele.question} content={ele.answer} active={active} i={i} setActive={setActive} />
                     )}
                 </div>
-                {/* TODO */}
-                <div className='flex items-center justify-center' onClick={() => alert('TODO')}>
-                    <div className='text-sm font-bold lg:text-xl cursor-pointer text-primary'>
+                <div className='flex items-center justify-center'>
+                    <div className='text-sm font-bold lg:text-xl cursor-pointer text-primary' onClick={() => router.push('/faq')}>
                         Read more FAQs
                     </div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     )
 }

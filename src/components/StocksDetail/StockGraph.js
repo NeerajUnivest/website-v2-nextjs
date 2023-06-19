@@ -41,7 +41,7 @@ const options = {
             style: {
                 padding: 5,
                 fontSize: 9,
-                fontFamily: "'Poppins', 'sans-serif'",
+                fontFamily: "'Inter', 'sans-serif'",
                 fontWidth: 'semibold',
                 color: '#232A31'
             }
@@ -61,7 +61,7 @@ const options = {
             style: {
                 fontSize: 10,
                 color: '#232A31',
-                fontFamily: "'Poppins', 'sans-serif'",
+                fontFamily: "'Inter', 'sans-serif'",
                 fontWidth: 'semibold',
             }
         }
@@ -262,7 +262,7 @@ function StockGraph({ name, activeChartType, list }) {
     }
 
     return (
-        <section className='mt-24'>
+        <section className='lg:mt-24'>
             {loading ? <div className="mx-4 my-3 bg-[#D9D9D9] rounded px-3 pt-5 pb-4 h-[300px] animate-pulse"></div>
                 :
                 <div className='ml-1 mr-4 my-0 p-0 swiper-no-swiping'>

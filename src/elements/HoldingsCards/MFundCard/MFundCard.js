@@ -42,7 +42,7 @@ function MFundCard(props) {
                     y: 30,
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
+                        fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'semibold',
                         color: '#979797',
 
@@ -76,7 +76,7 @@ function MFundCard(props) {
                     pointPadding: 0.2,
                     borderWidth: 0,
                     borderRadius: 2,
-                    /* fontFamily: "'Poppins', 'sans-serif'", */
+                    /* fontFamily: "'Inter', 'sans-serif'", */
                     color: '#007AFF',
                 }
             },
@@ -105,7 +105,7 @@ function MFundCard(props) {
                     },
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
+                        fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'semibold',
                         color: '#232A31',
                         textOutline: 0

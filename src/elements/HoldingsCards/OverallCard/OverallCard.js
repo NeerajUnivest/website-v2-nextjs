@@ -50,14 +50,14 @@ function OverallCard({ data, quarter }) {
                         // connectorColor: '#000000',
                         // connectorAllowed: false,
                         /* format: '{point.name}: {y} %', */
-                        fontFamily: "'Poppins', sans-serif",
+                        fontFamily: "'Inter', sans-serif",
                         formatter: function () {
                             return '<div style="><div style="font-size: 12px; font-weight: 500; width: 0px;">' +
                                 this.point.name + '</div><br><div style="font-size: 10px; font-weight: 400; ">' +
                                 this.y + '%</div></div>';
                         },
                         style: {
-                            fontFamily: "'Poppins', 'sans-serif'",
+                            fontFamily: "'Inter', 'sans-serif'",
                             textOutline: 0
                         },
                     },

@@ -5,7 +5,6 @@ import axios from "axios";
 import moment from 'moment';
 
 function CashFlowCard(props) {
-    const [data, setData] = useState({});
     const [options, setOptions] = useState(null);
 
     const [duration, setDuration] = useState(0);
@@ -25,109 +24,106 @@ function CashFlowCard(props) {
                     durations.push(moment(element.duration, "MMM' YYYY").format('MMM YY'));
                     values.push(element.value);
                 });
-                setData(response.data);
+                setOptions({
+                    chart: {
+                        type: 'column',
+                        marginLeft: 0,
+                        marginRight: 0,
+                        spacingLeft: 0,
+                        spacingRight: 0,
+                        backgroundColor: 'transparent'
+                    },
+                    accessibility: {
+                        announceNewData: {
+                            enabled: true
+                        }
+                    },
+                    title: {
+                        text: null,
+                    },
+                    exporting: {
+                        enabled: false,
+                    },
+                    xAxis: {
+                        labels: {
+                            y: 30,
+                            style: {
+                                fontSize: 12,
+                                fontFamily: "'Inter', 'sans-serif'",
+                                fontWidth: 'semibold',
+                                color: '#979797',
+
+                            }
+                        },
+                        categories: durations
+                    },
+                    yAxis: {
+                        tickPixelInterval: 140,
+                        gridLineDashStyle: 'Dash',
+                        gridLineWidth: 1,
+                        title: {
+                            enabled: false,
+                        },
+                        labels: {
+                            enabled: true,
+                        }
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0,
+                            borderRadius: 2,
+                            color: '#007AFF',
+                        }
+                    },
+                    series: [{
+                        showInLegend: false,
+                        name: 'Net Profit',
+                        data: values,
+                        color: '#0088FF',
+                        dataLabels: {
+                            crop: false,
+                            overflow: 'none',
+                            enabled: true,
+                            formatter: function () {
+                                let color = '';
+                                let val = this.y / 10000000;
+
+                                //select color
+                                if (val >= 0) {
+                                    color = 'black';
+                                } else {
+                                    color = '#DD2C2C';
+                                }
+
+                                if (val <= -1000) {
+                                    val = (val / 1000).toFixed(2) + 'k';
+                                } else if (val > -1000 && val < 1000) {
+                                    val = val.toFixed(2);
+                                } else if (val >= 1000) {
+                                    val = (val / 1000).toFixed(2) + 'k';
+                                }
+
+                                return '<span style="font-size:10px; color:' + color + '">' + val + '</span>';
+                            },
+                            style: {
+                                fontSize: 12,
+                                fontFamily: "'Inter', 'sans-serif'",
+                                fontWidth: 'semibold',
+                                color: '#232A31',
+                                textOutline: 0
+                            },
+                        }
+                    }]
+                })
             })
-
-        setOptions({
-            chart: {
-                type: 'column',
-                marginLeft: 0,
-                marginRight: 0,
-                spacingLeft: 0,
-                spacingRight: 0,
-                backgroundColor: 'transparent'
-            },
-            accessibility: {
-                announceNewData: {
-                    enabled: true
-                }
-            },
-            title: {
-                text: null,
-            },
-            exporting: {
-                enabled: false,
-            },
-            xAxis: {
-                labels: {
-                    y: 30,
-                    style: {
-                        fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
-                        fontWidth: 'semibold',
-                        color: '#979797',
-
-                    }
-                },
-                categories: durations
-            },
-            yAxis: {
-                tickPixelInterval: 140,
-                gridLineDashStyle: 'Dash',
-                gridLineWidth: 1,
-                title: {
-                    enabled: false,
-                },
-                labels: {
-                    enabled: true,
-                }
-            },
-            tooltip: {
-                enabled: false,
-            },
-            credits: {
-                enabled: false
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0,
-                    borderRadius: 2,
-                    color: '#007AFF',
-                }
-            },
-            series: [{
-                showInLegend: false,
-                name: 'Net Profit',
-                data: values,
-                color: '#0088FF',
-                dataLabels: {
-                    crop: false,
-                    overflow: 'none',
-                    enabled: true,
-                    formatter: function () {
-                        let color = '';
-                        let val = this.y / 10000000;
-
-                        //select color
-                        if (val >= 0) {
-                            color = 'black';
-                        } else {
-                            color = '#DD2C2C';
-                        }
-
-                        if (val <= -1000) {
-                            val = (val / 1000).toFixed(2) + 'k';
-                        } else if (val > -1000 && val < 1000) {
-                            val = val.toFixed(2);
-                        } else if (val >= 1000) {
-                            val = (val / 1000).toFixed(2) + 'k';
-                        }
-
-                        return '<span style="font-size:10px; color:' + color + '">' + val + '</span>';
-                    },
-                    style: {
-                        fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
-                        fontWidth: 'semibold',
-                        color: '#232A31',
-                        textOutline: 0
-                    },
-                }
-            }]
-        })
     }
-
     useEffect(() => {
         fetchData();
         setChartOptions(options)

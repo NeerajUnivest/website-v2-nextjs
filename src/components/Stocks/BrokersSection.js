@@ -4,6 +4,9 @@ import { useTransition, animated, useInView } from 'react-spring'
 import logoWhite from '../../assets/img/logoWhite.webp'
 import Marquee from "react-fast-marquee";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { popUp } from "@/elements/PopUp/PopUp";
 
 const brokerList = [
     'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Growww.png',
@@ -124,7 +127,7 @@ export default function BrokersSection() {
         from: { opacity: 1, scale: 1 },
         enter: { opacity: 0.2, scale: 0.9 },
         leave: { opacity: 1, scale: 1 },
-        config: { duration: 200 },
+        config: { duration: 300 },
         onRest: (_a, _b, item) => {
             if (_a.value?.opacity === 0.2) {
                 if (state > brokerList.length - 2) {
@@ -166,8 +169,7 @@ export default function BrokersSection() {
                     </div>
                 </div>
                 <div className='flex justify-center'>
-                    {/* TODO */}
-                    <BlackButton text='Link broker account' onClick={() => null} />
+                    <BlackButton text='Link broker account' onClick={() => popUp.open()} />
                 </div>
             </div>
             <Marquee
@@ -179,12 +181,13 @@ export default function BrokersSection() {
                     {/* TODO */}
                     {stocksList
                         .map((ele, i) =>
-                            <div key={i} className='flex justify-center items-center rounded-xl px-4 py-2 shadow-md bg-white'>
+                            <Link href={`/stocks/${ele.symbol}/${ele.compName}?finCode=${100010}`} key={i}
+                                className='flex justify-center items-center rounded-xl px-4 py-2 shadow-md bg-white'>
                                 <Image src={ele.logoUrl} width='32' height='32' className='w-8 lg:w-10 object-contain' alt='icon' />
                                 <span className="ml-2 text-sm lg:text-base font-semibold text-black">
                                     {ele.symbol}
                                 </span>
-                            </div>)}
+                            </Link>)}
                 </div>
             </Marquee>
         </section>

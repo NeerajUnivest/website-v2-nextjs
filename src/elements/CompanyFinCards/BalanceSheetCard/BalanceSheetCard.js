@@ -4,7 +4,6 @@ import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
 
 function BalanceSheetCard(props) {
-    const [data, setData] = useState({});
     const [options, setOptions] = useState(null);
 
     const [duration, setDuration] = useState(0);
@@ -26,163 +25,162 @@ function BalanceSheetCard(props) {
                     data1.push(element.assets);
                     data2.push(element.liabilities);
                 });
-                setData(response.data);
+                setOptions({
+                    chart: {
+                        type: 'column',
+                        marginLeft: 0,
+                        marginRight: 0,
+                        spacingLeft: 0,
+                        spacingRight: 0,
+                        backgroundColor: 'transparent'
+                    },
+                    title: {
+                        text: null,
+                    },
+                    exporting: {
+                        enabled: false,
+                    },
+                    xAxis: {
+                        labels: {
+                            y: 30,
+                            style: {
+                                fontSize: 12,
+                                fontFamily: "'Inter', 'sans-serif'",
+                                fontWidth: 'semibold',
+                                color: '#979797',
+
+                            }
+                        },
+                        categories: durations,
+                        /* crosshair: true */
+                    },
+                    yAxis: {
+                        tickPixelInterval: 140,
+                        /* min: 0, */
+                        gridLineDashStyle: 'Dash',
+                        gridLineWidth: 1,
+                        title: {
+                            enabled: false,
+                        },
+                        labels: {
+                            enabled: true,
+                        }
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0,
+                            borderRadius: 2,
+                            /* fontFamily: "'Inter', 'sans-serif'", */
+                            color: '#007AFF',
+                        }
+                    },
+                    legend: {
+                        verticalAlign: 'top',
+                        align: 'left',
+                        margin: 10,
+                        lineHeight: 15,
+                        padding: 5,
+                        itemStyle: {
+                            color: '#455154',
+                            fontWeight: 'semibold',
+                            fontFamily: "'Inter', 'sans-serif'",
+                            fontSize: 10,
+                        }
+                    },
+                    series: [{
+                        //   showInLegend:false,
+                        name: 'Total assets',
+                        data: data1,
+                        color: '#0088FF',
+                        /* negativeColor: 'red', */
+                        dataLabels: {
+                            enabled: true,
+                            crop: false,
+                            overflow: 'none',
+                            /* format: '{point.y:.1f}%', */
+                            formatter: function () {
+                                let color = '';
+                                let val = this.y / 10000000;
+
+                                //select color
+                                if (val >= 0) {
+                                    color = 'black';
+                                } else {
+                                    color = '#DD2C2C';
+                                }
+
+                                if (val <= -1000) {
+                                    val = (val / 1000).toFixed(2) + 'k';
+                                } else if (val > -1000 && val < 1000) {
+                                    val = val.toFixed(2);
+                                } else if (val >= 1000) {
+                                    val = (val / 1000).toFixed(2) + 'k';
+                                }
+
+                                return '<span style="font-size:10px; color:' + color + '">' + val + '</span>';
+                            },
+                            style: {
+                                fontSize: 12,
+                                fontFamily: "'Inter', 'sans-serif'",
+                                fontWidth: 'semibold',
+                                color: '#232A31',
+                                textOutline: 0
+                            },
+                        }
+                    }, {
+                        // showInLegend:false,
+                        name: 'Total liabilities',
+                        data: data2,
+                        color: '#0CBA29',
+                        /* negativeColor: 'red', */
+                        dataLabels: {
+                            enabled: true,
+                            crop: false,
+                            overflow: 'none',
+                            /* format: '{point.y:.1f}%', */
+                            formatter: function () {
+                                let color = '';
+                                let val = this.y;
+
+                                //select color
+                                if (val >= 0) {
+                                    color = 'black';
+                                } else {
+                                    color = '#DD2C2C';
+                                }
+
+                                if (val <= -100000) {
+                                    val = (val / 100000).toFixed(2) + 'L';
+                                } else if (val <= -1000) {
+                                    val = (val / 1000).toFixed(2) + 'k';
+                                } else if (val > -1000 && val < 1000) {
+                                    val = val.toFixed(2);
+                                } else if (val >= 1000 && val < 100000) {
+                                    val = (val / 1000).toFixed(2) + 'k';
+                                } else if (val >= 100000) {
+                                    val = (val / 100000).toFixed(2) + 'L';
+                                }
+
+                                return '<span style="font-size:10px; color:' + color + '">' + val + '</span>';
+                            },
+                            style: {
+                                fontSize: 12,
+                                fontFamily: "'Inter', 'sans-serif'",
+                                fontWidth: 'semibold',
+                                color: '#232A31',
+                                textOutline: 0
+                            },
+                        }
+                    }]
+                })
             })
-        setOptions({
-            chart: {
-                type: 'column',
-                marginLeft: 0,
-                marginRight: 0,
-                spacingLeft: 0,
-                spacingRight: 0,
-                backgroundColor: 'transparent'
-            },
-            title: {
-                text: null,
-            },
-            exporting: {
-                enabled: false,
-            },
-            xAxis: {
-                labels: {
-                    y: 30,
-                    style: {
-                        fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
-                        fontWidth: 'semibold',
-                        color: '#979797',
-
-                    }
-                },
-                categories: durations,
-                /* crosshair: true */
-            },
-            yAxis: {
-                tickPixelInterval: 140,
-                /* min: 0, */
-                gridLineDashStyle: 'Dash',
-                gridLineWidth: 1,
-                title: {
-                    enabled: false,
-                },
-                labels: {
-                    enabled: true,
-                }
-            },
-            tooltip: {
-                enabled: false,
-            },
-            credits: {
-                enabled: false
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0,
-                    borderRadius: 2,
-                    /* fontFamily: "'Poppins', 'sans-serif'", */
-                    color: '#007AFF',
-                }
-            },
-            legend: {
-                verticalAlign: 'top',
-                align: 'left',
-                margin: 10,
-                lineHeight: 15,
-                padding: 5,
-                itemStyle: {
-                    color: '#455154',
-                    fontWeight: 'semibold',
-                    fontFamily: "'Poppins', 'sans-serif'",
-                    fontSize: 10,
-                }
-            },
-            series: [{
-                //   showInLegend:false,
-                name: 'Total assets',
-                data: data1,
-                color: '#0088FF',
-                /* negativeColor: 'red', */
-                dataLabels: {
-                    enabled: true,
-                    crop: false,
-                    overflow: 'none',
-                    /* format: '{point.y:.1f}%', */
-                    formatter: function () {
-                        let color = '';
-                        let val = this.y / 10000000;
-
-                        //select color
-                        if (val >= 0) {
-                            color = 'black';
-                        } else {
-                            color = '#DD2C2C';
-                        }
-
-                        if (val <= -1000) {
-                            val = (val / 1000).toFixed(2) + 'k';
-                        } else if (val > -1000 && val < 1000) {
-                            val = val.toFixed(2);
-                        } else if (val >= 1000) {
-                            val = (val / 1000).toFixed(2) + 'k';
-                        }
-
-                        return '<span style="font-size:10px; color:' + color + '">' + val + '</span>';
-                    },
-                    style: {
-                        fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
-                        fontWidth: 'semibold',
-                        color: '#232A31',
-                        textOutline: 0
-                    },
-                }
-            }, {
-                // showInLegend:false,
-                name: 'Total liabilities',
-                data: data2,
-                color: '#0CBA29',
-                /* negativeColor: 'red', */
-                dataLabels: {
-                    enabled: true,
-                    crop: false,
-                    overflow: 'none',
-                    /* format: '{point.y:.1f}%', */
-                    formatter: function () {
-                        let color = '';
-                        let val = this.y;
-
-                        //select color
-                        if (val >= 0) {
-                            color = 'black';
-                        } else {
-                            color = '#DD2C2C';
-                        }
-
-                        if (val <= -100000) {
-                            val = (val / 100000).toFixed(2) + 'L';
-                        } else if (val <= -1000) {
-                            val = (val / 1000).toFixed(2) + 'k';
-                        } else if (val > -1000 && val < 1000) {
-                            val = val.toFixed(2);
-                        } else if (val >= 1000 && val < 100000) {
-                            val = (val / 1000).toFixed(2) + 'k';
-                        } else if (val >= 100000) {
-                            val = (val / 100000).toFixed(2) + 'L';
-                        }
-
-                        return '<span style="font-size:10px; color:' + color + '">' + val + '</span>';
-                    },
-                    style: {
-                        fontSize: 12,
-                        fontFamily: "'Poppins', 'sans-serif'",
-                        fontWidth: 'semibold',
-                        color: '#232A31',
-                        textOutline: 0
-                    },
-                }
-            }]
-        })
     }
 
 

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import hero from '../../assets/images/hero.png';
+import hero from '../../assets/images/hero_image_2.png';
 import univest_elite from '../../assets/images/univest_elite.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import Marquee from "react-fast-marquee";
-import sebi_logo from '../../assets/icons/rbi.png';
+import rbi from '../../assets/icons/rbi.png';
 import CountUpBox from "@/elements/CountUpBox";
 import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
@@ -17,9 +17,6 @@ export default function EliteHeroSection({ homePage }) {
         <section id="Hero" className="bg-light-blue">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto'>
                 <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8 relative">
-                    {/* <div className='ml-4 w-20 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: `url(${univest_elite.src})` }}>
-                        Elite
-                    </div> */}
                     <Image
                         placeholder="empty"
                         src={univest_elite}
@@ -36,8 +33,8 @@ export default function EliteHeroSection({ homePage }) {
                         <div className="flex col-span-3">
                             <Image
                                 placeholder="empty"
-                                src={sebi_logo}
-                                className=' h-[64px] lg:h-[64px] w-[64px] lg:w-[64px]'
+                                src={rbi}
+                                className=' h-[48px] lg:h-[64px] w-[48px] lg:w-[64px]'
                                 alt='demo image'
                             />
                             <div className="self-center ml-5">
@@ -54,13 +51,15 @@ export default function EliteHeroSection({ homePage }) {
                             <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>
-                    {homePage ? <ExploreMore className='absolute -bottom-24 left-4 lg:bottom-32 lg:left-8' onClick={() => router.push('/elite')} /> : <HeroSearchBox />}
+                    {homePage ?
+                        <ExploreMore className='absolute -bottom-24 left-4 lg:bottom-28 lg:left-8' onClick={() => router.push('/elite')} /> :
+                        <HeroSearchBox />}
                 </div>
-                <div className="basis-full md:basis-5/12 flex content-center mt-10 lg:mt-0">
+                <div className={`basis-full md:basis-5/12 flex content-center lg:mt-10 ${homePage ? 'mt-28' : 'mt-2'}`}>
                     <Image
                         placeholder="empty"
                         src={hero}
-                        className={`lg:h-[550px] lg:w-[450px]  ${homePage ? 'ml-auto w-[210px] h-[280px] mr-8' : 'mx-auto w-[240px] h-[300px]'}`}
+                        className={`lg:w-[500px] lg:min-w-[500px] object-contain ${homePage ? 'ml-auto w-[80%]  mr-8' : 'mx-auto w-[80%]'}`}
                         alt='demo image'
                     />
                 </div>
@@ -71,7 +70,6 @@ export default function EliteHeroSection({ homePage }) {
                 speed={30}
                 delay={1}>
                 <div className='select-none flex items-center gap-x-12 lg:gap-x-16 p-4 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F] -mx-1'>
-                    {/* TODO */}
                     <span className="text-base lg:text-2xl font-semibold text-black">
                         Withdraw anytime
                     </span>

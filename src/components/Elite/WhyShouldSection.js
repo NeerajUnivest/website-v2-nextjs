@@ -14,6 +14,8 @@ import elite3 from '../../assets/images/elite/elite3.png';
 import elite4 from '../../assets/images/elite/elite4.png';
 import elite5 from '../../assets/images/elite/elite5.png';
 import elite6 from '../../assets/images/elite/elite6.png';
+import { BlackButton } from '@/elements/Button/Button';
+import { useRouter } from 'next/router';
 
 
 
@@ -55,9 +57,10 @@ let data = [{
     border: 'border-[#4E6574]'
 },]
 export default function WhyShouldSection({ homePage }) {
+    const router = useRouter()
     return (
         <section className={`font-Inter mt-8 py-16 lg:py-24 relative overflow-hidden ${homePage && 'bg-[#C9DDE6]'}`}>
-            {!homePage && <div className='rounded-full absolute right-[-20vw] top-[50vh] bg-gradient-to-r from-[#c1eef4] to-[#fff] h-[50vh] w-[50vw] blur-3xl opacity-50' />}
+            {!homePage && <div className='rounded-full absolute right-[-20vw] top-[20vh] bg-gradient-to-r from-[#c1eef4] to-[#fff] h-[20vh] w-[40vw] blur-3xl opacity-50' />}
 
             <div className=' max-w-screen-xl mx-auto lg:px-8'>
                 {homePage && <div className='ml-4 lg:ml-0 lg:pb-14 flex flex-col lg:flex-row lg:items-center justify-between'>
@@ -85,12 +88,12 @@ export default function WhyShouldSection({ homePage }) {
                         </div>
                     </div>
                 </div>}
-                <Image
+                {/* <Image
                     placeholder="empty"
                     src={elite_banner}
                     className='w-[calc(100vw-32px)] object-contain rounded-xl lg:rounded-3xl mb-7 lg:mb-24 mx-auto'
                     alt='demo image'
-                />
+                /> */}
                 <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
                     Why should I invest?
                 </p>
@@ -162,6 +165,10 @@ export default function WhyShouldSection({ homePage }) {
                     )}
                 </Swiper>
             </div>
+            {homePage &&
+                <div className="w-full flex justify-center">
+                    <BlackButton text='Explore more' className='mt-10 lg:mt-14 px-6 py-2 lg:px-12 lg:py-3 text-sm lg:text-base font-extrabold' onClick={() => router.push('/elite')} />
+                </div>}
         </section>
     )
 }

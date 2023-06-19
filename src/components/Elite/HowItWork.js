@@ -18,7 +18,7 @@ const data = [
     {
         id: 4,
         title: `You get your promised returns*`,
-        details: `Post maturity of the plan, the funds are returned to the users based on the promised interest`,
+        details: `Post maturity, the funds are returned to the users based on the promised interest`,
     },
 ]
 export default function HowItWork() {
@@ -32,7 +32,7 @@ export default function HowItWork() {
                     {data.map((ele, i) =>
                         <div key={i} className='flex'>
                             <div className='w-1/12'>
-                                <div className={`text-center mt-3 mx-auto text-sm lg:text-xl h-[60%] lg:h-[77%] flex items-center w-6 rounded-full font-semibold text-black border border-black`}>
+                                <div className={`text-center mt-3 mx-auto text-sm lg:text-xl h-[77%] flex items-center w-6 rounded-full font-semibold text-black border border-black`}>
                                     <span className='mx-auto'>{ele.id}</span>
                                 </div>
                             </div>

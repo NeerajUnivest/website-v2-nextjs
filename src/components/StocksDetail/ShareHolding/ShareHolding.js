@@ -62,10 +62,10 @@ function ShareHolding({ name }) {
             <div id='holdings' className='absolute -top-44' />
 
             <button className='hidden md:flex p-[6px] w-[32px] h-[32px] absolute -top-0 right-20 bg-[#e8edf5] hover:bg-[#b9ceeb] rounded-full' onClick={() => swiper.slidePrev()}>
-                <Image src={prevArrow} alt="close" className='h-full mx-auto' />
+                <Image src={prevArrow} alt="close" className='h-full mx-auto object-contain' />
             </button>
             <button className='hidden md:flex p-[6px] w-[32px] h-[32px] absolute -top-0 right-8 bg-[#e8edf5] hover:bg-[#b9ceeb] rounded-full' onClick={() => swiper.slideNext()}>
-                <Image src={nextArrow} alt="close" className='h-full mx-auto' />
+                <Image src={nextArrow} alt="close" className='h-full mx-auto object-contain' />
             </button>
 
             <div className='font-Inter text-[16px] text-black flex flex-row mx-4 mt-6 mb-4 font-semibold  md:mt-10'>

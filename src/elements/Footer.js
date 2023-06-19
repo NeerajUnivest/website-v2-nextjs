@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { BsApple, BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
+import app_download_qr from '../assets/images/app_download_qr.png';
 
 export default function Footer() {
     return (
@@ -179,12 +180,13 @@ export default function Footer() {
                             </nav>
                         </div>
 
-                        <nav aria-label="Footer Navigation - Legal" className="mt-6">
+                        <nav aria-label="Footer Navigation - Legal" className="mt-6 lg:mt-0">
                             <ul className="space-y-3  text-xs lg:text-smtext-sm">
                                 <li>
-                                    <Link href="#" className="transition hover:opacity-75">
-                                        qr
-                                    </Link>
+                                    <Image src={app_download_qr} className='w-36 p-2 rounded bg-white' alt="download now qr" />
+                                    <p className='text-xs mt-1 mb-3 text-gray-200 text-center w-36'>
+                                        Scan to Download
+                                    </p>
                                 </li>
 
                                 <li>
