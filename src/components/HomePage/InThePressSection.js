@@ -36,19 +36,19 @@ export default function InThePressSection() {
                     In The Press
                 </p>
                 <div className='grid grid-cols-12 grid-rows-2 grid-flow-col gap-2 h-[380px]'>
-                    <Link href='https://www.entrepreneur.com/en-in/news-and-trends/univest-raises-15-million-in-seed-funding-round/447810'
+                    <Link href='https://www.entrepreneur.com/en-in/news-and-trends/univest-raises-15-million-in-seed-funding-round/447810' rel="noreferrer" target="_blank"
                         className='col-span-8 lg:col-span-4 lg:row-span-2 inset-0'>
                         <Image src={news2} alt="gallery" className='h-full w-full object-cover object-center rounded-lg' />
                     </Link>
-                    <Link href='https://www.ceoinsightsindia.com/ceo-talks/next-revolution-ai-ml-in-investments-space-nwid-13438.html'
+                    <Link href='https://www.ceoinsightsindia.com/ceo-talks/next-revolution-ai-ml-in-investments-space-nwid-13438.html' rel="noreferrer" target="_blank"
                         className='col-span-4 lg:col-span-4 inset-0'>
                         <Image src={news3} alt="gallery" className='h-full w-full object-cover lg:object-top object-center rounded-lg' />
                     </Link>
-                    <Link href='https://brandequity.economictimes.indiatimes.com/news/advertising/pratik-gandhi-solves-all-investor-challenges-in-univests-new-ad/96914991'
+                    <Link href='https://brandequity.economictimes.indiatimes.com/news/advertising/pratik-gandhi-solves-all-investor-challenges-in-univests-new-ad/96914991' rel="noreferrer" target="_blank"
                         className='col-span-8 lg:col-span-4 inset-0'>
                         <Image src={news1} alt="gallery" className='h-full w-full object-cover object-center rounded-lg ' />
                     </Link>
-                    <Link href='https://www.aninews.in/news/business/business/univest-collaborates-with-pratik-gandhi-to-conquer-retail-investor-challenges20230110114440/'
+                    <Link href='https://www.aninews.in/news/business/business/univest-collaborates-with-pratik-gandhi-to-conquer-retail-investor-challenges20230110114440/' rel="noreferrer" target="_blank"
                         className='col-span-4 lg:col-span-4 lg:row-span-2 inset-0'>
                         <Image src={news4} alt="gallery" className='h-full w-full object-cover object-center rounded-lg ' />
                     </Link>
@@ -62,7 +62,7 @@ export default function InThePressSection() {
                     {/* TODO */}
                     {newsList
                         .map((ele, i) =>
-                            <Link key={i} href={ele.url}>
+                            <Link key={i} href={ele.url} rel="noreferrer" target="_blank">
                                 <Image src={ele.logo} className='h-6 lg:h-10 w-auto object-contain' alt='icon' /></Link>
                         )}
                 </div>

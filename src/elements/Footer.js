@@ -25,7 +25,7 @@ export default function Footer() {
                         <ul className="flex gap-6 mt-8">
                             <li>
                                 <Link
-                                    href="/"
+                                    href="https://www.facebook.com/Univest.in"
                                     rel="noreferrer"
                                     target="_blank"
                                     className="transition hover:opacity-75"
@@ -39,7 +39,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    href="/"
+                                    href="https://linkedin.com/company/univest-in"
                                     rel="noreferrer"
                                     target="_blank"
                                     className="transition hover:opacity-75"
@@ -53,7 +53,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    href="/"
+                                    href="https://www.instagram.com/univest.in/"
                                     rel="noreferrer"
                                     target="_blank"
                                     className="transition hover:opacity-75"
@@ -67,7 +67,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    href="/"
+                                    href="https://twitter.com/UnivestIN"
                                     rel="noreferrer"
                                     target="_blank"
                                     className="transition hover:opacity-75"
@@ -81,7 +81,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    href="/"
+                                    href="https://www.youtube.com/@Univest_In"
                                     rel="noreferrer"
                                     target="_blank"
                                     className="transition hover:opacity-75"
@@ -102,6 +102,12 @@ export default function Footer() {
                             <nav aria-label="Footer Navigation - PRODUCTS" className="mt-6">
                                 <ul className="space-y-3  text-xs lg:text-smtext-sm">
                                     <li>
+                                        {/* <Link href="" className="transition hover:opacity-75"> */}
+                                        Pro
+                                        {/* </Link> */}
+                                    </li>
+
+                                    <li>
                                         <Link href="/elite" className="transition hover:opacity-75">
                                             Elite
                                         </Link>
@@ -120,9 +126,9 @@ export default function Footer() {
                                     </li>
 
                                     <li>
-                                        <Link href="/markets" className="transition hover:opacity-75">
-                                            Markets
-                                        </Link>
+                                        {/* <Link href="" className="transition hover:opacity-75"> */}
+                                        Markets
+                                        {/* </Link> */}
                                     </li>
                                 </ul>
                             </nav>
@@ -140,14 +146,20 @@ export default function Footer() {
                                     </li>
 
                                     <li>
-                                        <Link href="#" className="transition hover:opacity-75">
-                                            Careers
+                                        <Link href="https://univest.in/blogs/" rel="noreferrer" className="transition hover:opacity-75">
+                                            Blogs
                                         </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="#" className="transition hover:opacity-75">
-                                            Blogs
+                                        <Link href="/privacy-policy" className="transition hover:opacity-75">
+                                            Privacy policy
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link href="/terms-and-conditions" className="transition hover:opacity-75">
+                                            Terms & Conditions
                                         </Link>
                                     </li>
                                 </ul>
@@ -167,12 +179,6 @@ export default function Footer() {
 
                                     <li>
                                         <Link href="#" className="transition hover:opacity-75">
-                                            Need help?
-                                        </Link>
-                                    </li>
-
-                                    <li>
-                                        <Link href="#" className="transition hover:opacity-75">
                                             Contact us
                                         </Link>
                                     </li>
@@ -181,7 +187,7 @@ export default function Footer() {
                         </div>
 
                         <nav aria-label="Footer Navigation - Legal" className="mt-6 lg:mt-0">
-                            <ul className="space-y-3  text-xs lg:text-smtext-sm">
+                            <ul className="space-y-3  text-xs lg:text-sm">
                                 <li>
                                     <Image src={app_download_qr} className='w-36 p-2 rounded bg-white' alt="download now qr" />
                                     <p className='text-xs mt-1 mb-3 text-gray-200 text-center w-36'>
@@ -190,7 +196,7 @@ export default function Footer() {
                                 </li>
 
                                 <li>
-                                    <Link href="https://play.google.com/store/apps/details?id=com.univest.capp" className="flex items-center border rounded-lg px-2 py-1.5 w-36 transition hover:opacity-75">
+                                    <Link href="https://play.google.com/store/apps/details?id=com.univest.capp" rel="noreferrer" target="_blank" className="flex items-center border rounded-lg px-2 py-1.5 w-36 transition hover:opacity-75">
                                         <Image src="https://cdn-icons-png.flaticon.com/512/888/888857.png" width={24} height={24} className="w-7" alt='Google Play' />
                                         <div className="text-left ml-3">
                                             <p className='text-[10px] text-gray-200'>Download on </p>
@@ -200,9 +206,8 @@ export default function Footer() {
                                 </li>
 
                                 <li>
-                                    <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" className="flex items-center border rounded-lg px-2 py-1.5 w-36 transition hover:opacity-75">
+                                    <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" rel="noreferrer" target="_blank" className="flex items-center border rounded-lg px-2 py-1.5 w-36 transition hover:opacity-75">
                                         <BsApple color='#FFFFFF' size={28} />
-                                        {/* <Image src="https://cdn-icons-png.flaticon.com/512/888/888841.png" width={24} height={24} className="w-7" alt='Apple Store' /> */}
                                         <div className="text-left ml-3">
                                             <p className='text-[10px] text-gray-200'>Download on </p>
                                             <p className="text-xs md:text-sm"> Apple Store </p>

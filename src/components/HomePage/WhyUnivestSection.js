@@ -3,11 +3,13 @@ import { Autoplay, EffectCoverflow } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css/effect-coverflow";
 import Image from 'next/image';
-import play from "@/assets/images/play.png";
 import trusted_stock_ideas from '../../assets/icons/trusted_stock_ideas.png';
 import insights from '../../assets/icons/insights.png';
 import portfolio_analysis from '../../assets/icons/portfolio_analysis.png';
 import interest_rate from '../../assets/icons/interest_rate.png';
+import thumbnails1 from '../../assets/thumbnails/thumbnails1.png';
+import thumbnails2 from '../../assets/thumbnails/thumbnails2.png';
+import thumbnails3 from '../../assets/thumbnails/thumbnails3.png';
 
 
 export default function WhyUnivestSection() {
@@ -59,13 +61,13 @@ export default function WhyUnivestSection() {
                         className="WhyUnivestSection"
                     >
                         <SwiperSlide>
-                            <Image src={play} className='w-full h-full rounded-xl' alt='play' />
+                            <Image src={thumbnails2} className='w-full h-full rounded-xl' alt='play' />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <Image src={play} className='w-full h-full rounded-xl' alt='play' />
+                            <Image src={thumbnails1} className='w-full h-full rounded-xl' alt='play' />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <Image src={play} className='w-full h-full rounded-xl' alt='play' />
+                            <Image src={thumbnails3} className='w-full h-full rounded-xl' alt='play' />
                         </SwiperSlide>
                     </Swiper>
                 </div>

@@ -21,27 +21,24 @@ export default function LaptopScreener({ data }) {
                 Newly added
             </div>
         </div>
-        <div className='rounded-lg m-4 py-3 px-4'
-            style={{ backgroundImage: `linear-gradient(90deg, ${data.colorCode}25, ${data.colorCode}50)` }}
-        >
-            <div className='flex flex-row justify-between'>
+        <>
+            <div className='rounded-lg m-4 py-3 px-4 flex flex-row justify-between' style={{ backgroundImage: `linear-gradient(90deg, ${data.colorCode}25, ${data.colorCode}50)` }}>
                 <div>
-                    <div className='text-[24px] leading-[40px] text-[#202020] font-semibold'>
+                    <h1 className='text-[24px] leading-[40px] text-[#202020] font-semibold'>
                         {data.title}
                         <span className='ml-4 text-[16px] leading-[28px] text-[#414141] font-medium'>{data.list?.length} Stocks</span>
-                    </div>
-                    <div className='text-[16px] leading-[28px] text-[#202020] font-medium'>
-                        <b>Entry criterion : </b>
-                        {data.description}
-                    </div>
+                    </h1>
+                    <span className='text-[16px] leading-[28px] text-[#202020] font-medium'>
+                        <b>Entry criterion : </b> {data.description}
+                    </span>
                 </div>
                 <div className='w-20 mx-4 flex flex-col justify-center items-center'>
                     <Image src={data.imageUrl} width={56} height={56} alt='logo' className='max-h-14 max-w-14 ' />
                     {data.premium && <Image src={premiumLarge} alt='logo' width={84} height={84} className='mt-2 max-w-[84px] min-w-[84px] ' />}
                 </div>
             </div>
-        </div>
-        <StockCard data={data} />
+            <StockCard data={data} />
+        </>
     </div>
     )
 }

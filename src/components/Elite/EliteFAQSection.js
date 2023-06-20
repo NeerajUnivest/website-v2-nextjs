@@ -13,7 +13,7 @@ let data = [
     },
     {
         question: "Is there a video tour to understand how Univest app works or how to best use the Univest app?",
-        answer: "Yes you refer to this video and understand how Univest works in just 60 seconds https://www.youtube.com/watch?v=Y_AqmfAIVc0"
+        answer: "Yes you refer to this video and understand how Univest works in just 60 seconds <a href='https://www.youtube.com/watch?v=Y_AqmfAIVc0'>https://www.youtube.com/watch?v=Y_AqmfAIVc0</a>"
     },
     {
         question: "Why should I link my demat account / portfolio with the Univest app?",

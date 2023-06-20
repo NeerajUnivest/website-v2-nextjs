@@ -13,13 +13,11 @@ const getScreenerDetails = async (screenerCode) => {
     return { ...res.data.screenerDetail, list: res.data.list }
 }
 
-export default function ScreenerPage({ name, screenersList, screenerDetails }) {
+export default function ScreenerPage({ name, screenersList, screenerDetails, codeList }) {
     return (
         <section className='lg:pt-24 font-Inter'>
             <div className='max-w-screen-xl mx-auto'>
-                <div className='md:hidden'>
-                    <PhoneScreener name={name} screenersList={screenersList.screenersList} data={screenerDetails} loading={false} />
-                </div>
+                <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
                 <div className='hidden md:grid grid-cols-12 min-h-screen'>
                     <div className='col-span-12 lg:col-span-3'>
                         <DropDown list={screenersList} selected={screenerDetails.categoryId} name={name} />
@@ -44,7 +42,8 @@ export async function getServerSideProps(context) {
         props: {
             screenersList,
             screenerDetails,
-            name
+            name,
+            codeList: screenersList?.screenersList?.map(ele => ele?.code)
         }
     };
 }

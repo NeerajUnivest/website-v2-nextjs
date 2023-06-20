@@ -37,7 +37,7 @@ const Toast = (props) => {
 
 export const ToastContainer = (props) => {
     return (
-        <div id="toast-container" className="toast-container">
+        <div id="toast-container" className="toast-container z-40">
             <style jsx>{`
             .toast-container {
                 position: fixed;

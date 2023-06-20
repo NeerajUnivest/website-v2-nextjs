@@ -18,20 +18,12 @@ export default function App({ Component, pageProps }) {
       <UtilsContext>
         <NavBar />
 
-
-
-
-
         {pageProps?.pageName === 'stock-details' ?
           <ModalContext>
             <Component {...pageProps} />
           </ModalContext>
           : <Component {...pageProps} />}
 
-
-        {/* {isPageLoading ? <Loading /> : (
-        <Component {...pageProps} />
-        )} */}
         <Footer />
       </UtilsContext>
     </main>

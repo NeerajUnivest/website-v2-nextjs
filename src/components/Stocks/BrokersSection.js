@@ -20,103 +20,142 @@ const stocksList = [
     {
         compName: "Siemens Ltd.",
         symbol: "SIEMENS",
+        finCode: 100550,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE003A01024.png",
     },
     {
         compName: "HDFC Bank Ltd.",
         symbol: "HDFCBANK",
+        finCode: 100180,
         logoUrl: "https://univest.s3.ap-south-1.amazonaws.com/stock_logos/INE040A01034.png",
     },
     {
         compName: "ITC Ltd.",
         symbol: "ITC",
+        finCode: 100875,
         logoUrl: "https://univest.s3.ap-south-1.amazonaws.com/stock_logos/INE154A01025.png",
     },
     {
         compName: "Reliance Industries Ltd.",
         symbol: "RELIANCE",
+        finCode: 100325,
         logoUrl: "https://univest-staging.s3.ap-south-1.amazonaws.com/stock_logos/INE002A01018.png",
+    },
+    {
+        compName: "Power Grid Corporation Of India Ltd.",
+        symbol: "POWERGRID",
+        finCode: 132898,
+        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE752E01010.png",
     },
     {
         compName: "Britannia Industries Ltd.",
         symbol: "BRITANNIA",
+        finCode: 100825,
         logoUrl: "https://univest.s3.ap-south-1.amazonaws.com/stock_logos/INE216A01030.png",
     },
     {
         compName: "Grasim Industries Ltd.",
         symbol: "GRASIM",
+        finCode: 100300,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE047A01021.png",
     },
     {
         compName: "Vedanta Ltd.",
         symbol: "VEDL",
+        finCode: 100295,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE205A01025.png",
     },
     {
         compName: "NTPC Ltd.",
         symbol: "NTPC",
+        finCode: 132555,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE733E01010.png",
     },
     {
         compName: "Axis Bank Ltd.",
         symbol: "AXISBANK",
+        finCode: 132215,
         logoUrl: "https://univest.s3.ap-south-1.amazonaws.com/stock_logos/INE238A01034.png",
-    },
-    {
-        compName: "Pidilite Industries Ltd.",
-        symbol: "PIDILITIND",
-        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE318A01026.png",
     },
     {
         compName: "Indian Oil Corporation Ltd.",
         symbol: "IOC",
+        finCode: 130965,
         logoUrl: "https://univest-staging.s3.ap-south-1.amazonaws.com/stock_logos/INE242A01010.png",
     },
     {
         compName: "Infosys Ltd.",
         symbol: "INFY",
+        finCode: 100209,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE009A01021.png",
     },
     {
         compName: "Adani Enterprises Ltd.",
         symbol: "ADANIENT",
+        finCode: 112599,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE423A01024.png",
     },
     {
         compName: "Wipro Ltd.",
         symbol: "WIPRO",
+        finCode: 107685,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE075A01022.png",
     },
     {
         compName: "ICICI Bank Ltd.",
         symbol: "ICICIBANK",
+        finCode: 132174,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE090A01021.png",
     },
     {
         compName: "Mahindra & Mahindra Ltd.",
         symbol: "M&M",
+        finCode: 100520,
         logoUrl: "https://univest.s3.ap-south-1.amazonaws.com/stock_logos/INE101A01026.png",
     },
     {
         compName: "JSW Steel Ltd.",
         symbol: "JSWSTEEL",
+        finCode: 100228,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE019A01038.png",
-    },
-    {
-        compName: "HCL Technologies Ltd.",
-        symbol: "HCLTECH",
-        logoUrl: "https://univest.s3.ap-south-1.amazonaws.com/stock_logos/INE860A01027.png",
-    },
-    {
-        compName: "Adani Total Gas Ltd.",
-        symbol: "ATGL",
-        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE399L01023.png",
     },
     {
         compName: "Tata Consultancy Services Ltd.",
         symbol: "TCS",
+        finCode: 132540,
         logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE467B01029.png",
-    }]
+    },
+    {
+        compName: "Adani Total Gas Ltd.",
+        symbol: "ATGL",
+        finCode: 228347,
+        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE399L01023.png",
+    },
+    {
+        compName: "Adani Ports and Special Economic Zone Ltd.",
+        symbol: "ADANIPORTS",
+        finCode: 132921,
+        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE742F01042.png",
+    },
+    {
+        compName: "Nestle India Ltd.",
+        symbol: "NESTLEIND",
+        finCode: 100790,
+        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE239A01016.png",
+    },
+    {
+        compName: "Tata Steel Ltd.",
+        symbol: "TATASTEEL",
+        finCode: 100470,
+        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/TATASTEEL.png",
+    },
+    {
+        compName: "Titan Company Ltd.",
+        symbol: "TITAN",
+        finCode: 100114,
+        logoUrl: "https://univest-prod.s3.ap-south-1.amazonaws.com/stock_logos/INE280A01028.png",
+    },
+]
 
 
 export default function BrokersSection() {
@@ -127,7 +166,7 @@ export default function BrokersSection() {
         from: { opacity: 1, scale: 1 },
         enter: { opacity: 0.2, scale: 0.9 },
         leave: { opacity: 1, scale: 1 },
-        config: { duration: 300 },
+        config: { duration: 400 },
         onRest: (_a, _b, item) => {
             if (_a.value?.opacity === 0.2) {
                 if (state > brokerList.length - 2) {
@@ -178,10 +217,9 @@ export default function BrokersSection() {
                 delay={2}
                 pauseOnHover>
                 <div className='flex overflow-y-auto gap-x-8 py-12 lg:py-16 mx-4'>
-                    {/* TODO */}
                     {stocksList
                         .map((ele, i) =>
-                            <Link href={`/stocks/${ele.symbol}/${ele.compName}?finCode=${100010}`} key={i}
+                            <Link href={`/stocks/${ele.symbol}/${ele.compName}?finCode=${ele.finCode}`} key={i}
                                 className='flex justify-center items-center rounded-xl px-4 py-2 shadow-md bg-white'>
                                 <Image src={ele.logoUrl} width='32' height='32' className='w-8 lg:w-10 object-contain' alt='icon' />
                                 <span className="ml-2 text-sm lg:text-base font-semibold text-black">

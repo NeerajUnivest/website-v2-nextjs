@@ -69,19 +69,17 @@ export default function MarketsSection() {
                     </div>
                     <BlackButton text='Explore more' className='mt-10 py-2 px-9 text-base font-extrabold hidden lg:block' onClick={() => popUp.open()} />
                 </div>
-                <div className="w-full lg:w-5/12 h-[451px] px-2 lg:px-3 lg:h-[451px] flex place-content-center">
-                    {transitions(style => (
-                        <animated.div style={style} >
-                            <Image
-                                width={400}
-                                height={450}
-                                quality={30}
-                                src={brokerList[state].img}
-                                className='w-full object-contain'
-                                alt='broker logo' />
-                        </animated.div>
-                    ))}
-                </div>
+                {transitions(style => (
+                    <animated.div style={style} className="w-full lg:w-5/12 h-[451px] px-2 lg:px-3 lg:h-[451px] flex place-content-center">
+                        <Image
+                            width={400}
+                            height={450}
+                            quality={30}
+                            src={brokerList[state].img}
+                            className='w-full object-contain'
+                            alt='broker logo' />
+                    </animated.div>
+                ))}
             </div>
             <BlackButton text='Explore more' className='mt-10 mx-auto py-2 px-9 text-base font-extrabold lg:hidden block' onClick={() => popUp.open()} />
         </section>

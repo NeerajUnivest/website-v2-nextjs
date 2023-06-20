@@ -1,5 +1,5 @@
 import Image from "next/image";
-import hero from '../../assets/images/hero_image_1.png';
+import hero from '../../assets/images/hero_image_2.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import sebi_logo from '../../assets/icons/sebi_logo.png';
 import CountUpBox from "@/elements/CountUpBox";
@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 export default function StocksHeroSection({ homePage }) {
     const router = useRouter();
     return (<>
-        <section id="Hero" className="bg-[#EFF7FF]">
+        <section id="Hero" className="bg-[#E1F0FF]">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-40 max-w-screen-xl mx-auto '>
                 <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8 relative">
                     <p className='ml-4 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141]'>

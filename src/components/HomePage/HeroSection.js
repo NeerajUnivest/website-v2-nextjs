@@ -45,13 +45,13 @@ export default function HeroSection() {
                         <Image src={users} className=' h-[48px] w-[112px]' alt='rating' />
                         <p className='ml-4 text-base text-black font-medium'>
                             Trusted by<br />
-                            <b>500k+ </b>Indians
+                            <b>400k+ </b>Indians
                         </p>
-                        <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" className='mx-7' >
+                        <Link rel="noreferrer" target="_blank" href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" className='mx-7' >
                             <BsApple color='#202020' size={36} />
                         </Link>
 
-                        <Link href="https://play.google.com/store/apps/details?id=com.univest.capp"  >
+                        <Link rel="noreferrer" target="_blank" href="https://play.google.com/store/apps/details?id=com.univest.capp"  >
                             <Image src="https://cdn-icons-png.flaticon.com/512/888/888857.png" width={32} height={32} className="w-8" alt='Google Play' />
                         </Link>
                     </div>

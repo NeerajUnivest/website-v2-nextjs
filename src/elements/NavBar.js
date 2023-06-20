@@ -45,6 +45,10 @@ export default function NavBar() {
                 </div>
             </div>
             <Menu right onStateChange={(e) => setIsOpen(e.isOpen)} isOpen={isOpen} burgerButtonClassName='hidden'>
+                <Link href='/' onClick={() => setIsOpen(false)}
+                    className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
+                    Home
+                </Link>
                 <Link href='/stocks' onClick={() => setIsOpen(false)}
                     className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                     Stocks

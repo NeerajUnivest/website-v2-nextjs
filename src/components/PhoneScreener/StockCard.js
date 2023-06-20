@@ -82,11 +82,11 @@ export default function StockCard({ data, name }) {
                                         </div>
                                     </div>}
                                 {data.param3 &&
-                                    <a className='basis-1/3 flex flex-row cursor-pointer pt-1 justify-end' href={ele.param3}>
+                                    <a className='basis-1/3 flex flex-row cursor-pointer pt-1 justify-end items-center' href={ele.param3}>
                                         <div className=' text-[#00439D] text-[10px] landing-[16px] font-semibold'>
                                             View charts
                                         </div>
-                                        <Image src={viewChat} alt='stock logo' className='ml-3 h-4 ' />
+                                        <Image src={viewChat} alt='stock logo' className='ml-2 w-3 object-contain' />
                                     </a>}
                             </div>}
 

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import hero from '../../assets/images/hero_image_2.png';
+import hero from '../../assets/images/hero_image_1.png';
 import univest_elite from '../../assets/images/univest_elite.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import Marquee from "react-fast-marquee";

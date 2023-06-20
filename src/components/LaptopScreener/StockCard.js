@@ -61,7 +61,6 @@ export default function StockCard({ data }) {
                     {data.param6}
                 </div>}
 
-
             <div className=' min-w-[110px] max-w-[110px] mr-4 bg-[#CFE8FC] py-3'>
                 CMP
             </div>
@@ -121,13 +120,12 @@ export default function StockCard({ data }) {
 
                     {nseBsePrice(ele.nseLtpPrice, ele.nseClosePrice, ele.bseLtpPrice, ele.bseClosePrice)}
 
-
                     {data.param3 &&
-                        <a className='flex flex-row cursor-pointer  min-w-[130px] max-w-[130px]' href={ele.param3}>
-                            <div className=' text-[#00439D]  min-w-[110px] max-w-[110px] mr-4'>
+                        <a className='flex flex-row cursor-pointer  min-w-[130px] max-w-[130px] items-center' href={ele.param3}>
+                            <div className=' text-[#00439D] mr-4'>
                                 View charts
                             </div>
-                            <Image src={viewChat} alt='stock logo' width={24} height={24} className='ml-2 mt-1 max-h-4 max-w-4' />
+                            <Image src={viewChat} alt='stock logo' className='mt-1 w-4' />
                         </a>}
                 </div>
                 <hr />

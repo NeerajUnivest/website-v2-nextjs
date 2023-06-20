@@ -47,7 +47,7 @@ export default function IdeasSection() {
                     )}
                 </div>
                 <div className="w-full lg:max-w-[60%]">
-                    <div className="flex justify-evenly items-center px-10">
+                    <div className="flex justify-evenly items-center lg:px-10">
                         <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
                             <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
                             flex justify-center items-center rounded-full w-20 h-20 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
@@ -122,7 +122,7 @@ export default function IdeasSection() {
                 </div>
             </div>
             <p className='mt-8 text-center text-sm lg:text-lg font-medium text-[#414141]'>
-                Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
+                Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar<br className="hidden lg:flex" /> along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
             </p>
 
 
