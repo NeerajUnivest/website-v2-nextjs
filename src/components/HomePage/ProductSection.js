@@ -95,7 +95,7 @@ export default function ProductSection() {
                     <div className='mt-8 mb-12 flex flex-row  lg:flex-col justify-between w-full lg:min-h-[370px]'>
                         {brokerList?.slice(0, -1).map((ele, i) =>
                             <div key={ele.name} className={`min-w-[70px] flex flex-col rounded-xl py-2 px-3 duration-300 ease-in ${i === state ? 'bg-[#FFFFFF80]  border-2 border-[#0862BC]' : ' border border-[#8EC8F7]'}`}
-                                onClick={() => setState(i)}
+                                onClick={() => null}
                             >
                                 <div className={`flex flex-col lg:flex-row justify-center lg:justify-start items-center `}>
                                     <Image

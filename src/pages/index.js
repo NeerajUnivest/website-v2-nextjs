@@ -22,3 +22,9 @@ export default function HomePage() {
     <EliteFAQSection />
   </>)
 }
+
+// export async function generateMetadata({ params }) {
+//   return {
+//     title: 'HTML',
+//   }
+// }

@@ -1,9 +1,12 @@
 
 
-import logoWhite from '../assets/img/logoWhite.webp'
+import logoWhite from '../assets/images/logo.png'
+import app_store from '../assets/images/app_store.png'
+import google_pay from '../assets/images/google_pay.png'
 import Image from 'next/image'
 import Link from 'next/link';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
 import { BsApple, BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
 import app_download_qr from '../assets/images/app_download_qr.png';
 
@@ -21,7 +24,12 @@ export default function Footer() {
                             Univest encrypts all data and transactions to ensure a completely secure experience
                             for our members.
                         </p>
-
+                        <div className='max-w-[210px] flex items-center px-3 py-1 border border-white rounded-full mt-4'>
+                            <SiGmail size={12} />
+                            <p className="text-[10px] ml-2">
+                                Write to us : <a href="mailto:support@univest.in" className='font-semibold'>support@univest.in</a>
+                            </p>
+                        </div>
                         <ul className="flex gap-6 mt-8">
                             <li>
                                 <Link
@@ -135,9 +143,9 @@ export default function Footer() {
                         </div>
 
                         <div>
-                            <p className="font-medium text-xs lg:text-sm">UNIVEST</p>
+                            <p className="font-medium text-xs lg:text-sm">Company</p>
 
-                            <nav aria-label="Footer Navigation - UNIVEST" className="mt-6">
+                            <nav aria-label="Footer Navigation - Company" className="mt-6">
                                 <ul className="space-y-3  text-xs lg:text-smtext-sm">
                                     <li>
                                         <Link href="/about-us" className="transition hover:opacity-75">
@@ -190,28 +198,20 @@ export default function Footer() {
                             <ul className="space-y-3  text-xs lg:text-sm">
                                 <li>
                                     <Image src={app_download_qr} className='w-36 p-2 rounded bg-white' alt="download now qr" />
-                                    <p className='text-xs mt-1 mb-3 text-gray-200 text-center w-36'>
+                                    <p className='text-xs mt-1 mb-3 text-gray-200 pl-2'>
                                         Scan to Download
                                     </p>
                                 </li>
 
                                 <li>
-                                    <Link href="https://play.google.com/store/apps/details?id=com.univest.capp" rel="noreferrer" target="_blank" className="flex items-center border rounded-lg px-2 py-1.5 w-36 transition hover:opacity-75">
-                                        <Image src="https://cdn-icons-png.flaticon.com/512/888/888857.png" width={24} height={24} className="w-7" alt='Google Play' />
-                                        <div className="text-left ml-3">
-                                            <p className='text-[10px] text-gray-200'>Download on </p>
-                                            <p className="text-xs md:text-sm"> Google Play </p>
-                                        </div>
+                                    <Link href="https://play.google.com/store/apps/details?id=com.univest.capp" rel="noreferrer" target="_blank" className="transition hover:opacity-75">
+                                        <Image src={app_store} width={114} height={24} className="w-36 object-contain" alt='Google Play' />
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" rel="noreferrer" target="_blank" className="flex items-center border rounded-lg px-2 py-1.5 w-36 transition hover:opacity-75">
-                                        <BsApple color='#FFFFFF' size={28} />
-                                        <div className="text-left ml-3">
-                                            <p className='text-[10px] text-gray-200'>Download on </p>
-                                            <p className="text-xs md:text-sm"> Apple Store </p>
-                                        </div>
+                                    <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" rel="noreferrer" target="_blank" className="transition hover:opacity-75">
+                                        <Image src={google_pay} width={114} height={24} className="w-36 object-contain" alt='Google Play' />
                                     </Link>
                                 </li>
                             </ul>

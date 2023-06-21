@@ -8,7 +8,6 @@ import b from '../../assets/icons/plans/2.png';
 import c from '../../assets/icons/plans/3.png';
 import d from '../../assets/icons/plans/4.png';
 import recommend_tag from '../../assets/images/elite/recommend_tag.png';
-import elite_background from '../../assets/images/elite_background.png';
 import { popUp } from "@/elements/PopUp/PopUp";
 
 const cardData = [
@@ -71,7 +70,7 @@ export default function AvailablePlansSection() {
                             alt='demo image'
                         />
                         <div className="self-center ml-5 text-base text-black">
-                            <p className="font-medium ">Secured with</p>
+                            <p className="font-medium ">Partnered with</p>
                             <p className="font-extrabold ">RBI regulated NBFC-P2P</p>
                         </div>
                     </div>

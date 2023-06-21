@@ -5,7 +5,6 @@ import 'swiper/css/pagination';
 
 import rbi from '@/assets/icons/rbi.png';
 import univest_elite from '@/assets/images/univest_elite.png';
-import a from '../../assets/icons/plans/1.png';
 import Image from 'next/image';
 import elite_banner from '../../assets/lottiefiles/elite_banner.gif';
 import elite1 from '../../assets/images/elite/elite1.png';
@@ -83,17 +82,17 @@ export default function WhyShouldSection({ homePage }) {
                             alt='demo image'
                         />
                         <div className="self-center ml-3 lg:ml-4">
-                            <p className="font-medium text-sm lg:text-base text-[#606060]">Secured with</p>
+                            <p className="font-medium text-sm lg:text-base text-[#606060]">Partnered with</p>
                             <p className="font-semibold text-sm lg:text-base">RBI regulated <b>NBFC - P2P</b></p>
                         </div>
                     </div>
                 </div>}
-                {/* <Image
+                <Image
                     placeholder="empty"
                     src={elite_banner}
-                    className='w-[calc(100vw-32px)] object-contain rounded-xl lg:rounded-3xl mb-7 lg:mb-24 mx-auto'
+                    className='w-[calc(100vw-32px)] object-contain rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto'
                     alt='demo image'
-                /> */}
+                />
                 <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
                     Why should I invest?
                 </p>

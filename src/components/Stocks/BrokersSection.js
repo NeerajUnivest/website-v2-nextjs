@@ -213,8 +213,11 @@ export default function BrokersSection() {
             </div>
             <Marquee
                 play={inView}
-                speed={50}
+                speed={90}
                 delay={2}
+                gradient={true}
+                gradientWidth={140}
+                gradientColor={[245, 245, 245]}
                 pauseOnHover>
                 <div className='flex overflow-y-auto gap-x-8 py-12 lg:py-16 mx-4'>
                     {stocksList

@@ -3,7 +3,7 @@ import { slide as Menu } from 'react-burger-menu';
 import SearchBar from './SearchBar';
 import Image from 'next/image'
 
-import logoWhite from '../assets/img/logoWhite.webp'
+import logoWhite from '../assets/images/logo.png'
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import { useWindowSize } from "@uidotdev/usehooks";
@@ -32,14 +32,14 @@ export default function NavBar() {
                     <Link href='/stocks' className="mx-4 px-3 py-2 hover:hover:opacity-75">
                         Stocks
                     </Link>
-                    <Link href='/blogs' className="mx-4 px-3 py-2 hover:hover:opacity-75">
-                        Blogs
+                    <Link href='/elite' className="mx-4 px-3 py-2  hover:hover:opacity-75">
+                        Elite
                     </Link>
                     <Link href='/screeners' className="mx-4 px-3 py-2  hover:hover:opacity-75">
                         Screeners
                     </Link>
-                    <Link href='/elite' className="mx-4 px-3 py-2  hover:hover:opacity-75">
-                        Elite
+                    <Link href='/blogs' className="mx-4 px-3 py-2 hover:hover:opacity-75">
+                        Blogs
                     </Link>
                     {width > 976 && <SearchBar forPhone={false} />}
                 </div>
@@ -53,17 +53,17 @@ export default function NavBar() {
                     className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                     Stocks
                 </Link>
-                <Link href='/blogs' onClick={() => setIsOpen(false)}
+                <Link href='/elite' onClick={() => setIsOpen(false)}
                     className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
-                    Blogs
+                    Elite
                 </Link>
                 <Link href='/screeners' onClick={() => setIsOpen(false)}
                     className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                     Screeners
                 </Link>
-                <Link href='/elite' onClick={() => setIsOpen(false)}
+                <Link href='/blogs' onClick={() => setIsOpen(false)}
                     className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
-                    Elite
+                    Blogs
                 </Link>
             </Menu>
         </nav>

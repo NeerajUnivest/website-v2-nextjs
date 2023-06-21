@@ -1,6 +1,6 @@
 import { BlackButton, ResultButton } from "@/elements/Button/Button";
 import results_background from '../../assets/images/results_background.webp';
-import declared_results from '../../assets/images/declared_results.webp';
+import declared_results from '../../assets/images/declared_results.png';
 import upcoming_results from '../../assets/images/upcoming_results.png';
 import Image from "next/image";
 import { useTransition, animated, } from 'react-spring'
