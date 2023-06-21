@@ -1,23 +1,23 @@
-import { useWindowSize } from "@uidotdev/usehooks";
 import Image from "next/image"
-import { render, unmountComponentAtNode } from "react-dom"
+import { createRoot } from 'react-dom/client';
 import ReactModal from "react-modal"
 import { RxCross2 } from "react-icons/rx";
 
 import app_download_qr from '../../assets/images/app_download_qr.png';
 import { BsApple, BsTelephone } from "react-icons/bs";
 import { BlackButton } from "../Button/Button";
+import { isMobile } from 'react-device-detect';
 import Link from "next/link";
 
-const customStyles = (isPhone) => ({
+const customStyles = {
     content: {
         top: 'auto',
-        left: isPhone ? '0' : '50%',
-        right: isPhone ? '0' : 'auto',
-        bottom: isPhone ? '0' : '50%',
-        transform: !isPhone && 'translate(-50%, 50%)',
-        width: isPhone ? '100%' : '780px',
-        height: isPhone ? '60%' : '404px',
+        left: isMobile ? '0' : '50%',
+        right: isMobile ? '0' : 'auto',
+        bottom: isMobile ? '0' : '50%',
+        transform: !isMobile && 'translate(-50%, 50%)',
+        width: isMobile ? '100%' : '780px',
+        height: isMobile ? '60%' : '404px',
         backgroundColor: 'transparent',
         borderColor: 'transparent',
     },
@@ -25,31 +25,30 @@ const customStyles = (isPhone) => ({
         backgroundColor: '#20202099',
         zIndex: 20
     }
-});
+}
 
 const PopUp = () => {
-    const { width } = useWindowSize();
     return (
         <ReactModal
             isOpen={true}
             ariaHideApp={false}
             shouldFocusAfterRender={false}
             onRequestClose={popUp.close}
-            style={customStyles(width < 746)}
+            style={customStyles}
         >
-            <div className='font-Inter flex flex-col lg:flex-row justify-between relative h-full py-12 px-8 bg-white rounded-2xl'>
+            <div className='select-none font-Inter flex flex-col md:flex-row justify-between relative h-full py-12 px-8 bg-white rounded-2xl'>
                 <button onClick={popUp.close} className='absolute right-8 -top-5 bg-white p-2 rounded-full z-50'>
                     <RxCross2 size={28} />
                 </button>
                 <div className="flex flex-col justify-between ">
-                    <p className='text-2xl lg:text-[40px] lg:leading-[64px] text-black font-extrabold'>
+                    <p className='text-2xl md:text-[40px] md:leading-[64px] text-black font-extrabold'>
                         Enter your phone number<br />
                         to get the link
                     </p>
-                    <div className='w-full sm:w-[480px] h-10 lg:h-14 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-xs lg:text-base font-medium'>
-                        <BsTelephone className='h-4 lg:h-14 ml-4 lg:ml-6' color="#747474" size={24} />
-                        <input className='w-[calc(100%-120px)] caret-primary ml-2.5 lg:ml-4 text-[#747474]' type='text' placeholder='Enter your mobile number' required />
-                        <BlackButton className='whitespace-nowrap px-3 lg:px-6 h-full ml-auto' text='Get free advice' icon={true} />
+                    <div className='w-full sm:w-[480px] h-10 md:h-14 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-xs md:text-base font-medium'>
+                        <BsTelephone className='h-4 md:h-14 ml-4 md:ml-6' color="#747474" size={24} />
+                        <input className='w-[calc(100%-120px)] caret-primary ml-2.5 md:ml-4 text-[#747474]' type='text' placeholder='Enter your mobile number' required />
+                        <BlackButton className='whitespace-nowrap px-3 md:px-6 h-full ml-auto' text='Get free advice' icon={true} />
                     </div>
                 </div>
                 <div className='flex flex-col justify-between '>
@@ -78,18 +77,23 @@ const PopUp = () => {
         </ReactModal >
     )
 }
-
+var root = null;
 export const popUp = {
-    close: () => {
-        unmountComponentAtNode(document.getElementById('pop-up-container'))
-    },
     currentPopup: false,
+    close: () => {
+        root?.unmount()
+        popUp.currentPopup = false
+    },
     open: () => {
-        if (popUp.currentPopup) {
-            popUp.close()
+        root = createRoot(document.getElementById('pop-up-container'))
+        if (isMobile) {
+            window.open('https://univest.onelink.me/VC6b/investwithunivest', '_blank');
+        } else {
+            if (popUp.currentPopup) {
+                popUp.close()
+            }
+            root?.render(<PopUp />);
+            popUp.currentPopup = true
         }
-        render(<PopUp />,
-            document.getElementById('pop-up-container'));
-        popUp.currentPopup = true
     }
 }

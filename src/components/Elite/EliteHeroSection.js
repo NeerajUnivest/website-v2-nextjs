@@ -62,7 +62,7 @@ export default function EliteHeroSection({ homePage }) {
                     <Image
                         placeholder="empty"
                         src={homePage ? heroHome : hero}
-                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[80%]  mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
+                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[55%]  mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
                         alt='demo image'
                     />
                 </div>
@@ -73,7 +73,7 @@ export default function EliteHeroSection({ homePage }) {
                 speed={90}
                 delay={1}
                 gradient={true}
-                gradientWidth={140}
+                gradientWidth={60}
                 gradientColor={[255, 172, 41]}>
                 <div className='select-none flex items-center gap-x-12 lg:gap-x-16 p-4 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F] -mx-1'>
                     <span className="text-base lg:text-2xl font-semibold text-black">

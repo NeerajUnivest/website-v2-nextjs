@@ -10,20 +10,38 @@ import interest_rate from '../../assets/icons/interest_rate.png';
 import thumbnails1 from '../../assets/thumbnails/thumbnails1.png';
 import thumbnails2 from '../../assets/thumbnails/thumbnails2.png';
 import thumbnails3 from '../../assets/thumbnails/thumbnails3.png';
+import Link from 'next/link';
 
+const data = [
+    {
+        title: 'How Univest works?',
+        videoLink: 'https://public-assets-univest.s3.ap-south-1.amazonaws.com/app-videos/how-it-works-app.mp4',
+        thumbnail: thumbnails1
+    },
+    {
+        title: 'Whats is Elite 12% Is it safe?',
+        videoLink: 'https://univest-prod.s3.ap-south-1.amazonaws.com/FC_Video.mp4',
+        thumbnail: thumbnails2
+    },
+    {
+        title: 'Why connect portfolio with us?',
+        videoLink: 'https://public-assets-univest.s3.ap-south-1.amazonaws.com/app-videos/whats-new-app.mp4',
+        thumbnail: thumbnails3
+    }
+]
 
 export default function WhyUnivestSection() {
     return (
-        <section className=' px-4 lg:px-8 py-20 bg-[#F5F5F5] font-Inter'>
+        <section className='py-20 bg-[#F5F5F5] font-Inter'>
             <div className='max-w-screen-xl mx-auto flex flex-col overflow-hidden'>
                 <p className="text-center text-xl lg:text-5xl font-extrabold text-[#202020]">
                     Why Univest?
                 </p>
-                <p className=" mt-5 lg:mt-6 text-center text-sm lg:text-xl font-semibold text-[#747474]">
+                <p className="mx-4 lg:mx-8  mt-5 lg:mt-6 text-center text-sm lg:text-xl font-semibold text-[#747474]">
                     Your one-stop solution for all your investment needs. Maximise your ROIs with exiting bad investments on time and invest in trusted investment ideas and high return investment plans all from a single place
                 </p>
                 <div className='flex flex-col-reverse lg:flex-col pt-11 lg:pt-12 gap-16'>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 grid-flow-row lg:grid-rows-1 gap-x-8 gap-y-14 mx-4 lg:mx-16">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 grid-flow-row lg:grid-rows-1 gap-x-8 gap-y-14 mx-6 lg:mx-20">
                         <IconBox icon={portfolio_analysis} name='Free Portfolio<br/>analysis' />
                         <IconBox icon={insights} name='Buy-Sell-Hold<br/>insights' />
                         <IconBox icon={trusted_stock_ideas} name='Trusted stock<br/>ideas' />
@@ -34,18 +52,18 @@ export default function WhyUnivestSection() {
                         effect={"coverflow"}
                         grabCursor={true}
                         centeredSlides={true}
-                        slidesPerView={1.4}
+                        slidesPerView={1.5}
                         spaceBetween={0}
                         coverflowEffect={{
                             rotate: 0,
-                            stretch: 180,
+                            stretch: 190,
                             depth: 50,
                             scale: 0.8,
                             modifier: 1,
                             slideShadows: true
                         }}
                         breakpoints={{
-                            768: {
+                            546: {
                                 slidesPerView: 3,
                                 coverflowEffect: {
                                     rotate: 0,
@@ -60,15 +78,13 @@ export default function WhyUnivestSection() {
                         modules={[EffectCoverflow, Autoplay]}
                         className="WhyUnivestSection"
                     >
-                        <SwiperSlide>
-                            <Image src={thumbnails2} className='w-full h-full rounded-xl' alt='play' />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image src={thumbnails1} className='w-full h-full rounded-xl' alt='play' />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image src={thumbnails3} className='w-full h-full rounded-xl' alt='play' />
-                        </SwiperSlide>
+                        {data.map(ele =>
+                            <SwiperSlide key={ele.title}>
+                                <Link href={ele.videoLink} rel="noreferrer" target="_blank">
+                                    <Image src={ele.thumbnail} width={300} height={250} className='w-full h-full rounded-xl' alt={ele.title} />
+                                </Link>
+                            </SwiperSlide>
+                        )}
                     </Swiper>
                 </div>
             </div>

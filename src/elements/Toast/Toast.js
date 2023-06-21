@@ -1,4 +1,4 @@
-import { render, unmountComponentAtNode } from "react-dom"
+import { createRoot } from 'react-dom/client';
 
 const Toast = (props) => {
     return (
@@ -35,32 +35,10 @@ const Toast = (props) => {
     )
 }
 
-export const ToastContainer = (props) => {
-    return (
-        <div id="toast-container" className="toast-container z-40">
-            <style jsx>{`
-            .toast-container {
-                position: fixed;
-                width: 400px;
-                bottom: 20px;
-                right: 20px;
-            }
-            @media (max-width: 546px) {
-                .toast-container {
-                    position: fixed;
-                    width: 100%;
-                    bottom: 20px;
-                    right: 0px;
-                }
-            }
-        `}</style>
-        </div>
-    )
-}
-
+var root = null;
 export const toast = {
     remove: () => {
-        unmountComponentAtNode(document.getElementById('toast-container'))
+        root?.unmount()
         toast.currentToast = false
         if (toast.timeout) {
             clearTimeout(toast.timeout)
@@ -70,16 +48,9 @@ export const toast = {
     currentToast: false,
     timeout: null,
     notify: (message, color) => {
-
-        if (toast.currentToast) {
-            toast.remove()
-
-        }
-        render(<Toast
-            message={message}
-            color={color || null} />,
-            document.getElementById('toast-container'));
+        root = createRoot(document.getElementById('toast-container'))
         toast.currentToast = true
+        root?.render(<Toast message={message} color={color || null} />);
         toast.timeout = setTimeout(toast.remove, 3000)
     }
 }

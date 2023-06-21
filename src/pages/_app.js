@@ -2,7 +2,6 @@ import { ModalContext } from '@/contexts/StockPageModal'
 import Footer from '@/elements/Footer'
 // import Loading from '@/elements/Loading/Loading'
 import NavBar from '@/elements/NavBar'
-import { ToastContainer } from '@/elements/Toast/Toast'
 import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 
@@ -24,7 +23,7 @@ export default function App({ Component, pageProps }) {
 
       <Footer />
 
-      <ToastContainer />
+      <div id="toast-container" className="fixed w-full lg:w-[400px] bottom-5 right-0 lg:right-5 z-40" />
       <div id="pop-up-container" />
     </main>
   )

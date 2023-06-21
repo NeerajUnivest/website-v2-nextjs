@@ -9,10 +9,10 @@ export default function MyTeam() {
                 <div className='font-Inter font-semibold text-[18px] leading-[24px] text-[#00439D] text-center md:text-[32px] md:leading-[54px]'>
                     Our Team
                 </div>
-            <div className=' py-8 snap-mandatory snap-x flex flex-row overflow-x-auto no-scrollbar gap-4 lg:gap-8'>
-                {teamData.map((ele, i) => <TeamCard key={i} data={ele} />)}
+                <div className=' py-8 snap-mandatory snap-x flex flex-row overflow-x-auto no-scrollbar gap-4 lg:gap-8'>
+                    {teamData.map((ele, i) => <TeamCard key={i} data={ele} />)}
+                </div>
             </div>
-        </div>
         </section>
     )
 }
