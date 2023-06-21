@@ -1,14 +1,16 @@
 import MyTeam from "@/components/About/MyTeam";
 import YouCanTrush from "@/components/About/YouCanTrush";
+import MetaSection from "@/elements/MetaSection/MetaSection";
 
 export default function AboutUs() {
     return (
         <>
-        <YouCanTrush/>
-        <MyTeam/>
+            <MetaSection
+                title='About Univest'
+                desc='SEBI registered stock market research platform which gives free portfolio analysis. Investment ideas, stock market tips and RBI regulated high return investment plans'
+                keyWords='SEBI registered, Univest, Univest India, Learn Stock Investing, Free portfolio analysis, Buy portfolio' />
+            <YouCanTrush />
+            <MyTeam />
         </>
-        // <section className='font-Inter max-w-screen-xl h-[70vh] mx-auto lg:px-8 bg-[#FFFFFF] flex justify-center'>
-        //     <div className='self-center h-10 w-10 border-e-4 lg:h-20 lg:w-20 lg:border-e-8 border-[#00439D] animate-spin rounded-full' />
-        // </section>
     )
 }

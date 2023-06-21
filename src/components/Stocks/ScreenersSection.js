@@ -13,7 +13,6 @@ export default function ScreenersSection() {
     const [swiper, setSwiper] = useState(null);
     const [active, setActive] = useState(0);
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/screeners/v2`, fetcher)
-    console.log(active);
     return (
         <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-32 bg-[#FFFFFF]'>
             <p className="my-8 lg:my-6 text-center text-xl lg:text-3xl font-extrabold text-black">

@@ -15,6 +15,7 @@ import LeftBar from '@/components/StocksDetail/LeftBar';
 import News from '@/components/StocksDetail/News/News';
 import PeerComparison from '@/components/StocksDetail/PeerComparison/PeerComparison';
 import ShareHolding from '@/components/StocksDetail/ShareHolding/ShareHolding';
+import MetaSection from '@/elements/MetaSection/MetaSection';
 
 
 
@@ -25,6 +26,11 @@ export default function StockDetails({ stockDetails }) {
     const [activeChartType, setActiveChartType] = useState(1);
 
     return (<>
+        <MetaSection
+            title='Stock Analysis, Exit Investment, Investment Ideas, Market Research, News | Univest'
+            desc='SEBI registered best stock market platform with free portfolio analyis, easy research, investment ideas, stock market tips, live share market, latest news and screeners'
+            keyWords='bombay stock exchange, Indian stock market, bse, national stock exchange, Nifty, nse, sensex, stock exchange, stock market, stock research tool, smart investment, investment ideas, stock market tips' />
+
         <div className='grid grid-cols-12 select-none font-Inter max-w-screen-xl mx-auto'>
             {width > 976 &&
                 <div className='col-span-12 lg:col-span-3'>

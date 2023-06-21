@@ -3,6 +3,7 @@ import axios from "axios";
 import DropDown from '../../components/LaptopScreener/DropDown'
 import PhoneScreener from '../../components/PhoneScreener/PhoneScreener';
 import LaptopScreener from '../../components/LaptopScreener/LaptopScreener';
+import MetaSection from "@/elements/MetaSection/MetaSection";
 
 const getScreenersList = async () => {
     let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
@@ -15,17 +16,24 @@ const getScreenerDetails = async (screenerCode) => {
 
 export default function ScreenerPage({ name, screenersList, screenerDetails, codeList }) {
     return (
-        <section className='lg:pt-24 font-Inter'>
-            <div className='max-w-screen-xl mx-auto'>
-                <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
-                <div className='hidden md:grid grid-cols-12 min-h-screen'>
-                    <div className='col-span-12 lg:col-span-3'>
-                        <DropDown list={screenersList} selected={screenerDetails.categoryId} name={name} />
+        <>
+            <MetaSection
+                title='Stock screener, Breakout Screeners, Multibagger stocks, Stock market analysis tools | Univest'
+                desc='Stock screener for Indian stocks. Breakout stocks, Nearing breakout stocks, Multibagger stocks, High dividend yield stocks, High PE stocks, Oversold stock screeners'
+                keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
+
+            <section className='lg:pt-24 font-Inter'>
+                <div className='max-w-screen-xl mx-auto'>
+                    <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
+                    <div className='hidden md:grid grid-cols-12 min-h-screen'>
+                        <div className='col-span-12 lg:col-span-3'>
+                            <DropDown list={screenersList} selected={screenerDetails.categoryId} name={name} />
+                        </div>
+                        <LaptopScreener data={screenerDetails} />
                     </div>
-                    <LaptopScreener data={screenerDetails} />
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     )
 }
 

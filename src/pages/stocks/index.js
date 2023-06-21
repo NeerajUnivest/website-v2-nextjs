@@ -10,6 +10,7 @@ import ScreenersSection from "@/components/Stocks/ScreenersSection";
 import ResultsSection from "@/components/Stocks/ResultsSection";
 import NewsSection from "@/components/Stocks/NewsSection";
 import BrokersSection from "@/components/Stocks/BrokersSection";
+import MetaSection from "@/elements/MetaSection/MetaSection";
 
 // const BrokersSection = dynamic(() => import('@/components/Stocks/BrokersSection'))
 // const NewsSection = dynamic(() => import('@/components/Stocks/NewsSection'))
@@ -21,6 +22,10 @@ import BrokersSection from "@/components/Stocks/BrokersSection";
 
 export default function Stocks() {
     return (<>
+        <MetaSection
+            title='Stock Analysis, Exit Investment, Investment Ideas, Market Research, News | Univest'
+            desc='SEBI registered best stock market platform with free portfolio analyis, easy research, investment ideas, stock market tips, live share market, latest news and screeners'
+            keyWords='bombay stock exchange, Indian stock market, bse, national stock exchange, Nifty, nse, sensex, stock exchange, stock market, stock research tool, smart investment, investment ideas, stock market tips' />
         <StocksHeroSection homePage={false} />
         <StockBarSection />
         <MarketsSection />
