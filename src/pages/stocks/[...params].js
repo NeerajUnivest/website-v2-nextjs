@@ -16,6 +16,7 @@ import News from '@/components/StocksDetail/News/News';
 import PeerComparison from '@/components/StocksDetail/PeerComparison/PeerComparison';
 import ShareHolding from '@/components/StocksDetail/ShareHolding/ShareHolding';
 import MetaSection from '@/elements/MetaSection/MetaSection';
+import { Mixpanel } from '@/elements/Mixpanel/Mixpanel';
 
 
 
@@ -25,6 +26,14 @@ export default function StockDetails({ stockDetails }) {
     const { width } = useWindowSize();
     const [activeChartType, setActiveChartType] = useState(1);
 
+    useEffect(() => {
+        Mixpanel.track(
+            'page_viewed',
+            {
+                'page': 'stock_details',
+            }
+        )
+    }, [])
     return (<>
         <MetaSection
             title='Stock Analysis, Exit Investment, Investment Ideas, Market Research, News | Univest'

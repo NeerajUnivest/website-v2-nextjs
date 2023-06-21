@@ -39,7 +39,7 @@ export default function IdeasSection() {
                         Pillars of advisory team
                     </p>
                     {[
-                        { name: 'Ketan Sonalkar', img: ketan_sonalkar, disc: 'SEBI reg. advisory' },
+                        { name: 'Ketan Sonalkar', img: ketan_sonalkar, disc: 'SEBI registered advisor' },
                         { name: 'Yashpal Arora', img: yashpal_arora, disc: 'Senior consultant' },
                         { name: 'Sagar Wadhwa', img: sagar_wadhwa, disc: 'Senior Research Analyst' },
                     ].map(ele =>
@@ -65,8 +65,8 @@ export default function IdeasSection() {
                         <div className="flex flex-col lg:flex-row items-center justify-center mb-5 text-sm font-medium text-[#F5F5F5] gap-1">
                             <span>Past performance </span>
                             <div>
-                                <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(1)}% Accuracy</span>
-                                <span className="font-semibold text-sm lg:text-xl"> | Hit: {data?.data?.hit} | Miss: {data?.data?.miss}</span>
+                                <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(2) ?? '89.87'}% Accuracy</span>
+                                <span className="font-semibold text-sm lg:text-xl"> | Hit: {data?.data?.hit ?? '71'} | Miss: {data?.data?.miss ?? '8'}</span>
                             </div>
                         </div>
                         {isLoading ?

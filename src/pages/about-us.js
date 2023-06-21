@@ -1,8 +1,18 @@
 import MyTeam from "@/components/About/MyTeam";
 import YouCanTrush from "@/components/About/YouCanTrush";
 import MetaSection from "@/elements/MetaSection/MetaSection";
+import { Mixpanel } from "@/elements/Mixpanel/Mixpanel";
+import { useEffect } from "react";
 
 export default function AboutUs() {
+    useEffect(() => {
+        Mixpanel.track(
+            'page_viewed',
+            {
+                'page': 'about_us',
+            }
+        )
+    }, [])
     return (
         <>
             <MetaSection

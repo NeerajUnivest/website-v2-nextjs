@@ -1,7 +1,6 @@
-import Footer from '@/elements/Footer'
-import NavBar from '@/elements/NavBar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import FAQcard from '@/elements/FAQcard'
+import { Mixpanel } from '@/elements/Mixpanel/Mixpanel'
 
 let data = [
     {
@@ -70,9 +69,16 @@ let data = [
     },
 ]
 
-
 function GeneralFAQs() {
     const [active, setActive] = useState(-1);
+    useEffect(() => {
+        Mixpanel.track(
+            'page_viewed',
+            {
+                'page': 'faq',
+            }
+        )
+    }, [])
     return (
         <section className='font-Inter max-w-screen-xl py-24 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
             <div className='flex flex-col gap-4'>

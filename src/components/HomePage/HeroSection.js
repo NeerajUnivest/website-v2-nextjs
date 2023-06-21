@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
     return (
-        <section className='relative lg:mb-20 font-Inter w-full overflow-hidden'>
+        <section className='relative lg:mb-20 font-Inter'>
             <Swiper
                 grabCursor={true}
                 slidesPerView={1}

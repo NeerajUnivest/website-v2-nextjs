@@ -15,6 +15,12 @@ export default function HeroSideSection() {
                     toast.notify(res.data?.message)
                     setNumber('')
                 })
+            Mixpanel.track(
+                'connect_with_wealth',
+                {
+                    'number': number,
+                }
+            )
         } else {
             setError('Please enter a valid number')
         }

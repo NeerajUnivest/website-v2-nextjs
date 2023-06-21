@@ -7,11 +7,19 @@ import ProductSection from "@/components/HomePage/ProductSection";
 import WhyUnivestSection from "@/components/HomePage/WhyUnivestSection";
 import WhyShouldSection from "@/components/Elite/WhyShouldSection";
 import MetaSection from "@/elements/MetaSection/MetaSection";
+import { useEffect } from "react";
+import { Mixpanel } from "@/elements/Mixpanel/Mixpanel";
 
 
 
 export default function HomePage() {
-
+  useEffect(() => {
+    Mixpanel.track(
+      'page_viewed',
+      {
+        'page': 'web_home',
+      });
+  }, [])
   return (<>
     <MetaSection
       title='Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'

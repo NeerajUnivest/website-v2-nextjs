@@ -4,16 +4,26 @@ import { useTransition, animated, useInView } from 'react-spring'
 import logoWhite from '../../assets/img/logoWhite.webp'
 import Marquee from "react-fast-marquee";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { popUp } from "@/elements/PopUp/PopUp";
 
 const brokerList = [
-    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Growww.png',
-    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Kite.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Fivepaisa.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Alice+blue.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Angel+broking.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Axis+Securities.png',
     'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/dhan.png',
-    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Upstox.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Edelweiss.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/FundzBazar.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Growww.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/HDFC+Securities.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/ICICI+Securities.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/IIFL.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Kotak+Securities.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Motilal+Oswal.png',
     'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Trustline.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Upstox.png',
+    'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Kite.png'
 ]
 
 const stocksList = [
@@ -194,11 +204,10 @@ export default function BrokersSection() {
                                 <animated.img
                                     style={style}
                                     src={brokerList[state]}
-                                    className='w-full object-contain'
+                                    className='w-full object-contain overflow-hidden'
                                     alt='broker logo'
                                 />
                             ))}
-                        {/* <Image src='https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Growww.png' width='160' height='160' className='w-full object-contain' alt='icon' /> */}
                     </div>
                     <div className="text-[32px] lg:text-[64px] mx-[32px] lg:mx-[48px]">
                         🤝
@@ -216,7 +225,7 @@ export default function BrokersSection() {
                 speed={90}
                 delay={2}
                 gradient={true}
-                gradientWidth={140}
+                gradientWidth={10}
                 gradientColor={[245, 245, 245]}
                 pauseOnHover>
                 <div className='flex overflow-y-auto gap-x-8 py-12 lg:py-16 mx-4'>

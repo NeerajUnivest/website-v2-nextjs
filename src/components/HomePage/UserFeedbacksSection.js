@@ -9,9 +9,8 @@ import ratingLg from "../../assets/images/ratingLg.png";
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
-import { BsStarFill, BsStarHalf } from 'react-icons/bs';
-import { Autoplay, Navigation, Pagination } from "swiper";
+import { BsStarFill, } from 'react-icons/bs';
+import { Autoplay, Pagination } from "swiper";
 import { BsArrowRight } from "react-icons/bs";
 import { useState } from "react";
 
@@ -94,10 +93,6 @@ export default function UserFeedbacksSection() {
                     delay: 3000,
                     disableOnInteraction: false
                 }}
-                // pagination={{
-                //     dynamicBullets: true,
-                //     clickable: true
-                // }}
                 modules={[Autoplay, Pagination]}
                 className="UserFeedbacksSection relative"
             >

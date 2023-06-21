@@ -9,6 +9,7 @@ import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { BsApple, BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
 import app_download_qr from '../assets/images/app_download_qr.png';
+import { popUp } from './PopUp/PopUp';
 
 export default function Footer() {
     return (
@@ -109,10 +110,16 @@ export default function Footer() {
 
                             <nav aria-label="Footer Navigation - PRODUCTS" className="mt-6">
                                 <ul className="space-y-3  text-xs lg:text-smtext-sm">
-                                    <li>
+                                    <li onClick={() => popUp.open()} className='cursor-pointer'>
                                         {/* <Link href="" className="transition hover:opacity-75"> */}
                                         Pro
                                         {/* </Link> */}
+                                    </li>
+
+                                    <li>
+                                        <Link href="/stocks" className="transition hover:opacity-75">
+                                            Stock markets
+                                        </Link>
                                     </li>
 
                                     <li>
@@ -127,13 +134,13 @@ export default function Footer() {
                                         </Link>
                                     </li>
 
-                                    <li>
-                                        <Link href="/shark" className="transition hover:opacity-75">
-                                            Shark stocks
-                                        </Link>
+                                    <li onClick={() => popUp.open()} className='cursor-pointer'>
+                                        {/* <Link href="/shark" className="transition hover:opacity-75"> */}
+                                        Shark stocks
+                                        {/* </Link> */}
                                     </li>
 
-                                    <li>
+                                    <li onClick={() => popUp.open()} className='cursor-pointer'>
                                         {/* <Link href="" className="transition hover:opacity-75"> */}
                                         Markets
                                         {/* </Link> */}
@@ -185,10 +192,10 @@ export default function Footer() {
                                         </Link>
                                     </li>
 
-                                    <li>
-                                        <Link href="#" className="transition hover:opacity-75">
-                                            Contact us
-                                        </Link>
+                                    <li onClick={() => popUp.open()} className='cursor-pointer'>
+                                        {/* <Link href="#" className="transition hover:opacity-75"> */}
+                                        Contact us
+                                        {/* </Link> */}
                                     </li>
                                 </ul>
                             </nav>

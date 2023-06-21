@@ -7,8 +7,18 @@ import HowItWork from '@/components/Elite/HowItWork'
 import PartneredWithSection from '@/components/Elite/PartneredWithSection'
 import WhyShouldSection from '@/components/Elite/WhyShouldSection'
 import MetaSection from '@/elements/MetaSection/MetaSection'
+import { Mixpanel } from '@/elements/Mixpanel/Mixpanel'
+import { useEffect } from 'react'
 
 export default function Elite() {
+    useEffect(() => {
+        Mixpanel.track(
+            'page_viewed',
+            {
+                'page': 'elite_home',
+            }
+        )
+    }, [])
     return (<>
         <MetaSection
             title='Elite: Earn higher returns with RBI regulated P2P lending '

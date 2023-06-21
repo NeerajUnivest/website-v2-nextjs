@@ -4,6 +4,8 @@ import DropDown from '../../components/LaptopScreener/DropDown'
 import PhoneScreener from '../../components/PhoneScreener/PhoneScreener';
 import LaptopScreener from '../../components/LaptopScreener/LaptopScreener';
 import MetaSection from "@/elements/MetaSection/MetaSection";
+import { useEffect } from "react";
+import { Mixpanel } from "@/elements/Mixpanel/Mixpanel";
 
 const getScreenersList = async () => {
     let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
@@ -15,6 +17,15 @@ const getScreenerDetails = async (screenerCode) => {
 }
 
 export default function ScreenerPage({ name, screenersList, screenerDetails, codeList }) {
+    useEffect(() => {
+        Mixpanel.track(
+            'page_viewed',
+            {
+                'page': 'screeners',
+                'screener_code': name
+            }
+        )
+    }, [name])
     return (
         <>
             <MetaSection

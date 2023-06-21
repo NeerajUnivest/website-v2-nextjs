@@ -30,7 +30,7 @@ export default function EliteHeroSection({ homePage }) {
                     <div className='ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020]'>
                         Withdraw anytime
                     </div>
-                    {homePage ?
+                    {homePage &&
                         <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
                             <div className="flex col-span-3">
                                 <Image
@@ -52,7 +52,7 @@ export default function EliteHeroSection({ homePage }) {
                                 <p className="font-semibold text-base"><CountUpBox start={1000} end={1200} duration={3} /> Cr+</p>
                                 <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                             </div>
-                        </div> : <div className="lg:h-4" />}
+                        </div>}
                     {homePage ?
                         <ExploreMore className='absolute -bottom-24 left-4 lg:bottom-24 lg:left-8' onClick={() => router.push('/elite')} /> :
                         <HeroSearchBox />}

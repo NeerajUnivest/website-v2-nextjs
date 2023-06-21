@@ -25,7 +25,7 @@ const data = [
     },
     {
         title: 'Why connect portfolio with us?',
-        videoLink: 'https://public-assets-univest.s3.ap-south-1.amazonaws.com/app-videos/whats-new-app.mp4',
+        videoLink: 'https://univest.s3.ap-south-1.amazonaws.com/app/WhyPortfolioLinking.mp4',
         thumbnail: thumbnails3
     }
 ]

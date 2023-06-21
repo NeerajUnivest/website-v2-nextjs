@@ -5,8 +5,18 @@ import premium from '../../assets/icn/premium.webp';
 import Image from 'next/image';
 import axios from 'axios';
 import MetaSection from '@/elements/MetaSection/MetaSection';
+import { useEffect } from 'react';
+import { Mixpanel } from '@/elements/Mixpanel/Mixpanel';
 
 export default function Screeners({ data }) {
+    useEffect(() => {
+        Mixpanel.track(
+            'page_viewed',
+            {
+                'page': 'screeners_home',
+            }
+        )
+    }, [])
     return (
         <>
             <MetaSection

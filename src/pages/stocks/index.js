@@ -11,6 +11,8 @@ import ResultsSection from "@/components/Stocks/ResultsSection";
 import NewsSection from "@/components/Stocks/NewsSection";
 import BrokersSection from "@/components/Stocks/BrokersSection";
 import MetaSection from "@/elements/MetaSection/MetaSection";
+import { useEffect } from "react";
+import { Mixpanel } from "@/elements/Mixpanel/Mixpanel";
 
 // const BrokersSection = dynamic(() => import('@/components/Stocks/BrokersSection'))
 // const NewsSection = dynamic(() => import('@/components/Stocks/NewsSection'))
@@ -21,6 +23,14 @@ import MetaSection from "@/elements/MetaSection/MetaSection";
 // const MarketsSection = dynamic(() => import('@/components/Stocks/MarketsSection'))
 
 export default function Stocks() {
+    useEffect(() => {
+        Mixpanel.track(
+            'page_viewed',
+            {
+                'page': 'stocks_home',
+            }
+        )
+    }, [])
     return (<>
         <MetaSection
             title='Stock Analysis, Exit Investment, Investment Ideas, Market Research, News | Univest'

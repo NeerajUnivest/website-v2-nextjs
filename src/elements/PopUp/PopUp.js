@@ -8,6 +8,10 @@ import { BsApple, BsTelephone } from "react-icons/bs";
 import { BlackButton } from "../Button/Button";
 import { isMobile } from 'react-device-detect';
 import Link from "next/link";
+import axios from "axios";
+import { useState } from "react";
+import { AiFillInfoCircle } from "react-icons/ai";
+import { toast } from "../Toast/Toast";
 
 const customStyles = {
     content: {
@@ -28,6 +32,21 @@ const customStyles = {
 }
 
 const PopUp = () => {
+    const [number, setNumber] = useState('')
+    const [error, setError] = useState(null)
+
+    const submit = () => {
+        if (number.length === 10) {
+            axios.get(`https://uat-api.univest.in/resources/website/get-phone-call/${number}`)
+                .then(res => {
+                    toast.notify(res.data?.message)
+                    setNumber('')
+                    popUp.close()
+                })
+        } else {
+            setError('Please enter a valid number')
+        }
+    }
     return (
         <ReactModal
             isOpen={true}
@@ -47,9 +66,25 @@ const PopUp = () => {
                     </p>
                     <div className='w-full sm:w-[480px] h-10 md:h-14 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-xs md:text-base font-medium'>
                         <BsTelephone className='h-4 md:h-14 ml-4 md:ml-6' color="#747474" size={24} />
-                        <input className='w-[calc(100%-120px)] caret-primary ml-2.5 md:ml-4 text-[#747474]' type='text' placeholder='Enter your mobile number' required />
-                        <BlackButton className='whitespace-nowrap px-3 md:px-6 h-full ml-auto' text='Get free advice' icon={true} />
+                        <input className='w-[calc(100%-120px)] caret-primary ml-2.5 md:ml-4 text-[#747474]' type='text' placeholder='Enter your mobile number'
+                            value={number} pattern="[0-9]*" inputMode="numeric" onChange={(e) => {
+                                var numbers = /^[0-9]+$/;
+                                if (e.target.value.match(numbers) || e.target.value === '') {
+                                    setError(null)
+                                } else {
+                                    setError('Please enter a valid number')
+                                }
+                                setNumber(e.target.value)
+                            }} />
+                        <BlackButton className='whitespace-nowrap px-3 md:px-6 h-full ml-auto' text='Get free advice' icon={true} onClick={submit} />
                     </div>
+                    {error &&
+                        <div className='flex items-center ml-2 mt-1 '>
+                            <AiFillInfoCircle color='#EB4E2C' className='text-[12px] mr-1' />
+                            <div className={`text-[10px] ${error ? 'text-[#EB4E2C]' : 'text-[#747474]'}`}>
+                                {error}
+                            </div>
+                        </div>}
                 </div>
                 <div className='flex flex-col justify-between '>
                     <div className="p-2 border border-black rounded">
