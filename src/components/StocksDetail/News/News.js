@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from "axios";
-import forEmpty from '../../../assets/img/forEmpty.webp'
+import forEmpty from '../../../assets/images/forEmpty.webp'
 import moment from 'moment';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import { UtilsContext } from '../../UtilsProvider/UtilsProvider';

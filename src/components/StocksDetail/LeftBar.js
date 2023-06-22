@@ -4,7 +4,7 @@ import moment from 'moment/moment';
 import redArrow from '../../assets/icn/redArrow.png';
 import greenArrow from '../../assets/icn/greenArrow.png';
 // import { UtilsContext } from '../../UtilsProvider/UtilsProvider';
-import expertVerdictPhone from "../../assets/img/expertVerdictPhone.webp";
+import expertVerdictPhone from "../../assets/images/expertVerdictPhone.webp";
 import DownloadNow from '../../elements/DownloadNow/DownloadNow';
 import Image from 'next/image'
 

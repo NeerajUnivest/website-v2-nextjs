@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
-import forEmpty from '../../../assets/img/forEmpty.webp';
+import forEmpty from '../../../assets/images/forEmpty.webp';
 // import { UtilsContext } from '../../UtilsProvider/UtilsProvider';
 import Image from 'next/image'
 

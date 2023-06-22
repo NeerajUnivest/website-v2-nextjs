@@ -1,4 +1,4 @@
-import forEmpty from '../../assets/img/forEmpty.webp'
+import forEmpty from '../../assets/images/forEmpty.webp'
 import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
 import { useRouter } from 'next/router';

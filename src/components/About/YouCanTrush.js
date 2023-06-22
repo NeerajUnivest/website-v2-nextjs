@@ -1,6 +1,6 @@
 
 import TrushCard from '../../elements/TrushCard'
-import quatetion from '../../assets/img/youCanTrush.webp'
+import quatetion from '../../assets/images/youCanTrush.webp'
 import goal from '../../assets/icn/goal.webp'
 import binoculars from '../../assets/icn/binoculars.webp'
 import rocket from '../../assets/icn/rocket.webp'
@@ -8,7 +8,6 @@ import Team_Univest_1 from '../../assets/team/Team_Univest_1.webp'
 import Team_Univest_2 from '../../assets/team/Team_Univest_2.webp'
 import Team_Univest_3 from '../../assets/team/Team_Univest_3.webp'
 import Team_Univest_4 from '../../assets/team/Team_Univest_4.webp'
-import Team_Univest_5 from '../../assets/team/Team_Univest_5.webp'
 import Image from 'next/image'
 
 let content = [{

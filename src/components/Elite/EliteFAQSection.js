@@ -2,25 +2,7 @@ import { useState } from 'react'
 import FAQcard from '@/elements/FAQcard';
 import { useRouter } from 'next/router';
 
-let data = [
-    {
-        question: "What does the Univest app do",
-        answer: "Univest is a one-stop investment platform that is trusted by 400K+ users. It helps people exit their bad stock market investments and provides them with alternative investment options in stock market and also non market linked high fixed return income products under the Elite program where they can earn upto 12% p.a."
-    },
-    {
-        question: "Is Univest SEBI registered?",
-        answer: "Univest is not SEBI registered directly. Uniapps, a wholly owned subsidiary of Univest is SEBI registered under the number INA0000017369"
-    },
-    {
-        question: "Is there a video tour to understand how Univest app works or how to best use the Univest app?",
-        answer: "Yes you refer to this video and understand how Univest works in just 60 seconds <a href='https://www.youtube.com/watch?v=Y_AqmfAIVc0'>https://www.youtube.com/watch?v=Y_AqmfAIVc0</a>"
-    },
-    {
-        question: "Why should I link my demat account / portfolio with the Univest app?",
-        answer: "To get the best out of Univest, you can link your demat account. You get Buy-Sell trend changes, track results, news and events happening on all your portfolio stocks"
-    },
-]
-export default function EliteFAQSection() {
+export default function EliteFAQSection({ data }) {
     const [active, setActive] = useState(-1);
     const router = useRouter()
 

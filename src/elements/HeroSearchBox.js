@@ -16,7 +16,7 @@ export default function HeroSideSection() {
                     setNumber('')
                 })
             Mixpanel.track(
-                'connect_with_wealth',
+                'lead_submitted',
                 {
                     'number': number,
                 }

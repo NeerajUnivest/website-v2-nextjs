@@ -1,10 +1,10 @@
-import Prasanth from "../../assets/img/Prasanth+Kuller.webp";
-import Ankush from "../../assets/img/Ankush+Kumar.webp";
-import Piyush from "../../assets/img/Piyush+Gupta.webp";
-import Amresh from "../../assets/img/Amresh+Kumar.webp";
-import Vijay from "../../assets/img/Vijay+Rathi.webp";
-import Raghav from "../../assets/img/Raghav+Bhushan.jpg";
-import Ravi from "../../assets/img/Ravi+Kumar.jpg";
+import Prasanth from "../../assets/rating/Prasanth+Kuller.webp";
+import Ankush from "../../assets/rating/Ankush+Kumar.webp";
+import Piyush from "../../assets/rating/Piyush+Gupta.webp";
+import Amresh from "../../assets/rating/Amresh+Kumar.webp";
+import Vijay from "../../assets/rating/Vijay+Rathi.webp";
+import Raghav from "../../assets/rating/Raghav+Bhushan.jpg";
+import Ravi from "../../assets/rating/Ravi+Kumar.jpg";
 import ratingLg from "../../assets/images/ratingLg.png";
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react';

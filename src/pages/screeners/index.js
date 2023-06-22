@@ -1,6 +1,6 @@
 import ScreenersList from '../../components/Screeners/ScreenersList';
 
-import screenerIcon from '../../assets/img/screenerIcon.webp';
+import screenerIcon from '../../assets/images/screenerIcon.webp';
 import premium from '../../assets/icn/premium.webp';
 import Image from 'next/image';
 import axios from 'axios';

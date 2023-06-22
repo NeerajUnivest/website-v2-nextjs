@@ -79,7 +79,7 @@ function ExploreMore({ onClick, className }) {
         <motion.button
             type="button"
             onTap={onClick}
-            className={`flex items-center text-sm lg:text-base font-semibold text-black border-2 border-black rounded-full px-6 py-2 ${className}`}
+            className={`flex items-center text-sm lg:text-base font-semibold text-black border-2 border-black rounded-full px-4 py-1.5 ${className}`}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}

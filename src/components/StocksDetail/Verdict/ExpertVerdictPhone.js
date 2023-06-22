@@ -1,6 +1,6 @@
 
 import InfoIcon from '../../../assets/icn/info.png'
-import expertVerdictPhone from "../../../assets/img/expertVerdictPhone.webp";
+import expertVerdictPhone from "../../../assets/images/expertVerdictPhone.webp";
 import Image from 'next/image'
 
 export default function ExpertVerdictPhone() {

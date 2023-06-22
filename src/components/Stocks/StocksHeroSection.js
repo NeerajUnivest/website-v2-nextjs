@@ -46,7 +46,7 @@ export default function StocksHeroSection({ homePage }) {
                             </div>
                         </div>}
                     {homePage ?
-                        <ExploreMore className='absolute -bottom-20 left-4 lg:bottom-24 lg:left-8' onClick={() => router.push('/stocks')} />
+                        <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-20 lg:left-8' onClick={() => router.push('/stocks')} />
                         : <HeroSearchBox />}
                 </div>
                 <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-20 lg:mt-10' : 'mt-6'}`}>

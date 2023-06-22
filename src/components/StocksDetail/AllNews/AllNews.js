@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import Image from 'next/image'
-import forEmpty from '../../../assets/img/forEmpty.webp'
+import forEmpty from '../../../assets/images/forEmpty.webp'
 import NewsCard from '../../../elements/NewsCard/NewsCard';
 
 function AllNews({ name }) {

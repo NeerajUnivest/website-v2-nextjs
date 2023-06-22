@@ -1,7 +1,7 @@
 import { BlackButton } from "@/elements/Button/Button";
 import Image from "next/image";
 import { useTransition, animated, useInView } from 'react-spring'
-import logoWhite from '../../assets/img/logoWhite.webp'
+import logoWhite from '../../assets/images/logoWhite.webp'
 import Marquee from "react-fast-marquee";
 import { useState } from "react";
 import Link from "next/link";
