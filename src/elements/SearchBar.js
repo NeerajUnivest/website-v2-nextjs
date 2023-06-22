@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
+import { Config } from './Config';
 
 
 export default function SearchBar({ forPhone, setShowSearchBar }) {
@@ -49,7 +50,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
             {(focus || data?.[0]) &&
                 <div className="max-h-[250px] pt-4 dataResult absolute z-[49] top-5 w-full rounded-b-[20px] overflow-y-auto no-scrollbar ">
                     {data?.[0] ?
-                        data?.slice(0, 10)?.map((ele, i) => <Link key={i} href={`stocks/${ele.nseSymbol ?? ele.bseSymbol}?finCode=${ele.finCode}`}
+                        data?.slice(0, 10)?.map((ele, i) => <Link key={i} href={Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName, ele.finCode)}
                             onClick={clearInput}>
                             <div className="h-12 px-4 bg-[#F5F5F5]" >
                                 <hr />

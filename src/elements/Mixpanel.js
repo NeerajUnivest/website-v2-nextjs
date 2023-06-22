@@ -4,8 +4,7 @@ mixpanel.init('2e2810ad9467d0511f1c8c08cd48fa1c',
     { debug: true }
 );
 
-let env_check = true
-// process.env.NODE_ENV === 'production';
+let env_check = process.env.NODE_ENV === 'production';
 
 let actions = {
     identify: (id) => {

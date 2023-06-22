@@ -11,15 +11,13 @@ import conveyLogo from '../../assets/images/conveyLogo.png'
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { popUp } from "@/elements/PopUp/PopUp";
+import { Config } from "@/elements/Config";
 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function NewsSection() {
     const router = useRouter();
 
-    const handleNavigate = (ele) => {
-        router.push(`/stocks/${ele.nseSymbol ?? ele.bseSymbol}/${ele.name}?finCode=${ele.finCode}`)
-    }
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/convey/news?page=0`, fetcher)
     return (
         <section id="News" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-10 bg-[#FFFFFF]'>
@@ -58,7 +56,8 @@ export default function NewsSection() {
                                     {ele.companies?.[0] &&
                                         <div className="flex items-center ">
                                             {ele.companies?.slice(0, 2).map((e, i) =>
-                                                <div key={i} className='flex items-center font-Inter border-r border-[#EDEDED] pr-1 mr-1 cursor-pointer' onClick={() => handleNavigate(e)}>
+                                                <div key={i} className='flex items-center font-Inter border-r border-[#EDEDED] pr-1 mr-1 cursor-pointer'
+                                                    onClick={() => router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName, ele.finCode))}>
                                                     <span className="text-[10px] font-medium text-[#606060] mr-1.5">{e.nseSymbol ?? e.bseSymbol}</span>
                                                     <TbTriangleFilled size={8} color={e.stockStatus === 'DOWN' ? '#EB4E2C' : '#26A649'} />
                                                     <span className={`text-[10px] ml-1 ${e.stockStatus === 'DOWN' ? 'text-[#EB4E2C]' : 'text-[#26A649]'}`}>{e.todaysChange?.toFixed(2)}</span>

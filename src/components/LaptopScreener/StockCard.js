@@ -26,7 +26,7 @@ export default function StockCard({ data }) {
     const router = useRouter();
 
     const handleNavigate = (ele) => {
-        router.push(`/stocks/${ele.nseSymbol ?? ele.bseSymbol}/${ele.compName}?finCode=${ele.finCode}`)
+        router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName, ele.finCode))
     }
     return <div className='overflow-x-auto no-scrollbar mx-4'>
         <div className='my-4 flex bg-[#CFE8FC] flex-row justify-between items-center font-Inter font-medium text-[14px] leading-[24px] text-[#414141]'>

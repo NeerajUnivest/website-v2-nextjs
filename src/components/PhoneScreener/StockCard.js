@@ -27,7 +27,7 @@ export default function StockCard({ data, name }) {
     const router = useRouter();
 
     const handleNavigate = (ele) => {
-        router.push(`/stocks/${ele.nseSymbol ?? ele.bseSymbol}/${ele.compName}?finCode=${ele.finCode}`)
+        router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName, ele.finCode))
     }
     return (
         <div className='px-4'>

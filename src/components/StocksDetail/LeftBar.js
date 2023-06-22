@@ -123,11 +123,11 @@ function LeftBar({ name, activeChartType, setActiveChartType, stockDetails }) {
                         {stockUpDown('text-[14px]', 'leading-[24px]')}
                     </div>}
 
-                <div className=' p-3 hidden lg:flex'>
+                {(name < 100000000) && <div className=' p-3 hidden lg:flex'>
                     <button className='w-full text-[#FFFFFF] bg-[#00439D] outline-none rounded-[4px] py-1 font-medium border-[1px] border-[#FFFFFF]'>
                         Buy
                     </button>
-                </div>
+                </div>}
             </div>
             <Image src={expertVerdictPhone} alt='kjvd' className='cursor-pointer w-full my-3' />
             <DownloadNow />

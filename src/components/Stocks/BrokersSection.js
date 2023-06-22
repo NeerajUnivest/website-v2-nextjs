@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import { useState } from "react";
 import Link from "next/link";
 import { popUp } from "@/elements/PopUp/PopUp";
+import { Config } from "@/elements/Config";
 
 const brokerList = [
     'https://univest.s3.ap-south-1.amazonaws.com/broker-logos-new/Fivepaisa.png',
@@ -231,7 +232,7 @@ export default function BrokersSection() {
                 <div className='flex overflow-y-auto gap-x-8 py-12 lg:py-16 mx-4'>
                     {stocksList
                         .map((ele, i) =>
-                            <Link href={`/stocks/${ele.symbol}/${ele.compName}?finCode=${ele.finCode}`} key={i}
+                            <Link href={Config.toStockDetail(ele.symbol, ele.compName, ele.finCode)} key={i}
                                 className='flex justify-center items-center rounded-xl px-4 py-2 shadow-md bg-white'>
                                 <Image src={ele.logoUrl} width='32' height='32' className='w-8 lg:w-10 object-contain' alt='icon' />
                                 <span className="ml-2 text-sm lg:text-base font-semibold text-black">

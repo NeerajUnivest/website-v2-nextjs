@@ -6,7 +6,7 @@ import Image from 'next/image';
 import axios from 'axios';
 import MetaSection from '@/elements/MetaSection/MetaSection';
 import { useEffect } from 'react';
-import { Mixpanel } from '@/elements/Mixpanel/Mixpanel';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 export default function Screeners({ data }) {
     useEffect(() => {

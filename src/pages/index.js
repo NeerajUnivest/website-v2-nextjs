@@ -8,7 +8,7 @@ import WhyUnivestSection from "@/components/HomePage/WhyUnivestSection";
 import WhyShouldSection from "@/components/Elite/WhyShouldSection";
 import MetaSection from "@/elements/MetaSection/MetaSection";
 import { useEffect } from "react";
-import { Mixpanel } from "@/elements/Mixpanel/Mixpanel";
+import { Mixpanel } from "@/elements/Mixpanel";
 
 
 

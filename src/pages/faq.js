@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import FAQcard from '@/elements/FAQcard'
-import { Mixpanel } from '@/elements/Mixpanel/Mixpanel'
+import { Mixpanel } from '@/elements/Mixpanel'
 
 let data = [
     {

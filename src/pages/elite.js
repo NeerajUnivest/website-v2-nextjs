@@ -7,7 +7,7 @@ import HowItWork from '@/components/Elite/HowItWork'
 import PartneredWithSection from '@/components/Elite/PartneredWithSection'
 import WhyShouldSection from '@/components/Elite/WhyShouldSection'
 import MetaSection from '@/elements/MetaSection/MetaSection'
-import { Mixpanel } from '@/elements/Mixpanel/Mixpanel'
+import { Mixpanel } from '@/elements/Mixpanel'
 import { useEffect } from 'react'
 
 export default function Elite() {

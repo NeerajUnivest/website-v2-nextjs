@@ -16,7 +16,7 @@ import News from '@/components/StocksDetail/News/News';
 import PeerComparison from '@/components/StocksDetail/PeerComparison/PeerComparison';
 import ShareHolding from '@/components/StocksDetail/ShareHolding/ShareHolding';
 import MetaSection from '@/elements/MetaSection/MetaSection';
-import { Mixpanel } from '@/elements/Mixpanel/Mixpanel';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 
 
@@ -47,13 +47,16 @@ export default function StockDetails({ stockDetails }) {
                 </div>}
             <div className='lg:ml-8 col-span-12 lg:col-span-9 min-h-screen mb-8 '>
                 <div id='overall' className='absolute -top-40' />
+                {width > 976 ? <>
+                    {(finCode < 100000000) && <TopBar />}
+                </>
+                    : <>
+                        <StocksHeader name={finCode} activeChartType={activeChartType} setActiveChartType={setActiveChartType} />
+                        <ExpertVerdictPhone />
+                    </>}
+                <StockGraph activeChartType={activeChartType} list={stockDetails} name={finCode} />
                 {finCode && (finCode < 100000000) &&
                     <>
-                        {width > 976 ? <TopBar /> : <>
-                            <StocksHeader name={finCode} activeChartType={activeChartType} setActiveChartType={setActiveChartType} />
-                            <ExpertVerdictPhone />
-                        </>}
-                        <StockGraph activeChartType={activeChartType} list={stockDetails} name={finCode} />
                         <KeyIndicatorCard name={finCode} />
                         <FinancialIndicator name={finCode} />
                         <CompanyFinancial name={finCode} />

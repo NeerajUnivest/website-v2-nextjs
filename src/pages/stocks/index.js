@@ -12,7 +12,7 @@ import NewsSection from "@/components/Stocks/NewsSection";
 import BrokersSection from "@/components/Stocks/BrokersSection";
 import MetaSection from "@/elements/MetaSection/MetaSection";
 import { useEffect } from "react";
-import { Mixpanel } from "@/elements/Mixpanel/Mixpanel";
+import { Mixpanel } from "@/elements/Mixpanel";
 
 // const BrokersSection = dynamic(() => import('@/components/Stocks/BrokersSection'))
 // const NewsSection = dynamic(() => import('@/components/Stocks/NewsSection'))

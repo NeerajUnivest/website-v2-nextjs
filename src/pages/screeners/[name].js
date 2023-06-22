@@ -5,7 +5,7 @@ import PhoneScreener from '../../components/PhoneScreener/PhoneScreener';
 import LaptopScreener from '../../components/LaptopScreener/LaptopScreener';
 import MetaSection from "@/elements/MetaSection/MetaSection";
 import { useEffect } from "react";
-import { Mixpanel } from "@/elements/Mixpanel/Mixpanel";
+import { Mixpanel } from "@/elements/Mixpanel";
 
 const getScreenersList = async () => {
     let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)

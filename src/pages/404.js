@@ -1,4 +1,4 @@
-import { Mixpanel } from "@/elements/Mixpanel/Mixpanel"
+import { Mixpanel } from "@/elements/Mixpanel"
 import { useEffect } from "react"
 
 export default function PageNotFound() {
