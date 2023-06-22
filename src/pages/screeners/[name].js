@@ -8,11 +8,11 @@ import { useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
 
 const getScreenersList = async () => {
-    let res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
+    let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
     return res.data.data.list
 }
 const getScreenerDetails = async (screenerCode) => {
-    let res = await axios.get(`https://api.univest.in/resources/screeners/${screenerCode}`)
+    let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${screenerCode}`)
     return { ...res.data.screenerDetail, list: res.data.list }
 }
 

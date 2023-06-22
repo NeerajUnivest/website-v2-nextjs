@@ -54,7 +54,7 @@ export default function Screeners({ data }) {
 }
 
 export async function getServerSideProps() {
-    const res = await axios.get(`https://api.univest.in/resources/screeners/v2`)
+    const res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
     return {
         props: {
             data: res.data.data.list

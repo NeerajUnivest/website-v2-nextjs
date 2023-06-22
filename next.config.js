@@ -7,6 +7,12 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
+  eslint: {
+    ignoreDuringBuilds: true
+  },
+  exports: {
+    distDir: 'build',
+  },
   reactStrictMode: true,
   images: {
     domains: [

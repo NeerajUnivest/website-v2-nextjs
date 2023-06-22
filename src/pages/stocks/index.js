@@ -1,4 +1,3 @@
-import Head from "next/head";
 import dynamic from "next/dynamic";
 
 import StocksHeroSection from "@/components/Stocks/StocksHeroSection";

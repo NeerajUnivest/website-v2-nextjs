@@ -10,7 +10,7 @@ export default function HeroSideSection() {
     const [error, setError] = useState(null)
     const submit = () => {
         if (number.length === 10) {
-            axios.get(`https://uat-api.univest.in/resources/website/get-phone-call/${number}`)
+            axios.get(`${process.env.apiBaseURL}/resources/website/get-phone-call/${number}`)
                 .then(res => {
                     toast.notify(res.data?.message)
                     setNumber('')

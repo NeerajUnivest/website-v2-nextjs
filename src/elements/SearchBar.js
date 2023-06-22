@@ -22,7 +22,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
     };
 
     const apiCall = async (searchWord) => {
-        const result = await axios.get(`https://api.univest.in/resources/stock-details/search?searchTerm=${encodeURIComponent(searchWord)}`)
+        const result = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/search?searchTerm=${encodeURIComponent(searchWord)}`)
         setData(result.data?.data?.list);
     }
 
