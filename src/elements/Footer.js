@@ -167,13 +167,13 @@ export default function Footer() {
                                     </li>
 
                                     <li>
-                                        <Link href="/privacy-policy" className="transition hover:opacity-75">
+                                        <Link href="https://stocks.univest.in/privacy-policy" className="transition hover:opacity-75">
                                             Privacy policy
                                         </Link>
                                     </li>
 
                                     <li>
-                                        <Link href="/terms-and-conditions" className="transition hover:opacity-75">
+                                        <Link href="https://stocks.univest.in/terms-and-conditions" className="transition hover:opacity-75">
                                             Terms & Conditions
                                         </Link>
                                     </li>

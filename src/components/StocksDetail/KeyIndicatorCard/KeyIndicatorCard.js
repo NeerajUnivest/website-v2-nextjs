@@ -145,7 +145,7 @@ function KeyIndicatorCard({ name }) {
                         <div className='flex flex-row justify-between my-[12px]'>
                             <div className='text-[#979797] text-[12px]'>Volume*</div>
                             <div className='text-[12px] font-Inter'>
-                                {data.volume > 99999 ? (`${(data.volume / 100000).toFixed(2)} L`) : data.volume}
+                                {data.volume > 99999 ? (`${(data.volume / 100000)?.toFixed(2)} L`) : data.volume}
                             </div>
                         </div>
                         <div className='flex flex-row justify-between my-[12px]'>
@@ -167,7 +167,7 @@ function KeyIndicatorCard({ name }) {
                     <div className='w-1/5 my-[12px]'>
                         <div className='text-[#979797] text-[12px]'>Volume*</div>
                         <div className='text-[12px] font-Inter'>
-                            {data.volume > 99999 ? (`${(data.volume / 100000).toFixed(2)} L`) : data.volume}
+                            {data.volume > 99999 ? (`${(data.volume / 100000)?.toFixed(2)} L`) : data.volume}
                         </div>
                     </div>
                     <div className='w-1/5 my-[12px]'>

@@ -54,19 +54,19 @@ function LeftBar({ name, activeChartType, setActiveChartType, stockDetails }) {
                         data.nseLtpPrice === null ? '- ' : dfNseLtpPrice.toFixed(2)}
 
                     ({activeChartType === 2 ?
-                        data.bseLtpPrice === null ? '-' : ((dfBseLtpPrice * 100) / data.bseClosePrice).toFixed(2) + '%' :
-                        data.nseLtpPrice === null ? '-' : ((dfNseLtpPrice * 100) / data.nseClosePrice).toFixed(2) + '%'})
+                        data.bseLtpPrice === null ? '-' : ((dfBseLtpPrice * 100) / data.bseClosePrice)?.toFixed(2) + '%' :
+                        data.nseLtpPrice === null ? '-' : ((dfNseLtpPrice * 100) / data.nseClosePrice)?.toFixed(2) + '%'})
                 </div>
             case false:
                 return <div className={`flex flex-row font-Inter font-bold ml-2 mb-0.5 ${text} ${leading} tracking-[.5px] self-end text-[#EB4E2C]`}>
                     <Image src={redArrow} className='h-2.5 w-3 mr-1 mt-1.5' alt='icon' />
                     {activeChartType === 2 ?
-                        data.bseLtpPrice === null ? '- ' : Math.abs(dfBseLtpPrice).toFixed(2) :
-                        data.nseLtpPrice === null ? '- ' : Math.abs(dfNseLtpPrice).toFixed(2)}
+                        data.bseLtpPrice === null ? '- ' : Math.abs(dfBseLtpPrice)?.toFixed(2) :
+                        data.nseLtpPrice === null ? '- ' : Math.abs(dfNseLtpPrice)?.toFixed(2)}
 
                     ({activeChartType === 2 ?
-                        data.bseLtpPrice === null ? '-' : ((dfBseLtpPrice * 100) / data.bseClosePrice).toFixed(2) + '%' :
-                        data.nseLtpPrice === null ? '-' : ((dfNseLtpPrice * 100) / data.nseClosePrice).toFixed(2) + '%'})
+                        data.bseLtpPrice === null ? '-' : ((dfBseLtpPrice * 100) / data.bseClosePrice)?.toFixed(2) + '%' :
+                        data.nseLtpPrice === null ? '-' : ((dfNseLtpPrice * 100) / data.nseClosePrice)?.toFixed(2) + '%'})
                 </div>
         }
     }

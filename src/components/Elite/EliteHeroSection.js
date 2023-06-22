@@ -49,7 +49,7 @@ export default function EliteHeroSection({ homePage }) {
                                 <p className="font-medium text-xs text-[#606060]">Active users</p>
                             </div>
                             <div className="self-center">
-                                <p className="font-semibold text-base"><CountUpBox start={1000} end={1200} duration={3} /> Cr+</p>
+                                <p className="font-semibold text-base"><CountUpBox start={3000} end={4000} duration={3} /> Cr+</p>
                                 <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                             </div>
                         </div>}

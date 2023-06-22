@@ -37,7 +37,7 @@ export default function StocksHeroSection({ homePage }) {
                                 </div>
                             </div>
                             <div className="self-center">
-                                <p className="font-semibold text-base"><CountUpBox end={3.5} decimals={1} /> Lac+</p>
+                                <p className="font-semibold text-base"><CountUpBox end={4} decimals={1} /> Lac+</p>
                                 <p className="font-medium text-xs text-[#606060]">Active users</p>
                             </div>
                             <div className="self-center">

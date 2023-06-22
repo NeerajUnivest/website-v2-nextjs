@@ -15,6 +15,7 @@ import elite5 from '../../assets/images/elite/elite5.png';
 import elite6 from '../../assets/images/elite/elite6.png';
 import { BlackButton } from '@/elements/Button/Button';
 import { useRouter } from 'next/router';
+import { useInView } from 'react-spring';
 
 
 
@@ -57,8 +58,10 @@ let data = [{
 },]
 export default function WhyShouldSection({ homePage }) {
     const router = useRouter()
+    const [ref, inView] = useInView()
+
     return (
-        <section className={`font-Inter mt-8 py-16 lg:py-24 relative overflow-hidden ${homePage && 'bg-[#C9DDE6]'}`}>
+        <section className={`font-Inter mt-8 py-16 lg:py-24 relative overflow-hidden ${homePage && 'bg-[#C9DDE6]'}`} ref={ref}>
             {!homePage && <div className='rounded-full absolute right-[-20vw] top-[20vh] bg-gradient-to-r from-[#c1eef4] to-[#fff] h-[20vh] w-[40vw] blur-3xl opacity-50' />}
 
             <div className=' max-w-screen-xl mx-auto lg:px-8'>
@@ -87,12 +90,13 @@ export default function WhyShouldSection({ homePage }) {
                         </div>
                     </div>
                 </div>}
-                <Image
-                    placeholder="empty"
-                    src={elite_banner}
-                    className='w-[calc(100vw-32px)] object-contain rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto'
-                    alt='demo image'
-                />
+                {inView ?
+                    <Image
+                        placeholder="empty"
+                        src={elite_banner}
+                        className='w-[calc(100vw-32px)] object-contain rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto'
+                        alt='demo image'
+                    /> : <div className='w-[calc(100%-32px)] aspect-[6/1] rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto bg-white animate-pulse' />}
                 <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
                     Why should I invest?
                 </p>

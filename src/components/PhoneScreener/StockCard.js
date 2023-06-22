@@ -2,6 +2,7 @@ import forEmpty from '../../assets/images/forEmpty.webp'
 import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
 import { useRouter } from 'next/router';
+import { Config } from '@/elements/Config';
 
 
 const ltpClosePrice = (ltp, close) => {
@@ -12,12 +13,12 @@ const nseBsePrice = (nseLtpPrice, nseClosePrice, bseLtpPrice, bseClosePrice) => 
     if (nseLtpPrice) {
         return <div className={`text-[10px] leading-[16px] font-semibold flex flex-row justify-end
                     ${ltpClosePrice(nseLtpPrice, nseClosePrice) >= 0 ? 'text-[#26A649]' : 'text-[#EB4E2C]'}`}>
-            {ltpClosePrice(nseLtpPrice, nseClosePrice)}({Math.abs(ltpClosePrice(nseLtpPrice, nseClosePrice) * 100 / nseClosePrice).toFixed(1)}%)
+            {ltpClosePrice(nseLtpPrice, nseClosePrice)}({Math.abs(ltpClosePrice(nseLtpPrice, nseClosePrice) * 100 / nseClosePrice)?.toFixed(1)}%)
         </div>
     } else {
         return <div className={`text-[10px] leading-[16px] font-medium flex flex-row justify-end
                     ${ltpClosePrice(bseLtpPrice, bseClosePrice) >= 0 ? 'text-[#26A649]' : 'text-[#EB4E2C]'}`}>
-            {ltpClosePrice(bseLtpPrice, bseClosePrice)}({Math.abs(ltpClosePrice(bseLtpPrice, bseClosePrice) * 100 / bseClosePrice).toFixed(1)}%)
+            {ltpClosePrice(bseLtpPrice, bseClosePrice)}({Math.abs(ltpClosePrice(bseLtpPrice, bseClosePrice) * 100 / bseClosePrice)?.toFixed(1)}%)
         </div>
     }
 }

@@ -22,8 +22,8 @@ export default function HighLowCard(props) {
             setMin(props.exchange === 'NSE' ? data.nseTodaysLow : data.bseTodaysLow);
             setMax(props.exchange === 'NSE' ? data.nseTodaysHigh : data.bseTodaysHigh);
         } else if (data[0]) {
-            setMin(Math.min(...data.map(item => item.y.toFixed(2))));
-            setMax(Math.max(...data.map(item => item.y.toFixed(2))));
+            setMin(Math.min(...data.map(item => item.y?.toFixed(2))));
+            setMax(Math.max(...data.map(item => item.y?.toFixed(2))));
         }
     }, [props.stringDuration, data])
 
@@ -52,14 +52,14 @@ export default function HighLowCard(props) {
             {props.stringDuration === '1D' ?
                 ('nseClosePrice' in data) && <div className={`text-[12px] leading-[20px] font-Inter font-semibold text-[#26A649]
                     ${(props.exchange === 'NSE' ? data.nseLtpPrice - data.nseClosePrice : data.bseLtpPrice - data.bseClosePrice) > 0 ? 'text-[#26A649]' : 'text-[#EB4E2C]'}`}>
-                    {(props.exchange === 'NSE' ? (data.nseLtpPrice - data.nseClosePrice) * 100 / data.nseClosePrice : (data.bseLtpPrice - data.bseClosePrice) * 100 / data.bseClosePrice).toFixed(2)}
+                    {(props.exchange === 'NSE' ? (data.nseLtpPrice - data.nseClosePrice) * 100 / data.nseClosePrice : (data.bseLtpPrice - data.bseClosePrice) * 100 / data.bseClosePrice)?.toFixed(2)}
                     <span className='font-Robert text-[14px]'>%</span>
                 </div>
 
                 :/**for more than one day **/
                 data[0] && <div className={`text-[12px] leading-[20px] font-Inter font-semibold
                     ${data[data.length - 1].y - data[0].y > 0 ? 'text-[#26A649]' : 'text-[#EB4E2C]'}`}>
-                    {((data[data.length - 1].y - data[0].y) * 100 / data[0].y).toFixed(2)}
+                    {((data[data.length - 1].y - data[0].y) * 100 / data[0].y)?.toFixed(2)}
                     <span className='font-Robert text-[14px]'>%</span>
                 </div>}
         </div>

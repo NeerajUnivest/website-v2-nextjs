@@ -102,15 +102,15 @@ function RevenueCard(props) {
                                 }
 
                                 if (val <= -100000) {
-                                    val = (val / 100000).toFixed(2) + 'L';
+                                    val = (val / 100000)?.toFixed(2) + 'L';
                                 } else if (val <= -1000) {
-                                    val = (val / 1000).toFixed(2) + 'k';
+                                    val = (val / 1000)?.toFixed(2) + 'k';
                                 } else if (val > -1000 && val < 1000) {
                                     val = val.toFixed(2);
                                 } else if (val >= 1000 && val < 100000) {
-                                    val = (val / 1000).toFixed(2) + 'k';
+                                    val = (val / 1000)?.toFixed(2) + 'k';
                                 } else if (val >= 100000) {
-                                    val = (val / 100000).toFixed(2) + 'L';
+                                    val = (val / 100000)?.toFixed(2) + 'L';
                                 }
 
                                 return '<span style="font-size:12px; color:' + color + '">' + val + '</span>';

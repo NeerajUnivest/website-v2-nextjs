@@ -1,6 +1,4 @@
 
-import premium from '../../assets/icn/premium.webp';
-import newTag from '../../assets/icn/newTag.svg';
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -11,13 +9,12 @@ export default function ScreenerCard({ ele }) {
                 {ele?.newFlag && <div className='absolute top-2 -right-5 px-6 py-0.5 text-[8px] text-xs text-white bg-app-red rotate-45'>New</div>}
                 <div className='relative'>
                     <Image width={40} height={40} src={ele?.imageUrl} alt={ele?.title} className='h-[32px] w-[32px] lg:h-[40px] lg:w-[40px]' />
-                    {/* {ele?.premium && <img src={premium} className='absolute -bottom-2 left-5 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]' alt='premiumIcon' />} */}
                 </div>
                 <div className='line-clamp-2 w-2/3 text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px] font-semibold mt-4'>
                     {ele?.title}
                 </div>
                 <div className='flex items-center justify-between text-[10px] leading-16px] lg:text-[12px] lg:leading-[20px] text-[#606060] font-medium mt-1'>
-                    {ele?.stocksCount} stocks 
+                    {ele?.stocksCount} stocks
                 </div>
             </div>
         </Link >
