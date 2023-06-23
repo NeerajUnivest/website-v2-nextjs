@@ -141,11 +141,12 @@ const options = {
     }]
 };
 
-function StockGraph({ name, activeChartType, list }) {
+function StockGraph({ name, activeChartType }) {
 
     const [duration, setDuration] = useState(0);
     const [chartOptions, setChartOptions] = useState(options);
     const [data, setData] = useState({});
+    const [list, setList] = useState({});
     const [loading, setLoading] = useState(true);
     let exchange = null;
 
@@ -235,6 +236,15 @@ function StockGraph({ name, activeChartType, list }) {
         }
     }
 
+    useEffect(() => {
+        axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${name}`)
+            .then((res) => {
+                let stockDatas = res.data?.data?.list?.[0]
+                if (stockDatas) {
+                    setList(stockDatas);
+                }
+            })
+    }, [name]);
     useEffect(() => {
         fetchData(duration, activeChartType);
         setChartOptions(options);

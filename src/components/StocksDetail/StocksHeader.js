@@ -42,7 +42,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
         finCodes.push(name);
         axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${finCodes}`)
             .then((res) => {
-                let stockDatas = res.data.data.list[0]
+                let stockDatas = res.data?.data?.list?.[0]
                 if (stockDatas) {
                     let obj = stockDatas
                     setData(obj)
