@@ -60,7 +60,7 @@ export default function EliteHeroSection({ homePage }) {
                 <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-20 lg:mt-10' : 'mt-6'}`}>
                     <div className='rounded-full absolute left-10 lg:left-3 top-[100px] bg-gradient-to-r from-[#62606022] to-[#0914328c] h-[300px] w-[300px] lg:h-[500px] lg:w-[500px] blur-3xl opacity-50' />
                     <Image
-                        placeholder="empty"
+                        placeholder="blur"
                         src={homePage ? heroHome : hero}
                         className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[60%]  mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
                         alt='demo image'

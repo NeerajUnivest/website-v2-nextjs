@@ -1,26 +1,21 @@
+import { Config } from '@/elements/Config';
 import Loading from '@/elements/Loading/Loading';
 import axios from 'axios';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react'
 
-export default function StockDetail({ stockDetails, pageName }) {
-    const router = useRouter();
-    useEffect(() => {
-        router.replace(`/stocks/${stockDetails.nseSymbol}/${stockDetails.compName}?finCode=${stockDetails.finCode}`)
-    }, [])
-
+export default function StockDetail() {
     return (<Loading />)
 }
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ query, res }) {
     const { finCode } = query;
 
-    let res = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${finCode}`)
-
+    let apires = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/prices?finCodes=${finCode}`)
+    let stockDetails = apires.data?.data?.list?.[0]
+    res.writeHead(301, {
+        location: Config.toStockDetail(stockDetails.nseSymbol ?? stockDetails.bseSymbol, stockDetails.compName, stockDetails.finCode)
+    });
+    res.end();
     return {
-        props: {
-            stockDetails: res.data?.data?.list?.[0],
-            pageName: 'stock-details'
-        }
+        props: {}
     };
 }

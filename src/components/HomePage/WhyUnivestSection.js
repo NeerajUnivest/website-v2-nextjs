@@ -1,4 +1,3 @@
-import React from 'react'
 import { Autoplay, EffectCoverflow } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css/effect-coverflow";
@@ -10,7 +9,6 @@ import interest_rate from '../../assets/icons/interest_rate.png';
 import thumbnails1 from '../../assets/thumbnails/thumbnails1.png';
 import thumbnails2 from '../../assets/thumbnails/thumbnails2.png';
 import thumbnails3 from '../../assets/thumbnails/thumbnails3.png';
-import Link from 'next/link';
 
 const data = [
     {
@@ -79,10 +77,8 @@ export default function WhyUnivestSection() {
                         className="WhyUnivestSection"
                     >
                         {data.map(ele =>
-                            <SwiperSlide key={ele.title}>
-                                <Link href={ele.videoLink} rel="noreferrer" target="_blank">
-                                    <Image src={ele.thumbnail} width={300} height={250} className='w-full h-full rounded-xl' alt={ele.title} />
-                                </Link>
+                            <SwiperSlide key={ele.title} onClick={() => window?.open(ele.videoLink, '_blank', 'noopener, noreferrer')}>
+                                <Image src={ele.thumbnail} width={300} height={250} className='w-full h-full rounded-xl' alt={ele.title} />
                             </SwiperSlide>
                         )}
                     </Swiper>

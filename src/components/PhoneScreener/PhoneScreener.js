@@ -57,7 +57,7 @@ export default function PhoneScreener({ name, screenersList, data, codeList }) {
         {screenersList?.screenersList?.map((ele, i) =>
           <Link key={i}
             id={ele.code}
-            href={`/screeners/${ele.code}?backTo=screeeners`}
+            href={`/screeners/${ele.code}`}
             style={name === ele.code ? activeStyle : passiveStyle}
           > {ele.title}
           </Link>)}

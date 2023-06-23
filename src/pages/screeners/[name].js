@@ -29,8 +29,8 @@ export default function ScreenerPage({ name, screenersList, screenerDetails, cod
     return (
         <>
             <MetaSection
-                title='Stock screener, Breakout Screeners, Multibagger stocks, Stock market analysis tools | Univest'
-                desc='Stock screener for Indian stocks. Breakout stocks, Nearing breakout stocks, Multibagger stocks, High dividend yield stocks, High PE stocks, Oversold stock screeners'
+                title={`${name?.replaceAll('_', ' ')} | Univest`}
+                desc={screenerDetails?.description}
                 keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
 
             <section className='lg:pt-24 font-Inter'>

@@ -36,8 +36,8 @@ export default function StockDetails({ stockDetails }) {
     }, [])
     return (<>
         <MetaSection
-            title='Stock Analysis, Exit Investment, Investment Ideas, Market Research, News | Univest'
-            desc='SEBI registered best stock market platform with free portfolio analyis, easy research, investment ideas, stock market tips, live share market, latest news and screeners'
+            title={`${stockDetails.nseSymbol ?? stockDetails.bseSymbol} Share Price Today - ${stockDetails.compName} Stock Price Live NSE/BSE | Univest`}
+            desc={`${stockDetails.nseSymbol ?? stockDetails.bseSymbol} Share Price ${stockDetails.compName} live NSE/BSE performance fundamentals market cap share holding financial report company profile annual report quarterly results profit & loss`}
             keyWords='bombay stock exchange, Indian stock market, bse, national stock exchange, Nifty, nse, sensex, stock exchange, stock market, stock research tool, smart investment, investment ideas, stock market tips' />
 
         <div className='grid grid-cols-12 select-none font-Inter max-w-screen-xl mx-auto'>
