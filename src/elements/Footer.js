@@ -211,13 +211,13 @@ export default function Footer() {
                                 </li>
 
                                 <li>
-                                    <Link href="https://play.google.com/store/apps/details?id=com.univest.capp" rel="noreferrer" target="_blank" className="transition hover:opacity-75">
+                                    <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" rel="noreferrer" target="_blank" className="transition hover:opacity-75">
                                         <Image src={app_store} width={114} height={24} className="w-36 object-contain" alt='Google Play' />
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" rel="noreferrer" target="_blank" className="transition hover:opacity-75">
+                                    <Link href="https://play.google.com/store/apps/details?id=com.univest.capp" rel="noreferrer" target="_blank" className="transition hover:opacity-75">
                                         <Image src={google_pay} width={114} height={24} className="w-36 object-contain" alt='Google Play' />
                                     </Link>
                                 </li>
