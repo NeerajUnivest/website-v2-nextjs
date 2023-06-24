@@ -1,7 +1,8 @@
 import Head from "next/head";
+import Script from "next/script";
 
 export default function MetaSection({ title, desc, keyWords }) {
-    return (
+    return (<>
         <Head>
             <title>{title ?? 'Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'}</title>
             <meta name="description" content={desc ?? "Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%"} />
@@ -12,7 +13,7 @@ export default function MetaSection({ title, desc, keyWords }) {
             <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />
             <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 
-            <meta property="al:android:url" content="https://play.google.com/store/apps/details?id=com.univest.capp" />
+            <meta property="al:android:url" content="https://" />
             <meta property="al:android:package" content="com.univest.capp" />
             <meta property="al:android:app_name" content="Univest" />
 
@@ -34,5 +35,7 @@ export default function MetaSection({ title, desc, keyWords }) {
             <meta name="og:title" content={title ?? 'Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'} />
             <meta name="og:description" content={desc ?? "Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%"} />
         </Head>
-    )
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-MNF9LHWE7N" />
+        <Script src="https://www.facebook.com/tr?id=428181756128634&ev=PageView&noscript=1" />
+    </>)
 }

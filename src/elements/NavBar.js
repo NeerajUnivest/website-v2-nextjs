@@ -7,14 +7,12 @@ import logoWhite from '../assets/images/logo.png'
 import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import { useWindowSize } from "@uidotdev/usehooks";
-import { useRouter } from 'next/router';
 
 
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
     const { width } = useWindowSize();
-    const router = useRouter()
     return (
         <nav className={`bg-black-50 text-white fixed left-0 right-0 top-3 z-10`} >
             <div className={`font-Inter max-w-screen-xl mx-auto flex items-center lg:justify-between lg:px-8 flex-wrap backdrop-blur-sm ${showSearchBar ? ' p-2' : ' p-4'}`}>
@@ -40,7 +38,7 @@ export default function NavBar() {
                     <Link href='/screeners' className="mx-4 px-3 py-2  hover:hover:opacity-75">
                         Screeners
                     </Link>
-                    <div className="mx-4 px-3 py-2 hover:hover:opacity-75" onClick={() => router.push('https://univest.in/blogs')}>
+                    <div className="mx-4 px-3 py-2 hover:hover:opacity-75" onClick={() => window.open('https://univest.in/blogs', '_self')}>
                         Blogs
                     </div>
                     {width > 976 && <SearchBar forPhone={false} />}
@@ -63,7 +61,7 @@ export default function NavBar() {
                     className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                     Screeners
                 </Link>
-                <div onClick={() => { setIsOpen(false); router.push('https://univest.in/blogs') }}
+                <div onClick={() => { setIsOpen(false); window.open('https://univest.in/blogs', '_self') }}
                     className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
                     Blogs
                 </div>
