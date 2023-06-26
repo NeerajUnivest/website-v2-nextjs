@@ -16,7 +16,7 @@ import PeerComparison from '@/components/StocksDetail/PeerComparison/PeerCompari
 import ShareHolding from '@/components/StocksDetail/ShareHolding/ShareHolding';
 import MetaSection from '@/elements/MetaSection/MetaSection';
 import { Mixpanel } from '@/elements/Mixpanel';
-import Errors from "@/elements/Errors/Errors";
+import PageNotFound from "../404";
 
 
 
@@ -68,18 +68,18 @@ export default function StockDetails({ stockDetails }) {
             </div>
         </>)
     } else {
-        return <Errors />
+        return <PageNotFound />
     }
 }
 
-export async function getServerSideProps(context) {
-    const { query } = context;
-    const { params } = query;
+export async function getServerSideProps({ query }) {
+    const { name } = query;
+    const params = name.split('~')
     let res = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/symbol-fincode?symbol=${params?.[0]}`)
     return {
         props: {
             stockDetails: {
-                finCode: res.data ?? '',
+                finCode: params?.[1] ? res.data : '',
                 symbol: params?.[0] ?? '',
                 compName: params?.[1] ?? params?.[0] ?? ''
             },

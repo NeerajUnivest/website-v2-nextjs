@@ -46,7 +46,7 @@ export default function TopBar() {
 export function BarChip({ id, text, active, setActive }) {
     const smoothScrollTo = useSmoothScrollToId()
     return (
-        <div className={`whitespace-nowrap px-5 py-2 flex justify-center border-b-2 outline-none select-none cursor-pointer duration-300 ease-in-out
+        <div className={`whitespace-nowrap px-4 py-2 flex justify-center border-b-2 outline-none select-none cursor-pointer duration-300 ease-in-out text-sm
             ${active === id ? 'snap-center border-b-[#00439D] text-[#00439D] font-semibold' : 'border-b-[#E5E5E5] font-medium'}`}
             onClick={() => { setActive(id); smoothScrollTo(id) }} >
             {text}

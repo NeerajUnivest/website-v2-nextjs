@@ -3,6 +3,7 @@ import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
 import { useRouter } from 'next/router';
 import { Config } from '@/elements/Config';
+import Link from 'next/link';
 
 
 const ltpClosePrice = (ltp, close) => {
@@ -28,7 +29,7 @@ export default function StockCard({ data, name }) {
     const router = useRouter();
 
     const handleNavigate = (ele) => {
-        router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName, ele.finCode))
+        router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName))
     }
     return (
         <div className='px-4'>
@@ -83,12 +84,12 @@ export default function StockCard({ data, name }) {
                                         </div>
                                     </div>}
                                 {data.param3 &&
-                                    <a className='basis-1/3 flex flex-row cursor-pointer pt-1 justify-end items-center' href={ele.param3}>
+                                    <Link className='basis-1/3 flex flex-row cursor-pointer pt-1 justify-end items-center' href={ele.param3} rel="noreferrer" target="_blank">
                                         <div className=' text-[#00439D] text-[10px] landing-[16px] font-semibold'>
                                             View charts
                                         </div>
                                         <Image src={viewChat} alt='stock logo' className='ml-2 w-3 object-contain' />
-                                    </a>}
+                                    </Link>}
                             </div>}
 
                         {data.param4 &&

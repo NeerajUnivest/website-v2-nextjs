@@ -68,7 +68,7 @@ function PeerComparison({ name }) {
                             data?.map((item, i) =>
                                 <tr key={i} className='h-[52px]'>
                                     <td className='pt-2 sticky -left-[2px] bg-white text-[10px] text-[#1c1c1c] font-medium leading-[18px] px-2 min-w-[120px] lg:min-w-[200px] border border-[#E5E5E5] cursor-pointer'
-                                        onClick={() => router.push(Config.toStockDetail(item.symbol ?? item.bseSymbol, item.name, item.finCode))}>
+                                        onClick={() => router.push(Config.toStockDetail(item.symbol ?? item.bseSymbol, item.name))}>
                                         <div className='flex flex-row font-Inter'>
                                             <div className={`mt-[3px] rounded-full h-[10px] w-[10px] ${roundBG[i]}`}></div>
                                             <div className=' text-[10px] leading-[16px] font-medium ml-1'>

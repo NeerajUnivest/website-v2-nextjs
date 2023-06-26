@@ -101,13 +101,13 @@ let teamData = [{
     img: `https://univest-prod.s3.ap-south-1.amazonaws.com/team/Siddharth+Dev.webp`,
     bio: "VIT alumni, who has handled digital campaigns of Urban Company and mabel jewellery."
 },
-{
-    id: 21,
-    name: "Akshat Peswani",
-    post: "Sr. Associate Digital Marketing",
-    img: `https://univest-prod.s3.ap-south-1.amazonaws.com/team/Akshat+Peswani.webp`,
-    bio: "Thapar University alumni who has handled digital campaigns fo ET Media Labs, Qivi."
-},
+// {
+//     id: 21,
+//     name: "Akshat Peswani",
+//     post: "Sr. Associate Digital Marketing",
+//     img: `https://univest-prod.s3.ap-south-1.amazonaws.com/team/Akshat+Peswani.webp`,
+//     bio: "Thapar University alumni who has handled digital campaigns fo ET Media Labs, Qivi."
+// },
 {
     id: 22,
     name: "Jatin Balani",
