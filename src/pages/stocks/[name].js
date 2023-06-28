@@ -75,7 +75,7 @@ export default function StockDetails({ stockDetails }) {
 export async function getServerSideProps({ query }) {
     const { name } = query;
     const params = name.split('~')
-    let res = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/symbol-fincode?symbol=${params?.[0]}`)
+    let res = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/symbol-fincode?symbol=${encodeURIComponent(params?.[0])}`)
     return {
         props: {
             stockDetails: {
