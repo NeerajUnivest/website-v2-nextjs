@@ -66,15 +66,15 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
         return <div className={`flex flex-row font-Inter font-bold ml-2 mb-0.5 ${text} ${leading} tracking-[.5px] self-end
                 ${nseBseData[activeChartType]?.dfPrice > 0 ? 'text-[#26A649]' : 'text-[#EB4E2C]'} `}>
             <Image src={nseBseData[activeChartType]?.dfPrice > 0 ? greenArrow : redArrow} className='h-2.5 mr-1 mt-1.5' width={10} alt='icon' />
-            {(nseBseData[activeChartType]?.ltpPrice)?.toFixed(2)}
-            ({((nseBseData[activeChartType]?.ltpPrice * 100) / nseBseData[activeChartType]?.closePrice)?.toFixed(2)})
+            {(nseBseData[activeChartType]?.dfPrice)?.toFixed(2)}
+            ({((nseBseData[activeChartType]?.dfPrice * 100) / nseBseData[activeChartType]?.closePrice)?.toFixed(2)})
         </div>
     }
 
     return <React.Fragment>
 
         <div className={`shadow font-Inter text-[12px] leading-[20px] text-[#0D0D0D] w-full h-[58px] flex flex-row fixed 
-         top-[60px] lg:top-[94px] z-[2] bg-white justify-between px-4 ease-in-out duration-500 ${!isVisible && 'opacity-0 '}`}>
+        top-[60px] lg:top-[94px] z-[2] bg-white justify-between px-4 ease-in-out duration-500 ${!isVisible && 'opacity-0 '}`}>
             <div className={`mt-2 mr-auto overflow-hidden`}>
                 <div className={`flex flex-row ease-in-out duration-500 relative top-0 ${!isVisible && 'top-14 opacity-0'}`}>
                     <div>

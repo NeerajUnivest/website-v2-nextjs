@@ -33,8 +33,8 @@ export default function StockBarSection() {
     }, [scrolled])
 
     return (
-        <div className={`duration-300 ease-linear sticky top-16 lg:top-20 py-2 z-[2] ${scrollPosition > 660 ? 'shadow bg-white' : 'bg-white'}`}>
-            <div className='max-w-screen-xl px-4 lg:px-8 mx-auto grid grid-cols-3 lg:grid-cols-6 justify-items-stretch gap-3'>
+        <div className={`duration-300 ease-linear sticky top-[136px] lg:top-20 py-2 z-[2] ${scrollPosition > 660 ? 'shadow bg-white' : 'bg-white'}`}>
+            <div className='max-w-screen-xl px-4 lg:px-8 mx-auto grid grid-cols-6 justify-items-stretch gap-3'>
                 <BarChip icon={markets} text='Markets' active={active} setActive={setActive} />
                 <BarChip icon={trade_ideas} text='Ideas' active={active} setActive={setActive} />
                 <BarChip icon={sharks} text='Sharks' active={active} setActive={setActive} />
@@ -57,7 +57,7 @@ export function BarChip({ icon, text, active, setActive }) {
                 className='h-[20px] lg:h-[28px] w-[20px] lg:w-[28px] object-contain'
                 alt='demo image'
             />
-            <span className="lg:ml-2.5 text-xs lg:text-base text-black font-extrabold ">
+            <span className="lg:ml-2.5 text-xs lg:text-base text-black font-extrabold hidden lg:block">
                 {text}
             </span>
         </section>

@@ -2,6 +2,65 @@ import Head from "next/head";
 import Script from "next/script";
 
 export default function MetaSection({ title, desc, keyWords }) {
+    const schema = {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://univest.in/",
+        "name": "Univest",
+        "logo": "https://univest-prod.s3.ap-south-1.amazonaws.com/UnivestLogo.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gurugram, Haryana",
+            "postalCode": "122002",
+            "streetAddress": "10, Poorvi Marg, DLF Phase 2, Sector 25, Gurugram, Haryana 122002"
+        },
+        "email": "support@univest.in",
+        "telephone": "+91-8800049790",
+        "sameAs": [
+            "https://www.facebook.com/Univest.in",
+            "https://www.instagram.com/univest.in/",
+            "https://twitter.com/UnivestIN",
+            "http://linkedin.com/company/univest-in",
+            "https://www.youtube.com/channel/UCRlFx-WxA4yY7Y33SRZaQ4w",
+            "https://www.crunchbase.com/organization/univest-557f"
+        ],
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+91-8800049790",
+            "contactType": "Customer Service"
+        }
+        ],
+        "foundingDate": "2022",
+        "founders": [
+            {
+                "@type": "Person",
+                "name": "Pranit Arora",
+                "id": "https://in.linkedin.com/in/pranit-arora-1b505422"
+            },
+            {
+                "@type": "Person",
+                "name": "Avneet Dhamija",
+                "id": "https://in.linkedin.com/in/avneet-dhamija"
+            },
+            {
+                "@type": "Person",
+                "name": "Vikash Agarwal",
+                "id": "https://in.linkedin.com/in/vikashagrawal1985"
+            },
+        ],
+        "funder": [
+            {
+                "@type": "Corporation",
+                "legalName": "Trinity media Group",
+                "url": "https://www.vccircle.com/company/trinity-media-group"
+            }
+        ],
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://univest.in/stocks/{symbol}",
+            "query-input": "required symbol"
+        }
+    }
     return (<>
         <Head>
             <title>{title ?? 'Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'}</title>
@@ -29,6 +88,7 @@ export default function MetaSection({ title, desc, keyWords }) {
             <meta name="twitter:description" content={desc ?? "Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%"} />
 
             <meta property="og:locale" content="en_US" />
+            <meta property="og:url" content="https://www.univest.in" />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://univest-prod.s3.ap-south-1.amazonaws.com/UnivestLogo.jpg" />
             <meta property="og:site_name" content="Univest" />
@@ -37,5 +97,10 @@ export default function MetaSection({ title, desc, keyWords }) {
         </Head>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-MNF9LHWE7N" />
         <Script src="https://www.facebook.com/tr?id=428181756128634&ev=PageView&noscript=1" />
+
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
     </>)
 }

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
-import { BsApple, BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
+import { BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
 import app_download_qr from '../assets/images/app_download_qr.png';
 import { popUp } from './PopUp/PopUp';
 
@@ -169,6 +169,12 @@ export default function Footer() {
                                     <li>
                                         <Link href="https://stocks.univest.in/privacy-policy" className="transition hover:opacity-75">
                                             Privacy policy
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link href="https://stocks.univest.in/grievance-policy" className="transition hover:opacity-75">
+                                            Grievance policy
                                         </Link>
                                     </li>
 

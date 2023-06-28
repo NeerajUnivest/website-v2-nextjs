@@ -1,7 +1,6 @@
 import forEmpty from '../../assets/images/forEmpty.webp'
 import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
-import { useRouter } from 'next/router';
 import { Config } from '@/elements/Config';
 import Link from 'next/link';
 
@@ -26,18 +25,13 @@ const nseBsePrice = (nseLtpPrice, nseClosePrice, bseLtpPrice, bseClosePrice) => 
 
 
 export default function StockCard({ data, name }) {
-    const router = useRouter();
-
-    const handleNavigate = (ele) => {
-        router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName))
-    }
     return (
         <div className='px-4'>
             {data.list ? data.list?.map((ele, i) => {
                 return (
                     <div key={i}>
                         <div className='flex flex-row justify-between items-center font-Inter'>
-                            <div className='flex flex-row cursor-pointer' onClick={() => handleNavigate(ele)}>
+                            <Link href={Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)} className='flex flex-row cursor-pointer'>
                                 <div className='h-10 w-10 grid place-content-center mr-3'>
                                     {ele.logoUrl === null || ele.logoUrl === '' ?
                                         <div className='h-10 w-10 font-Inter font-extrabold text-[22px] text-[#606060] bg-[#ededed] text-center py-1 rounded-full'>
@@ -54,7 +48,7 @@ export default function StockCard({ data, name }) {
                                         {ele.compName?.slice(0, 30)}
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                             <div>
                                 <div className='text-[12px] leading-[20px] text-[#202020] font-semibold flex flex-row justify-end'>
                                     <span className='font-Robert'>₹</span>{ele.nseLtpPrice ? ele.nseLtpPrice : ele.bseLtpPrice}

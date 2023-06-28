@@ -1,7 +1,6 @@
 
 import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
-import { useRouter } from "next/router";
 import { Config } from "@/elements/Config";
 import Link from "next/link";
 
@@ -25,11 +24,7 @@ const nseBsePrice = (nseLtpPrice, nseClosePrice, bseLtpPrice, bseClosePrice) => 
 }
 
 export default function StockCard({ data }) {
-    const router = useRouter();
 
-    const handleNavigate = (ele) => {
-        router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName))
-    }
     return <div className='overflow-x-auto no-scrollbar mx-4'>
         <div className='my-4 flex bg-[#CFE8FC] flex-row justify-between items-center font-Inter font-medium text-[14px] leading-[24px] text-[#414141]'>
             <div className='shadow-[1px_0px_2px_rgba(0,0,0,0.16)] sticky left-5 z-[9] min-w-[360px] max-w-[360px] flex flex-row mr-10 bg-[#CFE8FC] py-3'>
@@ -75,7 +70,7 @@ export default function StockCard({ data }) {
         </div>
         {data.list?.map((ele, i) => <div key={i}>
             <div className='flex flex-row justify-between items-center font-Inter font-semibold text-[14px] leading-[24px] text-[#414141]'>
-                <div className='shadow-[1px_0px_2px_rgba(0,0,0,0.16)] px-1 py-2.5 mr-10 sticky left-5 bg-white flex flex-row min-w-[360px] max-w-[360px] cursor-pointer' onClick={() => handleNavigate(ele)}>
+                <Link href={Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)} className='shadow-[1px_0px_2px_rgba(0,0,0,0.16)] px-1 py-2.5 mr-10 sticky left-5 bg-white flex flex-row min-w-[360px] max-w-[360px] cursor-pointer'>
                     <div className='h-11 w-11 grid place-content-center'>
                         {ele.logoUrl === null || ele.logoUrl === '' ?
                             <div className='h-11 w-11 font-Inter font-extrabold text-[24px] text-[#606060] bg-[#ededed] text-center  rounded-full pt-2.5'>
@@ -91,7 +86,7 @@ export default function StockCard({ data }) {
                     <div className='pt-2.5 text-[14px] leading-[24px] text-[#606060] font-normal w-[190px]'>
                         {ele.compName?.length > 20 ? ele.compName?.slice(0, 20) + '...' : ele.compName}
                     </div>
-                </div>
+                </Link>
 
                 {data.param1 &&
                     <div className=' min-w-[110px] max-w-[110px] mr-4'>

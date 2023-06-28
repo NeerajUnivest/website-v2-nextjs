@@ -2,6 +2,7 @@ import { ModalContext } from '@/contexts/StockPageModal'
 import Footer from '@/elements/Footer'
 // import Loading from '@/elements/Loading/Loading'
 import NavBar from '@/elements/NavBar'
+import TopBanner from '@/elements/TopBanner'
 import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 const inter = Inter({
@@ -11,7 +12,8 @@ const inter = Inter({
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={`${inter.variable} min-w-[346px]`}>
+    <main className={`${inter.variable} min-w-[346px] pt-14 md:pt-0`}>
+      <TopBanner />
       <NavBar />
       {pageProps?.pageName === 'stock-details' ?
         <ModalContext>

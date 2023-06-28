@@ -1,6 +1,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link';
+import premium from '../../assets/icn/premium.webp';
 
 export default function ScreenerCard({ ele }) {
     return (
@@ -9,6 +10,7 @@ export default function ScreenerCard({ ele }) {
                 {ele?.newFlag && <div className='absolute top-2 -right-5 px-6 py-0.5 text-[8px] text-xs text-white bg-app-red rotate-45'>New</div>}
                 <div className='relative'>
                     <Image width={40} height={40} placeholder='empty' src={ele?.imageUrl} alt={ele?.title} className='h-[32px] w-[32px] lg:h-[40px] lg:w-[40px]' />
+                    {ele?.premium && <Image src={premium} className='absolute -bottom-1 lg:-bottom-2 left-5 lg:left-[22px] h-4 lg:h-6 w-4 lg:w-6' alt='icon' />}
                 </div>
                 <div className='line-clamp-2 w-2/3 text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px] font-semibold mt-4'>
                     {ele?.title}
