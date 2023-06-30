@@ -95,13 +95,14 @@ export default function IdeasSection() {
                                                 Shared on {moment(ele.createdAt).format("DD MMM YYYY")}
                                             </span>
                                             <div className="flex ml-3">
-                                                <Image
-                                                    src={ele.logoUrl}
-                                                    width={24}
-                                                    height={24}
-                                                    className='object-contain w-[24px]'
-                                                    alt={ele.stockName}
-                                                />
+                                                {ele.logoUrl &&
+                                                    <Image
+                                                        src={ele.logoUrl}
+                                                        width={24}
+                                                        height={24}
+                                                        className='object-contain w-[24px]'
+                                                        alt={ele.stockName}
+                                                    />}
                                                 <div className="self-center ml-1">
                                                     <p className="font-semibold text-xs">{ele.stockName}</p>
                                                     <p className="line-clamp-1 font-medium text-[8px] text-[#747474]">
