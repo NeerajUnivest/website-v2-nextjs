@@ -5,6 +5,9 @@ import ScreenersSection from '@/components/Stocks/ScreenersSection'
 import AvailablePlansSection from '@/components/ProPage/AvailablePlansSection'
 import { Mixpanel } from '@/elements/Mixpanel'
 import { useEffect } from 'react'
+import QuarterlyPortfolioSection from '@/components/ProPage/QuarterlyPortfolioSection'
+import UserFeedbacksSection from '@/components/HomePage/UserFeedbacksSection'
+import ProFAQSection from '@/components/ProPage/ProFAQSection'
 
 export default function Pro({ pageName }) {
     useEffect(() => {
@@ -16,11 +19,14 @@ export default function Pro({ pageName }) {
         )
     }, [])
     return (<>
-        {/* <ProHeroSection homePage={false} />
+        <ProHeroSection homePage={false} />
         <ProBarSection />
         <IdeasSection isDark={true} />
-        <ScreenersSection isDark={true} /> */}
+        <ScreenersSection isDark={true} />
         <AvailablePlansSection />
+        <QuarterlyPortfolioSection />
+        <UserFeedbacksSection isDark={true} />
+        <ProFAQSection />
     </>)
 }
 export async function getStaticProps(ctx) {
