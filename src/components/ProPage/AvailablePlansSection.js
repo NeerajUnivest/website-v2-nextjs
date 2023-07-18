@@ -42,7 +42,7 @@ const cardData = [
 ]
 export default function AvailablePlansSection() {
     return (
-        <section className="font-Inter relative">
+        <section className="font-Inter relative" id='AvailablePlans'>
             <div className='rounded-full absolute left-[-20vw] top-[50vh] bg-gradient-to-r from-[#c1eef4] to-[#fff] h-[50vh] w-[50vw] blur-3xl opacity-50' />
             <div className='max-w-screen-xl pt-16 lg:pt-24 mx-auto lg:px-8 overflow-hidden'>
                 <div className="mx-4 lg:mx-0 mb-8 lg:mb-14 flex flex-col lg:flex-row justify-between items-center gap-4">

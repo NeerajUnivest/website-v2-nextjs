@@ -5,7 +5,7 @@ import { BlackButton } from "./Button/Button";
 import { toast } from "./Toast/Toast";
 import axios from "axios";
 
-export default function HeroSideSection() {
+export default function HeroSearchBox({ isDark = false }) {
     const [number, setNumber] = useState('')
     const [error, setError] = useState(null)
     const submit = () => {
@@ -26,7 +26,7 @@ export default function HeroSideSection() {
         }
     }
     return (<div className="mx-4 lg:mx-0">
-        <p className='mt-10 lg:mt-14 mb-1 mx-1 text-sm lg:text-base font-medium text-[#414141]'>
+        <p className={`mt-10 lg:mt-14 mb-1 mx-1 text-sm lg:text-base font-medium ${isDark ? 'text-white' : 'text-[#414141]'}`}>
             Connect with wealth advisor today
         </p>
         <div className='w-full sm:w-[460px] h-10 lg:h-14 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-xs lg:text-base font-medium'>

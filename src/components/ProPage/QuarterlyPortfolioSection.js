@@ -13,8 +13,8 @@ const data = [
 
 export default function QuarterlyPortfolioSection() {
     return (
-        <section className="font-Inter ">
-            <div className='max-w-screen-xl pt-16 lg:pt-24 mx-auto px-4 lg:px-8 overflow-hidden'>
+        <section className="font-Inter " id='QuarterlyPortfolio'>
+            <div className='max-w-screen-xl pt-24 mx-auto px-4 lg:px-8 overflow-hidden'>
                 <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
                     <p className={`text-center text-xl lg:text-3xl font-extrabold text-white `}>
                         Quarterly Portfolio Review

@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import QuarterlyPortfolioSection from '@/components/ProPage/QuarterlyPortfolioSection'
 import UserFeedbacksSection from '@/components/HomePage/UserFeedbacksSection'
 import ProFAQSection from '@/components/ProPage/ProFAQSection'
+import ProPlansAvailableSection from '@/components/ProPage/ProPlansAvailableSection'
 
 export default function Pro({ pageName }) {
     useEffect(() => {
@@ -25,6 +26,7 @@ export default function Pro({ pageName }) {
         <ScreenersSection isDark={true} />
         <AvailablePlansSection />
         <QuarterlyPortfolioSection />
+        <ProPlansAvailableSection />
         <UserFeedbacksSection isDark={true} />
         <ProFAQSection />
     </>)
