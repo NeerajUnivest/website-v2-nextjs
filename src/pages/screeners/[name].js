@@ -6,17 +6,18 @@ import LaptopScreener from '../../components/LaptopScreener/LaptopScreener';
 import MetaSection from "@/elements/MetaSection/MetaSection";
 import { useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
+import PageNotFound from "../404";
 
 const getScreenersList = async () => {
     let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
-    return res.data.data.list
+    return res
 }
 const getScreenerDetails = async (screenerCode) => {
-    let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${screenerCode}`)
-    return { ...res.data.screenerDetail, list: res.data.list }
+    let ress = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${screenerCode}`)
+    return ress
 }
 
-export default function ScreenerPage({ name, screenersList, screenerDetails, codeList }) {
+export default function ScreenerPage({ name, screenersCategories, screenersList, screenerDetails, codeList }) {
     useEffect(() => {
         Mixpanel.track(
             'page_viewed',
@@ -26,26 +27,31 @@ export default function ScreenerPage({ name, screenersList, screenerDetails, cod
             }
         )
     }, [name])
-    return (
-        <>
-            <MetaSection
-                title={`${name?.replaceAll('_', ' ')} | Univest`}
-                desc={screenerDetails?.description}
-                keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
 
-            <section className='lg:pt-24 font-Inter'>
-                <div className='max-w-screen-xl mx-auto'>
-                    <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
-                    <div className='hidden md:grid grid-cols-12 min-h-screen'>
-                        <div className='col-span-12 lg:col-span-3'>
-                            <DropDown list={screenersList} selected={screenerDetails.categoryId} name={name} />
+    if (screenerDetails) {
+        return (
+            <>
+                <MetaSection
+                    title={`${name?.replaceAll('_', ' ')} | Univest`}
+                    desc={screenerDetails?.description}
+                    keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
+
+                <section className='lg:pt-24 font-Inter'>
+                    <div className='max-w-screen-xl mx-auto'>
+                        <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
+                        <div className='hidden md:grid grid-cols-12 min-h-screen'>
+                            <div className='col-span-12 lg:col-span-3'>
+                                <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} />
+                            </div>
+                            <LaptopScreener data={screenerDetails} />
                         </div>
-                        <LaptopScreener data={screenerDetails} />
                     </div>
-                </div>
-            </section>
-        </>
-    )
+                </section>
+            </>
+        )
+    } else {
+        return <PageNotFound />
+    }
 }
 
 
@@ -53,16 +59,26 @@ export async function getServerSideProps(context) {
     const { query } = context;
     const { name } = query;
 
-    const [screenersList, screenerDetails] = await Promise.all([
-        getScreenersList(),
-        getScreenerDetails(name)
-    ]);
+    // let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
+    // let ress = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${name}`)
+
+    const [res, ress] = await Promise.all([getScreenersList(), getScreenerDetails(name)]);
+
+    const data = res.data?.data?.list
+    var screenerDetails = {}
+
+    if (ress.data?.screenerDetail) {
+        screenerDetails = { ...ress.data?.screenerDetail, list: ress.data.list }
+    } else {
+        screenerDetails = null
+    }
     return {
         props: {
-            screenersList,
+            screenersCategories: data?.screenersCategories,
+            screenersList: data?.screenersList,
             screenerDetails,
             name,
-            codeList: screenersList?.screenersList?.map(ele => ele?.code)
+            codeList: data?.screenersList?.map(ele => ele?.code)
         }
     };
 }

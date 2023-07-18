@@ -8,6 +8,9 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { usePageLoading } from '@/hooks/usePageLoading';
+import proIcon from '../../assets/images/proIcon.png';
+import { BlackButton } from '@/elements/Button/Button';
+import { popUp } from '@/elements/PopUp/PopUp'
 
 let activeStyle = {
   lineHeight: '21px',
@@ -54,7 +57,7 @@ export default function PhoneScreener({ name, screenersList, data, codeList }) {
   return (
     <div className='pt-20 md:hidden bg-white z-1 shadow-sm'>
       <div className='snap-mandatory snap-x flex flex-row justify-between pt-2 my-1 overflow-x-auto no-scrollbar scroll-smooth'>
-        {screenersList?.screenersList?.map((ele, i) =>
+        {screenersList?.map((ele, i) =>
           <Link key={i}
             id={ele.code}
             href={`/screeners/${ele.code}`}
@@ -100,7 +103,35 @@ export default function PhoneScreener({ name, screenersList, data, codeList }) {
               </SwiperSlide>}
 
             <SwiperSlide>
-              <StockCard data={data} name={name} />
+              <div className='relative min-h-[450px]'>
+                {data.premium ?
+                  <div className='select-none font-Inter z-10 absolute top-0 h-[460px] w-full bg-[#FFFFFF78] backdrop-blur-sm px-4' >
+                    <div className='mt-10 w-full h-[362px] bg-[#333333] rounded-2xl flex flex-col justify-between'>
+                      <div>
+                        <div className='mt-4 mb-8 flex items-center justify-center'>
+                          <Image src={proIcon} alt="proLogo" className='w-16 object-contain' />
+                          <p className='ml-2 text-[24px] landing-[40px] uni-wise-gradient2 font-extrabold'>
+                            membership
+                          </p>
+                        </div>
+                        <p className='mb-1 text-center text-[14px] landing-[24px] text-white font-extrabold'>
+                          This screener is only available on the app
+                        </p>
+                        <p className='text-center text-[12px] landing-[20px] text-[#BCBCBC]'>
+                          Unlock exclusive access<br />
+                          with Univest Pro
+                        </p>
+                      </div>
+                      <div className='pb-3 flex flex-col items-center justify-center  font-Inter bg-[#FFFFFF1a] rounded-t-2xl'>
+                        <img src='https://univest-prod.s3.ap-south-1.amazonaws.com/Univest+Pro/screener_icons.png' alt="icon" className='w-full object-contain mt-3 mb-6' />
+                        <BlackButton className='py-2 w-[152px] rounded-full bg-gradient-to-b to-[#FF8415] from-[#FFCA3F] mx-auto text-sm text-black leading-4 font-bold border-none'
+                          onClick={() => popUp.open()}
+                          text={'Download Now'} />
+                      </div>
+                    </div>
+                  </div>
+                  : <StockCard data={data} />}
+              </div>
             </SwiperSlide>
 
             {codeList?.indexOf(name) < codeList?.length - 1 &&

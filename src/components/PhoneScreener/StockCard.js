@@ -24,7 +24,7 @@ const nseBsePrice = (nseLtpPrice, nseClosePrice, bseLtpPrice, bseClosePrice) => 
 }
 
 
-export default function StockCard({ data, name }) {
+export default function StockCard({ data }) {
     return (
         <div className='px-4'>
             {data.list ? data.list?.map((ele, i) => {

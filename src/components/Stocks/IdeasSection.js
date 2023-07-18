@@ -12,12 +12,12 @@ import sagar_wadhwa from '@/assets/images/sagar_wadhwa.png';
 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function IdeasSection() {
+export default function IdeasSection({ isDark = false }) {
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
     return (
-        <section id="Ideas" className='max-w-screen-xl py-6 lg:py-32 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
+        <section id="Ideas" className={`max-w-screen-xl py-6 lg:py-32 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
-                <span className="text-center text-xl lg:text-3xl font-extrabold text-[#414141]">
+                <span className={`text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                     Investment & trading ideas
                 </span>
                 <div className="flex my-6 lg:my-0">
@@ -28,14 +28,14 @@ export default function IdeasSection() {
                         alt='demo image'
                     />
                     <div className="self-center ml-4 lg:ml-5">
-                        <p className="font-semibold text-sm lg:text-base">Registered - <b>INA000017639</b></p>
-                        <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
+                        <p className={`font-semibold text-sm lg:text-base ${isDark ? 'text-white' : 'text-black'}`}>Registered - <b>INA000017639</b></p>
+                        <p className={`font-medium text-[10px] ${isDark ? 'text-white' : 'text-[#606060]'}`}>Uniapps, a wholly owned subsidiary of Univest</p>
                     </div>
                 </div>
             </div>
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
                 <div className="w-full lg:max-w-[32%]">
-                    <p className="mt-10 text-center text-base lg:text-xl font-extrabold text-[#414141]">
+                    <p className={`mt-10 text-center text-base lg:text-xl font-extrabold ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                         Pillars of advisory team
                     </p>
                     {[
@@ -122,7 +122,7 @@ export default function IdeasSection() {
                     </div>
                 </div>
             </div>
-            <p className='mt-8 text-center text-sm lg:text-lg font-medium text-[#414141]'>
+            <p className={`mt-8 text-center text-sm lg:text-lg font-medium ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                 Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar<br className="hidden lg:flex" /> along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
             </p>
 
@@ -173,7 +173,7 @@ export default function IdeasSection() {
 
 export function AdvisoryTeamCard({ data }) {
     return (
-        <div className="mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4 shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)]">
+        <div className="mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4 shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)] bg-white">
             <Image
                 src={data.img}
                 width={64}

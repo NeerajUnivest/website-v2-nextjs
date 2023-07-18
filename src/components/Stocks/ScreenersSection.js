@@ -8,14 +8,14 @@ import { useState } from "react";
 import 'swiper/css';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function ScreenersSection() {
+export default function ScreenersSection({ isDark = false }) {
     const { push } = useRouter();
     const [swiper, setSwiper] = useState(null);
     const [active, setActive] = useState(0);
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/screeners/v2`, fetcher)
     return (
-        <section id="Screeners" className='font-Inter max-w-screen-xl mx-auto lg:px-8 py-32 bg-[#FFFFFF]'>
-            <p className="my-8 lg:my-6 text-center text-xl lg:text-3xl font-extrabold text-black">
+        <section id="Screeners" className={`'font-Inter max-w-screen-xl mx-auto lg:px-8 py-32 ${isDark && 'bg-white'}'`}>
+            <p className={`my-8 lg:my-6 text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-white'}`}>
                 Powered by robust algorithms built by a highly experienced research team.
             </p>
             <div className="mx-4 p-[1px] rounded-3xl bg-gradient-to-br to-[#ABC7ED] from-[#F1F6F8]">
@@ -36,7 +36,7 @@ export default function ScreenersSection() {
                         className="ScreenersSection relative "
                     >
 
-                        {data?.data?.list?.screenersList?.filter(f => f.mobile)?.map((ele, i) =>
+                        {data?.data?.list?.screenersList?.filter(f => isDark ? f.premium : true)?.map((ele, i) =>
                             <SwiperSlide key={i}>
                                 <ScreenerCard ele={ele} />
                             </SwiperSlide>)}
@@ -52,7 +52,7 @@ export default function ScreenersSection() {
                 </div>
             </div>
             <div className="mx-4 mt-8 py-2 lg:mt-12 flex flex-col lg:flex-row items-center justify-between gap-y-4 lg:gap-x-5 lg:hidden">
-                <div className="text-sm lg:text-base font-semibold text-black">
+                <div className={`text-sm lg:text-base font-semibold ${isDark ? 'text-white' : 'text-black'}`}>
                     Explore by categories
                 </div>
                 <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-4">
@@ -61,7 +61,7 @@ export default function ScreenersSection() {
                 <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
             </div>
             <div className="mx-4 py-2 mt-12 lg:flex items-center hidden">
-                <div className="text-base font-semibold text-black mr-8">
+                <div className={`text-sm lg:text-base font-semibold mr-8 ${isDark ? 'text-white' : 'text-black'}`}>
                     Explore by categories
                 </div>
                 {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} />)}

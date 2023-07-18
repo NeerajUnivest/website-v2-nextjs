@@ -34,7 +34,7 @@ const anActiveStyle = {
     position: 'relative',
     alignItems: 'center'
 }
-export default function DropDown({ list, selected, name }) {
+export default function DropDown({ screenersCategories, screenersList, selected, name }) {
     const router = useRouter();
 
     const [show, setShow] = useState(selected);
@@ -42,7 +42,7 @@ export default function DropDown({ list, selected, name }) {
 
     const handleDropdown = (cat) => {
         setShow(cat.categoryId)
-        router.push(`/screeners/${list.screenersList?.filter(f => f.categoryId === cat.categoryId)[0].code}`)
+        router.push(`/screeners/${screenersList?.filter(f => f.categoryId === cat.categoryId)[0].code}`)
     }
     return (<div className=' sticky top-[60px] py-10 ml-4'>
         <div className='m-4 font-Inter border-[2px] rounded-lg overflow-hidden'>
@@ -55,14 +55,14 @@ export default function DropDown({ list, selected, name }) {
                 </div>
             </Link>
 
-            {list.screenersCategories?.map((cat, i) =>
+            {screenersCategories?.map((cat, i) =>
                 <div key={i}>
                     <div className={`border-t flex items-center justify-between cursor-pointer w-full px-4 py-2 text-[16px] text-[#202020] leading-[28px] text-left ${show === cat.categoryId && 'bg-[#c2e0f9] cursor-default font-semibold'}`} onClick={() => handleDropdown(cat)}>
                         {cat.categoryTitle}
                         <SlArrowDown size={20} className={show === cat.categoryId ? 'rotate-180' : 'rotate-0'} />
                     </div>
                     <div className={`ease-in-out duration-500 overflow-y-auto no-scrollbar ${show === cat.categoryId ? 'max-h-[275px]' : 'max-h-0 '}`}>
-                        {list.screenersList?.filter(f => f.categoryId === cat.categoryId)?.map((ele, i) =>
+                        {screenersList?.filter(f => f.categoryId === cat.categoryId)?.map((ele, i) =>
                             <Link href={`/screeners/${ele.code}`} key={i}
                                 style={name === ele.code ? activeStyle : anActiveStyle}>
                                 <div className='relative h-8 w-8 m-0'>

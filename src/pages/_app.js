@@ -12,7 +12,7 @@ const inter = Inter({
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={`${inter.variable} min-w-[346px] pt-14 md:pt-0`}>
+    <main className={`${inter.variable} min-w-[346px] pt-14 md:pt-0 ${pageProps?.pageName && 'bg-gradient-to-t from-[#222832] to-[#343434]'}`}>
       <TopBanner />
       <NavBar />
       {pageProps?.pageName === 'stock-details' ?

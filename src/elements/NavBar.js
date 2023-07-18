@@ -29,16 +29,19 @@ export default function NavBar() {
                         </div>
                     </>}
                 <div className="hidden text-base font-semibold lg:flex flex-row items-center w-auto">
-                    <Link href='/stocks' className="mx-4 px-3 py-2 hover:hover:opacity-75">
+                    <Link href='/stocks' className="mx-4 px-3 py-2 hover:opacity-75">
                         Stocks
                     </Link>
-                    <Link href='/elite' className="mx-4 px-3 py-2  hover:hover:opacity-75">
+                    <Link href='/elite' className="mx-4 px-3 py-2  hover:opacity-75">
                         Elite
                     </Link>
-                    <Link href='/screeners' className="mx-4 px-3 py-2  hover:hover:opacity-75">
+                    <Link href='/pro' className="mx-4 px-3 py-2  hover:opacity-75 uni-wise-gradient2">
+                        Pro
+                    </Link>
+                    <Link href='/screeners' className="mx-4 px-3 py-2  hover:opacity-75">
                         Screeners
                     </Link>
-                    <div className="mx-4 px-3 py-2 hover:hover:opacity-75" onClick={() => window.open('https://univest.in/blogs', '_self')}>
+                    <div className="mx-4 px-3 py-2 hover:opacity-75" onClick={() => window.open('https://univest.in/blogs', '_self')}>
                         Blogs
                     </div>
                     {width > 976 && <SearchBar forPhone={false} />}
@@ -46,23 +49,27 @@ export default function NavBar() {
             </div>
             <Menu right onStateChange={(e) => setIsOpen(e.isOpen)} isOpen={isOpen} burgerButtonClassName='hidden'>
                 <Link href='/' onClick={() => setIsOpen(false)}
-                    className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
+                    className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Home
                 </Link>
                 <Link href='/stocks' onClick={() => setIsOpen(false)}
-                    className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
+                    className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Stocks
                 </Link>
                 <Link href='/elite' onClick={() => setIsOpen(false)}
-                    className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
+                    className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Elite
                 </Link>
+                <Link href='/pro' onClick={() => setIsOpen(false)}
+                    className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20] uni-wise-gradient2">
+                    Pro
+                </Link>
                 <Link href='/screeners' onClick={() => setIsOpen(false)}
-                    className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
+                    className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Screeners
                 </Link>
                 <div onClick={() => { setIsOpen(false); window.open('https://univest.in/blogs', '_self') }}
-                    className="w-full ml-6 my-2 py-2 rounded items-center justify-center hover:hover:opacity-75">
+                    className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Blogs
                 </div>
             </Menu>
