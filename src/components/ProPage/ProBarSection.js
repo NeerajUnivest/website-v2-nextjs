@@ -34,7 +34,7 @@ export default function ProBarSection() {
     }, [scrolled])
 
     return (<>
-        <div className={`duration-300 ease-linear sticky top-[132px] lg:top-20 py-2 z-[2] ${scrollPosition > 660 ? 'shadow bg-black' : 'bg-black'}`}>
+        <div className={`duration-300 ease-linear sticky top-[132px] lg:top-20 pt-3 pb-2 z-[2] ${scrollPosition > 660 ? 'shadow bg-black' : 'bg-black'}`}>
             <div className='max-w-screen-xl px-4 lg:px-8 mx-auto grid grid-cols-4 justify-items-stretch gap-4 lg:gap-6'>
                 {data.map((ele, i) =>
                     <BarChip key={i} icon={ele.icon} text={ele.name} active={i === active} i={i} setActive={setActive} />)}

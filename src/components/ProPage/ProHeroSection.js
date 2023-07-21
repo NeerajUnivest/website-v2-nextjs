@@ -1,6 +1,6 @@
 import Image from "next/image";
 import heroHome from '../../assets/images/hero_image_pro_home-min.png';
-import hero from '../../assets/images/hero_image_elite_home-min.png';
+import hero from '../../assets/images/hero_image_pro-min.png';
 import sebi_logo from '../../assets/icons/sebi_logo_white.png';
 import proIcon from '../../assets/images/proIcon.png';
 
