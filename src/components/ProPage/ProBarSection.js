@@ -10,10 +10,10 @@ import { useDebounce } from "@uidotdev/usehooks";
 
 let sec = [0, 1265, 2040, 2980, 7000]
 const data = [
-    { name: 'Unlimited<br/> trade ideas', id: 'Ideas', icon: trade_ideas },
-    { name: 'Premium<br/> Screeners', id: 'Screeners', icon: screeners_pro },
-    { name: 'Additional<br/>cashback on Elite', id: 'AvailablePlans', icon: elite_pro },
-    { name: 'Expert<br/> Advisory', id: 'QuarterlyPortfolio', icon: portfolio_pro },
+    { name: 'Trusted<br/> trade ideas', id: 'Ideas', icon: trade_ideas },
+    { name: 'Premium<br/> screeners', id: 'Screeners', icon: screeners_pro },
+    { name: 'Earn extra<br/>on Elite investments', id: 'AvailablePlans', icon: elite_pro },
+    { name: 'Quarterly<br/> portfolio review', id: 'QuarterlyPortfolio', icon: portfolio_pro },
 
 ]
 export default function ProBarSection() {

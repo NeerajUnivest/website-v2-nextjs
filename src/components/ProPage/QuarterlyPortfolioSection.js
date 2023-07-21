@@ -3,6 +3,8 @@ import quarterly_heart_beat from '../../assets/images/quarterly_heart_beat.png';
 import quarterly_percent from '../../assets/images/quarterly_percent.png';
 import quarterly_exchange from '../../assets/images/quarterly_exchange.png';
 import quarterly_red_flag from '../../assets/images/quarterly_red_flag.png';
+import { BlackButton } from '@/elements/Button/Button';
+import { popUp } from '@/elements/PopUp/PopUp';
 
 const data = [
     { name: 'Portfolio health', icon: quarterly_heart_beat },
@@ -26,6 +28,9 @@ export default function QuarterlyPortfolioSection() {
                         <Image src={ele.icon} alt={ele.name} className='rounded-full bg-white w-12 h-12 lg:w-20 lg:h-20' />
                         <p className='mt-5 font-semibold text-xs lg:text-xl text-white'>{ele.name}</p>
                     </div>)}
+                </div>
+                <div className='flex justify-center mb-1 pt-4'>
+                    <BlackButton onClick={() => window.open('https://univest.s3.ap-south-1.amazonaws.com/faq/1-merged.pdf', '_blank')} text='View sample report' className='px-8 lg:px-12 py-3 text-sm lg:text-xl font-extrabold' />
                 </div>
             </div>
         </section>
