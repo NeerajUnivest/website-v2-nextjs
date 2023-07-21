@@ -52,7 +52,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
     return (
         <div className={`flex ${forPhone ? 'mx-auto' : 'ml-5'} w-[90vw] lg:w-[28vw] max-w-[600px] rounded-full relative z-10`}>
             {(focus || data?.[0] || forPhone) && <div onClick={clearInput} onTouchStart={clearInput} className='fixed -top-[10vw] -right-[100vw] z-20 bg-[#20202092] w-[300vw] h-[300vw]' />}
-            <input ref={ref} className='z-50 w-full bg-[#F5F5F5] focus:caret-[#00439D] rounded-full h-10 pl-12 font-Inter text-base text-[#747474]'
+            <input ref={ref} className='z-50 w-full bg-[#F5F5F5] border lg:border-black focus:border-none focus:caret-[#00439D] rounded-full h-10 pl-12 font-Inter text-base text-[#747474]'
                 type="text"
                 autoFocus={forPhone}
                 placeholder='Search for stock'

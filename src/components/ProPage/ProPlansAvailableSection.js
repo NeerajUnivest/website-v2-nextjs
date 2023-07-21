@@ -1,3 +1,5 @@
+import { BlackButton } from "@/elements/Button/Button"
+import { popUp } from "@/elements/PopUp/PopUp"
 
 const data = [
     { name: '3 months', dP: 499, rP: 999 },
@@ -9,15 +11,18 @@ export default function ProPlansAvailableSection() {
     return (
         <section className="font-Inter ">
             <div className='max-w-screen-xl pt-24 mx-auto px-4 lg:px-8 overflow-hidden'>
-                <p className={`text-center text-base lg:text-5xl font-bold text-white `}>
-                    Plans available
+                <p className={`text-center text-xl lg:text-5xl font-bold text-white `}>
+                    Available plans
                 </p>
-                <p className={`text-center mt-2 lg:mt-4 font-semibold text-sm lg:text-xl text-[#BCBCBC]`}>
+                {/* <p className={`text-center mt-2 lg:mt-4 font-semibold text-sm lg:text-xl text-[#BCBCBC]`}>
                     Lorem ipsum dolor isit, lorem ipsum dolor isit
-                </p>
+                </p> */}
                 <div className="flex gap-3 lg:gap-6 justify-between mt-6 lg:mt-14">
                     {data.map(ele => <ProPlansCard key={ele.name} data={ele} />)}
                 </div>
+            </div>
+            <div className='flex justify-center mt-6 lg:mt-12'>
+                <BlackButton onClick={() => popUp.open()} text='Buy Pro' className='px-8 lg:px-12 py-2.5 text-sm lg:text-xl font-bold' />
             </div>
         </section>
     )
@@ -32,7 +37,7 @@ export function ProPlansCard({ data }) {
                 {data.name}
             </p>
             <p className="mt-2.5 lg:mt-7 text-sm lg:text-4xl text-center">
-                ₹{data.dP}<del className="text-[#606060] text-xs lg:text-3xl font-medium ml-1 lg:ml-2">{data.rP}</del>
+                ₹{data.dP?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}<del className="text-[#606060] text-xs lg:text-3xl font-medium ml-1 lg:ml-2">₹{data.rP?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</del>
             </p>
             <div className="py-2 lg:py-6 flex justify-center">
                 <span className="text-white rounded-md text-[10px] lg:text-2xl text-center bg-gradient-to-r from-[#61B2F3] to-[#0862bcd9] py-1 px-2 lg:px-5">

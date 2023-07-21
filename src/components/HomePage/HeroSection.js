@@ -10,7 +10,7 @@ import Image from "next/image";
 import users from "@/assets/icons/users.png";
 import { BsApple } from "react-icons/bs";
 import Link from "next/link";
-import ProHeroSection from "../ProPage/ProHeroSection";
+// import ProHeroSection from "../ProPage/ProHeroSection";
 
 export default function HeroSection() {
     return (
@@ -36,9 +36,9 @@ export default function HeroSection() {
                 <SwiperSlide>
                     <EliteHeroSection homePage={true} />
                 </SwiperSlide>
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <ProHeroSection homePage={true} />
-                </SwiperSlide>
+                </SwiperSlide> */}
             </Swiper>
             <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>
                 <div className="lg:px-8 pb-3 lg:pb-8 max-w-screen-xl mx-auto flex items-end justify-between h-full">

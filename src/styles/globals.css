@@ -437,6 +437,10 @@ margin: 0px !important;
     justify-content: left;
   }
 
+  .ProAvailablePlansSection .swiper {
+    padding: 0 16px !important
+  }
+
   .ProAvailablePlansSection .swiper-slide {
     width: 288px;
     height: 348px;

@@ -19,12 +19,12 @@ export default function QuarterlyPortfolioSection() {
                     <p className={`text-center text-xl lg:text-3xl font-extrabold text-white `}>
                         Quarterly Portfolio Review
                     </p>
-                    <p className={`mt-4 lg:mt-0 font-semibold text-sm lg:text-base text-white`}>By SEBI RIA's team <b>INA000017639</b></p>
+                    <p className={`mt-4 lg:mt-0 font-semibold text-sm lg:text-base text-white`}>By SEBI RIA&apos;s team <b>INA000017639</b></p>
                 </div>
-                <div className='my-8 grid grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 px-4 py-8 bg-[#363636] rounded-2xl gap-4 lg:gap-1'>
+                <div className='my-8 py-8 lg:py-16 grid grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 px-4 bg-[#363636] rounded-2xl gap-y-8 lg:gap-1'>
                     {data.map(ele => <div key={ele.name} className='flex flex-col justify-center items-center'>
                         <Image src={ele.icon} alt={ele.name} className='rounded-full bg-white w-12 h-12 lg:w-20 lg:h-20' />
-                        <p className='mt-5 font-medium text-xs lg:text-base text-white'>{ele.name}</p>
+                        <p className='mt-5 font-semibold text-xs lg:text-xl text-white'>{ele.name}</p>
                     </div>)}
                 </div>
             </div>

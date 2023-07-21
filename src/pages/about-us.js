@@ -1,3 +1,4 @@
+import InvestorSection from "@/components/About/InvestorSection";
 import MyTeam from "@/components/About/MyTeam";
 import YouCanTrush from "@/components/About/YouCanTrush";
 import MetaSection from "@/elements/MetaSection/MetaSection";
@@ -21,6 +22,7 @@ export default function AboutUs() {
                 keyWords='SEBI registered, Univest, Univest India, Learn Stock Investing, Free portfolio analysis, Buy portfolio' />
             <YouCanTrush />
             <MyTeam />
+            <InvestorSection />
         </>
     )
 }

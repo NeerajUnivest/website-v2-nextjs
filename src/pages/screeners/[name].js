@@ -7,7 +7,7 @@ import MetaSection from "@/elements/MetaSection/MetaSection";
 import { useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
 import PageNotFound from "../404";
-
+import { StompSessionProvider, } from "react-stomp-hooks";
 const getScreenersList = async () => {
     let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
     return res
@@ -37,15 +37,17 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
                     keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
 
                 <section className='lg:pt-24 font-Inter'>
-                    <div className='max-w-screen-xl mx-auto'>
-                        <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
-                        <div className='hidden md:grid grid-cols-12 min-h-screen'>
-                            <div className='col-span-12 lg:col-span-3'>
-                                <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} />
+                    <StompSessionProvider url='wss://api.univest.in/univest-socket-endpoint'>
+                        <div className='max-w-screen-xl mx-auto'>
+                            <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
+                            <div className='hidden md:grid grid-cols-12 min-h-screen'>
+                                <div className='col-span-12 lg:col-span-3'>
+                                    <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} />
+                                </div>
+                                <LaptopScreener data={screenerDetails} name={name} />
                             </div>
-                            <LaptopScreener data={screenerDetails} />
                         </div>
-                    </div>
+                    </StompSessionProvider>
                 </section>
             </>
         )

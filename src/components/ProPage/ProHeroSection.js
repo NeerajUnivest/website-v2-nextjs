@@ -1,9 +1,10 @@
 import Image from "next/image";
 import heroHome from '../../assets/images/hero_image_elite_home-min.png';
 import hero from '../../assets/images/hero_image_stocks_home-min.png';
-import univest_elite from '../../assets/images/univest_elite.png';
+import sebi_logo from '../../assets/icons/sebi_logo_white.png';
+import proIcon from '../../assets/images/proIcon.png';
+
 import HeroSearchBox from "@/elements/HeroSearchBox";
-import rbi from '../../assets/icons/rbi.png';
 import CountUpBox from "@/elements/CountUpBox";
 import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
@@ -17,32 +18,32 @@ export default function ProHeroSection({ homePage }) {
         <section id="Hero" className=" overflow-hidden bg-[#202020ad]">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-28 max-w-screen-xl mx-auto'>
                 <div className="lg:mt-12 font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8 relative">
-                    <div className='mt-4 lg:mt-8 ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-bold text-[#202020] whitespace-nowrap uni-wise-gradient2'>
-                        Univest Pro
+                    <div className='mt-4 lg:mt-8 ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-bold text-[#202020] whitespace-nowrap uni-wise-gradient2 flex items-center'>
+                        Univest <Image src={proIcon} alt='icon' className="w-[72px] h-8 lg:w-[122px] lg:h-[52px] ml-4" />
                     </div>
-                    <div className='ml-4 lg:ml-0 text-[28px] font-semibold text-white'>
+                    <div className='ml-4 lg:ml-0 text-base lg:text-xl font-semibold text-white'>
                         Starts @₹199/month
                     </div>
                     <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
                         <div className="flex col-span-3">
                             <Image
                                 placeholder="empty"
-                                src={rbi}
-                                className=' h-[48px] lg:h-[56px] w-[48px] lg:w-[56px]'
+                                src={sebi_logo}
+                                className=' h-[48px] lg:h-[64px] w-[48px] lg:w-[64px]'
                                 alt='demo image'
                             />
-                            <div className="self-center text-white ml-5">
-                                <p className="font-medium text-[10px]">Partnered with</p>
-                                <p className="font-semibold text-base">RBI regulated <b>NBFC - P2P</b></p>
+                            <div className="self-center ml-5">
+                                <p className="font-semibold text-base text-white">Registered - <b>INA000017639</b></p>
+                                <p className="font-medium text-[10px] text-white">Uniapps, a wholly owned subsidiary of Univest</p>
                             </div>
                         </div>
-                        <div className="self-center text-white">
-                            <p className="font-semibold text-base"><CountUpBox end={3.5} decimals={1} /> Lac+</p>
-                            <p className="font-medium text-xs">Active users</p>
+                        <div className="self-center">
+                            <p className="font-semibold text-base text-white"><CountUpBox end={4} decimals={1} /> Lac+</p>
+                            <p className="font-medium text-xs text-white">Active users</p>
                         </div>
-                        <div className="self-center text-white">
-                            <p className="font-semibold text-base"><CountUpBox start={3000} end={4000} duration={3} /> Cr+</p>
-                            <p className="font-medium text-xs whitespace-nowrap">Worths portfolio connected</p>
+                        <div className="self-center">
+                            <p className="font-semibold text-base text-white"><CountUpBox start={1000} end={1200} duration={2} /> Cr+</p>
+                            <p className="font-medium text-xs text-white whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>
                     {homePage ?
@@ -60,7 +61,7 @@ export default function ProHeroSection({ homePage }) {
                 </div>
             </div>
             {!homePage &&
-                <div className="bg-black flex justify-center py-6 lg:py-12">
+                <div className="bg-black flex justify-center py-6 lg:py-8">
                     <p className="font-Inter font-bold text-white text-sm lg:text-2xl">PRO membership benefits</p>
                 </div>}
         </section>

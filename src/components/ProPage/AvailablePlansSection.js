@@ -7,7 +7,7 @@ import a from '../../assets/icons/plans/1.png';
 import b from '../../assets/icons/plans/2.png';
 import c from '../../assets/icons/plans/3.png';
 import d from '../../assets/icons/plans/4.png';
-import recommend_tag from '../../assets/images/elite/recommend_tag.png';
+import recommend_tag from '../../assets/images/elite/additonal_cashback.png';
 import { popUp } from "@/elements/PopUp/PopUp";
 
 const cardData = [
@@ -18,7 +18,7 @@ const cardData = [
         type: `Fixed term: <b>6 Months</b>`,
         desc: `Saving for a medium term expense / goal`,
         typeForEvent: `fixed_term_6_months`,
-        recommended: false,
+        recommended: true,
         interest: `At maturity`,
         principal: `At maturity`,
         minInvestment: `25K`,
@@ -43,8 +43,7 @@ const cardData = [
 export default function AvailablePlansSection() {
     return (
         <section className="font-Inter relative" id='AvailablePlans'>
-            <div className='rounded-full absolute left-[-20vw] top-[50vh] bg-gradient-to-r from-[#c1eef4] to-[#fff] h-[50vh] w-[50vw] blur-3xl opacity-50' />
-            <div className='max-w-screen-xl pt-16 lg:pt-24 mx-auto lg:px-8 overflow-hidden'>
+            <div className='max-w-screen-xl pt-16 mx-auto lg:px-8 overflow-hidden'>
                 <div className="mx-4 lg:mx-0 mb-8 lg:mb-14 flex flex-col lg:flex-row justify-between items-center gap-4">
                     <span className="text-xl lg:text-3xl font-extrabold text-white">
                         Available Investment plans
@@ -56,16 +55,15 @@ export default function AvailablePlansSection() {
                             className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px]'
                             alt='demo image'
                         />
-                        <div className="self-center ml-5 text-base text-white">
-                            <p className="font-medium ">Partnered with</p>
-                            <p className="font-extrabold ">RBI regulated NBFC-P2P</p>
+                        <div className="self-center ml-5 text-white text-sm">
+                            <p className="font-medium ">Secured with</p>
+                            <p className="font-extrabold ">RBI regulated largest P2P-NBFC FAI₹CENT</p>
                         </div>
                     </div>
                 </div>
                 <Swiper
                     grabCursor={true}
-                    centeredSlides={true}
-                    slidesPerView={1.3}
+                    slidesPerView={1.1}
                     spaceBetween={0}
                     className="ProAvailablePlansSection"
                     breakpoints={{
@@ -83,66 +81,66 @@ export default function AvailablePlansSection() {
                         </SwiperSlide>)}
                 </Swiper>
                 <div className="mt-6 flex flex-col justify-center items-center gap-8">
-                    <button className="bg-[#C9DDE680] px-8 py-3 text-sm lg:text-xl font-medium rounded-full">
+                    <button className="bg-[rgba(233,212,158,0.10)] px-8 py-3 text-sm lg:text-xl font-medium rounded-full text-white">
                         Start investing with as low as ₹25k /-
                     </button>
                     <BlackButton onClick={() => popUp.open()} text='Invest now' className='px-8 lg:px-12 py-3 text-sm lg:text-xl font-extrabold' />
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 
 
 export function AvailablePlansCard({ data }) {
     return (
-        <div className="h-full w-full px-4 py-6 rounded-2xl bg-[#C9DDE680] flex flex-col relative">
+        <div className="text-white h-full w-full p-4 pt-8 rounded-2xl bg-[rgba(233,212,158,0.10)] flex flex-col relative">
             {data.recommended && <Image placeholder="empty" src={recommend_tag} className='absolute -top-3 lg:-top-4 left-1/2 transform -translate-x-1/2 h-7 lg:h-9 object-contain' alt='demo image' />}
             <p className="font-medium text-center text-xl">Earn up to
-                <span className='font-extrabold text-[#437587]'> {data.title}% p.a.</span></p>
-            <div className="bg-white grow px-3 py-4 rounded-lg my-4 flex flex-col justify-between">
+                <span className='font-extrabold uni-wise-gradient2'> {data.title}% p.a.</span></p>
+            <div className="bg-[rgba(255,255,255,0.10)] grow p-4 rounded-lg my-4 flex flex-col justify-between">
                 <div className='text-sm lg:text-base flex gap-2 items-center'>
                     <Image
                         placeholder="empty"
                         src={a}
-                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        className='bg-white rounded-lg h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
                         alt='demo image'
                     />
-                    <div className='text-[#606060] '>Interest paid : </div>
-                    <div className='font-bold text-black'>{data.interest}</div>
+                    <div className=' '>Interest paid : </div>
+                    <div className='font-bold '>{data.interest}</div>
                 </div>
                 <div className='text-sm lg:text-base flex gap-2 items-center'>
                     <Image
                         placeholder="empty"
                         src={b}
-                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        className='bg-white rounded-lg h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
                         alt='demo image'
                     />
-                    <div className='text-[#606060] '>Lock-in period : </div>
-                    <div className='font-bold text-black'>{data.lockInPeriod}</div>
+                    <div className=' '>Lock-in period : </div>
+                    <div className='font-bold '>{data.lockInPeriod}</div>
                 </div>
                 <div className='text-sm lg:text-base flex gap-2 items-center'>
                     <Image
                         placeholder="empty"
                         src={c}
-                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        className='bg-white rounded-lg h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
                         alt='demo image'
                     />
-                    <div className='text-[#606060] '>Low risk : </div>
-                    <div className='font-bold text-black'>100% safe</div>
+                    <div className=' '>Low risk : </div>
+                    <div className='font-bold '>100% safe</div>
                 </div>
                 <div className='text-sm lg:text-base flex gap-2 items-center'>
                     <Image
                         placeholder="empty"
                         src={d}
-                        className=' h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
+                        className='bg-white rounded-lg h-[16px] lg:h-[24px] w-[16px] lg:w-[24px]'
                         alt='demo image'
                     />
-                    <div className='text-[#606060] '>Principal repaid : </div>
-                    <div className='font-bold text-black'>{data.principal}</div>
+                    <div className=' '>Principal repaid : </div>
+                    <div className='font-bold '>{data.principal}</div>
                 </div>
             </div>
-            <p className="bg-white p-3 text-xs font-semibold rounded-lg text-center">
+            <p className="bg-[rgba(255,255,255,0.10)] p-3 text-xs font-semibold rounded-lg text-center border border-white">
                 {data.desc}
             </p>
         </div>

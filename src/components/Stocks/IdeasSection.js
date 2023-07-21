@@ -1,5 +1,6 @@
 import Image from "next/image";
 import sebi_logo from '@/assets/icons/sebi_logo.png';
+import sebi_logo_white from '@/assets/icons/sebi_logo_white.png';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import moment from "moment/moment";
@@ -23,7 +24,7 @@ export default function IdeasSection({ isDark = false }) {
                 <div className="flex my-6 lg:my-0">
                     <Image
                         placeholder="empty"
-                        src={sebi_logo}
+                        src={isDark ? sebi_logo_white : sebi_logo}
                         className=' h-[40px] lg:h-[64px] w-[40px] lg:w-[64px]'
                         alt='demo image'
                     />
@@ -43,7 +44,7 @@ export default function IdeasSection({ isDark = false }) {
                         { name: 'Yashpal Arora', img: yashpal_arora, disc: 'Senior consultant' },
                         { name: 'Sagar Wadhwa', img: sagar_wadhwa, disc: 'Senior Research Analyst' },
                     ].map(ele =>
-                        <AdvisoryTeamCard key={ele.name} data={ele} />
+                        <AdvisoryTeamCard key={ele.name} data={ele} isDark={isDark} />
                     )}
                 </div>
                 <div className="w-full lg:max-w-[60%]">
@@ -122,8 +123,8 @@ export default function IdeasSection({ isDark = false }) {
                     </div>
                 </div>
             </div>
-            <p className={`mt-8 text-center text-sm lg:text-lg font-medium ${isDark ? 'text-white' : 'text-[#414141]'}`}>
-                Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar<br className="hidden lg:flex" /> along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
+            <p className={`mt-8 text-center text-sm lg:text-lg font-medium ${isDark ? 'text-[#bcbcbc]' : 'text-[#414141]'}`}>
+                Backed up with 75+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar<br className="hidden lg:flex" /> along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
             </p>
 
 
@@ -171,9 +172,9 @@ export default function IdeasSection({ isDark = false }) {
 }
 
 
-export function AdvisoryTeamCard({ data }) {
+export function AdvisoryTeamCard({ data, isDark }) {
     return (
-        <div className="mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4 shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)] bg-white">
+        <div className={`mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4  ${isDark ? 'bg-[#525457]' : ' bg-white shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)]'}`}>
             <Image
                 src={data.img}
                 width={64}
@@ -182,8 +183,8 @@ export function AdvisoryTeamCard({ data }) {
                 className="rounded-full h-[48px] lg:h-[64px] w-[48px] lg:w-[64px]"
             />
             <div className="self-center ml-5">
-                <p className="font-semibold text-sm lg:text-xl text-black">{data.name}</p>
-                <p className="font-medium text-xs lg:text-base text-[#747474]">{data.disc}</p>
+                <p className={isDark ? 'font-semibold text-sm lg:text-xl text-white' : 'font-semibold text-sm lg:text-xl text-black'}>{data.name}</p>
+                <p className={isDark ? "ont-medium text-xs lg:text-base text-[#dfdfdf]" : "font-medium text-xs lg:text-base text-[#747474]"}>{data.disc}</p>
             </div>
         </div>
     )

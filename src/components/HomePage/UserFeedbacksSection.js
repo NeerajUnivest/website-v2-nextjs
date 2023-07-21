@@ -5,7 +5,8 @@ import Amresh from "../../assets/rating/Amresh+Kumar.webp";
 import Vijay from "../../assets/rating/Vijay+Rathi.webp";
 import Raghav from "../../assets/rating/Raghav+Bhushan.jpg";
 import Ravi from "../../assets/rating/Ravi+Kumar.jpg";
-import ratingLg from "../../assets/images/ratingLg_light.png";
+import ratingLg from "../../assets/images/ratingLg.png";
+import ratingLg_light from "../../assets/images/ratingLg_light.png";
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -67,13 +68,13 @@ export default function UserFeedbacksSection({ isDark = false }) {
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
                 <div className="">
                     <p className={`hidden lg:flex font-medium text-base lg:text-4xl mb-3 whitespace-pre  ${isDark ? 'text-white' : 'text-black'}`}>Trusted by<span className='font-extrabold'> 400k+ users</span></p>
-                    <p className={`font-extrabold lg:font-semibold text-xl lg:text-2xl ${isDark ? 'text-white' : 'text-[#414141]'}`}>Read what they say about us</p>
+                    <p className={`font-extrabold lg:font-semibold text-xl lg:text-2xl ${isDark ? 'text-[#bcbcbc]' : 'text-[#414141]'}`}>Read what they say about us</p>
                 </div>
-                <Image src={ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
+                <Image src={isDark ? ratingLg_light : ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
             </div>
 
             <div className="relative lg:px-14">
-                <div className={`hidden absolute inset-y-0 left-0 z-10 lg:flex items-center justify-start ${!isDark && 'bg-white'} w-20`}>
+                <div className={`hidden absolute inset-y-0 left-0 lg:flex items-center justify-start ${!isDark && 'bg-white'} w-20`}>
                     <BsArrowRight size={40} className=' rotate-180' color={isDark ? '#BCBCBC' : '#707070'} onClick={() => swiper.slidePrev()} />
                 </div>
                 <Swiper
@@ -106,7 +107,7 @@ export default function UserFeedbacksSection({ isDark = false }) {
                             <AvailablePlansCard data={ele} isDark={isDark} />
                         </SwiperSlide>)}
                 </Swiper>
-                <div className={`hidden absolute inset-y-0 right-0 z-10 lg:flex items-center justify-end ${!isDark && 'bg-white'} w-20`}>
+                <div className={`hidden absolute inset-y-0 right-0 lg:flex items-center justify-end ${!isDark && 'bg-white'} w-20`}>
                     <BsArrowRight size={40} className='' color={isDark ? '#BCBCBC' : '#707070'} onClick={() => swiper.slideNext()} />
                 </div>
             </div>
@@ -118,7 +119,7 @@ export default function UserFeedbacksSection({ isDark = false }) {
 
 export function AvailablePlansCard({ data, isDark }) {
     return (
-        <div className={`h-full w-full p-6 rounded-2xl ${isDark ? 'bg-[#ffffff1a]' : 'bg-white'} border  flex flex-col`}>
+        <div className={`h-full w-full p-6 rounded-2xl ${isDark ? 'bg-[#ffffff1a] border-[#606060]' : 'bg-white'} border  flex flex-col`}>
             <div className='flex items-center gap-2'>
                 <Image src={data.img} className='mr-2 h-[48px] w-[48px] lg:h-[64px] lg:w-[64px] border lg:border-2 border-white rounded-full shadow-inner' alt={data.name} />
                 <BsStarFill color='#FFB133' size={20} />
