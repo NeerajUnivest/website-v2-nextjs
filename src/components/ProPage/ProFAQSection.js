@@ -4,20 +4,26 @@ import { useRouter } from 'next/router';
 
 const data = [
     {
-        question: "What are the risks? How are they managed?",
-        answer: "At Faircent, the safety of your investment is a top priority. We minimize risk by conducting thorough identity, credit, and risk assessments on every borrower based on 200+ criterion and 400+ data points. Your investments are further protected by diversification across number of borrowers. In case of defaults we use legally-compliant collection agencies to follow-up. If you have any questions, feel free to write to us at invest@univest.in",
+
+        question: "What is Pro? What are the benefits of Pro?",
+        answer: "Pro is a subscription plan on Univest that gives the user unlimited access to all the trade ideas posted on the Univest app, premium screeners, additional returns on the Elite investment plans, and a quarterly personalised securities portfolio review by SEBI registered investment advisors"
     },
     {
-        question: "How safe is the invested money? Who is this money lent to?",
-        answer: "Your funds are secure.To safeguard the investments, on an average, one lender's money is distributed across more than 250+ borrowers. All borrowers undergo thorough verification and are screened through 200+ criteria and over 400 data points. The funds are also managed by an SEBI approved independent trustee and routed through an escrow bank account for added security only on your approval.",
+        question: "What all plans and packages are available in Pro?",
+        answer: "Pro subscription has only one plan available in 3 packages: 3 months, 6 months and 12 months"
     },
     {
-        question: "How can I withdraw my money? Are there any charges?",
-        answer: "The Freedom Plan allows for convenient withdrawals at any time. However, withdrawals within first 30 days of investment, may attract 4% to 5% interest rate. In the Fixed term plans, on the other hand, withdrawals prior to maturity are not permitted except in emergency cases. For such requests, please contact us via email at invest@univest.in",
+        question: "Will more benefits added in the Pro subscription over time?",
+        answer: "Yes, we strive to keep adding more benefits to Pro. We aim to make the investing experience of our loyal customers more rewarding each day."
     },
     {
-        question: "Are there any additional / processing charges while investing or withdrawing?",
-        answer: "There is no additional fees for investing or withdrawing after maturity. A payment gateway fee might apply, depending on the payment method chosen. For example, UPI is free, net banking is Rs 17.7, while Debit card transactions are subject to a fee of up to 0.9%. etc <br/> ",
+        question: "Can I buy some features that are offered in Pro?",
+        answer: "No, Pro can only be purchased as a complete package and individual parts cannot be purchased."
+    },
+    {
+
+        question: "Can I get a trial for Pro?",
+        answer: "Yes, you can enjoy a free trial of Pro for 7 days to get a preview of what being a Pro member would feel like."
     },
 ]
 

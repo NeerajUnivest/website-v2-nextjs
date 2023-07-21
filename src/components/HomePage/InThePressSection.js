@@ -48,7 +48,7 @@ export default function InThePressSection() {
                         className='col-span-8 lg:col-span-4 inset-0'>
                         <Image src={news1} alt="gallery" className='h-full w-full object-cover object-center rounded-lg ' />
                     </Link>
-                    <Link href='https://www.aninews.in/news/business/business/univest-collaborates-with-pratik-gandhi-to-conquer-retail-investor-challenges20230110114440/' rel="noreferrer" target="_blank"
+                    <Link href='https://bwmarketingworld.businessworld.in/article/Harbhajan-Singh-Joins-Univest-For-Investment-Revolution-In-India/18-07-2023-484570/' rel="noreferrer" target="_blank"
                         className='col-span-4 lg:col-span-4 lg:row-span-2 inset-0'>
                         <Image src={news4} alt="gallery" className='h-full w-full object-cover object-center rounded-lg ' />
                     </Link>

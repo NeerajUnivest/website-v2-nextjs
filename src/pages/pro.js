@@ -9,17 +9,22 @@ import QuarterlyPortfolioSection from '@/components/ProPage/QuarterlyPortfolioSe
 import UserFeedbacksSection from '@/components/HomePage/UserFeedbacksSection'
 import ProFAQSection from '@/components/ProPage/ProFAQSection'
 import ProPlansAvailableSection from '@/components/ProPage/ProPlansAvailableSection'
+import MetaSection from '@/elements/MetaSection/MetaSection'
 
 export default function Pro({ pageName }) {
     useEffect(() => {
         Mixpanel.track(
             'page_viewed',
             {
-                'page': 'elite_home',
+                'page': 'pro_home',
             }
         )
     }, [])
     return (<>
+        <MetaSection
+            title='Stock market investment ideas by SEBI Reg. Investment Advisor Uniapps'
+            desc='Univest PRO is a advisory subscription for best stock market advisory and trading tips, market screeners, portfolio review and additional cashback on Elite investments'
+            keyWords='bombay stock exchange, Indian stock market, bse, national stock exchange, Nifty, nse, sensex, stock exchange, stock market, stock research tool, smart investment, investment ideas, stock market tips' />
         <ProHeroSection homePage={false} />
         <ProBarSection />
         <IdeasSection isDark={true} />
