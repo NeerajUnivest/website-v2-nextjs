@@ -15,7 +15,6 @@ export default function NavBar() {
     const [showSearchBar, setShowSearchBar] = useState(false);
     const { width } = useWindowSize();
     const { route } = useRouter();
-    console.log(route);
     return (
         <nav className={`bg-[rgba(252,252,252,0.4)] text-white fixed left-0 right-0 top-[80px] md:top-3 z-10`} >
             <div className={`font-Inter max-w-screen-xl mx-auto flex items-center lg:justify-between lg:px-8 flex-wrap backdrop-blur-sm ${showSearchBar ? ' p-2' : ' p-4'}`}>
