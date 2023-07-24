@@ -16,7 +16,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function IdeasSection({ isDark = false }) {
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
     return (
-        <section id="Ideas" className={`max-w-screen-xl py-6 lg:py-32 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+        <section id="Ideas" className={`max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
                 <span className={`text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                     Investment & trading ideas

@@ -14,7 +14,7 @@ export default function ScreenersSection({ isDark = false }) {
     const [active, setActive] = useState(0);
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/screeners/v2`, fetcher)
     return (
-        <section id="Screeners" className={`'overflow-hidden font-Inter max-w-screen-xl mx-auto lg:px-8 py-32 ${isDark && 'bg-white'}'`}>
+        <section id="Screeners" className={`'overflow-hidden font-Inter max-w-screen-xl mx-auto lg:px-8 py-24 ${isDark && 'bg-white'}'`}>
             <p className={`my-8 lg:my-6 text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-white'}`}>
                 Powered by robust algorithms built by a highly experienced research team.
             </p>

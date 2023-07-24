@@ -61,7 +61,7 @@ export default function ProHeroSection({ homePage }) {
                 </div>
             </div>
             {!homePage &&
-                <div className="bg-black flex justify-center py-6 lg:py-8">
+                <div className="bg-black flex justify-center py-6 ">
                     <p className="font-Inter font-bold text-white text-sm lg:text-2xl">PRO membership benefits</p>
                 </div>}
         </section>

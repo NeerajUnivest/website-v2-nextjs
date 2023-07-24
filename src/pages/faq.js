@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import FAQcard from '@/elements/FAQcard'
 import { Mixpanel } from '@/elements/Mixpanel'
+import MetaSection from '@/elements/MetaSection/MetaSection';
 
 let data = [
     {
@@ -10,10 +11,6 @@ let data = [
     {
         question: `Can any of my friends or non friends see my portfolio`,
         answer: `It is completely safe to link your portfolio with Univest. We do not share your portfolio data with anyone. Not even with your friends.`
-    },
-    {
-        question: `Can I connect multiple brokers to my portfolio?`,
-        answer: `At the moment, you cannot connect multiple brokers to your portfolio. We're working on building this functionality will be available real soon`
     },
     {
         question: `Can I connect multiple brokers to my portfolio?`,
@@ -97,6 +94,10 @@ function GeneralFAQs() {
     }, [])
     return (
         <section className='font-Inter max-w-screen-xl lg:mt-10 py-24 mx-auto px-4 lg:px-8 bg-[#FFFFFF]'>
+            <MetaSection
+                title='Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'
+                desc='Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%'
+                keyWords='Stock screener, NSE stocks, Indian stock market, stock analysis tool, stock research tool, Smart Investment, Market News, Share Market News, Share Market news, finance news, IPO News, Investment ideas, Trading ideas' />
             <div className='flex flex-col gap-4'>
                 <div className='font-Inter text-[32px] leading-[40px] font-semibold mx-4 mb-6 hidden md:flex'>
                     FAQs

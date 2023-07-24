@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useScrollPosition } from "@/hooks/useScrollPosition"
 import portfolio_pro from '../../assets/icons/portfolio_pro.png';
 import elite_pro from '../../assets/icons/elite_pro.png';
+import appAndPlay from '../../assets/appAndPlay.png';
 import trade_ideas from '../../assets/icons/trade_ideas_pro.png';
 import screeners_pro from '../../assets/icons/screeners_pro.png';
 import { useEffect, useState } from "react";
@@ -41,10 +42,10 @@ export default function ProBarSection() {
             </div>
         </div>
         <div className="h-8 bg-black" />
-        <div className="mt-5 lg:mt-8 flex justify-center">
+        <div className="mt-5 lg:mt-8 flex justify-center items-center">
             <p className="text-center text-sm lg:text-3xl font-extrabold text-white">Exclusively available on the Univest app</p>
             <a href='https://univest.onelink.me/VC6b/investwithunivest'>
-                {/* <Image src={appAndPlay} alt='appAndPlay' className='h-5 ml-3 lg:h-10 lg:ml-6 object-contain' /> */}
+                <Image src={appAndPlay} alt='appAndPlay' className='w-14 ml-3 lg:w-28 lg:ml-6 object-contain' />
             </a>
         </div>
     </>
