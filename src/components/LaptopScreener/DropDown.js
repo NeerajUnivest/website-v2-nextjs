@@ -66,7 +66,7 @@ export default function DropDown({ screenersCategories, screenersList, selected,
                             <Link href={`/screeners/${ele.code}`} key={i}
                                 style={name === ele.code ? activeStyle : anActiveStyle}>
                                 <div className='relative h-8 w-8 m-0'>
-                                    <Image src={ele.imageUrl} width={32} height={32} alt='logo' className='max-h-8 max-w-8 ' />
+                                    <Image src={ele.imageUrl} width={32} height={32} alt={ele.code} className='max-h-8 max-w-8 ' />
                                     {ele.premium && <Image src={premium} width={20} alt='logo' className='absolute -bottom-2 left-4 h-[20px] w-[20px]' />}
                                 </div>
                                 <div className='ml-3 '>

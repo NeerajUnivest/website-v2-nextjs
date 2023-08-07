@@ -35,26 +35,26 @@
 			https://univest.in/blogs/
 		</loc>
 	</url>
-	<sitemap>
+	<url>
 		<loc>
 			https://univest.in/blogs/post-sitemap.xml
 		</loc>
-	</sitemap>
-	<sitemap>
+	</url>
+	<url>
 		<loc>
 			https://univest.in/blogs/page-sitemap.xml
 		</loc>
-	</sitemap>
-	<sitemap>
+	</url>
+	<url>
 		<loc>
 			https://univest.in/blogs/category-sitemap.xml
 		</loc>
-	</sitemap>
-	<sitemap>
+	</url>
+	<url>
 		<loc>
 			https://univest.in/blogs/post_tag-sitemap.xml
 		</loc>
-	</sitemap>
+	</url>
 	<url>
 		<loc>
 			https://univest.in/faq

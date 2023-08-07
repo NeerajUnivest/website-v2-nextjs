@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
-import { BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
+import { BsInstagram, BsTelegram, BsTwitter, BsYoutube } from 'react-icons/bs';
 import app_download_qr from '../assets/images/app_download_qr.png';
 import { popUp } from './PopUp/PopUp';
 
@@ -98,6 +98,20 @@ export default function Footer() {
                                     <span className="sr-only">YouTube</span>
                                     <div className='bg-[#FF0000] p-2 rounded-full'>
                                         <BsYoutube color='#FFFFFF' size={16} />
+                                    </div>
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link
+                                    href="https://t.me/UnivestOfficial"
+                                    rel="noreferrer"
+                                    target="_blank"
+                                    className="transition hover:opacity-75"
+                                >
+                                    <span className="sr-only">Telegram</span>
+                                    <div className='bg-[#FFF] p-[-1px] rounded-full'>
+                                        <BsTelegram color='#0088cc' size={33} />
                                     </div>
                                 </Link>
                             </li>
@@ -233,7 +247,10 @@ export default function Footer() {
                 </div>
                 <hr />
                 <p className="text-xs ">
-                    &copy; 2023 Univest. All rights reserved.  |  Designed with ❤️ in India
+                    &copy; 2023 Univest. All rights reserved.  |  Made with ❤️ in India
+                </p>
+                <p className="text-[10px] lg:text-xs leading-5">
+                    Disclaimer: Above are the only official social handles of our Company. Any communication or business transaction other than the above shared official handles by any user/customer shall not be the Company’s responsibility. User/customer(s) caution is advisable.
                 </p>
             </div>
         </footer>
