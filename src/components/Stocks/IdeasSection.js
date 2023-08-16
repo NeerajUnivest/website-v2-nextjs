@@ -1,7 +1,6 @@
 import Image from "next/image";
-// import sebi_logo from '@/assets/icons/sebi_logo.png';
-// import sebi_logo_white from '@/assets/icons/sebi_logo_white.png';
 import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
+import sebi_new_logo_white from '@/assets/icons/sebi_new_logo_white.png';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -28,7 +27,7 @@ export default function IdeasSection({ isDark = false }) {
                 <div className="flex my-6 lg:my-0 items-center" onClick={() => popUp.open()}>
                     <Image
                         placeholder="empty"
-                        src={sebi_new_logo}
+                        src={isDark ? sebi_new_logo_white : sebi_new_logo}
                         className=' w-[40px] lg:w-[64px]'
                         alt='demo image'
                     />

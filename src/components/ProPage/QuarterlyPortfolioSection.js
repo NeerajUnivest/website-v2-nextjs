@@ -5,7 +5,7 @@ import quarterly_exchange from '../../assets/images/quarterly_exchange.png';
 import quarterly_red_flag from '../../assets/images/quarterly_red_flag.png';
 import { BlackButton } from '@/elements/Button/Button';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
+import sebi_new_logo_white from '@/assets/icons/sebi_new_logo_white.png';
 import { popUp } from '@/elements/PopUp/SEBIPopUp';
 
 const data = [
@@ -26,7 +26,7 @@ export default function QuarterlyPortfolioSection() {
                     <div className="flex col-span-3 items-center mt-3 lg:mt-0" onClick={() => popUp.open()}>
                         <Image
                             placeholder="empty"
-                            src={sebi_new_logo}
+                            src={sebi_new_logo_white}
                             className='object-contain w-[40px] lg:w-[64px]'
                             alt='demo image'
                         />

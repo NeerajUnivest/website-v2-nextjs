@@ -1,7 +1,7 @@
 import Image from "next/image";
 import heroHome from '../../assets/images/hero_image_pro_home-min.png';
 import hero from '../../assets/images/hero_image_pro-min.png';
-import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
+import sebi_new_logo_white from '@/assets/icons/sebi_new_logo_white.png';
 import proIcon from '../../assets/images/proIcon.png';
 
 import HeroSearchBox from "@/elements/HeroSearchBox";
@@ -30,9 +30,9 @@ export default function ProHeroSection({ homePage }) {
                         <div className="flex col-span-2 items-center" onClick={() => popUp.open()}>
                             <Image
                                 placeholder="empty"
-                                src={sebi_new_logo}
+                                src={sebi_new_logo_white}
                                 className='object-contain w-[40px] lg:w-[64px]'
-                                alt='demo image'
+                                alt='sebi'
                             />
                             <p className={`font-semibold text-base lg:text-2xl mx-2 text-white`}>Registered</p>
                             <AiOutlineInfoCircle color='#FFF' className='text-[16px]  lg:text-[20px]' />
