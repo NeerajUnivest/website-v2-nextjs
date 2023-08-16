@@ -54,7 +54,8 @@ export default function StockCard({ data, ele, i, name }) {
             {data.param6 && <>
                 {specialScreeners.includes(name) ?
                     <div className=' min-w-[110px] max-w-[110px] mr-4'>
-                        <NseOrBsePrice ltpPrice={stockDetail?.ltpPrice ?? ele?.nseLtpPrice} closePrice={ele.param5 ?? ele.param4}
+                        <NseOrBsePrice nseLtpPrice={stockDetail?.ltpPrice ?? ele?.nseLtpPrice} nseClosePrice={ele.param5 ?? ele.param4}
+                            bseLtpPrice={stockDetail?.ltpPrice ?? ele?.bseLtpPrice} bseClosePrice={ele.param5 ?? ele.param4}
                             textClass='' />
                     </div> :
                     <div className=' min-w-[110px] max-w-[110px] mr-4'>
@@ -65,7 +66,8 @@ export default function StockCard({ data, ele, i, name }) {
                 <LivePriceBox ltpPrice={stockDetail.ltpPrice ?? ele.nseLtpPrice ?? ele.bseLtpPrice} textClass='text-[14px] leading-[24px] font-semibold text-[#414141]' />
             </div>
 
-            <NseOrBsePrice ltpPrice={stockDetail.ltpPrice ?? ele.nseLtpPrice ?? ele.bseLtpPrice} closePrice={ele.nseClosePrice ?? ele.bseClosePrice}
+            <NseOrBsePrice nseLtpPrice={stockDetail?.ltpPrice ?? ele?.nseLtpPrice} nseClosePrice={stockDetail?.c ?? ele?.nseClosePrice}
+                bseLtpPrice={stockDetail?.ltpPrice ?? ele?.bseLtpPrice} bseClosePrice={stockDetail?.c ?? ele?.bseClosePrice} closePrice={ele.nseClosePrice ?? ele.bseClosePrice}
                 textClass='whitespace-nowrap min-w-[110px] max-w-[110px] mr-4 text-[14px] leading-[24px] font-semibold' />
 
             {data.param3 &&

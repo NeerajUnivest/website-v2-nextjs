@@ -1,6 +1,8 @@
 import Image from "next/image";
-import sebi_logo from '@/assets/icons/sebi_logo.png';
-import sebi_logo_white from '@/assets/icons/sebi_logo_white.png';
+// import sebi_logo from '@/assets/icons/sebi_logo.png';
+// import sebi_logo_white from '@/assets/icons/sebi_logo_white.png';
+import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import moment from "moment/moment";
@@ -10,6 +12,8 @@ import mini_trade_card from '@/assets/images/mini_trade_card.png';
 import yashpal_arora from '@/assets/images/yashpal_arora.png';
 import ketan_sonalkar from '@/assets/images/ketan_sonalkar.png';
 import sagar_wadhwa from '@/assets/images/sagar_wadhwa.png';
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { popUp } from '../../elements/PopUp/SEBIPopUp';
 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -21,21 +25,19 @@ export default function IdeasSection({ isDark = false }) {
                 <span className={`text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                     Investment & trading ideas
                 </span>
-                <div className="flex my-6 lg:my-0">
+                <div className="flex my-6 lg:my-0 items-center" onClick={() => popUp.open()}>
                     <Image
                         placeholder="empty"
-                        src={isDark ? sebi_logo_white : sebi_logo}
-                        className=' h-[40px] lg:h-[64px] w-[40px] lg:w-[64px]'
+                        src={sebi_new_logo}
+                        className=' w-[40px] lg:w-[64px]'
                         alt='demo image'
                     />
-                    <div className="self-center ml-4 lg:ml-5">
-                        <p className={`font-semibold text-sm lg:text-base ${isDark ? 'text-white' : 'text-black'}`}>Registered - <b>INA000017639</b></p>
-                        <p className={`font-medium text-[10px] ${isDark ? 'text-white' : 'text-[#606060]'}`}>Uniapps, a wholly owned subsidiary of Univest</p>
-                    </div>
+                    <p className={`font-semibold text-base lg:text-2xl mx-2 ${isDark ? 'text-white' : 'text-black'}`}>Registered</p>
+                    <AiOutlineInfoCircle color={isDark ? '#FFF' : '#202020'} className='text-[16px]  lg:text-[20px]' />
                 </div>
             </div>
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center">
-                <div className="w-full lg:max-w-[32%]">
+                <div className="w-full lg:max-w-[32%] hidden">
                     <p className={`mt-10 text-center text-base lg:text-xl font-extrabold ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                         Pillars of advisory team
                     </p>
@@ -47,8 +49,8 @@ export default function IdeasSection({ isDark = false }) {
                         <AdvisoryTeamCard key={ele.name} data={ele} isDark={isDark} />
                     )}
                 </div>
-                <div className="w-full lg:max-w-[60%]">
-                    <div className="flex justify-evenly items-center lg:px-10">
+                <div className="w-full lg:max-w-[60%]-">
+                    <div className="flex justify-evenly items-center lg:px-52">
                         <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
                             <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
                             flex justify-center items-center rounded-full w-20 h-20 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
@@ -89,7 +91,7 @@ export default function IdeasSection({ isDark = false }) {
                                 modules={[Autoplay]}
                                 className="IdeasSection"
                             >
-                                {data?.data?.list?.map(ele =>
+                                {[...data?.data?.list, ...data?.data?.list,]?.map(ele =>
                                     <SwiperSlide key={ele.id} >
                                         <div className="overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] " style={{ backgroundImage: `url(${mini_trade_card.src})` }} >
                                             <span className="mt-9 ml-3 text-[8px] font-medium text-[#606060]">

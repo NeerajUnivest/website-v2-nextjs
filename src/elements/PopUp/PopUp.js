@@ -26,6 +26,7 @@ const customStyles = {
         borderColor: 'transparent',
     },
     overlay: {
+        backdropFilter: "blur(2px)",
         backgroundColor: '#20202099',
         zIndex: 20
     }

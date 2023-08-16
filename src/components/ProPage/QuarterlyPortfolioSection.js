@@ -4,7 +4,9 @@ import quarterly_percent from '../../assets/images/quarterly_percent.png';
 import quarterly_exchange from '../../assets/images/quarterly_exchange.png';
 import quarterly_red_flag from '../../assets/images/quarterly_red_flag.png';
 import { BlackButton } from '@/elements/Button/Button';
-import { popUp } from '@/elements/PopUp/PopUp';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
+import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
+import { popUp } from '@/elements/PopUp/SEBIPopUp';
 
 const data = [
     { name: 'Portfolio health', icon: quarterly_heart_beat },
@@ -21,7 +23,16 @@ export default function QuarterlyPortfolioSection() {
                     <p className={`text-center text-xl lg:text-3xl font-extrabold text-white `}>
                         Quarterly Portfolio Review
                     </p>
-                    <p className={`mt-4 lg:mt-0 font-semibold text-sm lg:text-base text-white`}>By SEBI RIA&apos;s team <b>INA000017639</b></p>
+                    <div className="flex col-span-3 items-center mt-3 lg:mt-0" onClick={() => popUp.open()}>
+                        <Image
+                            placeholder="empty"
+                            src={sebi_new_logo}
+                            className='object-contain w-[40px] lg:w-[64px]'
+                            alt='demo image'
+                        />
+                        <p className={`font-semibold text-base lg:text-2xl mx-2 text-white`}>Registered</p>
+                        <AiOutlineInfoCircle color='#FFF' className='text-[16px]  lg:text-[20px]' />
+                    </div>
                 </div>
                 <div className='my-8 py-8 lg:py-16 grid grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 px-4 bg-[#363636] rounded-2xl gap-y-8 lg:gap-1'>
                     {data.map(ele => <div key={ele.name} className='flex flex-col justify-center items-center'>

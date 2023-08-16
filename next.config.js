@@ -10,9 +10,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true
   },
-  exports: {
-    distDir: 'build',
-  },
+  // exports: {
+  //   distDir: 'build',
+  // },
   reactStrictMode: true,
   images: {
     domains: [

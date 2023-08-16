@@ -66,7 +66,7 @@ export default function MetaSection({ title, desc, keyWords }) {
             <title>{title ?? 'Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'}</title>
             <meta name="description" content={desc ?? "Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%"} />
             <meta name="keywords" content={keyWords ?? "Stock screener, NSE stocks, Indian stock market, stock analysis tool, stock research tool, Smart Investment, Market News, Share Market News, Share Market news, finance news, IPO News, Investment ideas, Trading ideas"} />
-            <meta charset="utf-8" />
+            <meta charSet="utf-8" />
             <meta name="theme-color" content="#00439D" />
             <meta name="msapplication-navbutton-color" content="#00439D" />
             <meta name="apple-mobile-web-app-status-bar-style" content="#00439D" />

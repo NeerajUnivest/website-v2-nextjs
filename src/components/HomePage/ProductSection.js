@@ -1,5 +1,5 @@
 import { BlackButton } from '@/elements/Button/Button';
-import sebi_logo from '@/assets/icons/sebi_logo.png';
+import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
 import { useState } from 'react'
 import { useTransition, animated, } from 'react-spring'
 import crisp_stock_research from '../../assets/images/crisp_stock_research.png';
@@ -13,8 +13,9 @@ import results from '../../assets/icons/results.png';
 import news from '../../assets/icons/news.png';
 import Image from "next/image";
 import background_circles from '../../assets/images/background_circles.png';
-import { useWindowSize } from '@uidotdev/usehooks';
 import { useRouter } from 'next/router';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { popUp } from "@/elements/PopUp/SEBIPopUp";
 
 
 const brokerList = [
@@ -72,23 +73,23 @@ export default function ProductSection() {
     })
     return (
         <section className='mt-8 px-4 lg:px-8 lg:py-20 bg-[#EDF5FF] font-Inter overflow-hidden bg-no-repeat bg-right-bottom lg:bg-center bg-[length:200vw_50%] lg:bg-cover' style={{ backgroundImage: `url(${background_circles.src})` }} >
+            <div className='max-w-screen-xl mx-auto my-5 lg:my-0 lg:mb-7 flex flex-col lg:flex-row items-center justify-between'>
+                <p className="mb-3 lg:mb-0 text-center lg:text-left text-xl lg:text-4xl font-extrabold text-[#414141]">
+                    Crisp stock research
+                </p>
+                <div className="flex col-span-3 items-center" onClick={() => popUp.open()}>
+                    <Image
+                        placeholder="empty"
+                        src={sebi_new_logo}
+                        className='object-contain w-[40px] lg:w-[64px]'
+                        alt='demo image'
+                    />
+                    <p className={`font-semibold text-base lg:text-2xl mx-2 text-black`}>Registered</p>
+                    <AiOutlineInfoCircle color='#202020' className='text-[16px]  lg:text-[20px]' />
+                </div>
+            </div>
             <div className='max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between items-center'>
                 <div className='w-full lg:w-5/12'>
-                    <p className="my-5 lg:my-0 lg:mb-7 text-center lg:text-left text-xl lg:text-5xl font-extrabold text-[#414141]">
-                        Crisp stock research
-                    </p>
-                    <div className="flex lg:hidden justify-center mt-4 mb-6">
-                        <Image
-                            placeholder="empty"
-                            src={sebi_logo}
-                            className=' h-[40px] lg:h-[64px] w-[40px] lg:w-[64px]'
-                            alt='demo image'
-                        />
-                        <div className="self-center ml-4 lg:ml-5">
-                            <p className="font-semibold text-sm lg:text-base">Registered - <b>INA000017639</b></p>
-                            <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
-                        </div>
-                    </div>
                     <p className=" text-center lg:text-left text-sm lg:text-xl font-medium text-[#414141]">
                         Personalise your investment experience with trade ideas from SEBI experts, AI based ‘Buy/Sell/Hold’ insights, advanced screeners and a lot more!
                     </p>

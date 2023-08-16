@@ -2,10 +2,13 @@ import Image from "next/image";
 import heroHome from '../../assets/images/hero_image_stocks_home-min.png';
 import hero from '../../assets/images/hero_image_stocks-min.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
-import sebi_logo from '../../assets/icons/sebi_logo.png';
+import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
+
 import CountUpBox from "@/elements/CountUpBox";
 import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { popUp } from "@/elements/PopUp/SEBIPopUp";
 
 export default function StocksHeroSection({ homePage }) {
     const router = useRouter();
@@ -23,18 +26,16 @@ export default function StocksHeroSection({ homePage }) {
                         Buy-Sell-Hold insights
                     </div>
                     {homePage &&
-                        <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
-                            <div className="flex col-span-3">
+                        <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-2 lg:grid-cols-5 justify-items-start gap-y-4 text-black'>
+                            <div className="flex col-span-2 items-center" onClick={() => popUp.open()}>
                                 <Image
                                     placeholder="empty"
-                                    src={sebi_logo}
-                                    className=' h-[48px] lg:h-[64px] w-[48px] lg:w-[64px]'
+                                    src={sebi_new_logo}
+                                    className='object-contain w-[40px] lg:w-[64px]'
                                     alt='demo image'
                                 />
-                                <div className="self-center ml-5">
-                                    <p className="font-semibold text-base">Registered - <b>INA000017639</b></p>
-                                    <p className="font-medium text-[10px] text-[#606060]">Uniapps, a wholly owned subsidiary of Univest</p>
-                                </div>
+                                <p className={`font-semibold text-base lg:text-2xl mx-2 text-black`}>Registered</p>
+                                <AiOutlineInfoCircle color='#202020' className='text-[16px]  lg:text-[20px]' />
                             </div>
                             <div className="self-center">
                                 <p className="font-semibold text-base"><CountUpBox end={4} decimals={1} /> Lac+</p>

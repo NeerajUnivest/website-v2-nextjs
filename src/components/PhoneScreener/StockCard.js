@@ -37,7 +37,8 @@ export default function StockCard({ ele, data, name }) {
                 </Link>
                 <div>
                     <LivePriceBox ltpPrice={stockDetail.ltpPrice ?? ele.nseLtpPrice ?? ele.bseLtpPrice} textClass='text-[12px] leading-[20px] text-[#202020] font-semibold ' />
-                    <NseOrBsePrice ltpPrice={stockDetail.ltpPrice ?? ele.nseLtpPrice ?? ele.bseLtpPrice} closePrice={ele.nseClosePrice ?? ele.bseClosePrice}
+                    <NseOrBsePrice nseLtpPrice={stockDetail?.ltpPrice ?? ele?.nseLtpPrice} nseClosePrice={stockDetail?.c ?? ele?.nseClosePrice}
+                        bseLtpPrice={stockDetail?.ltpPrice ?? ele?.bseLtpPrice} bseClosePrice={stockDetail?.c ?? ele?.bseClosePrice}
                         textClass='text-[10px] leading-[16px] font-medium ' />
                 </div>
             </div>
@@ -97,7 +98,8 @@ export default function StockCard({ ele, data, name }) {
                                 <div className='text-[10px] landing-[16px] font-medium text-[#606060] text-right'>
                                     {data.param6}:
                                 </div>
-                                <NseOrBsePrice ltpPrice={stockDetail?.ltpPrice ?? ele?.nseLtpPrice} closePrice={ele.param5 ?? ele.param4}
+                                <NseOrBsePrice nseLtpPrice={stockDetail?.ltpPrice ?? ele?.nseLtpPrice} nseClosePrice={ele.param5 ?? ele.param4}
+                                    bseLtpPrice={stockDetail?.ltpPrice ?? ele?.bseLtpPrice} bseClosePrice={ele.param5 ?? ele.param4}
                                     textClass='text-[10px] leading-[16px] font-semibold text-right' />
                             </div> :
                             <div className="basis-1/3">
