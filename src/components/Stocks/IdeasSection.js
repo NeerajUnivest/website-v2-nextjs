@@ -52,15 +52,21 @@ export default function IdeasSection({ isDark = false }) {
                     <div className="flex justify-evenly items-center lg:px-52">
                         <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
                             <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#98520B]
-                            flex justify-center items-center rounded-full w-20 h-20 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
-                                <span className="font-extrabold text-center text-sm lg:text-xl text-[#98520B]">Short<br />term</span>
+                            flex justify-center items-center rounded-full w-16 h-16 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
+                                <span className="font-extrabold text-center text-[10px] lg:text-xl text-[#98520B]">Short<br />term</span>
                             </div>
                         </div>
-                        <div className="flex justify-center items-center rounded-full w-20 h-20 lg:w-[120px] lg:h-[120px] bg-white bg-gradient-to-l to-[#00439D40] from-[#00439D99]">
-                            <span className="font-medium text-center text-sm lg:text-xl text-[#00439D]">Medium<br />term</span>
+                        <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
+                            <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#00439D]
+                            flex justify-center items-center rounded-full w-16 h-16 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
+                                <span className="font-extrabold text-center text-[10px] lg:text-xl text-[#00439D]">Medium<br />term</span>
+                            </div>
                         </div>
-                        <div className="flex justify-center items-center rounded-full w-20 h-20 lg:w-[120px] lg:h-[120px] bg-white bg-gradient-to-l to-[#006B6A40] from-[#006B6A80]">
-                            <span className="font-medium text-center text-sm lg:text-xl text-[#005251]">Long<br />term</span>
+                        <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
+                            <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#005251]
+                            flex justify-center items-center rounded-full w-16 h-16 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
+                                <span className="font-extrabold text-center text-[10px] lg:text-xl text-[#005251]">Long<br />term</span>
+                            </div>
                         </div>
                     </div>
                     <div className="-mt-14 lg:-mt-20 pt-16 lg:pt-24 pb-4  bg-[#202020] rounded-3xl">
