@@ -2,7 +2,7 @@ import { BlackButton } from "@/elements/Button/Button";
 import Image from "next/image";
 import 'swiper/css';
 import { Swiper, SwiperSlide } from "swiper/react";
-import rbi from '../../assets/icons/rbi.png';
+import rbi from '../../assets/icons/rbi.gif';
 import a from '../../assets/icons/plans/1.png';
 import b from '../../assets/icons/plans/2.png';
 import c from '../../assets/icons/plans/3.png';
@@ -52,7 +52,7 @@ export default function AvailablePlansSection() {
                         <Image
                             placeholder="empty"
                             src={rbi}
-                            className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px]'
+                            className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px] bg-black rounded-full'
                             alt='demo image'
                         />
                         <div className="self-center ml-5 text-white text-sm">

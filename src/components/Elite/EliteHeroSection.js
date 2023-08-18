@@ -4,7 +4,7 @@ import hero from '../../assets/images/hero_image_elite-min.png';
 import univest_elite from '../../assets/images/univest_elite.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import Marquee from "react-fast-marquee";
-import rbi from '../../assets/icons/rbi.png';
+import rbi from '../../assets/icons/rbi.gif';
 import CountUpBox from "@/elements/CountUpBox";
 import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
@@ -36,7 +36,7 @@ export default function EliteHeroSection({ homePage }) {
                                 <Image
                                     placeholder="empty"
                                     src={rbi}
-                                    className=' h-[48px] lg:h-[56px] w-[48px] lg:w-[56px]'
+                                    className=' h-[48px] lg:h-[56px] w-[48px] lg:w-[56px] bg-black rounded-full'
                                     alt='demo image'
                                 />
                                 <div className="self-center ml-5">

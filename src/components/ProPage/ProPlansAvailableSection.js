@@ -1,6 +1,5 @@
 import { BlackButton } from "@/elements/Button/Button"
 import { popUp } from "@/elements/PopUp/PopUp"
-import useSWR from 'swr'
 
 const localData = [
     {
@@ -23,9 +22,7 @@ const localData = [
     }
 ]
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function ProPlansAvailableSection() {
-    const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/pro-membership/plans`, fetcher)
     return (
         <section className="font-Inter ">
             <div className='max-w-screen-xl pt-24 mx-auto px-4 lg:px-8 overflow-hidden'>

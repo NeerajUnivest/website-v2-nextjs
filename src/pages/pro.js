@@ -10,8 +10,9 @@ import UserFeedbacksSection from '@/components/HomePage/UserFeedbacksSection'
 import ProFAQSection from '@/components/ProPage/ProFAQSection'
 import ProPlansAvailableSection from '@/components/ProPage/ProPlansAvailableSection'
 import MetaSection from '@/elements/MetaSection/MetaSection'
+import axios from 'axios'
 
-export default function Pro({ pageName }) {
+export default function Pro({ pageName, data }) {
     useEffect(() => {
         Mixpanel.track(
             'page_viewed',
@@ -36,10 +37,15 @@ export default function Pro({ pageName }) {
         <ProFAQSection />
     </>)
 }
+
+
 export async function getStaticProps(ctx) {
+    const res = await axios.get(`${process.env.apiBaseURL}/resources/pro-membership/plans`)
+
     return {
         props: {
-            pageName: 'pro'
+            pageName: 'pro',
+            data: res.data
         }
     }
 }

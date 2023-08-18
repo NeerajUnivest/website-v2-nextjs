@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import rbi from '@/assets/icons/rbi.png';
+import rbi from '@/assets/icons/rbi.gif';
 import univest_elite from '@/assets/images/univest_elite.png';
 import Image from 'next/image';
 import elite_banner from '../../assets/lottiefiles/elite_banner.gif';
@@ -81,7 +81,7 @@ export default function WhyShouldSection({ homePage }) {
                         <Image
                             placeholder="empty"
                             src={rbi}
-                            className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px]'
+                            className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px] bg-black rounded-full'
                             alt='demo image'
                         />
                         <div className="self-center ml-3 lg:ml-4">
@@ -94,7 +94,7 @@ export default function WhyShouldSection({ homePage }) {
                     <Image
                         placeholder="empty"
                         src={elite_banner}
-                        className='w-[calc(100vw-32px)] object-contain rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto'
+                        className='w-[calc(100vw-32px)] lg:max-w-3xl object-contain rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto'
                         alt='demo image'
                     /> : <div className='w-[calc(100%-32px)] aspect-[6/1] rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto bg-white animate-pulse' />}
                 <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>

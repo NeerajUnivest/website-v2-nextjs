@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import rbi from '../../assets/icons/rbi.png';
+import rbi from '../../assets/icons/rbi.gif';
 
 export default function PartneredWithSection() {
     return (
@@ -20,7 +20,7 @@ export default function PartneredWithSection() {
                     <Image
                         placeholder="empty"
                         src={rbi}
-                        className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px] mr-4'
+                        className=' h-[40px] lg:h-[56px] w-[40px] lg:w-[56px] mr-4 bg-black rounded-full'
                         alt='demo image'
                     />
                     <p className='text-base lg:text-2xl text-black font-extrabold'>
