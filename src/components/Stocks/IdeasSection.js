@@ -90,8 +90,8 @@ export default function IdeasSection({ isDark = false }) {
                                 modules={[Autoplay]}
                                 className="IdeasSection"
                             >
-                                {[...data?.data?.list, ...data?.data?.list,]?.map(ele =>
-                                    <SwiperSlide key={ele.id} >
+                                {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
+                                    <SwiperSlide key={`${ele.id}-${i}`} >
                                         <div className="overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] " style={{ backgroundImage: `url(${mini_trade_card.src})` }} >
                                             <span className="mt-9 ml-3 text-[8px] font-medium text-[#606060]">
                                                 Shared on {moment(ele.createdAt).format("DD MMM YYYY")}

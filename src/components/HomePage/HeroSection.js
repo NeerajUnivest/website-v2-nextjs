@@ -12,7 +12,7 @@ import { BsApple } from "react-icons/bs";
 import Link from "next/link";
 import ProHeroSection from "../ProPage/ProHeroSection";
 
-export default function HeroSection() {
+export default function HeroSection({ start_at }) {
     return (
         <section className='relative lg:mb-20 font-Inter'>
             <Swiper
@@ -37,7 +37,7 @@ export default function HeroSection() {
                     <EliteHeroSection homePage={true} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <ProHeroSection homePage={true} />
+                    <ProHeroSection homePage={true} start_at={start_at} />
                 </SwiperSlide>
             </Swiper>
             <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>

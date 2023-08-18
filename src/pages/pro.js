@@ -26,13 +26,13 @@ export default function Pro({ pageName, data }) {
             title='Stock market investment ideas by SEBI Reg. Investment Advisor Uniapps'
             desc='Univest PRO is a advisory subscription for best stock market advisory and trading tips, market screeners, portfolio review and additional cashback on Elite investments'
             keyWords='bombay stock exchange, Indian stock market, bse, national stock exchange, Nifty, nse, sensex, stock exchange, stock market, stock research tool, smart investment, investment ideas, stock market tips' />
-        <ProHeroSection homePage={false} />
+        <ProHeroSection homePage={false} start_at={data?.start_at} />
         <ProBarSection />
         <IdeasSection isDark={true} />
         <ScreenersSection isDark={true} />
         <AvailablePlansSection />
         <QuarterlyPortfolioSection />
-        <ProPlansAvailableSection />
+        <ProPlansAvailableSection data={data?.list} />
         <UserFeedbacksSection isDark={true} />
         <ProFAQSection />
     </>)

@@ -3,18 +3,21 @@ import { popUp } from "@/elements/PopUp/PopUp"
 
 const localData = [
     {
+        "planId": "plan1",
         "planName": "12 months",
         "displayAmount": 5999,
         "discountedAmount": 2399,
         "renewalPrice": 2399,
     },
     {
+        "planId": "plan2",
         "planName": "6 months",
         "displayAmount": 2999,
         "discountedAmount": 1499,
         "renewalPrice": 1499,
     },
     {
+        "planId": "plan3",
         "planName": "3 months",
         "displayAmount": 1499.0,
         "discountedAmount": 999,
@@ -22,7 +25,7 @@ const localData = [
     }
 ]
 
-export default function ProPlansAvailableSection() {
+export default function ProPlansAvailableSection({ data }) {
     return (
         <section className="font-Inter ">
             <div className='max-w-screen-xl pt-24 mx-auto px-4 lg:px-8 overflow-hidden'>
@@ -30,7 +33,7 @@ export default function ProPlansAvailableSection() {
                     Available plans
                 </p>
                 <div className="flex gap-3 lg:gap-6 justify-between mt-6 lg:mt-14">
-                    {(data ?? localData)?.map(ele => <ProPlansCard key={ele.name} data={ele} />)}
+                    {(data ?? localData)?.map(ele => <ProPlansCard key={ele.planId} data={ele} />)}
                 </div>
             </div>
             <div className='flex justify-center mt-6 lg:mt-12'>

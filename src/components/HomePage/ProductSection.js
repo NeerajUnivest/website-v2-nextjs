@@ -60,7 +60,6 @@ export default function ProductSection() {
         leave: { opacity: 0, transform: 'translateY(-10%)', delay: 3000, },
         config: { duration: 300 },
         onStart: (_a, _b, item) => {
-            // console.log(inView);
             if (item === state) {
                 if (state > brokerList.length - 2) {
                     setState(0)

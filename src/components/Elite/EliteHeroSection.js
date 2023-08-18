@@ -62,7 +62,7 @@ export default function EliteHeroSection({ homePage }) {
                     <Image
                         placeholder="blur"
                         src={homePage ? heroHome : hero}
-                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[60%]  mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
+                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[50%]  mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
                         alt='demo image'
                     />
                 </div>

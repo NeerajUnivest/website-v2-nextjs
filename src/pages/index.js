@@ -9,6 +9,7 @@ import WhyShouldSection from "@/components/Elite/WhyShouldSection";
 import MetaSection from "@/elements/MetaSection/MetaSection";
 import { useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
+import axios from "axios";
 
 
 const data = [
@@ -30,7 +31,7 @@ const data = [
   },
 ]
 
-export default function HomePage() {
+export default function HomePage({ planData }) {
   useEffect(() => {
     Mixpanel.track(
       'page_viewed',
@@ -43,7 +44,7 @@ export default function HomePage() {
       title='Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'
       desc='Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%'
       keyWords='Stock screener, NSE stocks, Indian stock market, stock analysis tool, stock research tool, Smart Investment, Market News, Share Market News, Share Market news, finance news, IPO News, Investment ideas, Trading ideas' />
-    <HeroSection />
+    <HeroSection start_at={planData?.start_at} />
     <WhyUnivestSection />
     <ProductSection />
     <WhyShouldSection homePage={true} />
@@ -52,4 +53,14 @@ export default function HomePage() {
     <UserFeedbacksSection />
     <EliteFAQSection data={data} />
   </>)
+}
+
+export async function getStaticProps(ctx) {
+  const res = await axios.get(`${process.env.apiBaseURL}/resources/pro-membership/plans`)
+
+  return {
+    props: {
+      planData: res.data
+    }
+  }
 }

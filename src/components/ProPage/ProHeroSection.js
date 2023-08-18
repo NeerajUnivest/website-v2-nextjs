@@ -14,7 +14,7 @@ import { popUp } from "@/elements/PopUp/SEBIPopUp";
 
 
 
-export default function ProHeroSection({ homePage }) {
+export default function ProHeroSection({ homePage, start_at }) {
     const router = useRouter();
     return (
         <section id="Hero" className=" overflow-hidden bg-gradient-to-b from-[#343434] to-[#202732]">
@@ -24,7 +24,7 @@ export default function ProHeroSection({ homePage }) {
                         Univest <Image src={proIcon} alt='icon' className="w-[72px] h-8 lg:w-[122px] lg:h-[52px] ml-4" />
                     </div>
                     <div className='ml-4 lg:ml-0 text-base lg:text-xl font-semibold text-white'>
-                        Starts @₹199/month
+                        Starts @₹{start_at}/month
                     </div>
                     <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-2 lg:grid-cols-5 justify-items-start gap-y-4 text-black'>
                         <div className="flex col-span-2 items-center" onClick={() => popUp.open()}>
