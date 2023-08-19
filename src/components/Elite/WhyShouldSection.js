@@ -45,8 +45,8 @@ let data = [{
     border: 'border-[#FF9F40]'
 }, {
     img: elite5,
-    header: 'RBI regulated',
-    text: 'India`s first & largest RBI regulated <br/> NBFC Your money in safe hands',
+    header: 'Registered',
+    text: 'India`s first & largest Registered <br/> NBFC Your money in safe hands',
     to: 'to-[#FFFCF3]',
     border: 'border-[#FFB133]'
 }, {
@@ -86,7 +86,7 @@ export default function WhyShouldSection({ homePage }) {
                         />
                         <div className="self-center ml-3 lg:ml-4">
                             <p className="font-medium text-sm lg:text-base text-[#606060]">Partnered with</p>
-                            <p className="font-semibold text-sm lg:text-base">RBI regulated <b>NBFC - P2P</b></p>
+                            <p className="font-semibold text-sm lg:text-base">Registered <b>NBFC - P2P</b></p>
                         </div>
                     </div>
                 </div>}

@@ -57,7 +57,7 @@ export default function AvailablePlansSection() {
                         />
                         <div className="self-center ml-5 text-white text-sm">
                             <p className="font-medium ">Secured with</p>
-                            <p className="font-extrabold ">RBI regulated largest P2P-NBFC FAI₹CENT</p>
+                            <p className="font-extrabold ">Registered largest P2P-NBFC FAI₹CENT</p>
                         </div>
                     </div>
                 </div>

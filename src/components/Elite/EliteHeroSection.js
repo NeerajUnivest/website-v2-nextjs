@@ -31,8 +31,8 @@ export default function EliteHeroSection({ homePage }) {
                         Withdraw anytime
                     </div>
                     {homePage &&
-                        <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-3 lg:grid-cols-6 justify-items-start gap-y-4 text-black'>
-                            <div className="flex col-span-3">
+                        <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-2 lg:grid-cols-5 justify-items-start gap-y-4 text-black'>
+                            <div className="flex col-span-2">
                                 <Image
                                     placeholder="empty"
                                     src={rbi}
@@ -41,7 +41,7 @@ export default function EliteHeroSection({ homePage }) {
                                 />
                                 <div className="self-center ml-5">
                                     <p className="font-medium text-[10px] text-[#606060]">Partnered with</p>
-                                    <p className="font-semibold text-base">RBI regulated <b>NBFC - P2P</b></p>
+                                    <p className="font-semibold text-base">Registered <b>NBFC - P2P</b></p>
                                 </div>
                             </div>
                             <div className="self-center">

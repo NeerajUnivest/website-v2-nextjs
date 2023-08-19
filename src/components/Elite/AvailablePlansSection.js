@@ -71,7 +71,7 @@ export default function AvailablePlansSection() {
                         />
                         <div className="self-center ml-5 text-base text-black">
                             <p className="font-medium ">Partnered with</p>
-                            <p className="font-extrabold ">RBI regulated NBFC-P2P</p>
+                            <p className="font-extrabold ">Registered NBFC-P2P</p>
                         </div>
                     </div>
                 </div>

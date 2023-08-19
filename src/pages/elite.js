@@ -39,9 +39,9 @@ export default function Elite() {
     }, [])
     return (<>
         <MetaSection
-            title='Elite: Earn higher returns with RBI regulated P2P lending '
-            desc='Elite gives you the opportunity to get returns up to 12% through short-term investment in RBI regulated NBFC P2P lending to people with the high credit score.'
-            keyWords='High returns, Safe investments, Double returns than FD, RBI regulated, P2P lending, Low risk investments, Trusted investments, Safe returns' />
+            title='Elite: Earn higher returns with Registered P2P lending '
+            desc='Elite gives you the opportunity to get returns up to 12% through short-term investment in Registered NBFC P2P lending to people with the high credit score.'
+            keyWords='High returns, Safe investments, Double returns than FD, Registered, P2P lending, Low risk investments, Trusted investments, Safe returns' />
         <EliteHeroSection homePage={false} />
         <AvailablePlansSection />
         <WhyShouldSection homePage={false} />

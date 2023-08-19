@@ -18,7 +18,7 @@ export default function AboutFaircent() {
                             </p>
                         </div>
                         <p className='my-4 lg:my-0 lg:mt-8 text-xs lg:text-base leading-6 text-[#606060]'>
-                            Faircent is <b>India`s first and largest RBI-regulated NBFC-P2P</b> that started with the vision of financially empowering the country’s eligible individuals and SMEs. Whether you are a lender or a borrower, you get the best of rates at Faircent. Because we know every % counts!
+                            Faircent is <b>India`s first and largest Registered NBFC-P2P</b> that started with the vision of financially empowering the country’s eligible individuals and SMEs. Whether you are a lender or a borrower, you get the best of rates at Faircent. Because we know every % counts!
                         </p>
                     </div>
                     <div className='w-full lg:w-[47%] grid grid-cols-2 grid-rows-2 gap-4 lg:gap-6'>

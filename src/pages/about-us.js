@@ -18,7 +18,7 @@ export default function AboutUs() {
         <>
             <MetaSection
                 title='About Univest'
-                desc='SEBI registered stock market research platform which gives free portfolio analysis. Investment ideas, stock market tips and RBI regulated high return investment plans'
+                desc='SEBI registered stock market research platform which gives free portfolio analysis. Investment ideas, stock market tips and Registered high return investment plans'
                 keyWords='SEBI registered, Univest, Univest India, Learn Stock Investing, Free portfolio analysis, Buy portfolio' />
             <YouCanTrush />
             <MyTeam />
