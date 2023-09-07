@@ -12,6 +12,22 @@ import Mohit from "../../assets/invester/Mohit+Bajaj.webp";
 import Chetan from "../../assets/invester/Chetan-Nigam.jpg";
 import Vijay from "../../assets/rating/Vijay+Rathi.webp";
 import Rashi from "../../assets/invester/Rashi-Arora.jpg";
+import Ajay from "../../assets/invester/Ajay+Pahwa.jpeg";
+import Rahul_Gambhir from "../../assets/invester/Rahul-Gambhir.jpeg";
+import Saahil from "../../assets/invester/Saahil+Nayar.jpeg";
+import Karan from "../../assets/invester/Karan-Goel.jpeg";
+import Jaiveer from "../../assets/invester/Jaiveer+Duggal.jpeg";
+import Sagar from "../../assets/invester/Sagar+Goyal.jpeg";
+import Anurag from "../../assets/invester/Anurag+Dixit.jpeg";
+import Sankalp from "../../assets/invester/Sankalp+Maheshwari.jpeg";
+import Avijeet from "../../assets/invester/Avijeet+Ranjan.jpeg";
+import Aamir from "../../assets/invester/Aamir+Saifi.jpeg";
+import Himanshu from "../../assets/invester/Himanshu+Anand.jpeg";
+import Raghav from "../../assets/invester/Raghav+Kumar.jpeg";
+import Mohd from "../../assets/invester/Mohd-Shareef.jpeg";
+import Jaideep from "../../assets/invester/Jaideep+Kumar.jpeg";
+
+
 import Image from 'next/image';
 
 const data = [
@@ -32,7 +48,7 @@ const data = [
     },
     {
         name: "Ajay Pahwa",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Ajay+Pahwa.webp",
+        img: Ajay,
         detail: "Cofounder of Fixigo & Amaze software technologies"
     },
     {
@@ -62,7 +78,7 @@ const data = [
     },
     {
         name: "Rahul Gambhir",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Rahul-Gambhir.webp",
+        img: Rahul_Gambhir,
         detail: "Head-Risk & Internal Audit at Bookfield Group"
     },
     {
@@ -72,7 +88,7 @@ const data = [
     },
     {
         name: "Saahil Nayar",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Saahil+Nayar.webp",
+        img: Saahil,
         detail: "Ex-Cofounder of IDAM Group"
     },
     {
@@ -87,57 +103,57 @@ const data = [
     },
     {
         name: "Karan Goel",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Karan-Goel.webp",
+        img: Karan,
         detail: "Associate partner McKinsey & Company"
     },
     {
         name: "Jaiveer Duggal",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Jaiveer+Duggal.webp",
+        img: Jaiveer,
         detail: "Marketing Manager at Reckitt Benckiser"
     },
     {
         name: "Sagar Goyal",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Sagar+Goyal.webp",
+        img: Sagar,
         detail: "HR at Walmart & serial stock market investor"
     },
     {
         name: "Anurag Dixit",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Anurag+Dixit.webp",
+        img: Anurag,
         detail: "GM at Otipy, Ex-GoMechanic, Oyo"
     },
     {
         name: "Sankalp Maheshwari",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Sankalp+Maheshwari.webp",
+        img: Sankalp,
         detail: "Sales head at LG India"
     },
     {
         name: "Avijeet Ranjan",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Avijeet+Ranjan.webp",
+        img: Avijeet,
         detail: "Growth head of Hoichoi(OTT Platform)"
     },
     {
         name: "Himanshu Anand",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Himanshu+Anand.webp",
+        img: Himanshu,
         detail: "GM at Otipy, Ex-Oyo"
     },
     {
         name: "Aamir Saifi",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Aamir+Saifi.webp",
+        img: Aamir,
         detail: "Sr. HR Manager at Otipy"
     },
     {
         name: "Raghav Kumar",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Raghav+Kumar.webp",
+        img: Raghav,
         detail: "CTO at IDAM Group"
     },
     {
         name: "Md. Sharreef",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Mohd-Shareef.webp",
+        img: Mohd,
         detail: "Finace at SATS, Soudi Arabia"
     },
     {
         name: "Jaideep Kumar",
-        img: "https://univest-prod.s3.ap-south-1.amazonaws.com/investors/Jaideep+Kumar.webp",
+        img: Jaideep,
         detail: "Cofounder of Chaabi, Ex-RB, IDAM"
     },
 ]

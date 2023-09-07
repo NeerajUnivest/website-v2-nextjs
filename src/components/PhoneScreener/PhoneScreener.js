@@ -124,7 +124,7 @@ export default function PhoneScreener({ name, screenersList, data, codeList }) {
                         </p>
                       </div>
                       <div className=' flex flex-col items-center justify-center  font-Inter bg-[#FFFFFF1a] rounded-t-2xl'>
-                        <img src='https://univest-prod.s3.ap-south-1.amazonaws.com/Univest+Pro/screener_icons.png' alt="icon" className='w-full object-contain mt-3 mb-6' />
+                        <img src='https://storage.googleapis.com/app-assets-univest/website-assets/screener_icons.png' alt="icon" className='w-full object-contain mt-3 mb-6' />
                         <BlackButton className='mb-6 py-2 w-[152px] rounded-full bg-gradient-to-b to-[#FF8415] from-[#FFCA3F] mx-auto text-sm text-black leading-4 font-bold border-none'
                           onClick={() => popUp.open()}
                           text={'Download Now'} />

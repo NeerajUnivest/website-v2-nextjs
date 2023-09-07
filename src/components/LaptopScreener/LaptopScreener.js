@@ -51,7 +51,7 @@ export default function LaptopScreener({ data, name }) {
                             </p>
                         </div>
                         <div className='pb-3 flex flex-col items-center justify-center  font-Inter bg-[#FFFFFF1a] rounded-t-2xl'>
-                            <img src='https://univest-prod.s3.ap-south-1.amazonaws.com/Univest+Pro/screener_icons.png' alt="icon" className='w-full lg:w-2/3 object-contain mt-3 mb-6 lg:mt-6 lg:mb-10' />
+                            <img src='https://storage.googleapis.com/app-assets-univest/website-assets/screener_icons.png' alt="icon" className='w-full lg:w-2/3 object-contain mt-3 mb-6 lg:mt-6 lg:mb-10' />
                             <BlackButton className='py-3 mb-5 w-48 rounded-full bg-gradient-to-b to-[#FF8415] from-[#FFCA3F] mx-auto text-lg text-black leading-4 font-bold border-none'
                                 onClick={() => popUp.open()}
                                 text={'Download App'} />

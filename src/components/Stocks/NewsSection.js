@@ -88,17 +88,17 @@ export default function NewsSection() {
                         {
                             "id": 1,
                             "title": "Stocks",
-                            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/candlestick.png"
+                            "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/candlestick.png"
                         },
                         {
                             "id": 2,
                             "title": "Business",
-                            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/growth.png"
+                            "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/growth.png"
                         },
                         {
                             "id": 3,
                             "title": "IPOs",
-                            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/ipo.png"
+                            "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/ipo.png"
                         }
                     ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 </div>
@@ -107,12 +107,12 @@ export default function NewsSection() {
                         {
                             "id": 6,
                             "title": "Startups",
-                            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/start-up.png"
+                            "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/start-up.png"
                         },
                         {
                             "id": 7,
                             "title": "World",
-                            "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/worldwide.png"
+                            "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/worldwide.png"
                         }
                     ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 </div>
@@ -126,27 +126,27 @@ export default function NewsSection() {
                     {
                         "id": 1,
                         "title": "Stocks",
-                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/candlestick.png"
+                        "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/candlestick.png"
                     },
                     {
                         "id": 2,
                         "title": "Business",
-                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/growth.png"
+                        "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/growth.png"
                     },
                     {
                         "id": 3,
                         "title": "IPOs",
-                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/ipo.png"
+                        "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/ipo.png"
                     },
                     {
                         "id": 6,
                         "title": "Startups",
-                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/start-up.png"
+                        "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/start-up.png"
                     },
                     {
                         "id": 7,
                         "title": "World",
-                        "imageUrl": "https://univest-prod.s3.ap-south-1.amazonaws.com/convey-category-symbols/worldwide.png"
+                        "imageUrl": "https://storage.googleapis.com/app-assets-univest/website-assets/worldwide.png"
                     }
                 ]?.map(ele => <NewsCategoryChip key={ele.title} icon={ele.imageUrl} text={ele.title} />)}
                 <BlackButton onClick={() => popUp.open()} text='Read on app' className='lg:ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />

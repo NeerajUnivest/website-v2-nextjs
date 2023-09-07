@@ -41,7 +41,7 @@ export default function QuarterlyPortfolioSection() {
                     </div>)}
                 </div>
                 <div className='flex justify-center mb-1 pt-4'>
-                    <BlackButton onClick={() => window.open('https://univest.s3.ap-south-1.amazonaws.com/faq/1-merged.pdf', '_blank')} text='View sample report' className='px-8 lg:px-12 py-3 text-sm lg:text-xl font-extrabold' />
+                    <BlackButton onClick={() => window.open('https://storage.googleapis.com/app-assets-univest/website-assets/1-merged.pdf', '_blank')} text='View sample report' className='px-8 lg:px-12 py-3 text-sm lg:text-xl font-extrabold' />
                 </div>
             </div>
         </section>
