@@ -58,13 +58,13 @@ export default function IdeasSection({ isDark = false }) {
                         </div>
                         <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
                             <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#00439D]
-                            flex justify-center items-center rounded-full w-16 h-16 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
+                            flex justify-center items-center rounded-full w-16 h-16 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#00449d30] from-[#00449d91]">
                                 <span className="font-extrabold text-center text-[10px] lg:text-xl text-[#00439D]">Medium<br />term</span>
                             </div>
                         </div>
                         <div className="rounded-full border-[12px] lg:border-[20px] border-black  p-[3px] lg:p-[5px]">
                             <div className="border-4 lg:border-[6px] border-black ring-4 lg:ring-[6px] ring-[#005251]
-                            flex justify-center items-center rounded-full w-16 h-16 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#F0943640] from-[#F09436BF]">
+                            flex justify-center items-center rounded-full w-16 h-16 lg:w-[110px] lg:h-[110px] bg-white bg-gradient-to-l to-[#00525133] from-[#005251b5]">
                                 <span className="font-extrabold text-center text-[10px] lg:text-xl text-[#005251]">Long<br />term</span>
                             </div>
                         </div>

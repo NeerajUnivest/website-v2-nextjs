@@ -16,6 +16,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
+      'storage.googleapis.com',
       'univest-prod.s3.ap-south-1.amazonaws.com',
       'univest-staging.s3.ap-south-1.amazonaws.com',
       'public-assets-univest.s3.ap-south-1.amazonaws.com',

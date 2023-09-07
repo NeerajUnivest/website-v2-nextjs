@@ -13,17 +13,17 @@ import thumbnails3 from '../../assets/thumbnails/thumbnails3.png';
 const data = [
     {
         title: 'How Univest works?',
-        videoLink: 'https://public-assets-univest.s3.ap-south-1.amazonaws.com/app-videos/how-it-works-app.mp4',
+        videoLink: 'https://storage.googleapis.com/app-assets-univest/website-assets/how-it-works-app.mp4',
         thumbnail: thumbnails1
     },
     {
         title: 'Whats is Elite 12% Is it safe?',
-        videoLink: 'https://univest-prod.s3.ap-south-1.amazonaws.com/FC_Video.mp4',
+        videoLink: 'https://storage.googleapis.com/app-assets-univest/website-assets/FC_Video.mp4',
         thumbnail: thumbnails2
     },
     {
         title: 'Why connect portfolio with us?',
-        videoLink: 'https://univest.s3.ap-south-1.amazonaws.com/app/WhyPortfolioLinking.mp4',
+        videoLink: 'https://storage.googleapis.com/app-assets-univest/website-assets/WhyPortfolioLinking.mp4',
         thumbnail: thumbnails3
     }
 ]

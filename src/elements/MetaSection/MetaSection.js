@@ -7,7 +7,7 @@ export default function MetaSection({ title, desc, keyWords }) {
         "@type": "Organization",
         "url": "https://univest.in/",
         "name": "Univest",
-        "logo": "https://univest-prod.s3.ap-south-1.amazonaws.com/UnivestLogo.jpg",
+        "logo": "https://storage.googleapis.com/app-assets-univest/website-assets/UnivestLogo.jpg",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Gurugram, Haryana",

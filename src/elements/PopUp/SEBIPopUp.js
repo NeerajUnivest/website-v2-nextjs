@@ -34,7 +34,7 @@ const SEBIPopUp = () => {
                 </div>
                 <hr className="h-px my-4 bg-[#9D9D9D] border-0" />
                 <p className='text-xs md:text-base text-black font-medium'>
-                    Guided by SEBI RA Nitin Jain (INH000010399), and his research team together possesses over 100 years of investing experience with proficiency to interpret company financials and conduct advanced technical analysis. Through exhaustive research of fundamentals, technicals, and macroeconomic factors, they uncover investment prospects with substantial return potential across various time frames.
+                    Guided by SEBI Mr Ketan Sonalkar (INA000017639), and his research team together possesses over 100 years of investing experience with proficiency to interpret company financials and conduct advanced technical analysis. Through exhaustive research of fundamentals, technicals, and macroeconomic factors, they uncover investment prospects with substantial return potential across various time frames.
                 </p>
                 <p className='text-[10px] md:text-xs text-black mt-4'>
                     <b>Disclaimer:</b> Investment ideas suggested on the Univest app are only for informational/ educational purposes. Univest is acting only as a platform to list these ideas. Markets are subject to risk, investor discretion and diligence is advised.

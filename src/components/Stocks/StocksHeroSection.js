@@ -20,7 +20,7 @@ export default function StocksHeroSection({ homePage }) {
                         Stocks
                     </p>
                     <div className='mt-4 lg:mt-8 ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020] lg:whitespace-nowrap'>
-                        Invest with {homePage ? <br className="lg:hidden" /> : <br />} <span className="uni-wise-gradient font-black">82%+ Accurate</span>
+                        Invest with {homePage ? <br className="lg:hidden" /> : <br />} <span className="uni-wise-gradient font-black">Highly Accurate</span>
                     </div>
                     <div className='ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020]'>
                         Buy-Sell-Hold insights

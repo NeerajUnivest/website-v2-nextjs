@@ -25,7 +25,7 @@ export default function EliteHeroSection({ homePage }) {
                         alt='demo image'
                     />
                     <div className='mt-4 lg:mt-8 ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020] whitespace-nowrap'>
-                        Earn up to{homePage ? <br className="lg:hidden" /> : <br />}<span className="text-[#437587] font-black">12% p.a.</span> with Elite.
+                        Earn up to{homePage ? <br className="lg:hidden" /> : <br />} <span className="text-[#437587] font-black">12% p.a.</span> with Elite.
                     </div>
                     <div className='ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020]'>
                         Withdraw anytime

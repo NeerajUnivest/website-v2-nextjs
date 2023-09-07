@@ -31,13 +31,13 @@ export default function HeroSection({ start_at }) {
                 modules={[Pagination, Autoplay]}
             >
                 <SwiperSlide>
+                    <ProHeroSection homePage={true} start_at={start_at} />
+                </SwiperSlide>
+                <SwiperSlide>
                     <StocksHeroSection homePage={true} />
                 </SwiperSlide>
                 <SwiperSlide>
                     <EliteHeroSection homePage={true} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <ProHeroSection homePage={true} start_at={start_at} />
                 </SwiperSlide>
             </Swiper>
             <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>
