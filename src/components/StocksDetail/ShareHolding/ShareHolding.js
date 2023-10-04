@@ -18,7 +18,7 @@ import MFundCard from '../../../elements/HoldingsCards/MFundCard/MFundCard';
 
 const modalData = [
     {
-        heading: `Promoter - FII - ODI - Retails - MFs`,
+        heading: `Promoter - FII - ODI - Retails - DIIs`,
         details: `Apart from retail investors, a company’s shares are held by promoters, foreign & domestic institutions and mutual funds.`
     },
     {
@@ -116,7 +116,7 @@ function ShareHolding({ name }) {
                         'rounded-[19px] px-3 py-1 font-medium min-w-[120px]'}
                     onClick={() => handleSlide(4)}
                 >
-                    Mutual funds
+                    DII
                 </button>
             </div>
 

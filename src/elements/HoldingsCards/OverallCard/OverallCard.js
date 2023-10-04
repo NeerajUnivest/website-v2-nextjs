@@ -76,16 +76,15 @@ function OverallCard({ data, quarter }) {
                     y: data[n]?.promoters !== 0 && data[n]?.promoters
                 },
                 {
-                    name: 'Public',
-                    y: data[n]?.domesticInstitutions !== 0 && data[n]?.domesticInstitutions
-                }, {
                     name: 'FII',
                     y: data[n]?.foreignInstitutions !== 0 && data[n]?.foreignInstitutions
-                }, {
-                    name: 'MFs',
-                    y: data[n]?.mutualFunds !== 0 && data[n]?.mutualFunds
-                }, {
-                    name: 'Others',
+                },
+                {
+                    name: 'DII',
+                    y: (data[n]?.mutualFunds + data[n]?.domesticInstitutions) !== 0 && data[n]?.mutualFunds + data[n]?.domesticInstitutions
+                },
+                {
+                    name: 'Public',
                     y: (data[n]?.others + data[n]?.retail) !== 0 && data[n]?.others + data[n]?.retail
                 },]
             }]

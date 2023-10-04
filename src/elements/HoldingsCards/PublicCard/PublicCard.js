@@ -16,7 +16,7 @@ function PublicCard(props) {
         dataArray[0] && dataArray.forEach((element, i) => {
             if (i > 1) {
                 categories.push(element.quarter);
-                domesticIns.push(element.domesticInstitutions);
+                domesticIns.push(element?.others + element?.retail);
             }
         });
     }, [props])

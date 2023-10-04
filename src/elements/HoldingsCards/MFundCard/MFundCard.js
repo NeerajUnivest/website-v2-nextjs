@@ -16,7 +16,7 @@ function MFundCard(props) {
         dataArray[0] && dataArray.forEach((element, i) => {
             if (i > 1) {
                 categories.push(element.quarter);
-                mutualFunds.push(element.mutualFunds);
+                mutualFunds.push(element.mutualFunds + element.domesticInstitutions);
             }
         });
     }, [props])
@@ -118,7 +118,7 @@ function MFundCard(props) {
     return (
         <div className="mx-4 h-[301px] rounded-[12px] border-[1px] border-[#E5E5E5] font-Inter font-medium">
             <div className='text-[12px] leading-[18px] mx-3 my-2'>
-                <div className=''>Mutual funds</div>
+                <div className=''>DII</div>
             </div>
             <HighchartsReact
                 containerProps={{ style: { height: "228px", width: '100%' } }}

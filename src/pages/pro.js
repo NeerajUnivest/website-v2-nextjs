@@ -39,7 +39,7 @@ export default function Pro({ pageName, data }) {
 }
 
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
     const res = await axios.get(`${process.env.apiBaseURL}/resources/pro-membership/plans`)
 
     return {
