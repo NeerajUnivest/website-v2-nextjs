@@ -1,7 +1,7 @@
 import ScreenersList from '../../components/Screeners/ScreenersList';
 
 import screenerIcon from '../../assets/images/screenerIcon.webp';
-import premium from '../../assets/icn/premium.webp';
+import premium from '../../assets/icn/premium.png';
 import Image from 'next/image';
 import axios from 'axios';
 import MetaSection from '@/elements/MetaSection/MetaSection';
@@ -42,9 +42,9 @@ export default function Screeners({ data }) {
                         <div className='font-Inter font-bold text-[18px] leading-[24px] text-[#202020] lg:text-[32px] lg:leading-[40px]'>
                             Screener homepage
                         </div>
-                        <div className='font-normal text-[#414141] hidden lg:flex text-[20px] leading-[32px]'>
+                        <h1 className='font-normal text-[#414141] hidden lg:flex text-[20px] leading-[32px]'>
                             Top picks based on your preference. Powered by robust algorithms built by a highly experienced research team.
-                        </div>
+                        </h1>
                     </div>
                 </div>
                 <ScreenersList data={data} />

@@ -38,11 +38,11 @@ export default function ProHeroSection({ homePage, start_at }) {
                             <AiOutlineInfoCircle color='#FFF' className='text-[16px]  lg:text-[20px]' />
                         </div>
                         <div className="self-center">
-                            <p className="font-semibold text-base text-white"><CountUpBox end={4} decimals={1} /> Lac+</p>
+                            <p className="font-semibold text-base text-white"><CountUpBox end={5} decimals={1} /> Lac+</p>
                             <p className="font-medium text-xs text-white">Active users</p>
                         </div>
                         <div className="self-center">
-                            <p className="font-semibold text-base text-white"><CountUpBox start={1000} end={1200} duration={2} /> Cr+</p>
+                            <p className="font-semibold text-base text-white"><CountUpBox start={1000} end={2000} duration={2} /> Cr+</p>
                             <p className="font-medium text-xs text-white whitespace-nowrap">Worths portfolio connected</p>
                         </div>
                     </div>

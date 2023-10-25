@@ -28,15 +28,15 @@ const SEBIPopUp = () => {
                     <p className='text-xs md:text-base text-[#414141] font-medium'>
                         About<br />
                         <span className="text-base md:text-2xl font-semibold leading-8">Research team</span><br />
-                        100+ years experience
+                        {/* 100+ years experience */}
                     </p>
                     <Image src={sebi_new_logo} className='w-12 lg:w-20 ' alt="sebi" />
                 </div>
                 <hr className="h-px my-4 bg-[#9D9D9D] border-0" />
-                <p className='text-xs md:text-base text-black font-medium'>
-                    Guided by SEBI Mr Ketan Sonalkar (INA000017639), and his research team together possesses over 100 years of investing experience with proficiency to interpret company financials and conduct advanced technical analysis. Through exhaustive research of fundamentals, technicals, and macroeconomic factors, they uncover investment prospects with substantial return potential across various time frames.
+                <p className='text-xs md:text-base text-black font-medium text-justify'>
+                    Uniapps Global Research Pvt Ltd, a fully owned subsidiary of Univest, is a SEBI registered advisory firm (INA000017639). Led by Ketan Sonalkar, Uniapps has a highly experienced research team with decades of investing experience. Comprising Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa, they possess the proficiency to perform exhaustive research of fundamentals, technicals, and macroeconomic factors, they uncover investment prospects with substantial return potential across various timeframes.
                 </p>
-                <p className='text-[10px] md:text-xs text-black mt-4'>
+                <p className='text-[10px] md:text-xs text-black mt-4 text-justify'>
                     <b>Disclaimer:</b> Investment ideas suggested on the Univest app are only for informational/ educational purposes. Univest is acting only as a platform to list these ideas. Markets are subject to risk, investor discretion and diligence is advised.
                 </p>
 

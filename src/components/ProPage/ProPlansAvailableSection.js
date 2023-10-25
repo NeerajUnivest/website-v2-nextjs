@@ -25,6 +25,8 @@ const localData = [
     }
 ]
 
+const planName = ['2+1 Months (free)', '4+2 Months (free)', '6+6 Months (free)']
+
 export default function ProPlansAvailableSection({ data }) {
     return (
         <section className="font-Inter ">
@@ -33,7 +35,7 @@ export default function ProPlansAvailableSection({ data }) {
                     Available plans
                 </p>
                 <div className="flex gap-3 lg:gap-6 justify-between mt-6 lg:mt-14">
-                    {(data ?? localData)?.map(ele => <ProPlansCard key={ele.planId} data={ele} />)}
+                    {(data ?? localData)?.map((ele, i) => <ProPlansCard key={ele.planId} planName={planName[i]} data={ele} />)}
                 </div>
             </div>
             <div className='flex justify-center mt-6 lg:mt-12'>
@@ -45,11 +47,11 @@ export default function ProPlansAvailableSection({ data }) {
 
 
 
-export function ProPlansCard({ data }) {
+export function ProPlansCard({ data, planName }) {
     return (
         <div className="border rounded-xl overflow-hidden w-full font-Inter flex flex-col font-extrabold bg-white">
             <p className="bg-[#ECF6FE] py-1.5 lg:py-5 text-[10px] lg:text-3xl text-center">
-                {data.planName}
+                {planName}
             </p>
             <p className="mt-2.5 lg:mt-7 text-sm lg:text-4xl text-center">
                 ₹{data.discountedAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}<del className="text-[#606060] text-xs lg:text-3xl font-medium ml-1 lg:ml-2">₹{data.displayAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</del>

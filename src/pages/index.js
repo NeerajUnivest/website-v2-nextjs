@@ -49,7 +49,7 @@ export default function HomePage({ planData }) {
     <ProductSection />
     <WhyShouldSection homePage={true} />
     <IdeasSection />
-    <InThePressSection />
+    {/* <InThePressSection /> */}
     <UserFeedbacksSection />
     <EliteFAQSection data={data} />
   </>)

@@ -35,9 +35,9 @@ export default function WhyUnivestSection() {
                 <p className="text-center text-xl lg:text-5xl font-extrabold text-[#202020]">
                     Why Univest?
                 </p>
-                <p className="mx-4 lg:mx-8  mt-5 lg:mt-6 text-center text-sm lg:text-xl font-semibold text-[#747474]">
+                <h1 className="mx-4 lg:mx-8  mt-5 lg:mt-6 text-center text-sm lg:text-xl font-semibold text-[#747474]">
                     Your one-stop solution for all your investment needs. Maximise your ROIs with exiting bad investments on time and invest in trusted investment ideas and high return investment plans all from a single place
-                </p>
+                </h1>
                 <div className='flex flex-col-reverse lg:flex-col pt-11 lg:pt-12 gap-16'>
                     <div className="grid grid-cols-2 lg:grid-cols-4 grid-flow-row lg:grid-rows-1 gap-x-8 gap-y-14 mx-6 lg:mx-20">
                         <IconBox icon={portfolio_analysis} name='Free Portfolio<br/>analysis' />

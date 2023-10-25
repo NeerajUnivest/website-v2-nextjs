@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useRouter } from 'next/router';
+import { popUp as ComingSoonPopUp } from './PopUp/ComingSoonPopUp';
 
 
 export default function NavBar() {
@@ -31,9 +32,9 @@ export default function NavBar() {
                         </div>
                     </>}
                 <div className="hidden text-base font-semibold lg:flex flex-row items-center w-auto text-black">
-                    <Link href='/stocks' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/stocks' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
+                    <div onClick={() => ComingSoonPopUp.open()} className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/stocks' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
                         Stocks
-                    </Link>
+                    </div>
                     <Link href='/elite' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/elite' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
                         Elite
                     </Link>
@@ -55,10 +56,10 @@ export default function NavBar() {
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Home
                 </Link>
-                <Link href='/stocks' onClick={() => setIsOpen(false)}
+                <div onClick={() => { setIsOpen(false); ComingSoonPopUp.open() }}
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Stocks
-                </Link>
+                </div>
                 <Link href='/elite' onClick={() => setIsOpen(false)}
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Elite

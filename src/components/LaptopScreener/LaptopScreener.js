@@ -1,6 +1,6 @@
 import StockCard from './StockCard';
 import newSquare from '../../assets/icn/newSquare.webp';
-import premium from '../../assets/icn/premium.webp';
+import premium from '../../assets/icn/premium.png';
 import premiumLarge from '../../assets/icn/premiumLarge.webp';
 import Image from 'next/image'
 import proIcon from '../../assets/images/proIcon.png';

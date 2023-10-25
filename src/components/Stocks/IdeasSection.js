@@ -130,9 +130,9 @@ export default function IdeasSection({ isDark = false }) {
                     </div>
                 </div>
             </div>
-            <p className={`mt-8 text-center text-sm lg:text-lg font-medium ${isDark ? 'text-[#bcbcbc]' : 'text-[#414141]'}`}>
+            {/* <p className={`mt-8 text-center text-sm lg:text-lg font-medium ${isDark ? 'text-[#bcbcbc]' : 'text-[#414141]'}`}>
                 Backed up with 75+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar<br className="hidden lg:flex" /> along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa
-            </p>
+            </p> */}
 
 
             <style >{`

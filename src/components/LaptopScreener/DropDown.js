@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import newSquare from '../../assets/icn/newSquare.webp';
-import premium from '../../assets/icn/premium.webp';
+import premium from '../../assets/icn/premium.png';
 import arrowUp from '../../assets/icn/arrowUp.png'
 import arrowDown from '../../assets/icn/arrowDown.png'
 import arrowLeft from '../../assets/icn/arrowLeft.webp'

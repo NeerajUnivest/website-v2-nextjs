@@ -10,6 +10,7 @@ import { SiGmail } from 'react-icons/si';
 import { BsInstagram, BsTelegram, BsTwitter, BsYoutube } from 'react-icons/bs';
 import app_download_qr from '../assets/images/app_download_qr.png';
 import { popUp } from './PopUp/PopUp';
+import { popUp as ComingSoonPopUp } from './PopUp/ComingSoonPopUp';
 
 export default function Footer() {
     return (
@@ -131,9 +132,9 @@ export default function Footer() {
                                     </li>
 
                                     <li>
-                                        <Link href="/stocks" className="transition hover:opacity-75">
+                                        <div onClick={() => ComingSoonPopUp.open()} className="transition hover:opacity-75">
                                             Stock markets
-                                        </Link>
+                                        </div>
                                     </li>
 
                                     <li>

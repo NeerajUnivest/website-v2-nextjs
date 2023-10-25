@@ -9,6 +9,7 @@ import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { popUp } from "@/elements/PopUp/SEBIPopUp";
+import { popUp as ComingSoonPopUp } from "@/elements/PopUp/ComingSoonPopUp";
 
 export default function StocksHeroSection({ homePage }) {
     const router = useRouter();
@@ -38,24 +39,24 @@ export default function StocksHeroSection({ homePage }) {
                                 <AiOutlineInfoCircle color='#202020' className='text-[16px]  lg:text-[20px]' />
                             </div>
                             <div className="self-center">
-                                <p className="font-semibold text-base"><CountUpBox end={4} decimals={1} /> Lac+</p>
+                                <p className="font-semibold text-base"><CountUpBox end={5} decimals={1} /> Lac+</p>
                                 <p className="font-medium text-xs text-[#606060]">Active users</p>
                             </div>
                             <div className="self-center">
-                                <p className="font-semibold text-base"><CountUpBox start={1000} end={1200} duration={2} /> Cr+</p>
+                                <p className="font-semibold text-base"><CountUpBox start={1000} end={2000} duration={2} /> Cr+</p>
                                 <p className="font-medium text-xs text-[#606060] whitespace-nowrap">Worths portfolio connected</p>
                             </div>
                         </div>}
                     {homePage ?
-                        <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-24 lg:left-8' onClick={() => router.push('/stocks')} />
+                        <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-24 lg:left-8' onClick={() => ComingSoonPopUp.open()} />
                         : <HeroSearchBox />}
                 </div>
-                <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-6 lg:mt-4' : 'mt-6'}`}>
+                <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-14 lg:mt-4' : 'mt-6'}`}>
                     <div className='rounded-full absolute left-10 lg:left-3 top-[100px] bg-gradient-to-r from-[#62606022] to-[#0914328c] h-[300px] w-[300px] lg:h-[500px] lg:w-[500px] blur-3xl opacity-50' />
                     <Image
                         placeholder="blur"
-                        src={homePage ? heroHome : hero}
-                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[70%] mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
+                        src={hero}
+                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[60%] mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
                         alt='demo image'
                     />
                 </div>
