@@ -16,6 +16,7 @@ import background_circles from '../../assets/images/background_circles.png';
 import { useRouter } from 'next/router';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { popUp } from "@/elements/PopUp/SEBIPopUp";
+import { popUp as ComingSoonPopUp } from "@/elements/PopUp/ComingSoonPopUp";
 
 
 const brokerList = [
@@ -114,7 +115,7 @@ export default function ProductSection() {
                             </div>)}
                     </div>
                     <div className='flex justify-center'>
-                        <BlackButton text='Explore more' className='mb-10 lg:mb-0 lg:w-full mx-auto py-3 px-9 lg:px-24 text-base font-extrabold' onClick={() => router.push('/stocks')} />
+                        <BlackButton text='Explore more' className='mb-10 lg:mb-0 lg:w-full mx-auto py-3 px-9 lg:px-24 text-base font-extrabold' onClick={() => ComingSoonPopUp.open()} />
                     </div>
                 </div>
                 {transitions(style => (

@@ -33,9 +33,9 @@ export default function HeroSection({ start_at }) {
                 <SwiperSlide>
                     <ProHeroSection homePage={true} start_at={start_at} />
                 </SwiperSlide>
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <StocksHeroSection homePage={true} />
-                </SwiperSlide>
+                </SwiperSlide> */}
                 <SwiperSlide>
                     <EliteHeroSection homePage={true} />
                 </SwiperSlide>
