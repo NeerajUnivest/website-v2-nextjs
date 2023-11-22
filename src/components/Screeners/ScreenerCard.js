@@ -24,7 +24,7 @@ export default function ScreenerCard({ ele }) {
         //     </div>
         // </Link > */}
         <Link href={`screeners/${ele?.code}`}>
-            <div className={`font-Inter bg-white w-[120px] min-w-[120px] h-[132px] bg-[100%_100%] lg:w-[200px] lg:min-w-[200px] lg:h-[156px] rounded-[12px] md:rounded-[16px] p-3 lg:px-5 lg:py-4 relative overflow-hidden shadow-md z-[1] ${ele.premium ? 'tilesNonProBG' : 'tilesScreener'}`}
+            <div className={`font-Inter bg-white w-[120px] min-w-[120px] h-[132px] bg-[100%_100%] lg:w-[200px] lg:min-w-[200px] lg:h-[156px] rounded-[12px] md:rounded-[16px] p-3 lg:px-5 lg:py-4 relative overflow-hidden shadow-md z-[1] ${!ele.premium ? 'tilesNonProBG' : 'tilesScreener'}`}
             //  style={{ backgroundImage: `url(${ele.premium ? tilesProBG.src : tilesNonProBG.src})` }}
             >
                 {/* {ele.premium && <Image src={proIconScrenner} className='absolute top-0 right-0 w-14 lg:w-20 object-contain' alt='logo' />} */}

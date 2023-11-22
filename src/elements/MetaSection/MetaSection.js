@@ -94,8 +94,26 @@ export default function MetaSection({ title, desc, keyWords }) {
             <meta property="og:site_name" content="Univest" />
             <meta name="og:title" content={title ?? 'Stock Analysis, Invest in Stocks, Best Financial Tools, Invest in P2P, Investment ideas'} />
             <meta name="og:description" content={desc ?? "Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%"} />
+
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `(function(w,d,s,l,i){w[l] = w[l] || [];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TS8KFRM3');`,
+                }}
+            />
+
         </Head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-MNF9LHWE7N" />
+
+        <noscript
+            dangerouslySetInnerHTML={{
+                __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS8KFRM3" height="0" width="0" style="display: none; visibility: hidden;" />`,
+            }}
+        />
+
         <Script src="https://www.facebook.com/tr?id=428181756128634&ev=PageView&noscript=1" />
 
         <script
