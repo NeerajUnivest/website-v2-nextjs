@@ -46,12 +46,28 @@ function NewsCategoryChip({ text, onClick, icon }) {
     );
 }
 
+function IconTextBtn({ text, textClass, onClick, icon, iconClass }) {
+    return (
+        <motion.button
+            onTap={onClick}
+            className={`select-none flex items-center font-Inter border ${textClass ?? 'px-5  py-2 rounded-full text-[12px] lg:text-sm bg-white border-primary text-black font-semibold shadow'}`}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            <Image src={icon} className={iconClass ?? 'mr-2 h-[20px] w-[20px]'} width={20} height={20} alt='icon' />
+            {text}
+        </motion.button>
+    );
+}
+
 function IconBtn(props) {
     return (
         <motion.button
             className={props.className}
             onTap={() => setTimeout(() => props.onClick(), 150)}
-            whileTap={{ scale: 0.8 }}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
             {props.children}
@@ -94,6 +110,7 @@ export {
     ScreenerCategoryChip,
     IconBtn,
     BlackButton,
+    IconTextBtn,
     ResultButton,
     ExploreMore,
 };

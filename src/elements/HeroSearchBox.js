@@ -4,6 +4,7 @@ import { AiFillInfoCircle } from "react-icons/ai";
 import { BlackButton } from "./Button/Button";
 import { toast } from "./Toast/Toast";
 import axios from "axios";
+import { Mixpanel } from "./Mixpanel";
 
 export default function HeroSearchBox({ isDark = false }) {
     const [number, setNumber] = useState('')

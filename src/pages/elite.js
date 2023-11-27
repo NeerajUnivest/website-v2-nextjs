@@ -6,6 +6,7 @@ import EliteHeroSection from '@/components/Elite/EliteHeroSection'
 import HowItWork from '@/components/Elite/HowItWork'
 import PartneredWithSection from '@/components/Elite/PartneredWithSection'
 import WhyShouldSection from '@/components/Elite/WhyShouldSection'
+import LogIn from '@/elements/LogIn/LogIn'
 import MetaSection from '@/elements/MetaSection/MetaSection'
 import { Mixpanel } from '@/elements/Mixpanel'
 import { useEffect } from 'react'
@@ -42,14 +43,15 @@ export default function Elite() {
             title='Elite: Earn higher returns with Registered P2P lending '
             desc='Elite gives you the opportunity to get returns up to 12% through short-term investment in Registered NBFC P2P lending to people with the high credit score.'
             keyWords='High returns, Safe investments, Double returns than FD, Registered, P2P lending, Low risk investments, Trusted investments, Safe returns' />
-        <EliteHeroSection homePage={false} />
+        {/* <EliteHeroSection homePage={false} />*/}
         <AvailablePlansSection />
         <WhyShouldSection homePage={false} />
         <HowItWork />
-        <EarnExtraSection />
+        {/* <EarnExtraSection /> */}
         <AboutFaircent />
         <EliteFAQSection data={data} />
         <PartneredWithSection />
+        <LogIn />
     </>
     )
 }

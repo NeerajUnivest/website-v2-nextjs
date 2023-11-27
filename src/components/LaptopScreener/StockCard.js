@@ -1,7 +1,7 @@
 
 import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
-import { Config } from "@/elements/Config";
+import Actions from "@/elements/Actions";
 import Link from "next/link";
 import NseOrBsePrice from "@/elements/NseOrBsePrice/NseOrBsePrice";
 import { useState } from "react";
@@ -17,7 +17,7 @@ export default function StockCard({ data, ele, i, name }) {
 
     return <>
         <div className='flex flex-row justify-between items-center font-Inter font-semibold text-[14px] leading-[24px] text-[#414141]'>
-            <Link href={Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)} className='shadow-[1px_0px_2px_rgba(0,0,0,0.16)] px-1 py-2.5 mr-10 sticky left-5 bg-white flex flex-row min-w-[360px] max-w-[360px] cursor-pointer'>
+            <Link href={Actions.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)} className='shadow-[1px_0px_2px_rgba(0,0,0,0.16)] px-1 py-2.5 mr-10 sticky left-5 bg-white flex flex-row min-w-[360px] max-w-[360px] cursor-pointer'>
                 <div className='h-11 w-11 grid place-content-center'>
                     {ele.logoUrl === null || ele.logoUrl === '' ?
                         <div className='h-11 w-11 font-Inter font-extrabold text-[24px] text-[#606060] bg-[#ededed] text-center  rounded-full pt-2.5'>

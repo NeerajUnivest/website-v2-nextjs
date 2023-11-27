@@ -18,6 +18,8 @@ const customStyles = (isPhone) => ({
         borderRadius: !isPhone && '20px',
         borderTopLeftRadius: '20px',
         borderTopRightRadius: '20px',
+        borderBottomRightRadius: '0px',
+        borderBottomRightRadius: '0px',
     },
     overlay: {
         backgroundColor: '#20202099',

@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import axios from 'axios';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
-import { Config } from './Config';
+import Actions from './Actions';
 import useKeypress from 'react-use-keypress';
 import { useRouter } from 'next/router';
 
@@ -34,7 +34,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
         } else if (focus && e.key === 'Enter' && data?.[0]) {
             ref.current.blur()
             clearInput()
-            router.push(Config.toStockDetail(data?.[selected].nseSymbol ?? data?.[selected].bseSymbol, data?.[selected].compName))
+            router.push(Actions.toStockDetail(data?.[selected].nseSymbol ?? data?.[selected].bseSymbol, data?.[selected].compName))
         }
     });
 
@@ -67,7 +67,7 @@ export default function SearchBar({ forPhone, setShowSearchBar }) {
             {(focus || data?.[0]) &&
                 <div className="max-h-[400px] lg:max-h-[500px] pt-4 dataResult absolute z-[49] top-6 w-full rounded-b-[20px] overflow-y-auto no-scrollbar ">
                     {data?.[0] ?
-                        data?.map((ele, i) => <Link key={i} href={Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)}
+                        data?.map((ele, i) => <Link key={i} href={Actions.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)}
                             onClick={clearInput} className='bg-[#F5F5F5]'>
                             <div className={`h-12 rounded mx-4 ${i === selected ? 'bg-[#eaeaeaea]' : 'hover:bg-[#fafafafa]'}`} >
                                 <hr className='mx-1' />
