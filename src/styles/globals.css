@@ -129,6 +129,9 @@ code {
 .instabg {
   background: linear-gradient(315deg, #FBE18A 0.96%, #FCBB45 21.96%, #F75274 38.96%, #D53692 52.96%, #8F39CE 74.96%, #5B4FE9 100.96%)
 }
+.blackGradient {
+  background: linear-gradient(0deg, #141E30 -37.42%, #333 65.82%)
+}
 
 .uni-wise-gradient {
   background: -webkit-linear-gradient(-80deg, #4158D0 1%, #C850C0 90%);

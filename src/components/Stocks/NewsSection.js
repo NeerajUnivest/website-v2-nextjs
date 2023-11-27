@@ -11,7 +11,7 @@ import conveyLogo from '../../assets/images/conveyLogo.png'
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { popUp } from "@/elements/PopUp/PopUp";
-import { Config } from "@/elements/Config";
+import Actions from "@/elements/Actions";
 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -57,7 +57,7 @@ export default function NewsSection() {
                                         <div className="flex items-center ">
                                             {ele.companies?.slice(0, 2).map((e, i) =>
                                                 <div key={i} className='flex items-center font-Inter border-r border-[#EDEDED] pr-1 mr-1 cursor-pointer'
-                                                    onClick={() => router.push(Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName))}>
+                                                    onClick={() => router.push(Actions.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName))}>
                                                     <span className="text-[10px] font-medium text-[#606060] mr-1.5">{e.nseSymbol ?? e.bseSymbol}</span>
                                                     <TbTriangleFilled size={8} color={e.stockStatus === 'DOWN' ? '#EB4E2C' : '#26A649'} />
                                                     <span className={`text-[10px] ml-1 ${e.stockStatus === 'DOWN' ? 'text-[#EB4E2C]' : 'text-[#26A649]'}`}>{e.todaysChange?.toFixed(2)}</span>

@@ -1,7 +1,7 @@
 import forEmpty from '../../assets/images/forEmpty.webp'
 import viewChat from "../../assets/icn/viewChat.webp";
 import Image from 'next/image'
-import { Config } from '@/elements/Config';
+import Actions from '@/elements/Actions';
 import Link from 'next/link';
 import { useSubscription } from 'react-stomp-hooks';
 import { useState } from 'react';
@@ -17,7 +17,7 @@ export default function StockCard({ ele, data, name }) {
     return (
         <div className='px-4'>
             <div className='flex flex-row justify-between items-center font-Inter '>
-                <Link href={Config.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)} className='flex flex-row cursor-pointer'>
+                <Link href={Actions.toStockDetail(ele.nseSymbol ?? ele.bseSymbol, ele.compName)} className='flex flex-row cursor-pointer'>
                     <div className='h-10 w-10 grid place-content-center mr-3'>
                         {ele.logoUrl === null || ele.logoUrl === '' ?
                             <div className='h-10 w-10 font-Inter font-extrabold text-[22px] text-[#606060] bg-[#ededed] text-center py-1 rounded-full'>
