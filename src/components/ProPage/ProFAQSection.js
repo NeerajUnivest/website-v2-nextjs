@@ -32,7 +32,7 @@ export default function ProFAQSection() {
     const router = useRouter()
 
     return (
-        <section className='py-12 font-Inter'>
+        <section className='py-12 font-Inter bg-neutral-800'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
                 <p className='text-center text-xl lg:text-3xl font-extrabold text-white'>
                     FAQs

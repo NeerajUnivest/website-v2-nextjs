@@ -250,9 +250,9 @@ export default function Footer() {
                 <p className="text-xs ">
                     &copy; 2023 Univest. All rights reserved.  |  Made with ❤️ in India
                 </p>
-                <p className="text-[10px] lg:text-xs leading-5">
+                {/* <p className="text-[10px] lg:text-xs leading-5">
                     Disclaimer: Above are the only official social handles of our Company. Any communication or business transaction other than the above shared official handles by any user/customer shall not be the Company’s responsibility. User/customer(s) caution is advisable.
-                </p>
+                </p> */}
             </div>
         </footer>
     )

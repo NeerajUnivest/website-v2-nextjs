@@ -17,20 +17,20 @@ const data = [
 
 export default function QuarterlyPortfolioSection() {
     return (
-        <section className="font-Inter " id='QuarterlyPortfolio'>
-            <div className='max-w-screen-xl pt-24 mx-auto px-4 lg:px-8 overflow-hidden'>
+        <section className="font-Inter bg-gradient-to-b from-[#202020] to-[#202020] " id='QuarterlyPortfolio'>
+            <div className='max-w-screen-xl pt-5 mx-auto px-4 lg:px-8 overflow-hidden'>
                 <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
                     <p className={`text-center text-xl lg:text-3xl font-extrabold text-white `}>
                         Quarterly Portfolio Review
                     </p>
                     <div className="flex col-span-3 items-center mt-3 lg:mt-0" onClick={() => popUp.open()}>
-                        <Image
+                        {/* <Image
                             placeholder="empty"
                             src={sebi_new_logo_white}
                             className='object-contain w-[40px] lg:w-[64px]'
                             alt='demo image'
-                        />
-                        <p className={`font-semibold text-base lg:text-2xl mx-2 text-white`}>Registered</p>
+                        /> */}
+                        <p className={`font-semibold text-base lg:text-2xl mx-2 text-white`}>By SEBI RIA’s team INA000017639</p>
                         <AiOutlineInfoCircle color='#FFF' className='text-[16px]  lg:text-[20px]' />
                     </div>
                 </div>
@@ -40,9 +40,9 @@ export default function QuarterlyPortfolioSection() {
                         <p className='mt-5 font-semibold text-xs lg:text-xl text-white'>{ele.name}</p>
                     </div>)}
                 </div>
-                <div className='flex justify-center mb-1 pt-4'>
+                {/* <div className='flex justify-center mb-1 pt-4'>
                     <BlackButton onClick={() => window.open('https://storage.googleapis.com/app-assets-univest/website-assets/1-merged.pdf', '_blank')} text='View sample report' className='px-8 lg:px-12 py-3 text-sm lg:text-xl font-extrabold' />
-                </div>
+                </div> */}
             </div>
         </section>
     )
