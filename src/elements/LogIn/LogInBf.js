@@ -36,8 +36,14 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp }) {
             'referralCode': null,
             'logoutAllDevices': false
         }).then(res => {
-            Actions.setCookie(auth_token, res.data?.data?.authToken, 1)
-        }).catch(e => setError(true))
+            if (res.data?.data?.authToken) {
+                setModal(false)
+                console.log(res.data?.data?.authToken);
+                Actions.setCookie("auth_token", res.data?.data?.authToken, 1)
+            } else {
+                setError(true)
+            }
+        }).catch(e => { setError(true) })
             .finally(f => setDtnClicked(false))
     }
 

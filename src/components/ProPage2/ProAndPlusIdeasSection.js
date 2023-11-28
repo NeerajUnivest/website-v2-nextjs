@@ -7,95 +7,15 @@ import useSWR from 'swr'
 import { Autoplay } from "swiper";
 import { FaClock } from "react-icons/fa";
 import onlyProPlusIcon from "../../assets/Images/only_with_pro_plus.png"
+import axiosInterceptorInstance from "@/elements/axiosInterceptorInstance";
+import { useEffect, useState } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
-const datas = {
-    "configs": [
-        {
-            "term": "SHORT",
-            "text": "Short\nterm ideas",
-            "count": 27,
-            "image": "https://storage.googleapis.com/production-univest/public_assets/short_term_ideas_smallpng.png",
-            "largeImage": "https://storage.googleapis.com/app-assets-univest/Pro_plus_assets/idea_short.png",
-            "textColor": "#98520B",
-            "avgReturn": 4.93893849106064,
-            "avgDuration": 22,
-            "tradeSymbols": "ITC | ITC & 25 more",
-            "newStocksCount": 0,
-            "closedStocksCount": 175
-        },
-        {
-            "term": "MEDIUM",
-            "text": "Medium\nterm ideas",
-            "count": 12,
-            "image": "https://storage.googleapis.com/production-univest/public_assets/medium_term_ideas_small.png",
-            "largeImage": "https://storage.googleapis.com/app-assets-univest/Pro_plus_assets/idea_medium.png",
-            "textColor": "#00439D",
-            "avgReturn": 10.810201701785887,
-            "avgDuration": 103,
-            "tradeSymbols": "NAM-INDIA | NBCC & 10 more",
-            "newStocksCount": 1,
-            "closedStocksCount": 36
-        },
-        {
-            "term": "LONG",
-            "text": "Long\nterm ideas",
-            "count": 12,
-            "image": "https://storage.googleapis.com/production-univest/public_assets/long_term_ideas_small.png",
-            "largeImage": "https://storage.googleapis.com/app-assets-univest/Pro_plus_assets/idea_long.png",
-            "textColor": "#005251",
-            "avgReturn": 27.812774935357925,
-            "avgDuration": 214,
-            "tradeSymbols": "BHEL | CANBK & 10 more",
-            "newStocksCount": 0,
-            "closedStocksCount": 6
-        },
-        {
-            "term": "FUTURES",
-            "text": "Future\nideas",
-            "count": 4,
-            "image": "https://storage.googleapis.com/app-assets-univest/Pro_plus_assets/idea_futures.png",
-            "largeImage": "https://storage.googleapis.com/app-assets-univest/Pro_plus_assets/idea_futures.png",
-            "textColor": "#84026F",
-            "avgReturn": -7275.678260869553,
-            "avgDuration": 4,
-            "tradeSymbols": "HAL23DECFUT | LALPATHLAB23NOVFUT & 2 more",
-            "newStocksCount": 0,
-            "closedStocksCount": 23
-        }
-    ],
-    "note": "Returns are an average of closed trades",
-    "pastPerformanceBtnText": "Past performance",
-    "knowMoreBtnText": "Know more",
-    "researchTeam": {
-        "header": "Know our research team",
-        "about": "About",
-        "subHeader": "Research team",
-        "experience": "75+ years of experience",
-        "sebiLogo": "https://storage.googleapis.com/production-univest/public_assets/sebi_logo.png",
-        "riaNumber": "INA000017639",
-        "imageUrls": [
-            {
-                "name": "Ketan Sonalkar",
-                "imageUrl": "https://storage.googleapis.com/production-univest/public_assets/researcher_1.png"
-            },
-            {
-                "name": "Yashpal Arora",
-                "imageUrl": "https://storage.googleapis.com/production-univest/public_assets/researcher_2.png"
-            },
-            {
-                "name": "Sagar Wadhwa",
-                "imageUrl": "https://storage.googleapis.com/production-univest/public_assets/researcher_3.png"
-            }
-        ],
-        "shortDescription": "Univest's fully-owned subsidiary, Uniapps Global Research Pvt. Ltd, is a SEBI registered advisory firm ...",
-        "longDescription": "Uniapps Global Research Pvt Ltd, a fully owned subsidiary of Univest, is a SEBI registered advisory firm (INA000017639). Led by Ketan Sonalkar, Uniapp’s research team boasts 75+ years of investing experience. Comprising Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa, they possess the proficiency to perform exhaustive research of fundamentals, technicals, and macroeconomic factors, they uncover investment prospects with substantial return potential across various timeframes.",
-        "disclaimer": "Investment ideas suggested on the Univest app are only for informational/ educational purposes, and should not be construed as investment advice. Markets are subject to risk, investor discretion and diligence is advised."
-    }
-}
-
 export default function ProAndPlusIdeasSection({ isDark = false }) {
+
+    const [datas, setData] = useState({})
+
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
     const GetDays = (startDate) => {
         const timeEnd = moment(Date.now());
@@ -103,6 +23,11 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
         const diffDuration = moment.duration(diff)
         return diffDuration.days();
     }
+    useEffect(() => {
+        axiosInterceptorInstance.get(`/resources/trade-cards/trade-cards-summary-v2`)
+            .then(res => setData(res?.data))
+    }, [])
+
 
     return (
         <section id="Ideas" className={`  flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
@@ -205,11 +130,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
             </div>
 
             <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 ">
-                {datas.configs?.map(ele => <IdeasTermCard data={ele} />)}
-
-                {/* <IdeasTermCard data={{ name: 'Short', count: 12 }} />
-                <IdeasTermCard data={{ name: 'Medium', count: 3 }} />
-                <IdeasTermCard data={{ name: 'Long', count: 4, isNew: true }} /> */}
+                {datas.configs?.map(ele => <IdeasTermCard key={ele.term} data={ele} />)}
             </div>
 
         </section>
@@ -220,7 +141,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 export function IdeasTermCard({ data }) {
     return (
         <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" relative  rounded-xl  m-auto py-4 bg-cover">
-            <div className={` ${data?.count > 0 ? '' : 'hidden'} absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] inline-flex justify-center items-center gap-0.5 px-2 py-0.5 rounded-[0px_8px_0px_4px] whitespace-nowrap `}> <p className="text-white text-[11px] font-medium">{data?.count} New ideas</p> </div>
+            <div className={` ${data?.newStocksCount > 0 ? '' : 'hidden'} absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] inline-flex justify-center items-center gap-0.5 px-2 py-0.5 rounded-[0px_8px_0px_4px] whitespace-nowrap `}> <p className="text-white text-[11px] font-medium">{data?.newStocksCount} New ideas</p> </div>
             <Image className={` ${data?.term === 'FUTURES' ? '' : 'hidden'} w-12 absolute right-[-2px] top-9 `} src={onlyProPlusIcon} alt='demo image' />
             <div className=" mx-3 mt-2 flex flex-col gap-2">
                 <div>

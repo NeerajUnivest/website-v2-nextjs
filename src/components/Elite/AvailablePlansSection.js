@@ -41,8 +41,8 @@ const cardData = [
 ]
 export default function AvailablePlansSection() {
     return (
-        <section className="font-Inter relative mt-[-80px] ">
-            <div className='max-w-screen-xl py-3 mx-auto no-scrollbar flex overflow-x-auto gap-4 '>
+        <section className="font-Inter relative mt-[-80px]">
+            <div className='max-w-screen-xl py-3 mx-auto no-scrollbar flex overflow-x-auto gap-4 px-4'>
                 {cardData.map(ele => <AvailablePlansCard key={ele.id} data={ele} />)}
             </div>
             <div className="mx-4">

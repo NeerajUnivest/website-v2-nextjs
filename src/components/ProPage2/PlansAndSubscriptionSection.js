@@ -15,60 +15,17 @@ import ketan_sonalkar from '@/assets/images/ketan_sonalkar.png';
 import sagar_wadhwa from '@/assets/images/sagar_wadhwa.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from "swiper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useGetAxios } from "@/hooks/useGetAxios";
 
-const proPlansData = [
-    {
-        "planId": "plan3",
-        "planName": "3 months",
-        "displayAmount": 3999.0,
-        "discountedAmount": 2499,
-        "renewalPrice": 999,
-    },
-    {
-        "planId": "plan2",
-        "planName": "6 months",
-        "displayAmount": 5999,
-        "discountedAmount": 4499,
-        "renewalPrice": 1599,
-    },
-    {
-        "planId": "plan1",
-        "planName": "12 months",
-        "displayAmount": 10599,
-        "discountedAmount": 7399,
-        "renewalPrice": 2399,
-    }
-]
 
-const proPlusPlansData = [
-    {
-        "planId": "plan3",
-        "planName": "3 months",
-        "displayAmount": 3999.0,
-        "discountedAmount": 2499,
-        "renewalPrice": 999,
-    },
-    {
-        "planId": "plan2",
-        "planName": "6 months",
-        "displayAmount": 5999,
-        "discountedAmount": 4499,
-        "renewalPrice": 1599,
-    },
-    {
-        "planId": "plan1",
-        "planName": "12 months",
-        "displayAmount": 10599,
-        "discountedAmount": 7399,
-        "renewalPrice": 2399,
-    }
-]
-
-const planName = ['2+1 Months (free)', '4+2 Months (free)', '6+6 Months (free)']
-
-export default function PlandAndSubscriptionSection({ data, isDark = false }) {
+export default function PlandAndSubscriptionSection({ isDark = false }) {
     const [swiper, setSwiper] = useState(null);
+    const { fetchData, data } = useGetAxios('')
+
+    useEffect(() => {
+        fetchData(`/resources/pro-membership/plans`)
+    }, [])
     return (
         <>
             <section className={` flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
@@ -171,7 +128,7 @@ export default function PlandAndSubscriptionSection({ data, isDark = false }) {
 
                         <div className='max-w-screen-xl mx-auto px-4 lg:px-8 overflow-hidden'>
                             <div className="flex gap-3 lg:gap-6 justify-between mt-6 lg:mt-14">
-                                {(data ?? proPlansData)?.map((ele, i) => <PlansCard key={ele.planId} planName={ele.planName} data={ele} />)}
+                                {data?.pro_plans_list?.map((ele, i) => <PlansCard key={ele.planId} planName={ele.planName} data={ele} />)}
                             </div>
                         </div>
                     </div>
@@ -191,7 +148,7 @@ export default function PlandAndSubscriptionSection({ data, isDark = false }) {
 
                         <div className='max-w-screen-xl mx-auto px-4 lg:px-8 overflow-hidden'>
                             <div className="flex gap-3 lg:gap-6 justify-between mt-6 lg:mt-14">
-                                {(data ?? proPlusPlansData)?.map((ele, i) => <PlansCard isPlus={true} key={ele.planId} planName={ele.planName} data={ele} />)}
+                                {data?.pro_plus_plans_list?.map((ele, i) => <PlansCard isPlus={true} key={ele.planId} planName={ele.planName} data={ele} />)}
                             </div>
                         </div>
                     </div>
