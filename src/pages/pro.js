@@ -17,6 +17,7 @@ import ClosedIdeasSection from '@/components/ProPage2/ClosedIdeasSection'
 import LiveIdeasSection from '@/components/ProPage2/LiveIdeasSection'
 import PlandAndSubscriptionSection from '@/components/ProPage2/PlansAndSubscriptionSection'
 import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
+import LogIn from '@/elements/LogIn/LogIn'
 
 export default function Pro({ pageName, data }) {
     useEffect(() => {
@@ -44,6 +45,7 @@ export default function Pro({ pageName, data }) {
         {/* <ProPlansAvailableSection data={data?.list} /> */}
         <UserFeedbacksSection isDark={true} />
         <ProFAQSection />
+        <LogIn />
     </>)
 }
 

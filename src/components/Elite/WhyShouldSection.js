@@ -90,13 +90,13 @@ export default function WhyShouldSection({ homePage }) {
                         </div>
                     </div>
                 </div>}
-                {inView ?
+                {/* {inView ?
                     <Image
                         placeholder="empty"
                         src={elite_banner}
                         className='w-[calc(100vw-32px)] lg:max-w-3xl object-contain rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto'
                         alt='demo image'
-                    /> : <div className='w-[calc(100%-32px)] aspect-[6/1] rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto bg-white animate-pulse' />}
+                    /> : <div className='w-[calc(100%-32px)] aspect-[6/1] rounded-xl lg:rounded-[32px] mb-7 lg:mb-24 mx-auto bg-white animate-pulse' />} */}
                 <p className='ml-4 lg:ml-0 mb-3 lg:mb-6 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
                     Why should I invest?
                 </p>

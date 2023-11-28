@@ -6,7 +6,10 @@ import EliteHeroSection from '@/components/Elite/EliteHeroSection'
 import HowItWork from '@/components/Elite/HowItWork'
 import PartneredWithSection from '@/components/Elite/PartneredWithSection'
 import WhyShouldSection from '@/components/Elite/WhyShouldSection'
+import CallBackSection from '@/components/ElitePage2/CallBackSection'
 import EliteHeroSectionNew from '@/components/ElitePage2/EliteHeroSectionNew'
+import InvestCalcSection from '@/components/ElitePage2/InvestCalcSection'
+import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
 import LogIn from '@/elements/LogIn/LogIn'
 import MetaSection from '@/elements/MetaSection/MetaSection'
 import { Mixpanel } from '@/elements/Mixpanel'
@@ -46,10 +49,12 @@ export default function Elite() {
             keyWords='High returns, Safe investments, Double returns than FD, Registered, P2P lending, Low risk investments, Trusted investments, Safe returns' />
         <EliteHeroSectionNew homePage={false} />
         <AvailablePlansSection />
+        <CallBackSection />
+        <InvestCalcSection />
         <WhyShouldSection homePage={false} />
         <HowItWork />
         {/* <EarnExtraSection /> */}
-        <AboutFaircent />
+        <DownloadAppSection />
         <EliteFAQSection data={data} />
         <PartneredWithSection />
         <LogIn />

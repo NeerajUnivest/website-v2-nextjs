@@ -5,6 +5,7 @@ import a from '../../assets/icons/plans/1.png';
 import b from '../../assets/icons/plans/2.png';
 import c from '../../assets/icons/plans/3.png';
 import d from '../../assets/icons/plans/4.png';
+import giftIcon from 'src/assets/icons/giftBox_icon.png'
 import recommend_tag from '../../assets/images/elite/recommend_tag.png';
 import { popUp } from "@/elements/PopUp/PopUp";
 
@@ -40,11 +41,13 @@ const cardData = [
 ]
 export default function AvailablePlansSection() {
     return (
-        <section className="font-Inter relative bg-[#FFFFFF] px-4">
-            <div className='max-w-screen-xl py-3 mx-auto no-scrollbar flex overflow-x-auto gap-4'>
+        <section className="font-Inter relative mt-[-80px] ">
+            <div className='max-w-screen-xl py-3 mx-auto no-scrollbar flex overflow-x-auto gap-4 '>
                 {cardData.map(ele => <AvailablePlansCard key={ele.id} data={ele} />)}
             </div>
-            <IconTextBtn icon={a} textClass='rounded-md text-xs text-white font-semibold blackGradient py-1 w-full justify-center' iconClass='h-4 w-4 mr-2' text='Instant cashbacks on each investment' />
+            <div className="mx-4">
+                <IconTextBtn icon={giftIcon} textClass='rounded-md text-xs text-white font-semibold blackGradient py-2 w-full justify-center' iconClass='h-4 w-4 mr-2' text='Instant cashbacks on each investment' />
+            </div>
         </section>
     )
 }
