@@ -5,17 +5,20 @@ import useSWR from 'swr'
 import { FaClock } from "react-icons/fa";
 import { CiBookmark } from "react-icons/ci";
 import { FcLock } from "react-icons/fc";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useGetAxios } from "@/hooks/useGetAxios";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function LiveIdeasSection({ isDark = false }) {
-    const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
+    const { fetchData, data, loading } = useGetAxios('')
     const GetDays = (startDate) => {
         const timeEnd = moment(Date.now());
         const diff = timeEnd.diff(startDate);
         const diffDuration = moment.duration(diff)
         return diffDuration.days();
     }
+    useEffect(() => {
+        fetchData(`resources/users/trade-cards-web`)
+    }, [])
 
     const [swiper, setSwiper] = useState(null);
     const [active, setActive] = useState(0);
@@ -32,7 +35,7 @@ export default function LiveIdeasSection({ isDark = false }) {
                     </div>
                 </div>
                 <div className="">
-                    {isLoading ?
+                    {loading ?
                         <div className=" flex">
                             {[1, 2, 3, 4, 5,].map(ele =>
                                 <div key={ele} className="overflow-hidden m-4 h-[164px] min-w-[144px] bg-white rounded-lg" />

@@ -144,10 +144,8 @@ export function IdeasTermCard({ data }) {
             <div className={` ${data?.newStocksCount > 0 ? '' : 'hidden'} absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] inline-flex justify-center items-center gap-0.5 px-2 py-0.5 rounded-[0px_8px_0px_4px] whitespace-nowrap `}> <p className="text-white text-[11px] font-medium">{data?.newStocksCount} New ideas</p> </div>
             <Image className={` ${data?.term === 'FUTURES' ? '' : 'hidden'} w-12 absolute right-[-2px] top-9 `} src={onlyProPlusIcon} alt='demo image' />
             <div className=" mx-3 mt-2 flex flex-col gap-2">
-                <div>
-                    <p className={`text-xl not-italic font-extrabold leading-8`}>{data?.term}</p>
-                    <p className={`text-xl not-italic font-extrabold leading-8`}>{data?.term !== 'FUTURES' ? 'term' : ''} ideas</p>
-                </div>
+                <p className={`text-xl not-italic font-extrabold leading-8`} dangerouslySetInnerHTML={{ __html: data?.text?.replace('\n', '<br/>') }}></p>
+
                 <div className=" flex w-[132px] flex-col justify-center items-start gap-1 px-2 py-1.5 rounded-lg bg-[#FFFFFF66] ">
                     <p className={`text-[10px] not-italic font-semibold leading-4`}>Avg. return</p>
                     <div>

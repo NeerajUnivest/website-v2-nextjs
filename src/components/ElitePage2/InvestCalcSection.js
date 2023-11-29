@@ -1,17 +1,46 @@
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 // Using an ES6 transpiler like Babel
 import Slider from 'react-rangeslider'
 
 // To include the default styles
 import 'react-rangeslider/lib/index.css'
 
-import { HighchartsReact } from 'highcharts-react-official'
 import HighChartTest from './HighChartTest'
 import Image from 'next/image'
-import usersIcon from 'src/assets/icons/users_icon.png'
+import usersIcon from '@/assets/icons/users_icon.png'
+import loanBf from '@/assets/loanBf.png'
+import ReactModal from "react-modal"
+import { isMobile } from 'react-device-detect';
+import { AiFillInfoCircle } from 'react-icons/ai'
+import { IconBtn } from '@/elements/Button/Button'
+import axiosInterceptorInstance from '@/elements/axiosInterceptorInstance'
 
 
+const customStyles = {
+    content: {
+        top: 'auto',
+        left: isMobile ? '0' : '50%',
+        right: isMobile ? '0' : 'auto',
+        bottom: isMobile ? '0' : '50%',
+        transform: isMobile ? '' : 'translate(-50%, 50%)',
+        width: isMobile ? '100%' : '780px',
+        height: isMobile ? 'auto' : '404px',
+        backgroundColor: '#fff',
+        borderRadius: isMobile ? '12px 12px 1px 1px' : '20px',
+        borderColor: 'transparent',
+        background: `url(${loanBf.src})`,
+        backgroundSize: '80px 80px',
+        backgroundPosition: 'top right',
+        backgroundColor: '#F9FAFF',
+        backgroundRepeat: 'no-repeat'
+    },
+    overlay: {
+        backdropFilter: "blur(2px)",
+        backgroundColor: '#20202099',
+        zIndex: 20
+    }
+}
 
 
 const periodLabels = {
@@ -42,6 +71,7 @@ const CI = (amount, rate, period) => amount * Math.pow(1 + (rate / 100), (format
 
 export default function InvestCalcSection() {
     const [value, setValue] = useState({ amount: 3, period: 1, rate: 6.5 })
+    const [modal, setModal] = useState(false)
 
     return (
         <>
@@ -114,7 +144,122 @@ export default function InvestCalcSection() {
                     </div>
                 </div>
             </section>
-            <p className='text-[color:var(--primary-800,#0862BC)] text-center text-base not-italic font-bold leading-7 mt-4'><span className='text-black'>Looking for a loan?</span>  Click here</p>
+            <p className='text-black text-center text-base not-italic font-bold leading-7 mt-4'>
+                Looking for a loan?
+                <span className='text-primary ml-1' onClick={() => setModal(true)}> Click here</span>
+            </p>
+            <ReactModal
+                isOpen={modal}
+                ariaHideApp={false}
+                shouldFocusAfterRender={false}
+                onRequestClose={() => setModal(false)}
+                style={customStyles}
+            >
+                <Suspense fallback={<div className='bg-white h-64' />}>
+                    <LoanBf />
+                </Suspense>
+            </ReactModal>
+        </>
+    )
+}
+
+
+export function LoanBf() {
+    const [data, setData] = useState({
+        name: '',
+        contactNumber: '',
+        reason: 'Home',
+        loanAmount: '> 10 lacs'
+    })
+    const [error, setError] = useState({
+        name: false,
+        contactNumber: false,
+    })
+
+
+    const handleSubmit = () => {
+        if (data.name?.length > 3) {
+            if (data.contactNumber?.length === 10) {
+                axiosInterceptorInstance.post(`/resources/users/interested-in-loans`, data)
+                    .then(res => console.log(res.data))
+            } else {
+                setError(pre => ({ ...pre, contactNumber: '10 digit' }))
+            }
+        } else {
+            setError(pre => ({ ...pre, name: '3 se jada' }))
+        }
+    }
+
+
+    return (
+        <>
+            <span className=" text-base font-semibold text-black">
+                Fill in details to get in touch
+            </span>
+            <div className="font-Inter block mt-6 relative">
+                <span className="absolute -top-1 left-3 px-1 block text-[10px] leading-[10px] font-semibold text-[#202020] bg-white">
+                    Enter your Name</span>
+                <input type="text" className={`border px-4 h-11 py-2 w-full rounded-md text-[14px] font-medium text-[#414141] ${error.name ? 'border-[#EB4E2C]' : 'focus:border-[#00439D]'}`} value={data?.name}
+                    pattern="[a-z]*"
+                    onChange={(e) => {
+                        setError(pre => ({ ...pre, name: false }))
+                        setData(pre => ({ ...pre, name: e.target.value }))
+                    }} />
+                {error.name &&
+                    <div className='flex items-center ml-1 mt-1 '>
+                        <AiFillInfoCircle color='#EB4E2C' className='text-[12px] mr-1' />
+                        <div className={`text-[10px] ${error.name ? 'text-[#EB4E2C]' : 'text-[#747474]'}`}>
+                            {error.name}
+                        </div>
+                    </div>}
+            </div>
+            <div className="font-Inter block mt-6 relative">
+                <span className="absolute -top-1 left-3 px-1 block text-[10px] leading-[10px] font-semibold text-[#202020] bg-white">
+                    Enter mobile no.</span>
+                <input type="text" className={`border px-4 h-11 py-2 w-full rounded-md text-[14px] font-medium text-[#414141] ${error.contactNumber ? 'border-[#EB4E2C]' : 'focus:border-[#00439D]'}`} value={data?.contactNumber}
+                    pattern="[0-9]*" inputMode='numeric'
+                    onChange={(e) => {
+                        setError(pre => ({ ...pre, contactNumber: false }))
+                        setData(pre => ({ ...pre, contactNumber: e.target.value }))
+                    }} />
+                {error.contactNumber &&
+                    <div className='flex items-center ml-1 mt-1 '>
+                        <AiFillInfoCircle color='#EB4E2C' className='text-[12px] mr-1' />
+                        <div className={`text-[10px] ${error.contactNumber ? 'text-[#EB4E2C]' : 'text-[#747474]'}`}>
+                            {error.contactNumber}
+                        </div>
+                    </div>}
+            </div>
+
+            <span className="mt-5 px-1 block text-[12px] leading-[20px] font-medium text-[#202020]">
+                Select a reason
+            </span>
+            <div className='flex mt-2 gap-3'>
+                {['Home', 'Car/Bike', 'Education', 'Other'].map(ele =>
+                    <IconBtn key={ele}
+                        onClick={() => setData(pre => ({ ...pre, reason: ele }))}
+                        className={`w-full py-1 rounded-full text-[10px] leading-[16px]  ${data.reason === ele ? 'text-white bg-[#0862BC] font-bold' : 'text-[#0862BC] border border-[#0862BC] font-semibold'}`}>
+                        {ele}
+                    </IconBtn>
+                )}
+            </div>
+
+            <span className="mt-5 px-1 block text-[12px] leading-[20px] font-medium text-[#202020]">
+                Loan amount
+            </span>
+            <div className='flex mt-2 gap-3'>
+                {['<1 lac', '1 - 5 lacs', '5 - 10 lacs', '> 10 lacs'].map(ele =>
+                    <IconBtn key={ele}
+                        onClick={() => setData(pre => ({ ...pre, loanAmount: ele }))}
+                        className={`w-full py-1 rounded-full text-[10px] leading-[16px]  ${data.loanAmount === ele ? 'text-white bg-[#0862BC] font-bold' : 'text-[#0862BC] border border-[#0862BC] font-semibold'}`}>
+                        {ele}
+                    </IconBtn>
+                )}
+            </div>
+
+            <IconBtn className='w-full text-sm text-white font-semibold bg-black rounded-lg py-2.5 mt-6' onClick={handleSubmit} >
+                Submit
+            </IconBtn>
         </>
     )
 }
