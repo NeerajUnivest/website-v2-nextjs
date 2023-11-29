@@ -4,7 +4,7 @@ import IdeasSection from '@/components/Stocks/IdeasSection'
 import ScreenersSection from '@/components/Stocks/ScreenersSection'
 import AvailablePlansSection from '@/components/ProPage/AvailablePlansSection'
 import { Mixpanel } from '@/elements/Mixpanel'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import QuarterlyPortfolioSection from '@/components/ProPage/QuarterlyPortfolioSection'
 import UserFeedbacksSection from '@/components/HomePage/UserFeedbacksSection'
 import ProFAQSection from '@/components/ProPage/ProFAQSection'
@@ -17,11 +17,12 @@ import ClosedIdeasSection from '@/components/ProPage2/ClosedIdeasSection'
 import LiveIdeasSection from '@/components/ProPage2/LiveIdeasSection'
 import PlandAndSubscriptionSection from '@/components/ProPage2/PlansAndSubscriptionSection'
 import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
-import LogIn from '@/elements/LogIn/LogIn'
 import ActivePlanSection from '@/components/ProPage2/ActivePlanSection'
 import TrialCountdownSection from '@/components/ProPage2/TrialCountdown'
+import { UserDetailProvider } from '@/contexts/UserDetailContext'
 
 export default function Pro({ pageName, data }) {
+    const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
         Mixpanel.track(
             'page_viewed',
@@ -29,6 +30,7 @@ export default function Pro({ pageName, data }) {
                 'page': 'pro_home',
             }
         )
+        userDetail.setBtn({ show: true, text: '' })
     }, [])
     return (<>
         <MetaSection
@@ -39,7 +41,7 @@ export default function Pro({ pageName, data }) {
         {/* <TrialCountdownSection /> */}
         <ProAndPlusIdeasSection isDark={true} />
         <ClosedIdeasSection isDark={true} />
-        <LiveIdeasSection isDark={true} />
+        {/* <LiveIdeasSection isDark={true} /> */}
         <PlandAndSubscriptionSection isDark={true} />
         <ScreenersSection isDark={true} />
         {/* <AvailablePlansSection /> */}
@@ -48,7 +50,6 @@ export default function Pro({ pageName, data }) {
         {/* <ProPlansAvailableSection data={data?.list} /> */}
         <UserFeedbacksSection isDark={true} />
         <ProFAQSection />
-        <LogIn />
     </>)
 }
 
