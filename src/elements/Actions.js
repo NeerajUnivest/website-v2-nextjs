@@ -25,7 +25,7 @@ let Actions = {
                 return c.substring(name.length, c.length);
             }
         }
-        return "";
+        return null;
     },
     trimName: (name, n = 25) => {
         return name?.length > n ? name?.slice(0, n) + '...' : name

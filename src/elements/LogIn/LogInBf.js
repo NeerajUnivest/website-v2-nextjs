@@ -15,7 +15,7 @@ const OtpInput = dynamic(
 )
 
 
-export default function LogInBf({ setModal, number, inputRef, sendOtp }) {
+export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserData }) {
     const [otp, setOtp] = useState('')
     const [error, setError] = useState(null)
     const [disabled, setDisabled] = useState(true)
@@ -38,7 +38,8 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp }) {
         }).then(res => {
             if (res.data?.data?.authToken) {
                 setModal(false)
-                console.log(res.data?.data?.authToken);
+                setUserData(res.data?.data)
+                Actions.setCookie("user_details", JSON.stringify(res.data?.data), 1)
                 Actions.setCookie("auth_token", res.data?.data?.authToken, 1)
             } else {
                 setError(true)

@@ -11,10 +11,10 @@ import EliteHeroSectionNew from '@/components/ElitePage2/EliteHeroSectionNew'
 import InvestCalcSection from '@/components/ElitePage2/InvestCalcSection'
 import RequestSubmittedSection from '@/components/ElitePage2/RequestSubmittedSection'
 import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
-import LogIn from '@/elements/LogIn/LogIn'
+import { UserDetailProvider } from '@/contexts/UserDetailContext'
 import MetaSection from '@/elements/MetaSection/MetaSection'
 import { Mixpanel } from '@/elements/Mixpanel'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 
 const data = [
     {
@@ -35,6 +35,7 @@ const data = [
     },
 ]
 export default function Elite() {
+    const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
         Mixpanel.track(
             'page_viewed',
@@ -42,6 +43,7 @@ export default function Elite() {
                 'page': 'elite_home',
             }
         )
+        userDetail.setBtn({ show: true, text: '' })
     }, [])
     return (<>
         <MetaSection
@@ -59,7 +61,6 @@ export default function Elite() {
         <DownloadAppSection />
         <EliteFAQSection data={data} />
         <PartneredWithSection />
-        <LogIn />
     </>
     )
 }

@@ -26,7 +26,7 @@ const customStyles = {
 }
 
 
-export default function LogIn() {
+export default function LogIn({ setUserData }) {
     const inputRef = useRef(null)
     const [number, setNumber] = useState('')
     const [modal, setModal] = useState(false)
@@ -39,6 +39,7 @@ export default function LogIn() {
             setError('Please enter a valid number')
         }
     }
+
     return (
         <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-10'>
             {!true ?
@@ -61,7 +62,7 @@ export default function LogIn() {
                         style={customStyles}
                     >
                         <Suspense fallback={<div className='bg-white h-64' />}>
-                            <LogInBf setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />
+                            <LogInBf setUserData={setUserData} setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />
                         </Suspense>
                     </ReactModal>
                 </>}
