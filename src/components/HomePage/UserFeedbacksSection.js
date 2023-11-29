@@ -70,7 +70,7 @@ export default function UserFeedbacksSection({ isDark = false }) {
                     <p className={`hidden lg:flex font-medium text-base lg:text-4xl mb-3 whitespace-pre  ${isDark ? 'text-white' : 'text-black'}`}>Trusted by<span className='font-extrabold'> 400k+ users</span></p>
                     <p className={`font-extrabold lg:font-semibold text-xl lg:text-2xl ${isDark ? 'text-[#bcbcbc]' : 'text-[#414141]'}`}>Read what they say about us</p>
                 </div>
-                <Image src={isDark ? ratingLg_light : ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' />
+                {/* <Image src={isDark ? ratingLg_light : ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' /> */}
             </div>
 
             <div className="relative lg:px-14">

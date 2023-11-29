@@ -76,7 +76,7 @@ export default function InvestCalcSection() {
     return (
         <>
             <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="flex flex-col gap-8 py-6">
-                <div className="flex flex-col items-start gap-4 m-auto">
+                <div className=" mx-3 flex flex-col items-start gap-4 m-auto">
                     <p className="text-[color:var(--neutral-900,#202020)] text-xl not-italic font-bold leading-8">Create wealth</p>
                     <p className=" text-[color:var(--neutral-700,#606060)] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
                 </div>

@@ -51,7 +51,7 @@ export default function Elite() {
         <EliteHeroSectionNew homePage={false} />
         <AvailablePlansSection />
         <CallBackSection />
-        <RequestSubmittedSection />
+        {/* <RequestSubmittedSection /> */}
         <InvestCalcSection />
         <WhyShouldSection homePage={false} />
         <HowItWork />
