@@ -45,13 +45,13 @@ export default function InvestCalcSection() {
 
     return (
         <>
-            <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="flex flex-col gap-8 px-4 py-6">
+            <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="flex flex-col gap-8 py-6">
                 <div className="flex flex-col items-start gap-4 m-auto">
                     <p className="text-[color:var(--neutral-900,#202020)] text-xl not-italic font-bold leading-8">Create wealth</p>
-                    <p className="w-[328px] text-[color:var(--neutral-700,#606060)] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
+                    <p className=" text-[color:var(--neutral-700,#606060)] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
                 </div>
-                <div className=" bg-[#F6F8FF] flex w-[328px] flex-col items-center gap-4 pt-0 pb-4 px-3 rounded-xl m-auto ">
-                    <div className="bg-white flex w-[328px] justify-between items-center border border-[color:var(--gradient-1,#61B2F3)] px-4 py-3 rounded-xl border-solid">
+                <div className=" w-full bg-[#F6F8FF] flex flex-col items-center gap-4 p-4 rounded-xl m-auto ">
+                    <div className=" w-full bg-white flex justify-between items-center border border-[color:var(--gradient-1,#61B2F3)] px-4 py-3 rounded-xl border-solid">
                         <p className="text-[color:var(--neutral-900,#202020)] text-base not-italic font-bold leading-7">Interest earned</p>
                         <p className="text-[color:var(--primary-800,#0862BC)] text-2xl not-italic font-extrabold leading-10">₹{(CI(amountToRupee?.[value.amount], 12, value.period) - CI(amountToRupee?.[value.amount], 6, value.period))?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</p>
                     </div>
@@ -78,7 +78,7 @@ export default function InvestCalcSection() {
                             />
                         </div>
 
-                        <div className='flex w-[304px] flex-col items-start gap-3 rounded-xl'>
+                        <div className='flex flex-col items-start gap-3 rounded-xl'>
                             <p className='text-[color:var(--neutral-900,#202020)] text-sm not-italic font-semibold leading-6'>If your friend invests in</p>
                             <div className='flex items-start gap-2 self-stretch whitespace-nowrap'>
                                 <button onClick={() => setValue({ ...value, period: 0 })} className={value.period === 0 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>3 mon</button>
@@ -88,7 +88,7 @@ export default function InvestCalcSection() {
                             </div>
                         </div>
 
-                        <div className='flex w-[304px] flex-col items-start gap-3'>
+                        <div className='flex flex-col items-start gap-3'>
                             <div className='flex items-start gap-3 self-stretch'>
                                 <div className='flex items-center gap-4 flex-[1_0_0] pr-0'>
                                     <div className='w-1.5 h-12 rounded-3xl bg-[#1F75C5]'></div>

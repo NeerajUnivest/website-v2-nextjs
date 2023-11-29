@@ -109,7 +109,7 @@ export default function HighChartTest() {
     return (
         <>
             <HighchartsReact
-                containerProps={{ style: { height: "148px", width: '300px', paddingLeft: "0px", paddingRight: "0px" } }}
+                containerProps={{ style: { height: "148px", width: '100%', paddingLeft: "0px", paddingRight: "0px" } }}
                 options={options}
                 highcharts={Highcharts}
             />
