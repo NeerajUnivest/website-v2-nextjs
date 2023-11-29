@@ -1,7 +1,7 @@
 import { BlackButton } from "@/elements/Button/Button";
 import Image from "next/image";
-import callbackIcon from 'src/assets/icons/phone_icon.png'
-import callIcon from 'src/assets/icons/call_icon.png'
+import callbackIcon from '@/assets/icons/phone_icon.png'
+import callIcon from '@/assets/icons/call_icon.png'
 
 
 

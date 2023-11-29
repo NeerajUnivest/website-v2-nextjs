@@ -52,22 +52,18 @@ export default function LiveIdeasSection({ isDark = false }) {
                         >
                             {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
                                 <SwiperSlide key={`${ele.id}-${i}`} >
-                                    <div className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] rounded-lg border-[#BADDFA] ">
+                                    <div className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] rounded-lg border-[#BADDFA] bg-cover">
                                         {ele?.term === 'FUTURE' && <div className=" text-[color:var(--Pearl-White,#FFF)] text-[8px] not-italic font-medium leading-3   flex justify-center items-center gap-0.5 px-1 py-0 rounded-sm bg-gradient-to-br from-[#E75325] to-[#F69723] absolute mt-1 ml-[90px] ">New</div>}
-                                        <div className=" h-full flex flex-col mx-2 gap-[8px]">
+                                        <div className=" h-full flex flex-col mx-2 gap-4">
                                             <div className=" border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA]  mt-0">
                                                 <div className=" flex flex-row justify-items-start pl-4 gap-2 py-[2px]">
                                                     <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : "#00439D"} size={"10px"} /></div>
-                                                    <p className={`text-[${ele.term === 'SHORT' ? '#B43C30' : (ele.term === 'LONG' ? '#005251' : (ele.term === 'MEDIUM' ? '#00439D' : ''))}] text-[10px] not-italic font-semibold leading-4`} >{ele?.term} {ele?.term === 'FUTURE' ? '' : 'TERM'} </p>
+                                                    <p className={` ${ele.term === 'SHORT' ? 'text-[#B43C30]' : (ele.term === 'LONG' ? 'text-[#005251]' : (ele.term === 'MEDIUM' ? 'text-[#00439D]' : ''))} text-[10px] not-italic font-semibold leading-4`} >{ele?.term} {ele?.term === 'FUTURE' ? '' : 'TERM'} </p>
                                                 </div>
                                             </div>
-                                            <div className="flex flex-row justify-between">
-                                                <div className="text-[color:var(--neutral-700,#606060)] text-[8px] not-italic font-medium leading-3 flex justify-center items-center"> <p>Shared {GetDays(ele.createdAt)} days ago</p> </div>
-                                                <div>
-                                                    <CiBookmark />
-                                                </div>
-                                            </div>
-                                            <div className=" bg-gradient-to-r from-[#3c3c3c] to-[#333333] flex flex-col justify-center items-center gap-3 shrink-0 backdrop-blur-[3px] p-2 rounded-md">
+                                            <p className="text-[color:var(--neutral-700,#606060)] text-[8px] not-italic font-medium leading-3 flex justify-center items-center">Shared {GetDays(ele.createdAt)} days ago</p>
+
+                                            <div className=" bg-gradient-to-r from-[#3c3c3c] to-[#333333] flex flex-col justify-center items-center gap-4 shrink-0 backdrop-blur-[3px] p-2 rounded-md">
                                                 <div className=" bg-green-600 text-[10px] rounded-sm p-[2px] text-white font-normal ">
                                                     <span>Potential left : ₹34,422</span>
                                                 </div>
@@ -107,7 +103,7 @@ export default function LiveIdeasSection({ isDark = false }) {
                 .LiveIdeasSection .swiper-slide-prev,
                 .LiveIdeasSection .swiper-slide-next {
                 width: 154px;
-                height: 174px;
+                height: 196px;
                 margin: 0px 10px;
                 transition: 500ms;
                 border-radius: 10px;

@@ -3,6 +3,8 @@ import ratingLg from "../../assets/images/ratingLg.png";
 import ratingLg_light from "../../assets/images/ratingLg_light.png";
 import ratingIcon from "../../assets/Images/rating.png"
 import downloadsCount from "../../assets/Images/downloadsCount.png"
+import usersIcon from "src/assets/icons/users_icon.png"
+import { BlackButton } from '@/elements/Button/Button';
 
 export default function DownloadAppSection({ isDark = false }) {
     return (
@@ -12,11 +14,11 @@ export default function DownloadAppSection({ isDark = false }) {
                     <p className='text-[color:var(--neutral-900,#202020)] text-xl not-italic font-extrabold leading-8 text-center'>Download the Univest app now!</p>
                     <Image src={ratingIcon} className='w-[232px]  lg:w-[364px]' alt='rating' />
                 </div>
-                <div className='flex flex-col justify-center items-center gap-6 px-4 py-8'>
-                    <button className='bg-[#202020] text-white flex w-[200px] h-10 justify-center items-center gap-2.5 shadow-[0px_3px_8px_0px_rgba(87,102,117,0.06),0px_6px_12px_0px_rgba(106,115,129,0.16)] px-0 py-3 rounded-[44px] border-2 border-solid border-white'>Download now</button>
-                </div>
-                <div className='m-auto'>
-                    <Image src={downloadsCount} className='flex justify-center items-start gap-2 self-stretch px-2.5 py-1 rounded-lg' alt='rating' />
+
+                <BlackButton className={'w-[200px] py-2 mx-auto font-bold mt-4'} text={'Download now'} />
+                <div className=' bg-[#FFF] flex flex-row justify-center items-center gap-2  px-2.5 py-1 rounded-lg'>
+                    <Image className='w-5' src={usersIcon} alt='demo' />
+                    <p className='text-[color:var(--neutral-900,#202020)] text-xs font-normal leading-6'> <span className='font-bold'>750k+ Indian</span> users trust on Univest</p>
                 </div>
             </div>
         </section >

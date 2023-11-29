@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import eliteProIcon from 'src/assets/icons/elite12Icon.png'
-import verifiedIcon from 'src/assets/icons/verified-account.png'
-import targetingIcon from 'src/assets/icons/targeting.png'
-import briefcaseIcon from 'src/assets/icons/briefcase.png'
-import groupIcon from 'src/assets/icons/group.png'
+import eliteProIcon from '@/assets/icons/elite12Icon.png'
+import verifiedIcon from '@/assets/icons/verified-account.png'
+import targetingIcon from '@/assets/icons/targeting.png'
+import briefcaseIcon from '@/assets/icons/briefcase.png'
+import groupIcon from '@/assets/icons/group.png'
 
 
 
