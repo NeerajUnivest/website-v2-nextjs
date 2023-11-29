@@ -5,7 +5,7 @@ import a from '../../assets/icons/plans/1.png';
 import b from '../../assets/icons/plans/2.png';
 import c from '../../assets/icons/plans/3.png';
 import d from '../../assets/icons/plans/4.png';
-import giftIcon from 'src/assets/icons/giftBox_icon.png'
+import giftIcon from '@/assets/icons/giftBox_icon.png'
 import recommend_tag from '../../assets/images/elite/recommend_tag.png';
 import { popUp } from "@/elements/PopUp/PopUp";
 

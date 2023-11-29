@@ -9,7 +9,7 @@ import 'react-rangeslider/lib/index.css'
 import { HighchartsReact } from 'highcharts-react-official'
 import HighChartTest from './HighChartTest'
 import Image from 'next/image'
-import usersIcon from 'src/assets/icons/users_icon.png'
+import usersIcon from '@/assets/icons/users_icon.png'
 
 
 

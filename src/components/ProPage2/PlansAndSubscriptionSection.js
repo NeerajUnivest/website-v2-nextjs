@@ -8,6 +8,7 @@ import greenTickIcon from "../../assets/Images/green_tick_icon.png"
 import crossTickIcon from "../../assets/Images/cross_tick.png"
 import proPlusPremIcon from "../../assets/Images/proPlusPrem_icon.png"
 import proPremIcon from "../../assets/Images/proPrem_icon.png"
+import proPlusIcon2 from "@/assets/Images/proPlus_icon2.png"
 import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
 import sebi_new_logo_white from '../../assets/Images/sebi_logo_new 1.png';
 import yashpal_arora from '@/assets/images/yashpal_arora.png';
@@ -17,6 +18,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from "swiper";
 import { useEffect, useState } from "react";
 import { useGetAxios } from "@/hooks/useGetAxios";
+import BenefitsSection from "./BenefitsSection";
 
 
 export default function PlandAndSubscriptionSection({ isDark = false }) {
@@ -35,75 +37,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                     <div>
                         <p className=" text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Available memberships</p>
                     </div>
-                    <div className="flex flex-col justify-center items-start gap-4 border border-[color:var(--neutral-600,#747474)] p-2 rounded-xl border-solid bg-[#363636]">
-                        <div className="flex justify-end items-center gap-3 self-stretch pl-2 pr-3 py-2 rounded-lg bg-[#202020]">
-                            <div className="flex-[1_0_0] text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-medium leading-6">
-                                <p>Benefits</p>
-                            </div>
-                            <div className="flex flex-row gap-4">
-                                <Image className="w-[60px]" src={proIcon} alt='demo image' />
-                                <Image className="w-[60px]" src={proPlusIcon} alt='demo image' />
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col items-start gap-2 self-stretch">
-                            <div className="flex flex-row justify-between self-stretch pl-2 pr-3 py-2 rounded-lg bg-[#202020]">
-                                <div className="flex flex-row gap-2">
-                                    <Image className="w-4" src={vector} alt='demo image' />
-                                    <p className="text-[color:var(--neutral-100,#F5F5F5)] text-center text-xs not-italic font-semibold leading-5">“Futures” trade ideas</p>
-                                </div>
-                                <div className="flex flex-row gap-12 pr-6 pl-3">
-                                    <Image className="w-5" src={crossTickIcon} alt='demo image' />
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                </div>
-                            </div>
-
-                            <div className="flex flex-row justify-between self-stretch pl-2 pr-3 py-2 rounded-lg bg-[#202020]">
-                                <div className="flex flex-row gap-2">
-                                    <Image className="w-4" src={vector} alt='demo image' />
-                                    <p className="text-[color:var(--neutral-100,#F5F5F5)] text-center text-xs not-italic font-semibold leading-5">Equity trade ideas</p>
-                                </div>
-                                <div className="flex flex-row gap-12 pr-6 pl-3">
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                </div>
-                            </div>
-
-                            <div className="flex flex-row justify-between self-stretch pl-2 pr-3 py-2 rounded-lg bg-[#202020]">
-                                <div className="flex flex-row gap-2">
-                                    <Image className="w-4" src={vector} alt='demo image' />
-                                    <p className="text-[color:var(--neutral-100,#F5F5F5)] text-center text-xs not-italic font-semibold leading-5">Premium screeners</p>
-                                </div>
-                                <div className="flex flex-row gap-12 pr-6 pl-3">
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                </div>
-                            </div>
-
-                            <div className="flex flex-row justify-between self-stretch pl-2 pr-3 py-2 rounded-lg bg-[#202020]">
-                                <div className="flex flex-row gap-2">
-                                    <Image className="w-4" src={vector} alt='demo image' />
-                                    <p className="text-[color:var(--neutral-100,#F5F5F5)] text-center text-xs not-italic font-semibold leading-5">Rewards on Elite</p>
-                                </div>
-                                <div className="flex flex-row gap-12 pr-6 pl-3">
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                </div>
-                            </div>
-
-                            <div className="flex flex-row justify-between self-stretch pl-2 pr-3 py-2 rounded-lg bg-[#202020]">
-                                <div className="flex flex-row gap-2">
-                                    <Image className="w-4" src={vector} alt='demo image' />
-                                    <p className="text-[color:var(--neutral-100,#F5F5F5)] text-center text-xs not-italic font-semibold leading-5">Qtr. Portfolio review</p>
-                                </div>
-                                <div className="flex flex-row gap-12 pr-6 pl-3">
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                    <Image className="w-5" src={greenTickIcon} alt='demo image' />
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    <BenefitsSection />
                 </div>
 
             </section>
@@ -140,7 +74,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                             <div className=" text-white text-sm  flex-row gap-1 bg-gradient-to-tl  from-[#1A379E] to-[#C379FE]  flex justify-center items-center pl-[38px] pr-[37.287px] py-1.5 rounded-lg" >
                                 <div className="flex flex-row ">
                                     <p className="font-extrabold" >PR</p>
-                                    <div className="flex justify-center items-center"><Image className="w-4" src={proPremIcon} alt='demo image' /></div>
+                                    <div className="flex justify-center items-center"><Image className="w-4" src={proPlusIcon2} alt='demo image' /></div>
                                 </div>
                                 <span className="font-extrabold"> Plus plans</span>
                             </div>
