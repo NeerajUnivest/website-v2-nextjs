@@ -1,11 +1,12 @@
 
 import Image from "next/image"
 import eliteIcon from "@/assets/icons/elitIcon2.png"
+import DownloadButton from "../ProPage2/DownloadButton"
 
-export default function RequestSubmittedSection() {
+export default function RequestSubmittedSection(isBottom = true) {
 
     return (
-        <section className=" whitespace-nowrap flex flex-col items-center gap-4 bg-white" >
+        <section className=" whitespace-nowrap flex flex-col items-center gap-4 bg-white mx-11" >
             <div className=" bg-gradient-to-br from-[#141E30] to-[#333] flex justify-center items-center shrink-0 pl-[10.79px] pr-[8.789px] pt-[10.393px] pb-[11.406px] rounded-full border border-neutral-500 ">
                 <Image className="w-10" src={eliteIcon} alt="demo" />
             </div>
@@ -30,7 +31,11 @@ export default function RequestSubmittedSection() {
                     <p className=" text-center text-sm not-italic font-semibold leading-6">2. Complete your KYC</p>
                     <p className=" text-center text-sm not-italic font-semibold leading-6">3. Invest using UPI / Net banking</p>
                 </div>
+
+                {isBottom ? <DownloadButton /> : ''}
             </div>
+
+
         </section>
     )
 }

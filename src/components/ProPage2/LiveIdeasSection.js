@@ -7,6 +7,7 @@ import { CiBookmark } from "react-icons/ci";
 import { FcLock } from "react-icons/fc";
 import { useEffect, useState } from "react";
 import { useGetAxios } from "@/hooks/useGetAxios";
+import bgImage from '@/assets/Images/tilesNonProBG.png'
 
 export default function LiveIdeasSection({ isDark = false }) {
     const { fetchData, data, loading } = useGetAxios('')
@@ -22,7 +23,7 @@ export default function LiveIdeasSection({ isDark = false }) {
 
     const [swiper, setSwiper] = useState(null);
     const [active, setActive] = useState(0);
-    console.log(data?.data?.list);
+    // console.log(data?.data?.list);
 
     return (
         <>
@@ -53,12 +54,12 @@ export default function LiveIdeasSection({ isDark = false }) {
                             {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
                                 <SwiperSlide key={`${ele.id}-${i}`} >
                                     <div className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] rounded-lg border-[#BADDFA] bg-cover">
-                                        {ele?.term === 'FUTURE' && <div className=" text-[color:var(--Pearl-White,#FFF)] text-[8px] not-italic font-medium leading-3   flex justify-center items-center gap-0.5 px-1 py-0 rounded-sm bg-gradient-to-br from-[#E75325] to-[#F69723] absolute mt-1 ml-[90px] ">New</div>}
+                                        {ele?.term === 'FUTURES' && <div className=" text-[color:var(--Pearl-White,#FFF)] text-[8px] not-italic font-medium leading-3   flex justify-center items-center gap-0.5 px-1 py-0 rounded-sm bg-gradient-to-br from-[#E75325] to-[#F69723] absolute mt-1 ml-[100px] ">New</div>}
                                         <div className=" h-full flex flex-col mx-2 gap-4">
                                             <div className=" border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA]  mt-0">
                                                 <div className=" flex flex-row justify-items-start pl-4 gap-2 py-[2px]">
-                                                    <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : "#00439D"} size={"10px"} /></div>
-                                                    <p className={` ${ele.term === 'SHORT' ? 'text-[#B43C30]' : (ele.term === 'LONG' ? 'text-[#005251]' : (ele.term === 'MEDIUM' ? 'text-[#00439D]' : ''))} text-[10px] not-italic font-semibold leading-4`} >{ele?.term} {ele?.term === 'FUTURE' ? '' : 'TERM'} </p>
+                                                    <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : (ele.term === 'MEDIUM' ? "#00439D" : '#84026F')} size={"10px"} /></div>
+                                                    <p className={` ${ele.term === 'SHORT' ? 'text-[#B43C30]' : (ele.term === 'LONG' ? 'text-[#005251]' : (ele.term === 'MEDIUM' ? 'text-[#00439D]' : 'text-[#84026F]'))} text-[10px] not-italic font-semibold leading-4`} >{ele?.term} {ele?.term === 'FUTURES' ? '' : 'TERM'} </p>
                                                 </div>
                                             </div>
                                             <p className="text-[color:var(--neutral-700,#606060)] text-[8px] not-italic font-medium leading-3 flex justify-center items-center">Shared {GetDays(ele.createdAt)} days ago</p>

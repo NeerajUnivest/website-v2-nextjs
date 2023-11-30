@@ -20,6 +20,7 @@ import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
 import ActivePlanSection from '@/components/ProPage2/ActivePlanSection'
 import TrialCountdownSection from '@/components/ProPage2/TrialCountdown'
 import { UserDetailProvider } from '@/contexts/UserDetailContext'
+import BenefitsSection from '@/components/ProPage2/BenefitsSection'
 
 export default function Pro({ pageName, data }) {
     const userDetail = useContext(UserDetailProvider)
@@ -38,13 +39,12 @@ export default function Pro({ pageName, data }) {
             desc='Univest PRO is a advisory subscription for best stock market advisory and trading tips, market screeners, portfolio review and additional cashback on Elite investments'
             keyWords='bombay stock exchange, Indian stock market, bse, national stock exchange, Nifty, nse, sensex, stock exchange, stock market, stock research tool, smart investment, investment ideas, stock market tips' />
         <ProAndPlusHeroSection homePage={false} start_at={data?.start_at} />
-        {/* <TrialCountdownSection /> */}
+        <ActivePlanSection />
         <ProAndPlusIdeasSection isDark={true} />
         <ClosedIdeasSection isDark={true} />
-        {/* <LiveIdeasSection isDark={true} /> */}
+        <LiveIdeasSection isDark={true} />
         <PlandAndSubscriptionSection isDark={true} />
         <ScreenersSection isDark={true} />
-        {/* <AvailablePlansSection /> */}
         <QuarterlyPortfolioSection />
         <DownloadAppSection />
         {/* <ProPlansAvailableSection data={data?.list} /> */}
