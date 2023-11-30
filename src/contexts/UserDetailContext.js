@@ -32,7 +32,7 @@ const customStyles = (isPhone) => ({
 const UserDetailProvider = createContext();
 
 const UserDetailContext = (props) => {
-    const [btn, setBtn] = useState({ show: false, text: '' })
+    const [btn, setBtn] = useState({ show: false, beforeLogin: '', afterLogin: '' })
     const [userData, setUserData] = useState({})
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const UserDetailContext = (props) => {
         <UserDetailProvider.Provider value={{ btn, setBtn, userData }}>
             {props.children}
 
-            {btn.show && !userData?.authToken && <LogIn setUserData={setUserData} />}
+            {btn.show && <LogIn btn={btn} userData={userData} setUserData={setUserData} />}
         </UserDetailProvider.Provider>
     )
 }

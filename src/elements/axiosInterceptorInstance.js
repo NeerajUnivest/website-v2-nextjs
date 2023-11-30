@@ -3,7 +3,7 @@ import Actions from './Actions';
 
 
 const axiosInterceptorInstance = axios.create({
-    baseURL: 'https://uat-api.univest.in/', // Replace with your API base URL
+    baseURL: process.env.apiBaseURL, // Replace with your API base URL
 });
 
 axiosInterceptorInstance.interceptors.request.use(

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    apiBaseURL: 'https://api.univest.in',
+    apiBaseURL: 'https://uat-api.univest.in',
   },
   i18n: {
     locales: ['en'],

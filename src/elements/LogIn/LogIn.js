@@ -26,7 +26,7 @@ const customStyles = {
 }
 
 
-export default function LogIn({ setUserData }) {
+export default function LogIn({ userData, setUserData, btn }) {
     const inputRef = useRef(null)
     const [number, setNumber] = useState('')
     const [modal, setModal] = useState(false)
@@ -42,16 +42,16 @@ export default function LogIn({ setUserData }) {
 
     return (
         <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-10'>
-            {!true ?
+            {userData?.authToken ?
                 <IconBtn className='select-none w-full py-1.5 rounded-full font-Inter text-base border bg-white border-primary text-black font-semibold shadow' onClick={sendOtp}>
-                    Download the app now
+                    {btn?.afterLogin}
                 </IconBtn>
 
                 : <>
                     <div className='pl-4 pr-1 w-full h-11 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-sm lg:text-base font-medium'>
                         <input ref={inputRef} className='w-[calc(100%-90px)] caret-primary text-[#747474] font-semibold' type='tel' placeholder='Enter your mobile number'
                             value={number} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" inputMode="tel" onChange={(e) => { setNumber(e.target.value) }} />
-                        <BlackButton className='whitespace-nowrap px-3 lg:px-6 h-9 ml-auto text-sm font-semibold' text='Get started' onClick={sendOtp} />
+                        <BlackButton className='whitespace-nowrap px-3 lg:px-6 h-9 ml-auto text-sm font-semibold' text={btn?.beforeLogin} onClick={sendOtp} />
                     </div>
 
                     <ReactModal

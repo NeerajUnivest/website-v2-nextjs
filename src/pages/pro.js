@@ -30,7 +30,7 @@ export default function Pro({ pageName, data }) {
                 'page': 'pro_home',
             }
         )
-        userDetail.setBtn({ show: true, text: '' })
+        userDetail.setBtn({ show: true, beforeLogin: 'Activate trial', afterLogin: 'Download the app now' })
     }, [])
     return (<>
         <MetaSection

@@ -43,7 +43,7 @@ export default function Elite() {
                 'page': 'elite_home',
             }
         )
-        userDetail.setBtn({ show: true, text: '' })
+        userDetail.setBtn({ show: true, beforeLogin: 'Get started', afterLogin: 'Start investing' })
     }, [])
     return (<>
         <MetaSection
