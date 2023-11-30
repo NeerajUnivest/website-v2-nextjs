@@ -7,6 +7,7 @@ import { CiBookmark } from "react-icons/ci";
 import { FcLock } from "react-icons/fc";
 import { useEffect, useState } from "react";
 import { useGetAxios } from "@/hooks/useGetAxios";
+import bgImage from '@/assets/Images/tilesNonProBG.png'
 
 export default function LiveIdeasSection({ isDark = false }) {
     const { fetchData, data, loading } = useGetAxios('')
@@ -22,7 +23,7 @@ export default function LiveIdeasSection({ isDark = false }) {
 
     const [swiper, setSwiper] = useState(null);
     const [active, setActive] = useState(0);
-    console.log(data?.data?.list);
+    // console.log(data?.data?.list);
 
     return (
         <>

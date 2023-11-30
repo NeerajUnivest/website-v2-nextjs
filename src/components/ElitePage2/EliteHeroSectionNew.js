@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import eliteProIcon from '@/assets/icons/elite12Icon.png'
-import verifiedIcon from '@/assets/icons/verified-account.png'
-import targetingIcon from '@/assets/icons/targeting.png'
-import briefcaseIcon from '@/assets/icons/briefcase.png'
-import groupIcon from '@/assets/icons/group.png'
+import verifiedIcon from '@/assets/icons/active_users.png'
+import targetingIcon from '@/assets/icons/target_accuracy.png'
+import briefcaseIcon from '@/assets/icons/portfolios_connected.png'
+import groupIcon from '@/assets/icons/trusted_indians.png'
 
 
 
@@ -42,8 +42,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 p-2 gap-2 gap-y-6">
                         <div className="flex items-center gap-2">
-                            <div className="flex justify-center items-center p-[10.125px] rounded-[45px] border-[1.125px] border-solid border-black">
-                                <Image className="w-5" src={verifiedIcon} alt="demo" />
+                            <div className="flex justify-center items-center  rounded-[45px] border-[1.125px] border-solid border-black">
+                                <Image className="w-10" src={verifiedIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
                                 <p className="text-[color:var(--neutral-900,#202020)] text-center text-sm not-italic font-extrabold leading-[153%]">3.5 Lac+</p>
@@ -51,8 +51,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
-                            <div className="flex justify-center items-center p-[10.125px] rounded-[45px] border-[1.125px] border-solid border-black">
-                                <Image className="w-5" src={verifiedIcon} alt="demo" />
+                            <div className="flex justify-center items-center  rounded-[45px] border-[1.125px] border-solid border-black">
+                                <Image className="w-10" src={briefcaseIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
                                 <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">1,200 Cr+</p>
@@ -60,8 +60,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
-                            <div className="flex justify-center items-center p-[10.125px] rounded-[45px] border-[1.125px] border-solid border-black">
-                                <Image className="w-5" src={verifiedIcon} alt="demo" />
+                            <div className="flex justify-center items-center  rounded-[45px] border-[1.125px] border-solid border-black">
+                                <Image className="w-10" src={groupIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
                                 <p className="text-[color:var(--neutral-900,#202020)] text-center text-sm not-italic font-extrabold leading-[153%]">500k+</p>
@@ -69,8 +69,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
-                            <div className="flex justify-center items-center p-[10.125px] rounded-[45px] border-[1.125px] border-solid border-black">
-                                <Image className="w-5" src={verifiedIcon} alt="demo" />
+                            <div className="flex justify-center items-center  rounded-[45px] border-[1.125px] border-solid border-black">
+                                <Image className="w-10" src={targetingIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
                                 <p className="text-[color:var(--neutral-900,#202020)] text-center text-sm not-italic font-extrabold leading-[153%]">82.4%+</p>

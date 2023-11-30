@@ -8,9 +8,10 @@ import { useRouter } from "next/router";
 import RatioBar from "./RatioBar";
 import freeIcon from '../../assets/images/free_tag.png';
 import { popUp } from '@/elements/PopUp/SEBIPopUp';
+import TrialCountdownSection from "./TrialCountdown";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function ProAndPlusHeroSection({ homePage, start_at, isDark = false }) {
+export default function ProAndPlusHeroSection({ homePage, start_at, isDark = false, isActivated = false }) {
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
     const router = useRouter();
     return (
@@ -42,20 +43,12 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                             </div>
                         </div>
                     </div>
-                    <div className=' ml-4 mr-4 pl-4 pr-4 pt-3 pb-4 flex flex-col border-[1px]  border-[color:var(--gradient-3,#FF8415)] mt-8 rounded-xl bg-neutral-600  m-auto gap-3'>
+                    {isActivated ? <TrialCountdownSection /> : <div className=' ml-4 mr-4 pl-4 pr-4 pt-3 pb-4 flex flex-col border-[1px]  border-[color:var(--gradient-3,#FF8415)] mt-8 rounded-xl bg-neutral-600  m-auto gap-3'>
                         <div className="flex flex-col items-start gap-3 border border-neutral-500 p-3 rounded-lg border-solid bg-gradient-to-b from-[#202020] to-[#202020] ">
                             <div className="self-stretch text-[color:var(--Pearl-White,#FFF)] text-center text-sm not-italic font-bold leading-6 bg-clip-text">
                                 <span >Past performance : </span>
                                 <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(2) ?? '89.87'}% accuracy</span>
                             </div>
-                            {/* <div>
-                                <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(2) ?? '89.87'}% Accuracy</span>
-                                <span className="font-semibold text-sm lg:text-xl"> | Hit: {data?.data?.hit ?? '71'} | Miss: {data?.data?.miss ?? '8'}</span>
-                            </div> */}
-                            {/* <div className="flex flex-row gap-[2px] rounded-md m-auto">
-                                <div className="w-[246px] h-3 rou bg-green-600 rounded-tl-md rounded-bl-md shrink-0"></div>
-                                <div className="w-8 h-3 bg-red-700 rounded-tr-md rounded-br-md shrink-0"></div>
-                            </div> */}
                             <RatioBar percent={data?.data?.targetAccuracy} />
                             <div className=" w-full flex flex-row justify-between ">
                                 <p className="font-semibold text-white text-sm lg:text-xl"> Hit: {data?.data?.hit ?? '71'}</p>
@@ -91,7 +84,7 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                             </div>
                             <button className="text-black text-xs not-italic font-bold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4">Activate now</button>
                         </div>
-                    </div>
+                    </div>}
                 </div>
             </section>
         </>

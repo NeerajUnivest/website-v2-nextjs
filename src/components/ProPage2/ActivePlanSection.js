@@ -6,6 +6,7 @@ import ideasIcon from "@/assets/icons/trade_ideas_pro.png"
 import screenersIcon from "@/assets/icons/screeners_pro.png"
 import eliteIcon from "@/assets/icons/elite_pro.png"
 import advisoryIcon from "@/assets/icons/portfolio_pro.png"
+import DownloadButton from "./DownloadButton"
 
 const data = {
     duration: '6',
@@ -13,7 +14,7 @@ const data = {
 }
 
 
-export default function ActivePlanSection({ isProPlus = false }) {
+export default function ActivePlanSection({ isProPlus = true, isBottom = true }) {
 
     return (
         <section className="flex flex-col items-center gap-4 bg-white p-2" >
@@ -57,9 +58,7 @@ export default function ActivePlanSection({ isProPlus = false }) {
                         </div>
                     </div>
                 </div>
-                <div>
-
-                </div>
+                {isBottom ? <DownloadButton /> : ''}
             </div>
         </section>
     )
