@@ -11,12 +11,7 @@ import bgImage from '@/assets/Images/tilesNonProBG.png'
 
 export default function LiveIdeasSection({ isDark = false }) {
     const { fetchData, data, loading } = useGetAxios('')
-    const GetDays = (startDate) => {
-        const timeEnd = moment(Date.now());
-        const diff = timeEnd.diff(startDate);
-        const diffDuration = moment.duration(diff)
-        return diffDuration.days();
-    }
+
     useEffect(() => {
         fetchData(`resources/users/trade-cards-web`)
     }, [])
@@ -62,7 +57,7 @@ export default function LiveIdeasSection({ isDark = false }) {
                                                     <p className={` ${ele.term === 'SHORT' ? 'text-[#B43C30]' : (ele.term === 'LONG' ? 'text-[#005251]' : (ele.term === 'MEDIUM' ? 'text-[#00439D]' : 'text-[#84026F]'))} text-[10px] not-italic font-semibold leading-4`} >{ele?.term} {ele?.term === 'FUTURES' ? '' : 'TERM'} </p>
                                                 </div>
                                             </div>
-                                            <p className="text-[color:var(--neutral-700,#606060)] text-[8px] not-italic font-medium leading-3 flex justify-center items-center">Shared {GetDays(ele.createdAt)} days ago</p>
+                                            <p className="text-[color:var(--neutral-700,#606060)] text-[8px] not-italic font-medium leading-3 flex justify-center items-center">Shared {moment(ele.createdAt, 'm').fromNow()}</p>
 
                                             <div className=" bg-gradient-to-r from-[#3c3c3c] to-[#333333] flex flex-col justify-center items-center gap-4 shrink-0 backdrop-blur-[3px] p-2 rounded-md">
                                                 <div className=" bg-green-600 text-[10px] rounded-sm p-[2px] text-white font-normal ">

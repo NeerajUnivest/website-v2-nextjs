@@ -9,7 +9,6 @@ import WhyShouldSection from '@/components/Elite/WhyShouldSection'
 import CallBackSection from '@/components/ElitePage2/CallBackSection'
 import EliteHeroSectionNew from '@/components/ElitePage2/EliteHeroSectionNew'
 import InvestCalcSection from '@/components/ElitePage2/InvestCalcSection'
-import RequestSubmittedSection from '@/components/ElitePage2/RequestSubmittedSection'
 import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
 import { UserDetailProvider } from '@/contexts/UserDetailContext'
 import MetaSection from '@/elements/MetaSection/MetaSection'
@@ -43,7 +42,7 @@ export default function Elite() {
                 'page': 'elite_home',
             }
         )
-        userDetail.setBtn({ show: true, beforeLogin: 'Get started', afterLogin: 'Start investing' })
+        userDetail.setBtn({ show: true, beforeLogin: 'Get started', afterLogin: 'Start investing', isProPage: false })
     }, [])
     return (<>
         <MetaSection
@@ -53,7 +52,6 @@ export default function Elite() {
         <EliteHeroSectionNew homePage={false} />
         <AvailablePlansSection />
         <CallBackSection />
-        <RequestSubmittedSection />
         <InvestCalcSection />
         <WhyShouldSection homePage={false} />
         <HowItWork />

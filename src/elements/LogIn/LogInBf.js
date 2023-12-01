@@ -37,9 +37,9 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
             'logoutAllDevices': false
         }).then(res => {
             if (res.data?.data?.authToken) {
-                setModal(false)
+                // setModal(false)
                 setUserData(res.data?.data)
-                Actions.setCookie("user_details", JSON.stringify(res.data?.data), 1 / 240)
+                Actions.setCookie("user_details", JSON.stringify(res.data?.data), 1)
                 Actions.setCookie("auth_token", res.data?.data?.authToken, 1 / 240)
             } else {
                 setError(true)
