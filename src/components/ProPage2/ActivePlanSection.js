@@ -11,6 +11,8 @@ import welcome_pro_plus from "../../assets/lottiefiles/welcome_pro_plus.gif"
 import DownloadButton from "./DownloadButton"
 import { useGetAxios } from "@/hooks/useGetAxios"
 import { useEffect } from "react"
+import TrialCountdownSection from "./TrialCountdown"
+import BenefitsSection from "./BenefitsSection"
 
 const data = {
     duration: '6',
@@ -25,7 +27,59 @@ export default function ActivePlanSection({ isBottom = true }) {
     useEffect(() => {
         fetchData(`resources/users/user-info-v2`)
     }, [])
+    // if(data.subscriptionState === 'FREE'){
+    //     return()
+    // }
     console.log(data);
+
+    if (data?.subscriptionState === 'TRIAL_PRO_PLUS') {
+        return (
+            <section className="flex flex-col items-center bg-white  " >
+                <Image className="w-2/3" src={welcome_pro_plus} alt="demo" />
+                <p className="text-[color:var(--neutral-700,#606060)] text-center text-base not-italic font-semibold leading-7">Welcome to</p>
+                <div className="text-[color:var(--neutral-900,#202020)] text-center text-[26.529px] not-italic font-bold leading-[42.447px] flex flex-row gap-2 ">
+                    <div className="flex justify-center items-center">
+                        <p>Univest PR</p>
+                        <Image className="w-6" src={proPlusIcon} alt='demo image' />
+                    </div>
+                    <span className="italic">Plus</span>
+                </div>
+                <p className="text-sm text-center">Expires on <span className="text-[color:var(--primary-900,#00439D)] not-italic font-extrabold leading-6">{data?.expiryDate}</span> </p>
+                <TrialCountdownSection />
+            </section>
+        )
+    } else if (data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED') {
+
+        return (
+            <section className="flex flex-col items-center gap-4  pt-5 pb-2 px-4 rounded-[12px_12px_0px_0px] bg-[#383838]  " >
+                <div className="flex flex-col justify-center items-center gap-2">
+                    <p className="text-[color:var(--error-500,#EB4E2C)] text-xl not-italic font-bold leading-8"> {data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED' ? 'Plan' : 'Plan'} expired</p>
+                    <p className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Choose a plan to continue</p>
+                </div>
+                <BenefitsSection />
+                <div className="flex justify-between items-center gap-3 self-stretch">
+                    <div style={{ background: 'var(--gradient-3, linear-gradient(0deg, #FF8415 -37.42%, #FFCA3F 65.82%))' }} className=" text-black flex flex-col justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
+                        <div className="flex flex-row justify-center items-center gap-[2px]">
+                            <p className="text-xs not-italic font-extrabold leading-5 bg-clip-text">Buy PR</p>
+                            <Image className="w-3 h-3" src={proIcon} alt='demo image' />
+                        </div>
+                        <p className="text-[10px] not-italic font-semibold leading-4">Starts @ ₹199/mo*</p>
+                    </div>
+                    <div style={{ background: 'var(--pro-2, linear-gradient(309deg, #1A379E -1.44%, #C379FE 101.36%))' }} className=" text-white text-xs not-italic font-extrabold leading-5 bg-clip-textflex flex-col justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
+                        <div className="flex flex-row justify-center items-center gap-[2px]">
+                            <p >Buy PR</p>
+                            <Image className="w-3 h-3" src={proPlusIcon} alt='demo image' />
+                            <span className="italic">Plus</span>
+                        </div>
+                        <p className="text-[10px] not-italic font-semibold leading-4">Starts @ ₹199/mo*</p>
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+
+
     return (
         <section className="flex flex-col items-center gap-4 bg-white p-2" >
             <Image className="w-2/3" src={isProPlus(data?.subscriptionState) ? welcome_pro_plus : welcome_pro} alt="demo" />

@@ -40,7 +40,7 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                 // setModal(false)
                 setUserData(res.data?.data)
                 Actions.setCookie("user_details", JSON.stringify(res.data?.data), 1)
-                Actions.setCookie("auth_token", res.data?.data?.authToken, 1 / 240)
+                Actions.setCookie("auth_token", res.data?.data?.authToken, 1)
             } else {
                 setError(true)
             }
