@@ -4,6 +4,8 @@ import LogInBf from './LogInBf';
 import ReactModal from "react-modal"
 import { isMobile } from 'react-device-detect';
 import axiosInterceptorInstance from '../axiosInterceptorInstance';
+import ActivePlanSection from '@/components/ProPage2/ActivePlanSection';
+import RequestSubmittedSection from '@/components/ElitePage2/RequestSubmittedSection';
 
 const customStyles = {
     content: {
@@ -33,7 +35,7 @@ export default function LogIn({ userData, setUserData, btn }) {
     const [error, setError] = useState(null)
     const sendOtp = () => {
         if (number.length === 10) {
-            axiosInterceptorInstance.get(`api/auth/send-otp?countryCode=91&contactNumber=${number}`)
+            axiosInterceptorInstance.get(`api/auth/send-otp?type=web&countryCode=91&contactNumber=${number}`)
             setModal(true)
         } else {
             setError('Please enter a valid number')
@@ -42,8 +44,9 @@ export default function LogIn({ userData, setUserData, btn }) {
 
     return (
         <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-10'>
-            {userData?.authToken ?
-                <IconBtn className='select-none w-full py-1.5 rounded-full font-Inter text-base border bg-white border-primary text-black font-semibold shadow' onClick={sendOtp}>
+            {userData?.authToken && !modal ?
+                <IconBtn className='select-none w-full py-1.5 rounded-full font-Inter text-base border bg-white border-primary text-black font-semibold shadow'
+                    onClick={() => null}>
                     {btn?.afterLogin}
                 </IconBtn>
 
@@ -62,7 +65,11 @@ export default function LogIn({ userData, setUserData, btn }) {
                         style={customStyles}
                     >
                         <Suspense fallback={<div className='bg-white h-64' />}>
-                            <LogInBf setUserData={setUserData} setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />
+                            {userData?.authToken ?
+                                (btn.isProPage ?
+                                    <ActivePlanSection /> :
+                                    <RequestSubmittedSection />)
+                                : <LogInBf setUserData={setUserData} setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />}
                         </Suspense>
                     </ReactModal>
                 </>}
