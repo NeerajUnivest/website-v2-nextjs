@@ -75,7 +75,7 @@ export default function InvestCalcSection() {
 
     return (
         <>
-            <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="flex flex-col gap-8 py-6">
+            <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="flex flex-col gap-8 py-6 px-3">
                 <div className=" mx-3 flex flex-col items-start gap-4 m-auto">
                     <p className="text-[color:var(--neutral-900,#202020)] text-xl not-italic font-bold leading-8">Create wealth</p>
                     <p className=" text-[color:var(--neutral-700,#606060)] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
@@ -130,18 +130,21 @@ export default function InvestCalcSection() {
                                 <div className='flex items-center gap-4 flex-[1_0_0] pr-0'>
                                     <div className='w-1.5 h-12 rounded-3xl bg-[#61B2F3]'></div>
                                     <div className='flex w-[84px] flex-col items-start gap-1'>
-                                        <p className='text-[color:var(--neutral-900,#202020)] text-sm not-italic font-semibold leading-6'>Univest Elite</p>
-                                        <p className='self-stretch text-[color:var(--primary-900,#00439D)] text-sm not-italic font-bold leading-6'>₹1.68 Cr</p>
+                                        <p className='text-[color:var(--neutral-900,#202020)] text-sm not-italic font-semibold leading-6'>Others</p>
+                                        <p className='self-stretch text-[color:var(--primary-900,#00439D)] text-sm not-italic font-bold leading-6'>₹1.28 Cr</p>
                                     </div>
                                 </div>
                             </div>
                             <HighChartTest />
-                            <div className=' bg-[#FFF] flex justify-center items-start gap-2 self-stretch px-2.5 py-1 rounded-lg'>
-                                <Image className='w-5' src={usersIcon} alt='demo' />
-                                <p className='whitespace-nowrap text-xs not-italic font-normal leading-6'><span className='text-black font-bold'>1,482</span> Univest users have invested <span className='text-[#0862BC] font-bold'>15.6</span><span className='text-[#0862BC]'> crores</span> </p>
-                            </div>
+
                         </div>
+
                     </div>
+
+                </div>
+                <div className=' bg-[#FFF] flex justify-center items-start gap-2 self-stretch px-2.5 py-1 rounded-lg'>
+                    <Image className='w-5' src={usersIcon} alt='demo' />
+                    <p className='whitespace-nowrap text-xs not-italic font-normal leading-6'><span className='text-black font-bold'>1,482</span> Univest users have invested <span className='text-[#0862BC] font-bold'>15.6</span><span className='text-[#0862BC]'> crores</span> </p>
                 </div>
             </section>
             <p className='text-black text-center text-base not-italic font-bold leading-7 mt-4'>

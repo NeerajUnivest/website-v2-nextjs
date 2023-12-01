@@ -43,48 +43,52 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                             </div>
                         </div>
                     </div>
-                    {isActivated ? <TrialCountdownSection /> : <div className=' ml-4 mr-4 pl-4 pr-4 pt-3 pb-4 flex flex-col border-[1px]  border-[color:var(--gradient-3,#FF8415)] mt-8 rounded-xl bg-neutral-600  m-auto gap-3'>
-                        <div className="flex flex-col items-start gap-3 border border-neutral-500 p-3 rounded-lg border-solid bg-gradient-to-b from-[#202020] to-[#202020] ">
-                            <div className="self-stretch text-[color:var(--Pearl-White,#FFF)] text-center text-sm not-italic font-bold leading-6 bg-clip-text">
-                                <span >Past performance : </span>
-                                <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(2) ?? '89.87'}% accuracy</span>
-                            </div>
-                            <RatioBar percent={data?.data?.targetAccuracy} />
-                            <div className=" w-full flex flex-row justify-between ">
-                                <p className="font-semibold text-white text-sm lg:text-xl"> Hit: {data?.data?.hit ?? '71'}</p>
-                                <p className="font-semibold text-white text-sm lg:text-xl"> Miss: {data?.data?.miss ?? '8'}</p>
-                            </div>
-                        </div>
+                    {isActivated ? <TrialCountdownSection /> :
+                        <div className="px-3 flex flex-col gap-6">
+                            <div className=' pl-4 pr-4 pt-3 pb-4 flex flex-col border-[1px]  border-[color:var(--gradient-3,#FF8415)] mt-8 rounded-xl bg-neutral-600 gap-3'>
+                                <div className="flex flex-col items-start gap-3 border border-neutral-500 p-3 rounded-lg border-solid bg-gradient-to-b from-[#202020] to-[#202020] ">
+                                    <div className="self-stretch text-[color:var(--Pearl-White,#FFF)] text-center text-sm not-italic font-bold leading-6 bg-clip-text">
+                                        <span >Past performance : </span>
+                                        <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(2) ?? '89.87'}% accuracy</span>
+                                    </div>
+                                    <RatioBar percent={data?.data?.targetAccuracy} />
+                                    <div className=" w-full flex flex-row justify-between ">
+                                        <p className="font-semibold text-white text-sm lg:text-xl"> Hit: {data?.data?.hit ?? '71'}</p>
+                                        <p className="font-semibold text-white text-sm lg:text-xl"> Miss: {data?.data?.miss ?? '8'}</p>
+                                    </div>
+                                </div>
 
-                        <div className="  flex flex-row justify-between">
-                            <div className="flex flex-row gap-3">
-                                <div className=' top-0 flex items-center justify-center'>
-                                    <Image src={layers} alt='icon' className="w-9" />
-                                </div>
-                                <div>
-                                    <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">192</p>
-                                    <p className="text-[color:var(--neutral-300,#DFDFDF)] text-[10px] not-italic font-semibold leading-4">Total calls</p>
+                                <div className="  flex flex-row justify-between">
+                                    <div className="flex flex-row gap-3">
+                                        <div className=' top-0 flex items-center justify-center'>
+                                            <Image src={layers} alt='icon' className="w-9" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">192</p>
+                                            <p className="text-[color:var(--neutral-300,#DFDFDF)] text-[10px] not-italic font-semibold leading-4">Total calls</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-row gap-3">
+                                        <div className=' top-0 flex items-center justify-center'>
+                                            <Image src={back} alt='icon' className="w-9" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">123</p>
+                                            <p className="text-[color:var(--neutral-300,#DFDFDF)] text-[10px] not-italic font-semibold leading-4">Exited calls</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="flex flex-row gap-3">
-                                <div className=' top-0 flex items-center justify-center'>
-                                    <Image src={back} alt='icon' className="w-9" />
-                                </div>
-                                <div>
-                                    <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">123</p>
-                                    <p className="text-[color:var(--neutral-300,#DFDFDF)] text-[10px] not-italic font-semibold leading-4">Exited calls</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="whitespace-nowrap border rounded-lg bg-neutral-900 flex flex-row justify-around p-3">
-                            <div><Image className="w-14 mt-1" src={freeIcon} alt='demo image' /></div>
-                            <div className="text-white text-base not-italic font-extrabold leading-7">
-                                <p>7 DAYS TRIAL</p>
+                            <div className="whitespace-nowrap border rounded-lg bg-neutral-900 flex flex-row justify-around p-3">
+                                <div><Image className="w-14 mt-1" src={freeIcon} alt='demo image' /></div>
+                                <div className="text-white text-base not-italic font-extrabold leading-7">
+                                    <p>7 DAYS TRIAL</p>
+                                </div>
+                                <button className="text-black text-xs not-italic font-bold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4">Activate now</button>
                             </div>
-                            <button className="text-black text-xs not-italic font-bold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4">Activate now</button>
                         </div>
-                    </div>}
+                    }
                 </div>
             </section>
         </>
