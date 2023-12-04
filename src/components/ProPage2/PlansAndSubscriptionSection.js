@@ -24,7 +24,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
     }, [])
     return (
         <>
-            <section className={` flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+            <section className={`font-Inter flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
                 {/* Membership */}
                 <div className="flex flex-col gap-5">
                     <p className=" text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Available memberships</p>
@@ -32,7 +32,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                 </div>
             </section>
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
-            <section className={` flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+            <section className={`font-Inter flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
                 <p className="text-[color:var(--Pearl-White,#FFF)] text-center text-xl not-italic font-extrabold leading-8">Our pricing of subscription</p>
                 <div>
                     <div className="flex flex-col justify-center items-center gap-4">
@@ -72,7 +72,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
 
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
 
-            <section className={` flex flex-col gap-4 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+            <section className={` font-Inter flex flex-col gap-4 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
                 <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
                     <span className={`text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                         Investment & trading ideas
@@ -145,7 +145,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
 
 export function PlansCard({ data, planName, isPlus }) {
     return (
-        <div className={` relative border-2 ${isPlus ? (planName !== '6 months' ? 'border-[#F2EEFF]' : 'border-[#D3C3FF]') : (planName !== '6 months' ? 'border-[#FFEDD1]' : 'border-[#FFC970]')} rounded-xl  w-full font-Inter flex flex-col font-extrabold bg-white p-`}>
+        <div className={` font-Inter relative border-2 ${isPlus ? (planName !== '6 months' ? 'border-[#F2EEFF]' : 'border-[#D3C3FF]') : (planName !== '6 months' ? 'border-[#FFEDD1]' : 'border-[#FFC970]')} rounded-xl  w-full font-Inter flex flex-col font-extrabold bg-white p-`}>
             <div className={`${planName.includes('12') ? '' : 'hidden'} absolute left-[-5px] top-6 bg-gradient-to-br from-[#141E30] to-[#333] px-1 py-0.5 rounded-[0px_2px_2px_0px`}>
                 <p className="text-[color:var(--Pearl-White,#FFF)] text-[8px] not-italic font-extrabold leading-3">Recommended</p>
             </div>
@@ -171,7 +171,7 @@ export function PlansCard({ data, planName, isPlus }) {
 
 export function AdvisoryTeamCard({ data, isDark }) {
     return (
-        <div className={`mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4  ${isDark ? 'bg-[#363636]' : ' bg-white shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)]'}`}>
+        <div className={`font-Inter mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4  ${isDark ? 'bg-[#363636]' : ' bg-white shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)]'}`}>
             <Image
                 src={data.img}
                 alt='demo image'

@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function BenefitsSection() {
 
     return (
-        <div className="flex flex-col justify-center items-start gap-4 border border-[color:var(--neutral-600,#747474)] p-2 rounded-xl border-solid bg-[#363636]">
+        <div className="font-Inter flex flex-col justify-center items-start gap-4 border border-[color:var(--neutral-600,#747474)] p-2 rounded-xl border-solid bg-[#363636]">
             <div className="flex justify-end items-center gap-3 self-stretch pl-2 pr-3 py-2 rounded-lg bg-[#202020] ">
                 <div className="flex-[1_0_0] text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-medium leading-6">
                     <p>Benefits</p>

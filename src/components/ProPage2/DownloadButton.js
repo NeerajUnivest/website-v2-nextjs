@@ -4,7 +4,7 @@ export default function DownloadButton() {
 
     return (
         <>
-            <div className="relative w-full text-black text-center buy-button pt-4">
+            <div className="font-Inter relative w-full text-black text-center buy-button pt-4">
                 <div className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2">Download the app now</div>
                 <div className="buttont">.</div>
                 <div className="buttonb">.</div>

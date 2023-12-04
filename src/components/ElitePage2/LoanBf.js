@@ -47,7 +47,7 @@ export function LoanBf() {
 
     if (apply) {
         return (
-            <section className="flex flex-col items-center gap-4 whitespace-nowrap" >
+            <section className="flex flex-col items-center gap-4 whitespace-nowrap font-Inter " >
                 <div className='flex justify-center items-center shrink-0 p-4 border-2 border-neutral-500  rounded-full bg-neutral-700'>
                     <Image className='w-10 transform -scale-x-100' src={loanBf} alt='demo' />
                 </div>
