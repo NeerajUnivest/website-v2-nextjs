@@ -123,7 +123,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                 }
             `}</style>
 
-            <div className="m-auto mx-4">
+            <div className=" m-auto mx-4">
                 <p className=" text-[color:var(--neutral-300,#DFDFDF)] text-center text-xs not-italic font-normal leading-5">Disclaimer: Lorem ipsum dolor sit amet consectetur. Erat pretium scelerisque aliquet nisi nec viverra. </p>
             </div>
 

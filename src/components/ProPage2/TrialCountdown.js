@@ -11,7 +11,7 @@ const TrialCountdownSection = ({ isBottom = true, endTime }) => {
     console.log(endTime);
     return (
         <>
-            <section className=" whitespace-nowrap flex flex-col items-center gap-4 mt-6 mx-3 " >
+            <section className="font-Inter whitespace-nowrap flex flex-col items-center gap-4 mt-6 mx-3 " >
                 <div className="m-4 relative flex w-full flex-col justify-center items-center gap-4  border-[color:var(--neutral-500,#9D9D9D)] pt-8 pb-4 px-3 rounded-xl border border-neutral-500 bg-[#191616]">
                     <div className=" bg-gradient-to-tl from-[#1A379E] to-[#C379FE] absolute top-[-20px] inline-flex items-start gap-2.5 border-[color:var(--alert-50,#FFFDFA)] px-4 py-1.5 rounded-[20px] border-[1.5px] border-solid bg-[#02A79C] ">
                         <p className="text-[color:var(--Pearl-White,#FFF)] text-center text-sm not-italic font-bold leading-6">Free trial ends</p>

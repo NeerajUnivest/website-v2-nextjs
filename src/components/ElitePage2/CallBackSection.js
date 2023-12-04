@@ -8,7 +8,7 @@ import callIcon from '@/assets/icons/call_icon.png'
 export default function CallBackSection() {
     return (
         <section style={{ background: 'linear-gradient(180deg, rgba(243, 247, 249, 0.00) -6.26%, #E4EFF2 43.54%, rgba(243, 247, 249, 0.00) 104.34%' }}>
-            <div className="mx-4 flex flex-col items-center gap-4 my-12">
+            <div className=" font-Inter mx-4 flex flex-col items-center gap-4 my-12">
                 <Image className="w-20" src={callbackIcon} alt="demo" />
                 <div className="flex flex-col justify-center items-center gap-3 w-full">
                     <p className="text-[color:var(--neutral-900,#202020)] text-base not-italic font-semibold leading-7">Connect with wealth advisor</p>

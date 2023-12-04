@@ -37,7 +37,7 @@ export default function ClosedIdeasSection({ homePage, start_at, isDark = false 
     }
     return (
         <>
-            <section className="bg-gradient-to-b from-[#202020] to-[#202020] lg:px-8 max-w-screen-xl mx-auto">
+            <section className=" font-Inter bg-gradient-to-b from-[#202020] to-[#202020] lg:px-8 max-w-screen-xl mx-auto">
                 <div className='mx-4 flex flex-col gap-6 py-6'>
                     <div className='flex flex-col gap-4'>
                         <div className='flex flex-row justify-between'>

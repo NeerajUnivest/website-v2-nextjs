@@ -24,7 +24,7 @@ function ActivePlanSection({ isBottom = true }) {
 
     if (data?.subscriptionState === 'TRIAL_PRO_PLUS') {
         return (
-            <section className="flex flex-col items-center bg-white  " >
+            <section className="font-Inter flex flex-col items-center bg-white  " >
                 <Image className="w-2/3" src={welcome_pro_plus} alt="demo" />
                 <p className="text-[color:var(--neutral-700,#606060)] text-center text-base not-italic font-semibold leading-7">Welcome to</p>
                 <div className="text-[color:var(--neutral-900,#202020)] text-center text-lg not-italic font-extrabold leading-[42.447px] flex flex-row gap-2 ">
