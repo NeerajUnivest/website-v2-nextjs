@@ -83,6 +83,8 @@ export default function ClosedIdeasSection({ homePage, start_at, isDark = false 
                         pageCount={pageCount}
                         previousLabel="Previous"
                         renderOnZeroPageCount={null}
+                        nextClassName='underline underline-2'
+                        previousClassName='underline underline-2'
                     />
                 </div>
             </section>
