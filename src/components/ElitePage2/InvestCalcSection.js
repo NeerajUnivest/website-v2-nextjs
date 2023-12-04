@@ -13,7 +13,7 @@ import loanBf from '@/assets/loanBf.png'
 import ReactModal from "react-modal"
 import { isMobile } from 'react-device-detect';
 import { AiFillInfoCircle } from 'react-icons/ai'
-import { IconBtn } from '@/elements/Button/Button'
+import { BlackButton, IconBtn } from '@/elements/Button/Button'
 import axiosInterceptorInstance from '@/elements/axiosInterceptorInstance'
 
 
@@ -180,6 +180,7 @@ export function LoanBf() {
     })
 
 
+
     const handleSubmit = () => {
         if (data.name?.length > 3) {
             if (data.contactNumber?.length === 10) {
@@ -193,6 +194,23 @@ export function LoanBf() {
         }
     }
 
+    if (false) {
+
+        return (
+            <section className="flex flex-col items-center gap-4 whitespace-nowrap" >
+                <div className='flex justify-center items-center shrink-0 p-4 border-2 border-neutral-500  rounded-full bg-neutral-700'>
+                    <Image className='w-10 transform -scale-x-100' src={loanBf} alt='demo' />
+                </div>
+                <p className='self-stretch text-[color:var(--neutral-900,#202020)] text-center text-base not-italic font-bold leading-7'>Our loan advisor will reach back to you</p>
+                <div className=' text-[color:var(--neutral-700,#606060)] text-center text-xs not-italic font-semibold leading-5'>
+                    <p>During weekdays, expect a response within 48 hours.</p>
+                    <p>On weekend, we’ll call back on next working day.</p>
+                </div>
+                <p className='text-[color:var(--neutral-800,#414141)] text-center text-[10px] not-italic font-medium leading-4'><span className='text-black font-bold'>Working hours:</span> Monday to Friday, 10:00 AM to 6:30 PM. </p>
+                <BlackButton className={'w-full py-2 mx-auto font-bold mt-4 rounded-lg text-sm'} text={'Download the app now'} />
+            </section>
+        )
+    }
 
     return (
         <>
