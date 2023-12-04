@@ -1,16 +1,10 @@
 
 import { popUp } from "@/elements/PopUp/PopUp"
 import Image from "next/image";
-import proIcon from "../../assets/Images/pro_icon.png"
-import proPlusIcon from "../../assets/Images/proPlus_icon.png"
-import vector from "../../assets/Images/Vector.png"
-import greenTickIcon from "../../assets/Images/green_tick_icon.png"
-import crossTickIcon from "../../assets/Images/cross_tick.png"
-import proPlusPremIcon from "../../assets/Images/proPlusPrem_icon.png"
-import proPremIcon from "../../assets/Images/proPrem_icon.png"
-import proPlusIcon2 from "@/assets/Images/proPlus_icon2.png"
+import proPremIcon from "../../assets/images/proPrem_icon.png"
+import proPlusIcon2 from "@/assets/images/proPlus_icon2.png"
 import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
-import sebi_new_logo_white from '../../assets/Images/sebi_logo_new 1.png';
+import sebi_new_logo_white from '../../assets/images/sebi_logo_new 1.png';
 import yashpal_arora from '@/assets/images/yashpal_arora.png';
 import ketan_sonalkar from '@/assets/images/ketan_sonalkar.png';
 import sagar_wadhwa from '@/assets/images/sagar_wadhwa.png';

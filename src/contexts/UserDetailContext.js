@@ -41,7 +41,7 @@ const UserDetailContext = (props) => {
 
 
     return (
-        <UserDetailProvider.Provider value={{ btn, setBtn, userData }}>
+        <UserDetailProvider.Provider value={{ btn, setBtn, userData, setUserData }}>
             {props.children}
 
             {btn.show && <LogIn btn={btn} userData={userData} setUserData={setUserData} />}

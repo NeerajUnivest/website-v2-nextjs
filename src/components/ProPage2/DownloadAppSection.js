@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import ratingLg from "../../assets/images/ratingLg.png";
 import ratingLg_light from "../../assets/images/ratingLg_light.png";
-import ratingIcon from "../../assets/Images/rating.png"
-import downloadsCount from "../../assets/Images/downloadsCount.png"
+import ratingIcon from "../../assets/images/rating.png"
+import downloadsCount from "../../assets/images/downloadsCount.png"
 import usersIcon from "src/assets/icons/users_icon.png"
 import { BlackButton } from '@/elements/Button/Button';
 

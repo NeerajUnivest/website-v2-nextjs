@@ -34,26 +34,30 @@ export default function LogIn({ userData, setUserData, btn }) {
     const [modal, setModal] = useState(false)
     const [error, setError] = useState(null)
     const sendOtp = () => {
-        if (number.length === 10) {
+        var IndNum = /^[0]?[789]\d{9}$/;
+        if (number.length === 10 && IndNum.test(number)) {
             axiosInterceptorInstance.get(`api/auth/send-otp?type=web&countryCode=91&contactNumber=${number}`)
             setModal(true)
         } else {
-            setError('Please enter a valid number')
+            setError('Please enter a valid mobile number')
         }
     }
 
     return (
-        <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-10'>
+        <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-[2]'>
             {userData?.authToken && !modal ?
                 <IconBtn className='select-none w-full py-1.5 rounded-full font-Inter text-base border bg-white border-primary text-black font-semibold shadow'
-                    onClick={() => null}>
+                    onClick={() => window.open('https://univest.onelink.me/VC6b/investwithunivest', '_blank')}>
                     {btn?.afterLogin}
                 </IconBtn>
 
                 : <>
-                    <div className='pl-4 pr-1 w-full h-11 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-sm lg:text-base font-medium'>
+                    <div className={`pl-4 pr-1 w-full h-11 flex items-center bg-[#FFF] rounded-full text-sm lg:text-base font-medium ${error ? 'border-2 border-red-700' : 'border border-[#606060]'}`}>
                         <input ref={inputRef} className='w-[calc(100%-90px)] caret-primary text-[#747474] font-semibold' type='tel' placeholder='Enter your mobile number'
-                            value={number} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" inputMode="tel" onChange={(e) => { setNumber(e.target.value) }} />
+                            value={number} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" inputMode="tel" onChange={(e) => {
+                                setNumber(e.target.value)
+                                setError(null)
+                            }} />
                         <BlackButton className='whitespace-nowrap px-3 lg:px-6 h-9 ml-auto text-sm font-semibold' text={btn?.beforeLogin} onClick={sendOtp} />
                     </div>
 

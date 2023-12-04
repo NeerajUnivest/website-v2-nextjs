@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { slide as Menu } from 'react-burger-menu';
 import SearchBar from './SearchBar';
 import Image from 'next/image'
@@ -9,9 +9,12 @@ import { GoSearch } from 'react-icons/go';
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useRouter } from 'next/router';
 import { popUp as ComingSoonPopUp } from './PopUp/ComingSoonPopUp';
-
+import { MdPerson } from "react-icons/md";
+import { UserDetailProvider } from '@/contexts/UserDetailContext';
+import Actions from './Actions';
 
 export default function NavBar() {
+    const userDetail = useContext(UserDetailProvider)
     const [isOpen, setIsOpen] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
     const { width } = useWindowSize();
@@ -51,7 +54,19 @@ export default function NavBar() {
                     {width > 976 && <SearchBar forPhone={false} />}
                 </div>
             </div>
-            <Menu right onStateChange={(e) => setIsOpen(e.isOpen)} isOpen={isOpen} burgerButtonClassName='hidden'>
+            <Menu className='z-20' right onStateChange={(e) => setIsOpen(e.isOpen)} isOpen={isOpen} burgerButtonClassName='hidden'>
+
+                {userDetail?.userData?.firstName &&
+                    <div className='my-8'>
+                        <div className='flex flex-col justify-center items-center '>
+                            <MdPerson size={72} className=' p-4 bg-[#484848] rounded-full' />
+                            <div className='text-white text-xl mt-4 font-medium'>
+                                {userDetail?.userData?.firstName}
+                            </div>
+                        </div>
+                    </div>}
+
+
                 <Link href='/' onClick={() => setIsOpen(false)}
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Home
@@ -76,6 +91,16 @@ export default function NavBar() {
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Blogs
                 </div>
+
+                {userDetail?.userData?.firstName &&
+                    <div onClick={() => {
+                        Actions.removeCookie('user_details')
+                        Actions.removeCookie('auth_token')
+                        userDetail.setUserData({})
+                    }}
+                        className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
+                        Logout
+                    </div>}
             </Menu>
         </nav>
     )

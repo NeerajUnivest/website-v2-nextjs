@@ -7,7 +7,7 @@ import { CiBookmark } from "react-icons/ci";
 import { FcLock } from "react-icons/fc";
 import { useEffect, useState } from "react";
 import { useGetAxios } from "@/hooks/useGetAxios";
-import bgImage from '@/assets/Images/tilesNonProBG.png'
+import bgImage from '@/assets/images/tilesNonProBG.png'
 
 export default function LiveIdeasSection({ isDark = false }) {
     const { fetchData, data, loading } = useGetAxios('')

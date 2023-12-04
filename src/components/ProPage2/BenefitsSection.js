@@ -1,9 +1,9 @@
-import proIcon from "../../assets/Images/pro_icon.png"
-import proPlusIcon from "../../assets/Images/proPlus_icon.png"
-import vector from "../../assets/Images/Vector.png"
-import greenTickIcon from "../../assets/Images/green_tick_icon.png"
-import crossTickIcon from "../../assets/Images/cross_tick.png"
-import proPlusPremIcon from "../../assets/Images/proPlusPrem_icon.png"
+import proIcon from "../../assets/images/pro_icon.png"
+import proPlusIcon from "../../assets/images/proPlus_icon.png"
+import vector from "../../assets/images/Vector.png"
+import greenTickIcon from "../../assets/images/green_tick_icon.png"
+import crossTickIcon from "../../assets/images/cross_tick.png"
+import proPlusPremIcon from "../../assets/images/proPlusPrem_icon.png"
 import Image from "next/image";
 
 export default function BenefitsSection() {

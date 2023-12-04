@@ -5,7 +5,7 @@ export default function DownloadButton() {
     return (
         <>
             <div className="flex flex-col justify-center items-center gap-2">
-                <a class="button">Download the app now</a>
+                <a className="button">Download the app now</a>
                 <p className="text-white text-xs not-italic font-medium leading-5">To avail all the free benefits</p>
             </div>
 

@@ -38,14 +38,43 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
         }).then(res => {
             if (res.data?.data?.authToken) {
                 // setModal(false)
-                setUserData(res.data?.data)
-                Actions.setCookie("user_details", JSON.stringify(res.data?.data), 1)
                 Actions.setCookie("auth_token", res.data?.data?.authToken, 1)
+                getUserInfo(res.data?.data)
             } else {
                 setError(true)
             }
         }).catch(e => { setError(true) })
             .finally(f => setDtnClicked(false))
+    }
+
+    const getUserInfo = (data) => {
+        axiosInterceptorInstance.get(`resources/users/user-info-v2`)
+            .then(ress => {
+                if (ress.data?.data?.subscriptionState === 'FREE') {
+                    axiosInterceptorInstance.put(`/resources/user-subscription/activate-trial-v2`, {}
+                        , {
+                            headers: {
+                                'device-name': Actions.getDeviceName(),
+                                'device-id': Actions.generateUniqueDeviceID()
+                            }
+                        })
+                        .then(res => {
+                            if (res.data?.data) {
+                                getUserInfo(data)
+                            } else {
+                                alert('.............')
+                            }
+                        })
+                } else {
+                    let uD = {
+                        ...data,
+                        subscriptionState: ress.data?.data?.subscriptionState,
+                        expiryDate: ress.data?.data?.expiryDate
+                    }
+                    setUserData(uD)
+                    Actions.setCookie("user_details", JSON.stringify(uD), 1)
+                }
+            })
     }
 
     useEffect(() => {

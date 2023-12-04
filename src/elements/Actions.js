@@ -27,8 +27,47 @@ let Actions = {
         }
         return null;
     },
+    removeCookie: (cname) => {
+        const d = new Date();
+        d.setTime(d.getTime() + 1);
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + '' + ";" + expires + ";path=/";
+    },
     trimName: (name, n = 25) => {
         return name?.length > n ? name?.slice(0, n) + '...' : name
+    },
+    generateUniqueDeviceID: () => {
+        let fingerprint = '';
+        if (navigator?.userAgent) {
+            fingerprint += navigator.userAgent;
+        }
+
+        if (navigator.platform) {
+            fingerprint += navigator.platform;
+        }
+
+        if (window.screen && window.screen.width && window.screen.height) {
+            fingerprint += window.screen.width + 'x' + window.screen.height;
+        }
+        const uniqueID = btoa(fingerprint);
+        return uniqueID;
+    },
+    getDeviceName: () => {
+        const userAgent = navigator.userAgent.toLowerCase();
+
+        if (userAgent.includes('android')) {
+            return 'Android Web';
+        } else if (userAgent.includes('iphone') || userAgent.includes('ipad')) {
+            return 'iOS Web';
+        } else if (userAgent.includes('windows')) {
+            return 'Windows Web';
+        } else if (userAgent.includes('macintosh') || userAgent.includes('mac os')) {
+            return 'Mac Web';
+        } else if (userAgent.includes('linux')) {
+            return 'Linux Web';
+        } else {
+            return 'Unknown Web';
+        }
     }
 };
 

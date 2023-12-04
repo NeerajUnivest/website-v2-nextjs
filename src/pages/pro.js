@@ -20,6 +20,8 @@ import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
 import { UserDetailProvider } from '@/contexts/UserDetailContext'
 import BenefitsSection from '@/components/ProPage2/BenefitsSection'
 import ActivePlanSection from '@/components/ProPage2/ActivePlanSection'
+import Actions from '@/elements/Actions'
+
 
 export default function Pro({ pageName, data }) {
     const userDetail = useContext(UserDetailProvider)
@@ -33,7 +35,7 @@ export default function Pro({ pageName, data }) {
         userDetail.setBtn({ show: true, beforeLogin: 'Activate trial', afterLogin: 'Download the app now', isProPage: true })
     }, [])
 
-    // return <ActivePlanSection />
+    return <ActivePlanSection />
     return (<>
         <MetaSection
             title='Stock market investment ideas by SEBI Reg. Investment Advisor Uniapps'

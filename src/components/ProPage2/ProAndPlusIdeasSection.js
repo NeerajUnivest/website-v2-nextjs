@@ -6,7 +6,7 @@ import moment from "moment/moment";
 import useSWR from 'swr'
 import { Autoplay } from "swiper";
 import { FaClock } from "react-icons/fa";
-import onlyProPlusIcon from "../../assets/Images/only_with_pro_plus.png"
+import onlyProPlusIcon from "../../assets/images/only_with_pro_plus.png"
 import axiosInterceptorInstance from "@/elements/axiosInterceptorInstance";
 import { useEffect, useState } from "react";
 

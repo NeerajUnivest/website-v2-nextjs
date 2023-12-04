@@ -1,10 +1,12 @@
 
 import Image from "next/image"
-import premiumIcon from "@/assets/Images/Vector.png"
+import premiumIcon from "@/assets/images/Vector.png"
 import Countdown from "react-countdown"
 import DownloadButton from "./DownloadButton"
+import moment from "moment"
 
-export default function TrialCountdownSection({ isBottom = true }) {
+export default function TrialCountdownSection({ isBottom = true, endTime }) {
+    console.log(moment(endTime, 'DD MMM YY').diff(moment()) / (7 * 24 * 60 * 60 * 100));
 
     return (
         <>
