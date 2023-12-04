@@ -35,7 +35,7 @@ export default function Pro({ pageName, data }) {
         userDetail.setBtn({ show: true, beforeLogin: 'Activate trial', afterLogin: 'Download the app now', isProPage: true })
     }, [])
 
-    return <ActivePlanSection />
+    // return <ActivePlanSection />
     return (<>
         <MetaSection
             title='Stock market investment ideas by SEBI Reg. Investment Advisor Uniapps'

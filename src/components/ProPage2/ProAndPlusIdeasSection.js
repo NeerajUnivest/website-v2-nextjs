@@ -30,7 +30,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 
     return (
-        <section id="Ideas" className={`  flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+        <section id="Ideas" className={`  flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="">
                 {isLoading ?
                     <div className=" flex">
@@ -58,7 +58,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                                         <div className=" p-2 border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA] mr-2 ml-2 mt-0">
                                             <div className="pl-2 pr-2 flex flex-row justify-around">
                                                 <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : "#00439D"} size={"10px"} /></div>
-                                                <p className={`text-[${ele.term === 'SHORT' ? '#B43C30' : (ele.term === 'LONG' ? '#005251' : (ele.term === 'MEDIUM' ? '#00439D' : ''))}] text-[10px] not-italic font-semibold leading-4`} >{ele?.term} TERM </p>
+                                                <p className={`text-[${ele.term === 'SHORT' ? '#B43C30' : (ele.term === 'LONG' ? '#005251' : (ele.term === 'MEDIUM' ? '#00439D' : ''))}] text-[10px] not-italic font-semibold leading-4`}>{ele?.term === 'SHORT' ? 'Short' : (ele?.term === 'MEDIUM' ? 'Medium' : (ele?.term === 'LONG' ? 'Long' : 'Future'))} {ele?.term === 'FUTURES' ? '' : 'Term'} </p>
                                             </div>
                                         </div>
                                         <div className="flex ml-3">
@@ -102,10 +102,10 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                 .IdeasSection .swiper-slide,
                 .IdeasSection .swiper-slide-prev,
                 .IdeasSection .swiper-slide-next {
-                width: 144px;
-                height: 164px;
+                width: 154px;
+                height: 154px;
                 margin: 0px 10px;
-                transform: scale(0.9);
+                // transform: scale(0.9);
                 transition: 500ms;
                 border-radius: 10px;
                 background: #f5f5f5;
@@ -125,11 +125,11 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                 }
             `}</style>
 
-            <div className="m-auto">
+            <div className="m-auto mx-4">
                 <p className=" text-[color:var(--neutral-300,#DFDFDF)] text-center text-xs not-italic font-normal leading-5">Disclaimer: Lorem ipsum dolor sit amet consectetur. Erat pretium scelerisque aliquet nisi nec viverra. </p>
             </div>
 
-            <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 ">
+            <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 mx-4">
                 {datas.configs?.map(ele => <IdeasTermCard key={ele.term} data={ele} />)}
             </div>
 
@@ -140,7 +140,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 export function IdeasTermCard({ data }) {
     return (
-        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" relative  rounded-xl  m-auto py-4 bg-cover">
+        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" relative w-[156px]  rounded-xl  m-auto py-3 bg-cover">
             <div className={` ${data?.newStocksCount > 0 ? '' : 'hidden'} absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] inline-flex justify-center items-center gap-0.5 px-2 py-0.5 rounded-[0px_8px_0px_4px] whitespace-nowrap `}> <p className="text-white text-[11px] font-medium">{data?.newStocksCount} New ideas</p> </div>
             <Image className={` ${data?.term === 'FUTURES' ? '' : 'hidden'} w-12 absolute right-[-2px] top-9 `} src={onlyProPlusIcon} alt='demo image' />
             <div className=" mx-3 mt-2 flex flex-col gap-2">

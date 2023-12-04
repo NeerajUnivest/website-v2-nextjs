@@ -75,8 +75,8 @@ export default function InvestCalcSection() {
 
     return (
         <>
-            <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="flex flex-col gap-8 py-6 px-3">
-                <div className=" mx-3 flex flex-col items-start gap-4 m-auto">
+            <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="flex flex-col gap-8 py-6 px-4">
+                <div className="flex flex-col items-start gap-4 m-auto">
                     <p className="text-[color:var(--neutral-900,#202020)] text-xl not-italic font-bold leading-8">Create wealth</p>
                     <p className=" text-[color:var(--neutral-700,#606060)] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
                 </div>
@@ -95,7 +95,7 @@ export default function InvestCalcSection() {
                                 ₹{amountToRupee?.[value.amount]?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                             </div>
                         </div>
-                        <div className='my-7 mb-20 lg:my-14'>
+                        <div className='mb-16 lg:my-14'>
                             <Slider
                                 step={1}
                                 tooltip={false}
@@ -118,7 +118,7 @@ export default function InvestCalcSection() {
                             </div>
                         </div>
 
-                        <div className='flex flex-col items-start gap-3'>
+                        <div className=' mt-16 flex flex-col items-start gap-3'>
                             <div className='flex items-start gap-3 self-stretch'>
                                 <div className='flex items-center gap-4 flex-[1_0_0] pr-0'>
                                     <div className='w-1.5 h-12 rounded-3xl bg-[#1F75C5]'></div>
