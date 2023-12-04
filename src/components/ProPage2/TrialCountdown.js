@@ -1,13 +1,14 @@
 
 import Image from "next/image"
 import premiumIcon from "@/assets/images/Vector.png"
-import Countdown from "react-countdown"
+import Countdown, { zeroPad } from "react-countdown"
 import DownloadButton from "./DownloadButton"
 import moment from "moment"
+import Actions from "@/elements/Actions"
+import { memo, useEffect } from "react"
 
-export default function TrialCountdownSection({ isBottom = true, endTime }) {
-    console.log(moment(endTime, 'DD MMM YY').diff(moment()) / (7 * 24 * 60 * 60 * 100));
-
+const TrialCountdownSection = ({ isBottom = true, endTime }) => {
+    console.log(endTime);
     return (
         <>
             <section className=" whitespace-nowrap flex flex-col items-center gap-4 mt-6 mx-3 " >
@@ -25,29 +26,29 @@ export default function TrialCountdownSection({ isBottom = true, endTime }) {
                             <p>Premium screeners</p>
                         </div>
                     </div>
-                    <Countdown date={Date.now() + (1000 * 1000)} renderer={({ days, hours, minutes, seconds, completed }) => completed ? <div /> : <div className="flex items-center gap-2 justify-center text-white">
+                    <Countdown date={moment(endTime, 'DD MMM YY').add(1, 'd').valueOf()} renderer={({ days, hours, minutes, seconds, completed }) => completed ? <div /> : <div className="flex items-center gap-2 justify-center text-white">
                         <div className="flex flex-col justify-center items-center gap-1">
                             <div className="flex flex-col justify-center items-center gap-2.5 px-4 py-[16px] rounded-lg bg-[#EB4E2C]">
-                                <p className="text-2xl font-extrabold">{days < 10 ? '0' : ''}{days}</p>
+                                <p className="text-2xl font-extrabold">{zeroPad(days)}</p>
                             </div>
                             <p className="text-xs not-italic font-extrabold leading-5">Days</p>
                         </div>
                         <p className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">:</p>
                         <div className="flex flex-col justify-center items-center gap-1">
                             <div className="flex flex-col justify-center items-center gap-2.5 px-4 py-[16px] rounded-lg bg-[#EB4E2C]">
-                                <p className="text-2xl font-extrabold">{hours < 10 ? '0' : ''}{hours}</p>
+                                <p className="text-2xl font-extrabold">{zeroPad(hours)}</p>
                             </div>
                             <p className="text-xs not-italic font-extrabold leading-5">Hours</p>
                         </div>
                         <p className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">:</p>
                         <div className="flex flex-col justify-center items-center gap-1">
                             <div className="flex flex-col justify-center items-center gap-2.5 px-4 py-[16px] rounded-lg bg-[#EB4E2C]">
-                                <p className="text-2xl font-extrabold">{minutes < 10 ? '0' : ''}{minutes}</p>
+                                <p className="text-2xl font-extrabold">{zeroPad(minutes)}</p>
                             </div>
                             <p className="text-xs not-italic font-extrabold leading-5">Minutes</p>
                         </div>
                     </div>}
-                        onComplete={null} />
+                    />
                     {isBottom ? <DownloadButton /> : ''}
                 </div>
             </section>
@@ -56,3 +57,4 @@ export default function TrialCountdownSection({ isBottom = true, endTime }) {
         </>
     )
 }
+export default memo(TrialCountdownSection)
