@@ -33,10 +33,10 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
             </section>
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
             <section className={` flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
-                <p className="text-[color:var(--Pearl-White,#FFF)] text-center text-xl not-italic font-extrabold leading-8">Our Pricing of subscription</p>
+                <p className="text-[color:var(--Pearl-White,#FFF)] text-center text-xl not-italic font-extrabold leading-8">Our pricing of subscription</p>
                 <div>
                     <div className="flex flex-col justify-center items-center gap-4">
-                        <div className=" text-sm  flex-row gap-1 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F]  flex justify-center items-center pl-[38px] pr-[37.287px] py-1.5 rounded-lg" >
+                        <div className="w-[156px] text-sm  flex-row gap-1 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F]  flex justify-center items-center py-1.5 rounded-lg" >
                             <div className="flex flex-row ">
                                 <p className="font-extrabold" >PR</p>
                                 <div className="flex justify-center items-center"><Image className="w-4" src={proPremIcon} alt='demo image' /></div>
@@ -53,7 +53,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                 </div>
                 <div>
                     <div className="flex flex-col justify-center items-center gap-4">
-                        <div className=" text-white text-sm  flex-row gap-1 bg-gradient-to-tl  from-[#1A379E] to-[#C379FE]  flex justify-center items-center pl-[38px] pr-[37.287px] py-1.5 rounded-lg" >
+                        <div className="w-[156px] text-white text-sm  flex-row gap-1 bg-gradient-to-tl  from-[#1A379E] to-[#C379FE]  flex justify-center items-center py-1.5 rounded-lg" >
                             <div className="flex flex-row ">
                                 <p className="font-extrabold" >PR</p>
                                 <div className="flex justify-center items-center"><Image className="w-4" src={proPlusIcon2} alt='demo image' /></div>
@@ -133,9 +133,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                         }
                     </Swiper>
                 </div>
-                <div className=" text-[#BCBCBC] text-center text-sm not-italic font-medium leading-6">
-                    <p >Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa</p>
-                </div>
+                <p className=" text-[#BCBCBC] text-center text-sm not-italic font-medium leading-6 mt-5">Backed up with 100+ years of investing experience, led by SEBI registered advisor Ketan Sonalkar along with Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa</p>
             </section>
 
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
@@ -155,11 +153,11 @@ export function PlansCard({ data, planName, isPlus }) {
                 {planName}
             </p>
             <div>
-                <p className="mt-2.5 lg:mt-7 text-sm lg:text-4xl text-center">
+                <p className="mt-2.5 lg:mt-7 text-base lg:text-4xl text-center">
                     ₹{data.discountedAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                 </p>
                 <p className="  lg:mt-7 text-sm lg:text-4xl text-center">
-                    <del className="text-[#606060] text-xs lg:text-3xl font-medium">₹{data.displayAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</del>
+                    <del className="text-[#606060] text-sm lg:text-3xl font-medium">₹{data.displayAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</del>
                 </p>
             </div>
             <div className="py-2.5 lg:py-6 flex justify-center font-semibold">

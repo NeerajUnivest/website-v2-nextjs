@@ -10,7 +10,7 @@ export default function CallBackSection() {
         <section style={{ background: 'linear-gradient(180deg, rgba(243, 247, 249, 0.00) -6.26%, #E4EFF2 43.54%, rgba(243, 247, 249, 0.00) 104.34%' }}>
             <div className="mx-4 flex flex-col items-center gap-4 my-12">
                 <Image className="w-20" src={callbackIcon} alt="demo" />
-                <div className="flex flex-col justify-center items-center gap-3">
+                <div className="flex flex-col justify-center items-center gap-3 w-full">
                     <p className="text-[color:var(--neutral-900,#202020)] text-base not-italic font-semibold leading-7">Connect with wealth advisor</p>
                     <div className='pl-4  w-full h-11 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-sm lg:text-base font-medium'>
                         <Image className="w-6" src={callIcon} alt="demo" />

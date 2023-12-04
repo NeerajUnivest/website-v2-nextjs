@@ -5,6 +5,7 @@ import verifiedIcon from '@/assets/icons/active_users.png'
 import targetingIcon from '@/assets/icons/target_accuracy.png'
 import briefcaseIcon from '@/assets/icons/portfolios_connected.png'
 import groupIcon from '@/assets/icons/trusted_indians.png'
+import heroBG from "@/assets/images/heroBG.png";
 
 
 
@@ -12,8 +13,8 @@ import groupIcon from '@/assets/icons/trusted_indians.png'
 export default function EliteHeroSectionNew({ homePage }) {
     const router = useRouter();
     return (<>
-        <section id="Hero" className=" overflow-hidden ">
-            <div className='whitespace-nowrap flex flex-col gap-8 lg:flex-row pt-32 lg:pt-28 max-w-screen-xl mx-auto bg-light-blue pb-10'>
+        <section id="Hero" className=" overflow-hidden relative">
+            <div className='whitespace-nowrap flex flex-col gap-8 lg:flex-row py-32 lg:pt-28 max-w-screen-xl mx-auto bg-light-blue'>
                 <div className="flex flex-col items-center gap-6">
                     <div className=" w-[100px] m-auto flex justify-center items-center gap-1.5 py-1 rounded-lg bg-gradient-to-tr from-[#141E30] to-[#333] text-white">
                         <Image className="w-6" src={eliteProIcon} alt="demo" />
@@ -87,9 +88,7 @@ export default function EliteHeroSectionNew({ homePage }) {
 
                 </div>
             </div>
-            <div className="bg-light-blue rounded-b-full h-[80px] ">
-
-            </div>
+            <Image src={heroBG} alt='demo' className="absolute bottom-0" />
         </section>
 
     </>

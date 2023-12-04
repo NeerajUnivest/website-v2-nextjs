@@ -118,9 +118,9 @@ export default function LiveIdeasSection({ isDark = false }) {
                 }
                 }
             `}</style>
-                <div className="">
-                    <p className=" m-auto text-[color:var(--neutral-300,#DFDFDF)] text-center text-xs not-italic font-normal leading-5">Lorem ipsum dolor sit amet consectetur. Erat pretium scelerisque aliquet nisi nec viverra.</p>
-                </div>
+                <p className="whitespace-normal mx-4 text-[#DFDFDF] text-center text-xs not-italic font-normal leading-5">
+                    Lorem ipsum dolor sit amet consectetur. Erat pretium scelerisque aliquet nisi nec viverra.
+                </p>
             </section>
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
         </>

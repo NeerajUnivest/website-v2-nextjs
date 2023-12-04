@@ -56,7 +56,7 @@ export default function ScreenersSection({ isDark = false }) {
                     <div className={`text-sm lg:text-base font-semibold ${isDark ? 'text-white' : 'text-black'}`}>
                         Explore by categories
                     </div>
-                    <div className="grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-4">
+                    <div className="w-full grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-4">
                         {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className=' bg-black border-white text-white' />)}
                     </div>
                     <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />

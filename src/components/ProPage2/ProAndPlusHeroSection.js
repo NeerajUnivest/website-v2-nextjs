@@ -43,11 +43,10 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                             </div>
                         </div>
                     </div>
-                    {isActivated ? <TrialCountdownSection /> :
+                    {isActivated && <TrialCountdownSection />}
 
-                        ''}
                     <div className="px-3 flex flex-col gap-6">
-                        <div className=' pl-4 pr-4 pt-3 pb-4 flex flex-col border-[1px]  border-[color:var(--gradient-3,#FF8415)] mt-8 rounded-xl bg-[#363636] gap-3'>
+                        <div className=' pl-4 pr-4 pt-3 pb-4 flex flex-col border  border-[#ffd25e] mt-8 rounded-xl bg-[#363636] gap-3'>
                             <div className="flex flex-col items-start gap-3 border border-neutral-500 p-3 rounded-lg border-solid bg-gradient-to-b from-[#202020] to-[#202020] ">
                                 <div className="self-stretch text-[color:var(--Pearl-White,#FFF)] text-center text-sm not-italic font-bold leading-6 bg-clip-text">
                                     <span >Past performance : </span>

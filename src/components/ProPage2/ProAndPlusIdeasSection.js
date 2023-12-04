@@ -30,7 +30,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 
     return (
-        <section id="Ideas" className={`  flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
+        <section id="Ideas" className={` font-Inter  flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="">
                 {isLoading ?
                     <div className=" flex">
@@ -45,7 +45,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                         slidesPerView={'auto'}
                         spaceBetween={0}
                         autoplay={{
-                            delay: 2000,
+                            delay: 20000,
                             disableOnInteraction: false
                         }}
                         modules={[Autoplay]}
@@ -55,13 +55,11 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                             <SwiperSlide key={`${ele.id}-${i}`} >
                                 <div className="overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] ">
                                     <div className=" h-full flex flex-col justify-between border-2 rounded-t-lg border-[#BADDFA] border-b-transparent">
-                                        <div className=" p-2 border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA] mr-2 ml-2 mt-0">
-                                            <div className="pl-2 pr-2 flex flex-row justify-around">
-                                                <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : "#00439D"} size={"10px"} /></div>
-                                                <p className={`text-[${ele.term === 'SHORT' ? '#B43C30' : (ele.term === 'LONG' ? '#005251' : (ele.term === 'MEDIUM' ? '#00439D' : ''))}] text-[10px] not-italic font-semibold leading-4`}>{ele?.term === 'SHORT' ? 'Short' : (ele?.term === 'MEDIUM' ? 'Medium' : (ele?.term === 'LONG' ? 'Long' : 'Future'))} {ele?.term === 'FUTURES' ? '' : 'Term'} </p>
-                                            </div>
+                                        <div className="flex justify-center gap-2 px-2 py-1 border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA] mr-2 ml-2 mt-0">
+                                            <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : "#00439D"} size={10} /></div>
+                                            <div className={`text-[${ele.term === 'SHORT' ? '#B43C30' : (ele.term === 'LONG' ? '#005251' : (ele.term === 'MEDIUM' ? '#00439D' : ''))}] text-[10px] font-semibold`}>{ele?.term === 'SHORT' ? 'Short' : (ele?.term === 'MEDIUM' ? 'Medium' : (ele?.term === 'LONG' ? 'Long' : 'Future'))} {ele?.term === 'FUTURES' ? '' : 'Term'} </div>
                                         </div>
-                                        <div className="flex ml-3">
+                                        <div className="flex justify-center">
                                             {ele.logoUrl &&
                                                 <Image
                                                     src={ele.logoUrl}
@@ -74,7 +72,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                                                 <p className="font-semibold text-sm">{ele.stockName}</p>
                                             </div>
                                         </div>
-                                        <div className="text-[10px] font-bold py-1 text-center">
+                                        <div className="text-[10px] font-bold mb-4 text-center">
                                             Target hit in {GetDays(ele.createdAt)} days
                                         </div>
                                     </div>
@@ -140,7 +138,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 export function IdeasTermCard({ data }) {
     return (
-        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" relative w-[156px]  rounded-xl  m-auto py-3 bg-cover">
+        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" relative w-full aspect-square  rounded-xl  m-auto flex flex-col justify-center bg-cover">
             <div className={` ${data?.newStocksCount > 0 ? '' : 'hidden'} absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] inline-flex justify-center items-center gap-0.5 px-2 py-0.5 rounded-[0px_8px_0px_4px] whitespace-nowrap `}> <p className="text-white text-[11px] font-medium">{data?.newStocksCount} New ideas</p> </div>
             <Image className={` ${data?.term === 'FUTURES' ? '' : 'hidden'} w-12 absolute right-[-2px] top-9 `} src={onlyProPlusIcon} alt='demo image' />
             <div className=" mx-3 mt-2 flex flex-col gap-2">
