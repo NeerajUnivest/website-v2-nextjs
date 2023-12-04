@@ -56,9 +56,9 @@ export default function ClosedIdeasSection({ homePage, start_at, isDark = false 
                         <div className='flex flex-row font-Inter w-full overflow-x-scroll no-scrollbar '>
                             <table className="table border-collapse swiper-no-swiping">
                                 <thead>
-                                    <tr className='h-10 '>
-                                        <th className='sticky -left-[0px] bg-gradient-to-br from-[#ECF1F3] to-[#F1F4EE] text-[12px] text-[#979797] font-medium min-w-[130px] '>Stocks Name</th>
-                                        <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-neutral-100 text-left min-w-[70px] '>Entry Price</th>
+                                    <tr className='h-10 text-left '>
+                                        <th className='sticky -left-[0px] bg-gradient-to-br from-[#ECF1F3] to-[#F1F4EE] text-[12px] text-[#979797] font-medium min-w-[130px] px-2'>Stocks Name</th>
+                                        <th className='px-2 pl-4 text-[12px] text-[#979797] font-medium border border-x-0 border-neutral-100 text-left min-w-[70px] '>Entry Price</th>
                                         <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-neutral-100 text-left min-w-[70px]'>Hit / Miss</th>
                                         <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-neutral-100 text-left min-w-[70px]'>Net Gain</th>
                                         <th className='px-2 text-[12px] text-[#979797] font-medium border border-x-0 border-neutral-100 text-left min-w-[70px]'>Exit Price</th>
@@ -74,8 +74,8 @@ export default function ClosedIdeasSection({ homePage, start_at, isDark = false 
                         </div>
                     </div>
                     <ReactPaginate
-                        className='flex gap-2 justify-center text-xs pb-3 text-white'
-                        activeClassName='font-bold'
+                        className='flex gap-2 justify-center text-xs pb-3 text-neutral-400'
+                        activeClassName='font-bold text-white'
                         breakLabel="..."
                         nextLabel="Next"
                         onPageChange={handlePageClick}
@@ -107,7 +107,7 @@ export function ClosedIdeasSectionTable({ closedIdeas }) {
                             </div>
                             <div className='text-[8px] leading-[12px] text-[#979797] line-clamp-1 '>{Actions.trimName(item.name)}</div>
                         </td>
-                        <td className='text-[12px]  font-semibold leading-[18px] items-center px-2 border border-x-0 border-neutral-100  '>
+                        <td className='text-[12px]  font-semibold leading-[18px] items-center pl-4 px-2 border border-x-0 border-neutral-100  '>
                             ₹{item.entryPrice.toFixed(2)}</td>
                         <td style={{ color: `${item.hit === 'MISS' ? '#EB4E2C' : '#26A649'}` }} className='text-[12px]  font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
                             {item.hit} </td>

@@ -8,6 +8,8 @@ import { FcLock } from "react-icons/fc";
 import { useEffect, useState } from "react";
 import { useGetAxios } from "@/hooks/useGetAxios";
 import bgImage from '@/assets/images/tilesNonProBG.png'
+import locked_icon from '@/assets/icons/icon_locked.png'
+import Image from "next/image";
 
 export default function LiveIdeasSection({ isDark = false }) {
     const { fetchData, data, loading } = useGetAxios('')
@@ -22,7 +24,7 @@ export default function LiveIdeasSection({ isDark = false }) {
 
     return (
         <>
-            <section id="Ideas" className={` flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+            <section id="Ideas" className={` whitespace-nowrap flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
                 <div className="text-white borde flex flex-row justify-between ">
                     <div className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Live trade ideas</div>
                     <div className=" bg-white text-green-600 flex items-center gap-2 border border-[color:var(--success-600,#26A649)] px-3 py-0.5 rounded-[20px] border-solid ">
@@ -48,18 +50,18 @@ export default function LiveIdeasSection({ isDark = false }) {
                         >
                             {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
                                 <SwiperSlide key={`${ele.id}-${i}`} >
-                                    <div className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] rounded-lg border-[#BADDFA] bg-cover">
+                                    <div className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed  rounded-lg border-[#BADDFA] bg-cover">
                                         {ele?.term === 'FUTURES' && <div className=" text-[color:var(--Pearl-White,#FFF)] text-[8px] not-italic font-medium leading-3   flex justify-center items-center gap-0.5 px-1 py-0 rounded-sm bg-gradient-to-br from-[#E75325] to-[#F69723] absolute mt-1 ml-[100px] ">New</div>}
-                                        <div className=" h-full flex flex-col mx-2 gap-4">
+                                        <div className=" h-full flex flex-col mx-2 gap-2">
                                             <div className=" border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA]  mt-0">
-                                                <div className=" flex flex-row justify-items-start pl-4 gap-2 py-[2px]">
+                                                <div className={`flex flex-row items-center justify-center gap-[4px] py-[2px] ${ele?.term === 'FUTURES' ? 'pr-3' : ''} `}>
                                                     <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : (ele.term === 'MEDIUM' ? "#00439D" : '#84026F')} size={"10px"} /></div>
-                                                    <p className={` ${ele.term === 'SHORT' ? 'text-[#B43C30]' : (ele.term === 'LONG' ? 'text-[#005251]' : (ele.term === 'MEDIUM' ? 'text-[#00439D]' : 'text-[#84026F]'))} text-[10px] not-italic font-semibold leading-4`} >{ele?.term} {ele?.term === 'FUTURES' ? '' : 'TERM'} </p>
+                                                    <p className={` ${ele.term === 'SHORT' ? 'text-[#B43C30]' : (ele.term === 'LONG' ? 'text-[#005251]' : (ele.term === 'MEDIUM' ? 'text-[#00439D]' : 'text-[#84026F]'))} text-[10px] not-italic font-semibold leading-4`} > {ele?.term === 'SHORT' ? 'Short' : (ele?.term === 'MEDIUM' ? 'Medium' : (ele?.term === 'LONG' ? 'Long' : 'Future'))} {ele?.term === 'FUTURES' ? '' : 'Term'} </p>
                                                 </div>
                                             </div>
                                             <p className="text-[color:var(--neutral-700,#606060)] text-[8px] not-italic font-medium leading-3 flex justify-center items-center">Shared {moment(ele.createdAt, 'm').fromNow()}</p>
 
-                                            <div className=" bg-gradient-to-r from-[#3c3c3c] to-[#333333] flex flex-col justify-center items-center gap-4 shrink-0 backdrop-blur-[3px] p-2 rounded-md">
+                                            <div className=" bg-gradient-to-r from-[#3c3c3c] to-[#333333] flex flex-col justify-center items-center gap-3 shrink-0 backdrop-blur-[3px] p-2 rounded-md">
                                                 <div className=" bg-green-600 text-[10px] rounded-sm p-[2px] text-white font-normal ">
                                                     <span>Potential left : ₹34,422</span>
                                                 </div>
@@ -71,8 +73,8 @@ export default function LiveIdeasSection({ isDark = false }) {
                                                 </div>
                                                 <div>
                                                     <div className=" bg-white rounded-lg flex flex-row justify-center items-center px-[12px] py-[2px]">
-                                                        <FcLock />
-                                                        <button className="text-[10px] ">Unlock FREE</button>
+                                                        <Image className="w-3" src={locked_icon} alt="demo" />
+                                                        <button className="text-[color:var(--neutral-900,#202020)] text-[10px] not-italic font-semibold leading-4">Unlock FREE</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,8 +100,8 @@ export default function LiveIdeasSection({ isDark = false }) {
                 .LiveIdeasSection .swiper-slide,
                 .LiveIdeasSection .swiper-slide-prev,
                 .LiveIdeasSection .swiper-slide-next {
-                width: 154px;
-                height: 196px;
+                width: 144px;
+                height: 174px;
                 margin: 0px 10px;
                 transition: 500ms;
                 border-radius: 10px;

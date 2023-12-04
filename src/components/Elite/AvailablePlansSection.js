@@ -55,11 +55,11 @@ export default function AvailablePlansSection() {
 
 export function AvailablePlansCard({ data }) {
     return (
-        <div className="pb-4 border-2 border-[#E4EEF3] rounded-xl overflow-hidden w-[156px] min-w-[156px] font-Inter flex flex-col  bg-white">
+        <div className="pb-4 border-2 border-[#E4EEF3] rounded-xl overflow-hidden w-[156px] min-w-[156px] font-Inter flex flex-col  bg-white gap-2">
             <span className="bg-[#E4EEF3] text-[#414141] py-1.5 text-sm text-center font-extrabold">
                 {data.name}
             </span>
-            <div className="pt-4 flex justify-center items-end">
+            <div className="pt-4 flex justify-center items-end gap-2">
                 <span className=" text-[#414141] text-xs ">
                     upto
                 </span>
@@ -75,7 +75,7 @@ export function AvailablePlansCard({ data }) {
                     </span>
                 </div>
             </div>
-            <span className="text-xs text-center">
+            <span className="text-[11px] text-center">
                 {data.note}
             </span>
         </div>
