@@ -27,12 +27,13 @@ function ActivePlanSection({ isBottom = true }) {
             <section className="flex flex-col items-center bg-white  " >
                 <Image className="w-2/3" src={welcome_pro_plus} alt="demo" />
                 <p className="text-[color:var(--neutral-700,#606060)] text-center text-base not-italic font-semibold leading-7">Welcome to</p>
-                <div className="text-[color:var(--neutral-900,#202020)] text-center text-[26.529px] not-italic font-bold leading-[42.447px] flex flex-row gap-2 ">
+                <div className="text-[color:var(--neutral-900,#202020)] text-center text-lg not-italic font-extrabold leading-[42.447px] flex flex-row gap-2 ">
                     <div className="flex justify-center items-center">
                         <p>Univest PR</p>
                         <Image className="w-6" src={proPlusIcon} alt='demo image' />
                     </div>
-                    <span className="italic">Plus</span>
+                    <span className="italic">Plus </span>
+                    <p>- Free Trial</p>
                 </div>
                 <p className="text-sm text-center">Expires on <span className="text-[color:var(--primary-900,#00439D)] not-italic font-extrabold leading-6">{data?.expiryDate}</span> </p>
                 <TrialCountdownSection endTime={data?.expiryDate} />
