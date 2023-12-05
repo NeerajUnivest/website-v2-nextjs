@@ -147,7 +147,7 @@ export function IdeasTermCard({ data }) {
                 <div className=" flex flex-col justify-center items-start gap-1 px-2 py-1.5 rounded-lg bg-[#FFFFFF66] ">
                     <p className={`text-[10px] not-italic font-semibold leading-4`}>Avg. return</p>
                     <div>
-                        <p className={`text-xs not-italic font-extrabold leading-5 whitespace-nowrap`} > {data?.term === 'FUTURES' ? '₹' : ''}{data?.avgReturn.toFixed(1)}{data?.term === 'FUTURES' ? 'k' : '%'} in {data?.avgDuration} days</p>
+                        <p className={`text-xs not-italic font-extrabold leading-5 whitespace-nowrap`} > {data?.term === 'FUTURES' ? '₹' : ''}{data?.avgReturn.toFixed(data?.term === 'FUTURES' ? 0 : 1)}{data?.term === 'FUTURES' ? '' : '%'} in {data?.avgDuration} days</p>
                     </div>
                 </div>
             </div>

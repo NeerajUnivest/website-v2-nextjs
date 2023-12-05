@@ -19,7 +19,7 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
             {/* Pro And Plus Section: */}
             <section id="Hero" className="font-Inter overflow-hidden bg-gradient-to-b from-[#202020] to-[#202020]">
                 <div className=" whitespace-nowrap pt-32 lg:pt-28 lg:px-8 max-w-screen-xl mx-auto gap-8" >
-                    <div className=' ml-12 mr-12 flex flex-col  gap-5 m-auto'>
+                    <div className=' flex flex-col  gap-5 mx-auto'>
                         <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center relative">
                             <div className=' top-0 flex items-center justify-center'>
                                 <Image src={proAndPlusIcon} alt='icon' className="w-[238px]" />

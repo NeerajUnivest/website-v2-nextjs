@@ -125,6 +125,12 @@ code {
 #clearBtn {
   cursor: pointer;
 }
+.proGradient{
+  background: linear-gradient(0deg, #FF8415 0%, #FFCA3F 100%);
+}
+.proPlusGradient{
+  background: linear-gradient(339deg, #1A379E 0%, #C379FE 100%);
+}
 
 .instabg {
   background: linear-gradient(315deg, #FBE18A 0.96%, #FCBB45 21.96%, #F75274 38.96%, #D53692 52.96%, #8F39CE 74.96%, #5B4FE9 100.96%)

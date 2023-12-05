@@ -6,7 +6,7 @@ import DownloadButton from "../ProPage2/DownloadButton"
 export default function RequestSubmittedSection(isBottom = true) {
 
     return (
-        <section className="font-Inter whitespace-nowrap flex flex-col items-center gap-4 bg-white mx-11" >
+        <section className="font-Inter whitespace-nowrap flex flex-col items-center gap-4 bg-white " >
             <div className=" bg-gradient-to-br from-[#141E30] to-[#333] flex justify-center items-center shrink-0 pl-[10.79px] pr-[8.789px] pt-[10.393px] pb-[11.406px] rounded-full border border-neutral-500 ">
                 <Image className="w-10" src={eliteIcon} alt="demo" />
             </div>

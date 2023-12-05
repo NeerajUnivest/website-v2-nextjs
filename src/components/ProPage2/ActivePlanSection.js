@@ -68,7 +68,7 @@ function ActivePlanSection({ isBottom = true }) {
         )
     } else {
         return (
-            <section className="flex flex-col items-center gap-4 bg-white p-2" >
+            <section className="flex flex-col items-center gap-4 bg-white" >
                 <Image className="w-2/3" src={isProPlus(data?.subscriptionState) ? welcome_pro_plus : welcome_pro} alt="demo" />
                 <div className="text-[color:var(--neutral-900,#202020)] text-center text-[26.529px] not-italic font-bold leading-[42.447px] flex flex-row gap-2 ">
                     <div className="flex justify-center items-center">

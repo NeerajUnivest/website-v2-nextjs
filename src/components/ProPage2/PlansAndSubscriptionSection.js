@@ -36,7 +36,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                 <p className="text-[color:var(--Pearl-White,#FFF)] text-center text-xl not-italic font-extrabold leading-8">Our pricing of subscription</p>
                 <div>
                     <div className="flex flex-col justify-center items-center gap-4">
-                        <div className="w-[156px] text-sm  flex-row gap-1 bg-gradient-to-t from-[#FF8415] to-[#FFCA3F]  flex justify-center items-center py-1.5 rounded-lg" >
+                        <div className="w-[156px] text-sm  flex-row gap-1 proGradient  flex justify-center items-center py-1.5 rounded-lg" >
                             <div className="flex flex-row ">
                                 <p className="font-extrabold" >PR</p>
                                 <div className="flex justify-center items-center"><Image className="w-4" src={proPremIcon} alt='demo image' /></div>
@@ -53,7 +53,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                 </div>
                 <div>
                     <div className="flex flex-col justify-center items-center gap-4">
-                        <div className="w-[156px] text-white text-sm  flex-row gap-1 bg-gradient-to-tl  from-[#1A379E] to-[#C379FE]  flex justify-center items-center py-1.5 rounded-lg" >
+                        <div className="w-[156px] text-white text-sm  flex-row gap-1 proPlusGradient  flex justify-center items-center py-1.5 rounded-lg" >
                             <div className="flex flex-row ">
                                 <p className="font-extrabold" >PR</p>
                                 <div className="flex justify-center items-center"><Image className="w-4" src={proPlusIcon2} alt='demo image' /></div>

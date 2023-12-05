@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import { BlackButton, IconBtn } from '../Button/Button'
 import LogInBf from './LogInBf';
 import ReactModal from "react-modal"
@@ -42,6 +42,15 @@ export default function LogIn({ userData, setUserData, btn }) {
             setError('Please enter a valid mobile number')
         }
     }
+
+    useEffect(() => {
+        let main_container = document.getElementsByTagName('html')?.[0];
+        if (modal) {
+            main_container.style.overflow = 'hidden'
+        } else {
+            main_container.style.overflow = 'unset'
+        }
+    }, [modal])
 
     return (
         <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-[2]'>

@@ -69,6 +69,20 @@ let Actions = {
         } else {
             return 'Unknown Web';
         }
+    },
+    putComma: (num, to = 2) => {
+        return num?.toLocaleString('en-IN', { maximumFractionDigits: to })
+    },
+    trimNumber: (val) => {
+        if (Math.abs(val) > 10000000) {
+            return (val / 10000000).toFixed(2) + 'Cr';
+        } else if (Math.abs(val) > 100000) {
+            return (val / 100000).toFixed(2) + 'L';
+        } else if (Math.abs(val) > 1000) {
+            return (val / 1000).toFixed(2) + 'K';
+        } else {
+            return (val / 1000).toFixed(2);
+        }
     }
 };
 

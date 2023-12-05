@@ -46,7 +46,7 @@ export default function ClosedIdeasSection({ homePage, start_at, isDark = false 
                         </div>
                         <div className='flex flex-row gap-2'>
                             {['Short', 'Medium', 'Long', 'Futures']?.map(ele =>
-                                <button key={ele} className={active === ele ? 'font-bold bg-gradient-to-tr from-[#FF8415] to-[#FFCA3F] flex justify-center items-center gap-2.5 flex-[1_0_0] self-stretch border border-[color:var(--Pearl-White,#FFF)] px-2 py-1 rounded-2xl border-solid' : 'bg-[#F5F5F5] flex justify-center items-center gap-2.5 flex-[1_0_0] self-stretch border border-[color:var(--neutral-900,#202020)] px-2 py-1 rounded-2xl border-solid'}
+                                <button key={ele} className={active === ele ? 'text-xs font-extrabold bg-gradient-to-br from-[#FFCA40] to-[#FFA126] flex justify-center items-center gap-2.5 flex-[1_0_0] self-stretch border border-[color:var(--Pearl-White,#FFF)] px-2 py-1 rounded-2xl border-solid' : 'text-xs font-medium bg-[#F5F5F5] flex justify-center items-center gap-2.5 flex-[1_0_0] self-stretch border border-[color:var(--neutral-900,#202020)] px-2 py-1 rounded-2xl border-solid'}
                                     onClick={() => handleClick(ele)}>
                                     {ele}
                                 </button>)}
@@ -114,7 +114,7 @@ export function ClosedIdeasSectionTable({ closedIdeas }) {
                         <td style={{ color: `${item.hit === 'MISS' ? '#EB4E2C' : '#26A649'}` }} className='text-[12px]  font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
                             {item.hit} </td>
                         <td style={{ color: `${item.netGain < 0 ? '#EB4E2C' : '#26A649'}` }} className='text-[12px]  font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            {item.term === 'FUTURES' ? '₹' : ''}{item.netGain.toFixed(2)}{item.term !== 'FUTURES' ? '%' : ''}</td>
+                            {item.term === 'FUTURES' ? '₹' : ''}{item.netGain.toFixed(0)}{item.term !== 'FUTURES' ? '%' : ''}</td>
                         <td className='text-[12px]  font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
                             ₹{item.closurePrice.toFixed(2)}</td>
                         <td className='text-[12px]  font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>

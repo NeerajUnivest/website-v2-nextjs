@@ -14,23 +14,19 @@ export default function EliteHeroSectionNew({ homePage }) {
     const router = useRouter();
     return (<>
         <section id="Hero" className="font-Inter overflow-hidden relative">
-            <div className='whitespace-nowrap flex flex-col gap-8 lg:flex-row py-32 lg:pt-28 max-w-screen-xl mx-auto bg-light-blue'>
+            <div className='whitespace-nowrap flex flex-col gap-8 lg:flex-row pt-24 pb-32 lg:pt-24 max-w-screen-xl mx-auto bg-light-blue'>
                 <div className="flex flex-col items-center gap-6">
                     <div className=" w-[100px] m-auto flex justify-center items-center gap-1.5 py-1 rounded-lg bg-gradient-to-tr from-[#141E30] to-[#333] text-white">
                         <Image className="w-6" src={eliteProIcon} alt="demo" />
                         <p className="text-white text-sm not-italic font-bold leading-6">Elite</p>
                     </div>
-                    <div className="flex flex-col items-center gap-4">
-                        <p className="text-[color:var(--neutral-900,#202020)] text-center text-[28px] not-italic font-extrabold leading-[44px]">
-                            Earn up to
-                        </p>
-                        <p className="text-[color:var(--neutral-900,#202020)] text-center text-[28px] not-italic font-extrabold leading-[44px]">
-                            12% per annum
-                        </p>
-                        <div className="text-[color:var(--neutral-900,#202020)] text-center text-sm leading-6">
-                            <p>Secured with</p>
-                            <p className="font-extrabold">Registered NBFC-P2P</p>
-                        </div>
+                    <p className="text-[color:var(--neutral-900,#202020)] text-center text-[28px] not-italic font-extrabold leading-[44px]">
+                        Earn up to<br />
+                        12% per annum
+                    </p>
+                    <div className="text-[color:var(--neutral-900,#202020)] text-center text-sm leading-6">
+                        <p>Secured with</p>
+                        <p className="font-extrabold">Registered NBFC-P2P</p>
                     </div>
                 </div>
 

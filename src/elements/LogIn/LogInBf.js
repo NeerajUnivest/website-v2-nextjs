@@ -86,6 +86,7 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                     signal: ac.signal
                 })
                 .then((otp) => {
+                    alert(otp)
                     setOtp(otp);
                     ac.abort();
                 })

@@ -59,7 +59,7 @@ export function AvailablePlansCard({ data }) {
             <span className="bg-[#E4EEF3] text-[#414141] py-1.5 text-sm text-center font-extrabold">
                 {data.name}
             </span>
-            <div className="pt-4 flex justify-center items-end gap-2">
+            <div className="pt-4 flex justify-center items-end gap-1">
                 <span className=" text-[#414141] text-xs ">
                     upto
                 </span>
