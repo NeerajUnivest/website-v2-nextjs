@@ -4,13 +4,11 @@ export default function DownloadButton() {
 
     return (
         <>
-            <div className="font-Inter relative w-full text-black text-center buy-button pt-4">
+            <div className="font-Inter relative w-full text-black text-center buy-button pt-4 hover:animate-none">
                 <div className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2">Download the app now</div>
                 <div className="buttont">.</div>
                 <div className="buttonb">.</div>
             </div>
-
-            <p className="text-white text-xs not-italic font-medium leading-5">To avail all the free benefits</p>
 
             <style>
                 {`
@@ -19,8 +17,8 @@ export default function DownloadButton() {
                     width: 100%;
                     color:#fff;
                     border-bottom: 36px solid #fff;
-                    border-left: 24px solid transparent;
-                    border-right: 24px solid transparent;
+                    border-left: 16px solid transparent;
+                    border-right: 16px solid transparent;
                     }
                 .buttonb {
                     height: 2px;

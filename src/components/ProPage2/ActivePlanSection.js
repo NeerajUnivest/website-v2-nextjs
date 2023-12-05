@@ -24,19 +24,19 @@ function ActivePlanSection({ isBottom = true }) {
 
     if (data?.subscriptionState === 'TRIAL_PRO_PLUS') {
         return (
-            <section className="font-Inter flex flex-col items-center bg-white  " >
-                <Image className="w-2/3" src={welcome_pro_plus} alt="demo" />
+            <section className="font-Inter flex flex-col items-center bg-white " >
+                <Image className="w-10/12" src={welcome_pro_plus} alt="demo" />
                 <p className="text-[color:var(--neutral-700,#606060)] text-center text-base not-italic font-semibold leading-7">Welcome to</p>
-                <div className="text-[color:var(--neutral-900,#202020)] text-center text-lg not-italic font-extrabold leading-[42.447px] flex flex-row gap-2 ">
+                <div className="my-1 text-black text-center text-2xl font-extrabold leading-[40px] flex flex-row gap-1 ">
                     <div className="flex justify-center items-center">
-                        <p>Univest PR</p>
-                        <Image className="w-6" src={proPlusIcon} alt='demo image' />
+                        <p>PR</p>
+                        <Image className="w-6 ml-1" src={proPlusIcon} alt='demo image' />
                     </div>
-                    <span className="italic">Plus </span>
-                    <p>- Free Trial</p>
+                    <span className="italic">Plus</span>
+                    <span>- Free Trial</span>
                 </div>
                 <p className="text-sm text-center">Expires on <span className="text-[color:var(--primary-900,#00439D)] not-italic font-extrabold leading-6">{data?.expiryDate}</span> </p>
-                <TrialCountdownSection endTime={data?.expiryDate} />
+                <TrialCountdownSection className='px-0' endTime={data?.expiryDate} />
             </section>
         )
     } else if (data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED') {

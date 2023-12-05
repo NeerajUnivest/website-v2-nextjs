@@ -16,9 +16,9 @@ export default function DownloadAppSection({ isDark = false }) {
                 </div>
 
                 <BlackButton className={'w-[200px] py-2 mx-auto font-bold mt-4'} text={'Download now'} />
-                <div className=' bg-[#FFF] flex flex-row justify-center items-center gap-2  px-2.5 py-1 rounded-lg'>
+                <div className=' bg-[#FFF] flex flex-row justify-center items-center gap-2 px-2.5 py-1 rounded-lg'>
                     <Image className='w-5' src={usersIcon} alt='demo' />
-                    <p className='text-[color:var(--neutral-900,#202020)] text-xs font-normal leading-6'> <span className='font-bold'>750k+ Indian</span> users trust on Univest</p>
+                    <p className='text-black text-xs font-normal '>Trust users by<span className='font-bold'> 8 lac+ Indians</span></p>
                 </div>
             </div>
         </section >

@@ -19,7 +19,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
     }, [])
 
     const listenToScroll = () => {
-        let heightToHideFrom = 30;
+        let heightToHideFrom = 24;
         const winScroll = document.body.scrollTop ||
             document.documentElement.scrollTop;
 
@@ -74,7 +74,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
     return <React.Fragment>
 
         <div className={`shadow font-Inter text-[12px] leading-[20px] text-[#0D0D0D] w-full h-[58px] flex flex-row fixed 
-        top-[60px] lg:top-[94px] z-[2] bg-white justify-between px-4 ease-in-out duration-500 ${!isVisible && 'opacity-0 '}`}>
+        top-[48px] lg:top-[94px] z-[2] bg-white justify-between px-4 ease-in-out duration-500 ${!isVisible && 'opacity-0 '}`}>
             <div className={`mt-2 mr-auto overflow-hidden`}>
                 <div className={`flex flex-row ease-in-out duration-500 relative top-0 ${!isVisible && 'top-14 opacity-0'}`}>
                     <div>
@@ -95,7 +95,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
         <div className='mx-4 mt-20 relative'>
             <div className='my-4'>
                 {data.compName ?
-                    <div className='flex flex-row'>
+                    <div className={`flex flex-row ease-in-out duration-500  ${isVisible ? 'opacity-0' : 'opacity-100'}`}>
                         <div className='h-11 w-11 grid place-content-center mr-3'>
                             {data.logoUrl === null || data.logoUrl === '' ?
                                 <div className='h-11 w-11 font-Inter font-extrabold text-[24px] text-[#606060] bg-[#ededed] text-center py-1 rounded-full '>
@@ -112,7 +112,7 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
                             </div>
                         </div>
                     </div> : <div className="mr-20 bg-[#d9d9d9d9] rounded-lg px-3 py-3 h-[85px] animate-pulse"></div>}
-                <div className={`ml-2 my-3 flex flex-row ease-in-out duration-500 ${isVisible && 'opacity-0'}`}>
+                <div className={`ml-2 my-3 flex flex-row ease-in-out duration-500 ${isVisible ? 'opacity-0' : 'opacity-100'}`}>
                     <div className='font-Inter font-extrabold text-[20px] text-black leading-[32px]'>
                         <span className='font-Robert'>₹</span>
                         {nseBseData[activeChartType]?.ltpPrice?.toLocaleString('en-IN', { minimumFractionDigits: 2 })}

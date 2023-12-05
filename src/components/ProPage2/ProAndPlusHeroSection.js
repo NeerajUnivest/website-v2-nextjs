@@ -9,16 +9,18 @@ import RatioBar from "./RatioBar";
 import freeIcon from '../../assets/images/free_tag.png';
 import { popUp } from '@/elements/PopUp/SEBIPopUp';
 import TrialCountdownSection from "./TrialCountdown";
+import { UserDetailProvider } from "@/contexts/UserDetailContext";
+import { useContext } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function ProAndPlusHeroSection({ homePage, start_at, isDark = false, isActivated = false }) {
+export default function ProAndPlusHeroSection({ homePage, start_at, isDark = false, }) {
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
-    const router = useRouter();
+    const userDetail = useContext(UserDetailProvider)
     return (
         <>
             {/* Pro And Plus Section: */}
             <section id="Hero" className="font-Inter overflow-hidden bg-gradient-to-b from-[#202020] to-[#202020]">
-                <div className=" whitespace-nowrap pt-32 lg:pt-28 lg:px-8 max-w-screen-xl mx-auto gap-8" >
+                <div className=" whitespace-nowrap pt-24 lg:px-8 max-w-screen-xl mx-auto gap-8" >
                     <div className=' flex flex-col  gap-5 mx-auto'>
                         <div className="font-Inter basis-full md:basis-7/12 flex flex-col content-center relative">
                             <div className=' top-0 flex items-center justify-center'>
@@ -43,19 +45,20 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                             </div>
                         </div>
                     </div>
-                    {isActivated && <TrialCountdownSection />}
+                    {userDetail?.userData?.subscriptionState === 'TRIAL_PRO_PLUS' &&
+                        <TrialCountdownSection className='px-4' endTime={userDetail?.userData?.expiryDate} />}
 
                     <div className="px-3 flex flex-col gap-6">
                         <div className=' pl-4 pr-4 pt-3 pb-4 flex flex-col border  border-[#ffd25e] mt-8 rounded-xl bg-[#363636] gap-3'>
                             <div className="flex flex-col items-start gap-3 border border-neutral-500 p-3 rounded-lg border-solid bg-gradient-to-b from-[#202020] to-[#202020] ">
                                 <div className="self-stretch text-[color:var(--Pearl-White,#FFF)] text-center text-sm not-italic font-bold leading-6 bg-clip-text">
                                     <span >Past performance : </span>
-                                    <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(2) ?? '89.87'}% accuracy</span>
+                                    <span className="uni-wise-gradient2 font-black text-sm lg:text-xl">{data?.data?.targetAccuracy?.toFixed(2) ?? '--'}% accuracy</span>
                                 </div>
                                 <RatioBar percent={data?.data?.targetAccuracy} />
                                 <div className=" w-full flex flex-row justify-between ">
-                                    <p className="font-semibold text-white text-sm lg:text-xl"> Hit: {data?.data?.hit ?? '71'}</p>
-                                    <p className="font-semibold text-white text-sm lg:text-xl"> Miss: {data?.data?.miss ?? '8'}</p>
+                                    <p className="font-semibold text-white text-sm lg:text-xl"> Hit: {data?.data?.hit ?? '-'}</p>
+                                    <p className="font-semibold text-white text-sm lg:text-xl"> Miss: {data?.data?.miss ?? '-'}</p>
                                 </div>
                             </div>
 
@@ -65,7 +68,7 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                                         <Image src={layers} alt='icon' className="w-9" />
                                     </div>
                                     <div>
-                                        <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">192</p>
+                                        <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">{data?.data?.totalCount}</p>
                                         <p className="text-[color:var(--neutral-300,#DFDFDF)] text-[10px] not-italic font-semibold leading-4">Total calls</p>
                                     </div>
                                 </div>
@@ -74,21 +77,24 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                                         <Image src={back} alt='icon' className="w-9" />
                                     </div>
                                     <div>
-                                        <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">123</p>
+                                        <p className="text-[color:var(--Pearl-White,#FFF)] text-sm not-italic font-extrabold leading-[153%]">{data?.data?.totalCount - data?.data?.hit - data?.data?.miss}</p>
                                         <p className="text-[color:var(--neutral-300,#DFDFDF)] text-[10px] not-italic font-semibold leading-4">Exited calls</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {isActivated ? '' : <div className="whitespace-nowrap border rounded-lg bg-neutral-900 flex flex-row justify-between p-3">
-                            <div className="flex flex-row gap-[2px]"><Image className="w-14 mt-1" src={freeIcon} alt='demo image' />
-                                <div className="text-white text-base not-italic font-extrabold leading-7">
-                                    <p>7 DAYS TRIAL</p>
+                        {!userDetail?.userData?.subscriptionState &&
+                            <div className="whitespace-nowrap border rounded-lg bg-neutral-900 flex flex-row justify-between p-3">
+                                <div className="flex flex-row gap-[2px] items-center">
+                                    <Image className="w-14 mt-1 mr-1" src={freeIcon} alt='demo image' />
+                                    <div className="text-white text-base not-italic font-extrabold leading-7">
+                                        <p>7 DAYS TRIAL</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <button className="text-black text-xs not-italic font-extrabold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4">Activate now</button>
-                        </div>}
+                                <button className="text-black text-xs not-italic font-extrabold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4"
+                                    onClick={() => userDetail?.inputRef?.current?.focus()}>Activate now</button>
+                            </div>}
                     </div>
                 </div>
             </section>

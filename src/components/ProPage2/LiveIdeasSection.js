@@ -1,31 +1,24 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import moment from "moment/moment";
-import useSWR from 'swr'
 import { FaClock } from "react-icons/fa";
-import { CiBookmark } from "react-icons/ci";
-import { FcLock } from "react-icons/fc";
 import { useEffect, useState } from "react";
+import { Autoplay } from "swiper";
 import { useGetAxios } from "@/hooks/useGetAxios";
-import bgImage from '@/assets/images/tilesNonProBG.png'
 import locked_icon from '@/assets/icons/icon_locked.png'
 import Image from "next/image";
+import Actions from "@/elements/Actions";
 
-export default function LiveIdeasSection({ isDark = false }) {
+export default function IdeasSectionLive({ isDark = false }) {
     const { fetchData, data, loading } = useGetAxios('')
 
     useEffect(() => {
         fetchData(`resources/users/trade-cards-web`)
     }, [])
-
-    const [swiper, setSwiper] = useState(null);
-    const [active, setActive] = useState(0);
-    // console.log(data?.data?.list);
-
     return (
         <>
             <section id="Ideas" className={` font-Inter whitespace-nowrap flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-0 lg:px-8 ${!isDark && 'bg-white'}`}>
-                <div className="text-white borde flex flex-row justify-between ">
+                <div className="text-white px-4 flex flex-row justify-between ">
                     <div className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Live trade ideas</div>
                     <div className=" bg-white text-green-600 flex items-center gap-2 border border-[color:var(--success-600,#26A649)] px-3 py-0.5 rounded-[20px] border-solid ">
                         <div className="bg-green-600 w-1.5 h-1.5 rounded-md"></div>
@@ -34,9 +27,9 @@ export default function LiveIdeasSection({ isDark = false }) {
                 </div>
                 <div className="">
                     {loading ?
-                        <div className=" flex">
+                        <div className="IdeasSectionLive flex">
                             {[1, 2, 3, 4, 5,].map(ele =>
-                                <div key={ele} className="overflow-hidden m-4 h-[164px] min-w-[144px] bg-white rounded-lg" />
+                                <div key={ele} className="swiper-slide" />
                             )}
                         </div>
                         : <Swiper
@@ -44,9 +37,12 @@ export default function LiveIdeasSection({ isDark = false }) {
                             initialSlide={0}
                             slidesPerView='auto'
                             spaceBetween={0}
-                            onSwiper={setSwiper}
-                            onSlideChange={(e => setActive(e.activeIndex))}
-                            className="LiveIdeasSection"
+                            autoplay={{
+                                delay: 2000,
+                                disableOnInteraction: false
+                            }}
+                            modules={[Autoplay]}
+                            className="IdeasSectionLive"
                         >
                             {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
                                 <SwiperSlide key={`${ele.id}-${i}`} >
@@ -63,7 +59,7 @@ export default function LiveIdeasSection({ isDark = false }) {
 
                                             <div className=" bg-gradient-to-r from-[#3c3c3c] to-[#333333] flex flex-col justify-center items-center gap-3 shrink-0 backdrop-blur-[3px] p-2 rounded-md">
                                                 <div className=" bg-green-600 text-[10px] rounded-sm p-[2px] text-white font-normal ">
-                                                    <span>Potential left : ₹34,422</span>
+                                                    <span>Potential left : {ele.term === 'FUTURES' ? `₹${Actions.putComma(ele.potentialLeft, 0)}` : `${Actions.putComma(ele.potentialLeft, 1)}%`}</span>
                                                 </div>
                                                 <div>
                                                     <div className="flex flex-col gap-2">
@@ -85,21 +81,21 @@ export default function LiveIdeasSection({ isDark = false }) {
                 </div>
 
                 <style >{`
-                .LiveIdeasSection {
+                .IdeasSectionLive {
                 width: 100%;
                 /* padding: 20px 0px; */
                 }
 
-                .LiveIdeasSection .swiper-wrapper {
+                .IdeasSectionLive .swiper-wrapper {
                 height: 200px;
                 display: flex;
                 align-items: center;
                 column-gap: 0px;
                 }
 
-                .LiveIdeasSection .swiper-slide,
-                .LiveIdeasSection .swiper-slide-prev,
-                .LiveIdeasSection .swiper-slide-next {
+                .IdeasSectionLive .swiper-slide,
+                .IdeasSectionLive .swiper-slide-prev,
+                .IdeasSectionLive .swiper-slide-next {
                 width: 144px;
                 height: 174px;
                 margin: 0px 10px;
@@ -111,9 +107,9 @@ export default function LiveIdeasSection({ isDark = false }) {
 
                 @media (max-width: 746px) {
 
-                .LiveIdeasSection.swiper - slide,
-                .LiveIdeasSection.swiper - slide - prev,
-                .LiveIdeasSection.swiper - slide - next {
+                .IdeasSectionLive.swiper - slide,
+                .IdeasSectionLive.swiper - slide - prev,
+                .IdeasSectionLive.swiper - slide - next {
                 margin: 0px 2px;
                 }
                 }

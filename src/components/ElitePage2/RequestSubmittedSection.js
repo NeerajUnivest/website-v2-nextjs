@@ -3,7 +3,7 @@ import Image from "next/image"
 import eliteIcon from "@/assets/icons/elitIcon2.png"
 import DownloadButton from "../ProPage2/DownloadButton"
 
-export default function RequestSubmittedSection(isBottom = true) {
+export default function RequestSubmittedSection() {
 
     return (
         <section className="font-Inter whitespace-nowrap flex flex-col items-center gap-4 bg-white " >
@@ -32,7 +32,9 @@ export default function RequestSubmittedSection(isBottom = true) {
                     <p className=" text-center text-sm not-italic font-semibold leading-6">3. Invest using UPI / Net banking</p>
                 </div>
 
-                {isBottom ? <DownloadButton /> : ''}
+                <DownloadButton />
+
+                {false && <p className="text-white text-xs not-italic font-medium leading-5">To avail all the free benefits</p>}
             </div>
 
 

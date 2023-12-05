@@ -57,8 +57,7 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                                 'device-name': Actions.getDeviceName(),
                                 'device-id': Actions.generateUniqueDeviceID()
                             }
-                        })
-                        .then(res => {
+                        }).then(res => {
                             if (res.data?.data) {
                                 getUserInfo(data)
                             } else {
@@ -86,7 +85,6 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                     signal: ac.signal
                 })
                 .then((otp) => {
-                    alert(otp)
                     setOtp(otp);
                     ac.abort();
                 })

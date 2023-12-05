@@ -20,7 +20,7 @@ export default function NavBar() {
     const { width } = useWindowSize();
     const { route } = useRouter();
     return (
-        <nav className={`bg-[rgba(252,252,252,0.4)] text-white fixed left-0 right-0 top-3 z-10`} >
+        <nav className={`bg-[rgba(252,252,252,0.4)] text-white fixed left-0 right-0 top-0 lg:top-3 z-10`} >
             <div className={`font-Inter max-w-screen-xl mx-auto flex items-center lg:justify-between lg:px-8 flex-wrap backdrop-blur-sm ${showSearchBar ? ' p-2' : ' p-4'}`}>
                 {showSearchBar ? (width < 976 && <SearchBar forPhone={true} setShowSearchBar={setShowSearchBar} />)
                     : <>
@@ -92,8 +92,9 @@ export default function NavBar() {
                     Blogs
                 </div>
 
-                {userDetail?.userData?.firstName &&
+                {userDetail?.userData?.authToken &&
                     <div onClick={() => {
+                        setIsOpen(false);
                         Actions.removeCookie('user_details')
                         Actions.removeCookie('auth_token')
                         userDetail.setUserData({})

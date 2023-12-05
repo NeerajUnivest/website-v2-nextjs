@@ -2,7 +2,7 @@ import Actions from '@/elements/Actions';
 import LogIn from '@/elements/LogIn/LogIn';
 import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useRef } from 'react';
 import ReactModal from 'react-modal';
 // import './StockPageModal.css'
 import closeIcon from '../assets/icn/closeIcon.svg';
@@ -32,6 +32,7 @@ const customStyles = (isPhone) => ({
 const UserDetailProvider = createContext();
 
 const UserDetailContext = (props) => {
+    const inputRef = useRef(null)
     const [btn, setBtn] = useState({ show: false, beforeLogin: '', afterLogin: '' })
     const [userData, setUserData] = useState({})
 
@@ -41,10 +42,10 @@ const UserDetailContext = (props) => {
 
 
     return (
-        <UserDetailProvider.Provider value={{ btn, setBtn, userData, setUserData }}>
+        <UserDetailProvider.Provider value={{ inputRef, btn, setBtn, userData, setUserData }}>
             {props.children}
 
-            {btn.show && <LogIn btn={btn} userData={userData} setUserData={setUserData} />}
+            {btn.show && <LogIn inputRef={inputRef} btn={btn} userData={userData} setUserData={setUserData} />}
         </UserDetailProvider.Provider>
     )
 }

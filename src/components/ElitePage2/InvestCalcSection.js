@@ -86,12 +86,12 @@ export default function InvestCalcSection() {
             <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="font-Inter flex flex-col gap-8 py-6 px-4">
                 <div className="flex flex-col items-start gap-4 m-auto">
                     <p className="text-black text-xl not-italic font-bold leading-8">Create wealth</p>
-                    <p className=" text-[color:var(--neutral-700,#606060)] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
+                    <p className=" text-[#606060] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
                 </div>
                 <div className=" w-full bg-[#F6F8FF] flex flex-col items-center gap-4 py-4 px-3 rounded-xl m-auto ">
                     <div className=" w-full bg-white flex justify-between items-center border border-[color:var(--gradient-1,#61B2F3)] px-4 py-3 rounded-xl border-solid">
                         <p className="text-black text-base not-italic font-bold leading-7">Interest earned</p>
-                        <p className="text-[color:var(--primary-800,#0862BC)] text-2xl not-italic font-extrabold leading-10">₹{(CI(amountToRupee?.[value.amount], value.rate, 1) - CI(amountToRupee?.[value.amount], 6, 1))?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</p>
+                        <p className="text-[color:var(--primary-800,#0862BC)] text-2xl not-italic font-extrabold leading-10">₹{CI(amountToRupee?.[value.amount], value.rate, 1)?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</p>
                     </div>
                     {/* Calc*/}
                     <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
@@ -103,7 +103,7 @@ export default function InvestCalcSection() {
                                 ₹{amountToRupee?.[value.amount]?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                             </div>
                         </div>
-                        <div className='mb-16 lg:my-14'>
+                        <div className='mb-12 lg:my-14'>
                             <Slider
                                 step={1}
                                 tooltip={false}
@@ -117,7 +117,7 @@ export default function InvestCalcSection() {
                         </div>
 
                         <div className='flex flex-col items-start gap-3 rounded-xl'>
-                            <p className='text-black text-sm not-italic font-semibold leading-6'>If your friend invests in</p>
+                            <p className='text-black text-sm not-italic font-semibold leading-6'>If you invest in</p>
                             <div className='flex items-start gap-2 self-stretch whitespace-nowrap'>
                                 <button onClick={() => setValue({ ...value, rate: 10 })} className={value.rate === 10 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>3 mon</button>
                                 <button onClick={() => setValue({ ...value, rate: 11 })} className={value.rate === 11 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>6 mon</button>
@@ -126,7 +126,7 @@ export default function InvestCalcSection() {
                             </div>
                         </div>
 
-                        <div className=' mt-16 flex flex-col items-start gap-3'>
+                        <div className=' mt-12 flex flex-col items-start gap-3'>
                             <div className='flex items-start gap-3 self-stretch'>
                                 <div className='flex items-center gap-4 flex-[1_0_0] pr-0'>
                                     <div className='w-1.5 h-12 rounded-3xl bg-[#1F75C5]'></div>
@@ -138,7 +138,7 @@ export default function InvestCalcSection() {
                                 <div className='flex items-center gap-4 flex-[1_0_0] pr-0'>
                                     <div className='w-1.5 h-12 rounded-3xl bg-[#61B2F3]'></div>
                                     <div className='flex w-[84px] flex-col items-start gap-1'>
-                                        <p className='text-black text-sm not-italic font-semibold leading-6'>Others</p>
+                                        <p className='text-black text-sm not-italic font-semibold leading-6'>Others FDs</p>
                                         <p className='self-stretch text-[color:var(--primary-900,#00439D)] text-sm not-italic font-bold leading-6'>{Actions.putComma([1, 2, 3, 4, 5]?.reduce((sum, ele) => (sum + CI(amountToRupee?.[value.amount], 6, ele)), 0), 0)}</p>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@ export default function InvestCalcSection() {
                 </div>
                 <div className=' bg-[#FFF] flex justify-center items-start gap-2 self-stretch px-2.5 py-1 rounded-lg'>
                     <Image className='w-5' src={usersIcon} alt='demo' />
-                    <p className='whitespace-nowrap text-xs not-italic font-normal leading-6'><span className='text-black font-bold'>1,482</span> Univest users have invested <span className='text-[#0862BC] font-bold'>15.6</span><span className='text-[#0862BC]'> crores</span> </p>
+                    <p className='whitespace-nowrap text-xs not-italic font-normal leading-6'><span className='text-black font-bold'>2.5 lac+</span> users have invested <span className='text-[#0862BC] font-bold'>4,000+ crores</span></p>
                 </div>
             </section>
             <p className='text-black text-center text-base not-italic font-bold leading-7 mt-4'>

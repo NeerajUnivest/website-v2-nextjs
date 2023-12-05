@@ -113,7 +113,7 @@ export default function HighChartTest({ pdData = [], uniwiseData = [] }) {
                         showInLegend: false,
                         name: 'Other FDs',
                         data: uniwiseData,
-                        color: '#61B2F3',
+                        color: '#1F75C5',
                         dataLabels: {
                             crop: false,
                         },
