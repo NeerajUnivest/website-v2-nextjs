@@ -6,14 +6,16 @@ import targetingIcon from '@/assets/icons/target_accuracy.png'
 import briefcaseIcon from '@/assets/icons/portfolios_connected.png'
 import groupIcon from '@/assets/icons/trusted_indians.png'
 import heroBG from "@/assets/images/heroBG.png";
+import { ExploreMore } from "@/elements/Button/Button";
 
 
 
 
 export default function EliteHeroSectionNew({ homePage }) {
     const router = useRouter();
-    return (<>
-        <section id="Hero" className="font-Inter overflow-hidden relative">
+
+    return (
+        <div id="Hero" className="font-Inter overflow-hidden relative">
             <div className='whitespace-nowrap flex flex-col gap-8 lg:flex-row pt-20 pb-32 lg:pt-24 max-w-screen-xl mx-auto bg-light-blue'>
                 <div className="flex flex-col items-center gap-6">
                     <div className=" w-[100px] m-auto flex justify-center items-center gap-1.5 py-1 rounded-lg bg-gradient-to-tr from-[#141E30] to-[#333] text-white">
@@ -30,7 +32,7 @@ export default function EliteHeroSectionNew({ homePage }) {
                     </div>
                 </div>
 
-                <div className="mx-4 flex flex-col justify-center items-center gap-4 border border-[color:var(--gradient-1,#61B2F3)] p-3 rounded-xl border-solid bg-white  ">
+                <div className="mx-4 flex flex-col justify-center items-center gap-4 border border-[1B2F3] p-3 rounded-xl border-solid bg-white  ">
                     <div className="flex justify-center items-center border w-full py-2 rounded-lg border-solid border-[#69B7DA]">
                         <p className="text-center text-xs not-italic font-extrabold leading-5">India’s first and largest regulated <span className="text-[#B3161B]">NBFC-P2P </span> </p>
                     </div>
@@ -73,20 +75,25 @@ export default function EliteHeroSectionNew({ homePage }) {
                         </div>
                     </div>
 
-                    <div className="h-px self-stretch bg-[#DFDFDF] "></div>
 
-                    <div className="flex items-center gap-1">
-                        <p className="text-[color:var(--neutral-900,#202020)] text-xs not-italic font-semibold leading-5"> <span className="text-sm not-italic font-extrabold leading-6 bg-clip-text text-[#2E3894]">100%</span> withdrawals honoured at</p>
-                        <p className="text-sm lg:text-2xl text-[#B3161B] font-extrabold">
-                            FAI<span className="text-[#0075B8]">₹</span>CENT
-                        </p>
-                    </div>
+                    {!homePage && <>
+                        <div className="h-px self-stretch bg-[#DFDFDF] " />
+                        <div className="flex items-center gap-1">
+                            <p className="text-[color:var(--neutral-900,#202020)] text-xs not-italic font-semibold leading-5"> <span className="text-sm not-italic font-extrabold leading-6 bg-clip-text text-[#2E3894]">100%</span> withdrawals honoured at</p>
+                            <p className="text-sm lg:text-2xl text-[#B3161B] font-extrabold">
+                                FAI<span className="text-[#0075B8]">₹</span>CENT
+                            </p>
+                        </div>
+                    </>}
 
                 </div>
             </div>
-            <Image src={heroBG} alt='demo' className="absolute bottom-0" />
-        </section>
+            {homePage ?
+                <div className="h-4 bg-light-blue" />
+                : <Image src={heroBG} alt='demo' className="absolute bottom-0" />}
 
-    </>
+            {homePage &&
+                <ExploreMore className='absolute bottom-16 left-6 lg:bottom-36 lg:left-8 text-black border-black' onClick={() => router.push('/elite')} />}
+        </div>
     )
 }

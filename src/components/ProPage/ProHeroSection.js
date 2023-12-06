@@ -17,7 +17,7 @@ import { popUp } from "@/elements/PopUp/SEBIPopUp";
 export default function ProHeroSection({ homePage, start_at }) {
     const router = useRouter();
     return (
-        <section id="Hero" className=" overflow-hidden bg-gradient-to-b from-[#343434] to-[#202732]">
+        <section id="Hero" className=" overflow-hidden bg-gradient-to-b from-[#202732] to-[#343434]">
             <div className='flex flex-col lg:flex-row pt-32 lg:pt-28 max-w-screen-xl mx-auto'>
                 <div className="lg:mt-12 font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8 relative">
                     <div className='mt-4 lg:mt-8 ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-bold text-[#202020] whitespace-nowrap uni-wise-gradient2 flex items-center'>
@@ -61,7 +61,7 @@ export default function ProHeroSection({ homePage, start_at }) {
                 </div>
             </div>
             {!homePage &&
-                <div className="bg-black flex justify-center py-6 ">
+                <div className=" flex justify-center py-6 md:hidden ">
                     <p className="font-Inter font-bold text-white text-sm lg:text-2xl">PRO membership benefits</p>
                 </div>}
         </section>

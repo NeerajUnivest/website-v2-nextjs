@@ -8,14 +8,14 @@ import { useState } from "react";
 import 'swiper/css';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function ScreenersSection({ isDark = false }) {
+export default function ScreenersSection({ isDark }) {
     const { push } = useRouter();
     const [swiper, setSwiper] = useState(null);
     const [active, setActive] = useState(0);
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/screeners/v2`, fetcher)
     return (
         <>
-            <section id="Screeners" className={` overflow-hidden font-Inter max-w-screen-xl mx-auto lg:px-8 py-5 bg-gradient-to-b from-[#202020] to-[#202020] ${isDark && 'bg-white'}'`}>
+            <section id="Screeners" className={` overflow-hidden font-Inter max-w-screen-xl mx-auto lg:px-8 py-5 ${isDark && 'bg-white'}'`}>
                 <h1 className={`my-8 mx-4 lg:my-6 text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-white'}`}>
                     Powered by robust algorithms built by a highly experienced research team.
                 </h1>
@@ -57,15 +57,15 @@ export default function ScreenersSection({ isDark = false }) {
                         Explore by categories
                     </div>
                     <div className="w-full grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-4">
-                        {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className=' bg-black border-white text-white' />)}
+                        {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className={isDark ? ' bg-black border-white text-white' : ' bg-white border-black text-black'} />)}
                     </div>
                     <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
                 </div>
-                <div className="mx-4 py-2 mt-12 lg:flex items-center hidden">
+                <div className="mx-4 py-2 mt-12 lg:flex items-center hidden gap-4">
                     <div className={`text-sm lg:text-base font-semibold mr-8 ${isDark ? 'text-white' : 'text-black'}`}>
                         Explore by categories
                     </div>
-                    {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className=' bg-black border-white text-white' />)}
+                    {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className={isDark ? ' bg-black border-white text-white' : ' bg-white border-black text-black'} />)}
                     <BlackButton onClick={() => push('/screeners')} text='View all' className='ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
                 </div>
 
@@ -91,7 +91,11 @@ export default function ScreenersSection({ isDark = false }) {
                 
             `}</style>
             </section>
-            <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
+            {isDark ?
+                <div className="w-full h-1 shrink-0 bg-[#414141]" />
+                :
+                <div className="w-full h-1 shrink-0 bg-[#F5F5F5]" />
+            }
         </>
     )
 }

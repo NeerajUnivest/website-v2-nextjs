@@ -11,6 +11,8 @@ import users from "@/assets/icons/users.png";
 import { BsApple } from "react-icons/bs";
 import Link from "next/link";
 import ProHeroSection from "../ProPage/ProHeroSection";
+import EliteHeroSectionNew from "../ElitePage2/EliteHeroSectionNew";
+import ProAndPlusHeroSection from "../ProPage2/ProAndPlusHeroSection";
 
 export default function HeroSection({ start_at }) {
     return (
@@ -25,19 +27,29 @@ export default function HeroSection({ start_at }) {
                 }}
                 className='HeroSection'
                 autoplay={{
-                    delay: 4000,
+                    delay: 40000,
                     disableOnInteraction: false
                 }}
                 modules={[Pagination, Autoplay]}
             >
                 <SwiperSlide>
-                    <ProHeroSection homePage={true} start_at={start_at} />
+                    <div className="block md:hidden">
+                        <ProAndPlusHeroSection homePage={true} start_at={start_at} />
+                    </div>
+                    <div className="hidden md:block">
+                        <ProHeroSection homePage={true} start_at={start_at} />
+                    </div>
                 </SwiperSlide>
-                {/* <SwiperSlide>
-                    <StocksHeroSection homePage={true} />
-                </SwiperSlide> */}
                 <SwiperSlide>
-                    <EliteHeroSection homePage={true} />
+                    <div className="block md:hidden">
+                        <EliteHeroSectionNew homePage={true} />
+                    </div>
+                    <div className="hidden md:block">
+                        <EliteHeroSection homePage={true} />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <StocksHeroSection homePage={true} />
                 </SwiperSlide>
             </Swiper>
             <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>

@@ -64,7 +64,7 @@ export default function UserFeedbacksSection({ isDark = false }) {
     const [swiper, setSwiper] = useState(null);
 
     return (
-        <section className={`font-Inter max-w-screen-xl pb-6 lg:pb-10 pt-5 lg:pt-24 mx-auto lg:px-8 bg-gradient-to-b from-[#202020] to-[#202020]  ${!isDark && 'bg-white'}`}>
+        <section className={`font-Inter max-w-screen-xl pb-6 lg:pb-10 pt-5 lg:pt-24 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
                 <div className="">
                     <p className={`hidden lg:flex font-medium text-base lg:text-4xl mb-3 whitespace-pre  ${isDark ? 'text-white' : 'text-black'}`}>Trusted by<span className='font-extrabold'> 400k+ users</span></p>

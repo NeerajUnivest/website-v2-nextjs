@@ -31,7 +31,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 
     return (
-        <section id="Ideas" className={` font-Inter  flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
+        <section id="Ideas" className={` font-Inter  flex flex-col gap-8 max-w-screen-xl py-6 lg:py-20 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="">
                 {isLoading ?
                     <div className="IdeasSectionHit flex pt-8">
@@ -66,19 +66,17 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                                                     src={ele.logoUrl}
                                                     width={24}
                                                     height={24}
-                                                    className='object-contain w-[24px]'
+                                                    className='object-contain w-[24px] md:w-6'
                                                     alt={ele.stockName}
                                                 />}
-                                            <div className="self-center ml-1">
-                                                <p className="font-semibold text-sm">{ele.stockName}</p>
-                                            </div>
+                                            <p className="self-center ml-1 font-semibold text-sm md:text-base text-black">{ele.stockName}</p>
                                         </div>
-                                        <div className="text-[10px] font-bold mb-4 text-center">
+                                        <div className="text-[10px] md:text-xs font-bold mb-3 text-center text-black">
                                             Target hit in {GetDays(ele.createdAt)} days
                                         </div>
                                     </div>
                                     <div className=" p-2 bg-[#26A649] text-center rounded-bl-lg rounded-br-lg ">
-                                        <p className="text-[color:var(--Pearl-White,#FFF)] text-xs not-italic font-bold leading-5"> Net gain: {((ele?.targetPrice - ele?.suggestedPrice) * 100 / ele?.targetPrice)?.toFixed(2)}%</p>
+                                        <p className="text-white text-xs md:text-sm not-italic font-bold leading-5"> Net gain: {((ele?.targetPrice - ele?.suggestedPrice) * 100 / ele?.targetPrice)?.toFixed(2)}%</p>
                                     </div>
                                 </div>
                             </SwiperSlide>)}
@@ -87,6 +85,8 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
             <style >{`
                 .IdeasSectionHit {
+                    border-radius: 24px;
+                    border: 2px solid var(--neutral-700, #606060);
                 width: 100%;
                 /* padding: 20px 0px; */
                 }
@@ -110,7 +110,10 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                 }
 
                 @media (max-width: 746px) {
-
+                    .IdeasSectionHit {
+                    border-radius: 0;
+                    border: 0px solid var(--neutral-700, #606060);
+                }
                     .IdeasSectionHit.swiper - slide,
                     .IdeasSectionHit.swiper - slide - prev,
                     .IdeasSectionHit.swiper - slide - next {
@@ -119,14 +122,12 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                 }
             `}</style>
 
-            <div className=" m-auto mx-4">
-                <p className=" text-[color:var(--neutral-300,#DFDFDF)] text-center text-xs not-italic font-normal leading-5">
-                    Past performance does not guarantee any future returns.<br />
-                    All investments are subject to market risk
-                </p>
-            </div>
+            <p className="block md:hidden mx-auto text-[color:var(--neutral-300,#DFDFDF)] text-center text-xs not-italic font-normal leading-5">
+                Past performance does not guarantee any future returns.<br />
+                All investments are subject to market risk
+            </p>
 
-            <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 mx-4">
+            <div className=" grid grid-cols-2 gap-4 md:flex md:justify-between md:gap-0 mx-4 md:mx-0">
                 {datas.configs?.map(ele => <IdeasTermCard key={ele.term} data={ele} />)}
             </div>
 
@@ -137,17 +138,20 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 export function IdeasTermCard({ data }) {
     return (
-        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" relative w-full aspect-square  rounded-xl  m-auto flex flex-col justify-center bg-cover overflow-hidden">
-            <div className={` ${data?.newStocksCount > 0 ? '' : 'hidden'} absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] inline-flex justify-center items-center gap-0.5 px-2 py-0.5 rounded-[0px_8px_0px_4px] whitespace-nowrap `}> <p className="text-white text-[11px] font-medium">{data?.newStocksCount} New ideas</p> </div>
-            <Image className={` ${data?.term === 'FUTURES' ? '' : 'hidden'} w-12 absolute right-[-2px] top-9 `} src={onlyProPlusIcon} alt='demo image' />
-            <div className=" mx-3 mt-2 flex flex-col gap-2">
-                <p className={`text-xl not-italic font-extrabold leading-8`} dangerouslySetInnerHTML={{ __html: data?.text?.replace('\n', '<br/>') }}></p>
+        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" w-full md:w-[232px] relative aspect-square  rounded-xl  mx-auto md:mx-0 flex flex-col justify-center bg-cover overflow-hidden">
+            {data?.newStocksCount > 0 &&
+                <div className={` absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] px-2 md:px-3 py-0.5 md:py-1 rounded-[0px_8px_0px_4px] whitespace-nowrap text-white text-[10px] font-medium md:text-sm md:font-semibold`}>
+                    {data?.newStocksCount} New ideas
+                </div>}
+            {data?.term === 'FUTURES' &&
+                <Image className={` w-12 md:w-20 absolute right-[-2px] -md:right-1 top-9 md:top-12`} src={onlyProPlusIcon} alt='demo image' />}
+
+            <div className=" mx-3 md:mx-4 mt-2 flex flex-col gap-2 md:gap-4">
+                <p className={`text-xl md:text-3xl not-italic font-extrabold leading-8`} dangerouslySetInnerHTML={{ __html: data?.text?.replace('\n', '<br/>') }}></p>
 
                 <div className=" flex flex-col justify-center items-start gap-1 px-2 py-1.5 rounded-lg bg-[#FFFFFF66] ">
-                    <p className={`text-[10px] not-italic font-semibold leading-4`}>Avg. return</p>
-                    <div>
-                        <p className={`text-xs not-italic font-extrabold leading-5 whitespace-nowrap`} > {data?.term === 'FUTURES' ? `₹${Actions.putComma(data?.avgReturn, 0)}` : `${data?.avgReturn.toFixed(0)}%`} in {data?.avgDuration} days</p>
-                    </div>
+                    <p className={`text-[10px] md:text-sm not-italic font-semibold `}>Avg. return</p>
+                    <p className={`text-xs md:text-lg not-italic font-extrabold leading-5 whitespace-nowrap`} > {data?.term === 'FUTURES' ? `₹${Actions.putComma(data?.avgReturn, 0)}` : `${data?.avgReturn.toFixed(0)}%`} in {data?.avgDuration} days</p>
                 </div>
             </div>
         </div>

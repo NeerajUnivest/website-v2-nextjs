@@ -73,6 +73,14 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                             }
                         })
                 } else {
+                    axiosInterceptorInstance.post(`resources/faircent`,
+                        {
+                            leadType: 'elite',
+                            expectedReturn: 8.25,
+                            planName: `No lock-in`,
+                            minAmount: 25000,
+                            investmentDuration: 0
+                        })
                     let uD = {
                         ...data,
                         subscriptionState: ress.data?.data?.subscriptionState,

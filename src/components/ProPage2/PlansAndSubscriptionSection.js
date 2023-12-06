@@ -15,6 +15,7 @@ import { useGetAxios } from "@/hooks/useGetAxios";
 import BenefitsSection from "./BenefitsSection";
 import { UserDetailProvider } from "@/contexts/UserDetailContext";
 import { planSectionPopUp } from "@/elements/PopUp/PlanSectionPopUp";
+import Actions from "@/elements/Actions";
 
 
 export default function PlandAndSubscriptionSection({ isDark = false }) {
@@ -26,47 +27,48 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
     }, [])
     return (
         <>
-            <section className={`font-Inter flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
-                {/* Membership */}
+            <section className={`font-Inter flex flex-col gap-8 max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
                 <div className="flex flex-col gap-5">
-                    <p className=" text-white text-xl text-center font-extrabold leading-8">Available memberships</p>
+                    <p className=" text-white text-xl md:text-3xl text-center font-extrabold">Available memberships</p>
                     <BenefitsSection />
                 </div>
             </section>
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
-            <section className={`font-Inter flex flex-col gap-8 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
-                <p className="text-white text-center text-xl not-italic font-extrabold leading-8">Our pricing of subscription</p>
-                <div>
-                    <div className="flex flex-col justify-center items-center gap-4">
-                        <div className="w-[156px] text-sm  flex-row gap-1 proGradient  flex justify-center items-center py-1.5 rounded-lg" >
-                            <div className="flex flex-row ">
-                                <p className="font-extrabold" >PR</p>
-                                <div className="flex justify-center items-center"><Image className="w-4" src={proPremIcon} alt='demo image' /></div>
+            <section className={`font-Inter flex flex-col gap-8 max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+                <p className="text-white text-center text-xl md:text-3xl font-extrabold leading-8">Our pricing of subscription</p>
+                <div className="flex flex-col md:flex-row ">
+                    <div className="md:basis-1/2">
+                        <div className="flex flex-col justify-center items-center gap-4">
+                            <div className="w-[156px] text-sm  flex-row gap-1 proGradient  flex justify-center items-center py-1.5 rounded-lg" >
+                                <div className="flex flex-row ">
+                                    <span className="font-extrabold" >PR</span>
+                                    <Image className="w-4 object-contain" src={proPremIcon} alt='demo image' />
+                                </div>
+                                <span className="font-extrabold">plans</span>
                             </div>
-                            <span className="font-extrabold">plans</span>
                         </div>
-                    </div>
 
-                    <div className='max-w-screen-xl mx-auto lg:px-8 overflow-hidden'>
-                        <div className="flex gap-3 lg:gap-6 justify-between mt-4 lg:mt-14">
-                            {data?.pro_plans_list?.map((ele, i) => <PlansCard key={ele.planId} planName={ele.planName} data={ele} />)}
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div className="flex flex-col justify-center items-center gap-4">
-                        <div className="w-[156px] text-white text-sm  flex-row gap-1 proPlusGradient  flex justify-center items-center py-1.5 rounded-lg" >
-                            <div className="flex flex-row ">
-                                <p className="font-extrabold" >PR</p>
-                                <div className="flex justify-center items-center"><Image className="w-4" src={proPlusIcon2} alt='demo image' /></div>
+                        <div className='max-w-screen-xl mx-auto lg:px-8 overflow-hidden'>
+                            <div className="flex gap-3 lg:gap-6 justify-between mt-4 lg:mt-6">
+                                {data?.pro_plans_list?.map((ele, i) => <PlansCard key={ele.planId} planName={ele.planName} data={ele} />)}
                             </div>
-                            <span className="font-extrabold"> <span className="italic">Plus</span> plans</span>
                         </div>
                     </div>
+                    <div className="md:basis-1/2 mt-8 md:mt-0">
+                        <div className="flex flex-col justify-center items-center gap-4">
+                            <div className="w-[156px] text-white text-sm  flex-row gap-1 proPlusGradient  flex justify-center items-center py-1.5 rounded-lg" >
+                                <div className="flex flex-row ">
+                                    <span className="font-extrabold" >PR</span>
+                                    <Image className="w-4 object-contain" src={proPlusIcon2} alt='demo image' />
+                                </div>
+                                <span className="font-extrabold"> <span className="italic">Plus</span> plans</span>
+                            </div>
+                        </div>
 
-                    <div className='max-w-screen-xl mx-auto lg:px-8 overflow-hidden'>
-                        <div className="flex gap-3 lg:gap-6 justify-between mt-4 lg:mt-14">
-                            {data?.pro_plus_plans_list?.map((ele, i) => <PlansCard isPlus={true} key={ele.planId} planName={ele.planName} data={ele} />)}
+                        <div className='max-w-screen-xl mx-auto lg:px-8 overflow-hidden'>
+                            <div className="flex gap-3 lg:gap-6 justify-between mt-4 lg:mt-6">
+                                {data?.pro_plus_plans_list?.map((ele, i) => <PlansCard isPlus={true} key={ele.planId} planName={ele.planName} data={ele} />)}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,7 +76,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
 
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>
 
-            <section className={` font-Inter flex flex-col gap-4 bg-gradient-to-b from-[#202020] to-[#202020]  max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
+            <section className={` font-Inter flex flex-col gap-4 max-w-screen-xl py-6 lg:py-24 mx-auto px-4 lg:px-8 ${!isDark && 'bg-white'}`}>
                 <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
                     <span className={`text-center text-xl lg:text-3xl font-extrabold ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                         Investment & trading ideas
@@ -93,7 +95,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                     </div>
 
                 </div>
-                <div className=" lg:px-14 ">
+                <div className=" lg:px-14">
                     <div className="self-stretch text-white text-center text-base not-italic font-extrabold leading-7">
                         <p>Pillars of advisory team</p>
                     </div>
@@ -107,10 +109,13 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                         onSwiper={setSwiper}
                         breakpoints={{
                             768: {
+                                slidesPerView: 2,
                                 centeredSlides: false,
                                 spaceBetween: 32,
                             },
                             1024: {
+                                autoplay: false,
+                                slidesPerView: 3,
                                 centeredSlides: false,
                                 spaceBetween: 32,
                             },
@@ -155,24 +160,22 @@ export function PlansCard({ data, planName, isPlus }) {
                 userDetail?.inputRef?.current?.focus()
             }
         }}
-            className={`font-Inter relative border-2 ${isPlus ? (planName !== '6 months' ? 'border-[#F2EEFF]' : 'border-[#D3C3FF]') : (planName !== '6 months' ? 'border-[#FFEDD1]' : 'border-[#FFC970]')} rounded-xl  w-full font-Inter flex flex-col font-extrabold bg-white p-`}>
-            <div className={`${planName.includes('12') ? '' : 'hidden'} absolute left-[-5px] top-6 bg-gradient-to-br from-[#141E30] to-[#333] px-1 py-0.5 rounded-[0px_2px_2px_0px`}>
-                <p className="text-white text-[8px] not-italic font-extrabold leading-3">Recommended</p>
+            className={`font-Inter relative border-2 ${isPlus ? (planName !== '6 months' ? 'border-[#F2EEFF]' : 'border-[#D3C3FF]') : (planName !== '6 months' ? 'border-[#FFEDD1]' : 'border-[#FFC970]')} rounded-xl  w-full font-Inter flex flex-col font-extrabold bg-white `}>
+            <div className={`${planName.includes('12') ? '' : 'hidden'} absolute left-[-5px] top-6 md:top-10 bg-gradient-to-br from-[#141E30] to-[#333] px-1 py-0.5 rounded-[0px_2px_2px_0px`}>
+                <p className="text-white text-[8px] md:text-xs not-italic font-extrabold leading-3">Recommended</p>
             </div>
-            <p className={` ${isPlus ? (planName !== '6 months' ? 'bg-[#F2EEFF] font-semibold' : 'bg-[#D3C3FF] font-extrabold ') : (planName !== '6 months' ? 'bg-[#FFEDD1] font-semibold' : 'bg-[#FFC970] font-extrabold')}  py-1.5 lg:py-5 text-[14px] lg:text-3xl text-center rounded-t-lg`}>
+            <p className={` ${isPlus ? (planName !== '6 months' ? 'bg-[#F2EEFF] font-semibold' : 'bg-[#D3C3FF] font-extrabold ') : (planName !== '6 months' ? 'bg-[#FFEDD1] font-semibold' : 'bg-[#FFC970] font-extrabold')}  py-1.5 lg:py-2.5 text-[14px] lg:text-lg text-center rounded-t-lg`}>
                 {planName}
             </p>
-            <div>
-                <p className="mt-2.5 lg:mt-7 text-base lg:text-4xl text-center">
-                    ₹{data.discountedAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
-                </p>
-                <p className="  lg:mt-7 text-sm lg:text-4xl text-center">
-                    <del className="text-[#606060] text-sm lg:text-3xl font-medium">₹{data.displayAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</del>
-                </p>
-            </div>
-            <div className="py-2.5 lg:py-6 flex justify-center font-semibold">
-                <span className={`text-white rounded-md text-[10px] lg:text-2xl text-center ${isPlus ? 'bg-[#3C305F]' : 'bg-[#5C3900]'} py-1 px-2 lg:px-5`}>
-                    Save {((data.displayAmount - data.discountedAmount) * 100 / data.displayAmount)?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}%
+            <p className="mt-2.5 lg:mt-4 text-base lg:text-2xl text-center">
+                ₹{data.discountedAmount?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+            </p>
+            <del className="text-[#606060] w-full text-center text-sm lg:text-xl font-medium">
+                ₹{Actions.putComma(data.displayAmount)}
+            </del>
+            <div className="py-2.5 flex justify-center font-semibold">
+                <span className={`whitespace-nowrap text-white rounded-md text-[10px] lg:text-lg text-center ${isPlus ? 'bg-[#3C305F]' : 'bg-[#5C3900]'} py-1 px-2 lg:px-5`}>
+                    Save {Actions.putComma(((data.displayAmount - data.discountedAmount) * 100 / data.displayAmount), 0)}%
                 </span>
             </div>
         </div >
@@ -181,7 +184,7 @@ export function PlansCard({ data, planName, isPlus }) {
 
 export function AdvisoryTeamCard({ data, isDark }) {
     return (
-        <div className={`font-Inter mt-5 lg:mt-10 flex font-Inter rounded-lg py-2.5 px-4  ${isDark ? 'bg-[#363636]' : ' bg-white shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)]'}`}>
+        <div className={`font-Inter mt-5 lg:mt-10 flex rounded-lg py-2.5 px-4  ${isDark ? 'bg-[#363636]' : ' bg-white shadow-[0_6px_12px_rgba(106,115,129,0.16),0_3px_8px_rgba(87,102,117,0.06)]'}`}>
             <Image
                 src={data.img}
                 alt='demo image'

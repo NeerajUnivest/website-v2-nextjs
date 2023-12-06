@@ -15,7 +15,7 @@ export default function StocksHeroSection({ homePage }) {
     const router = useRouter();
     return (<>
         <section id="Hero" className="bg-[#E1F0FF] overflow-hidden">
-            <div className='flex flex-col lg:flex-row pt-32 lg:pt-28 max-w-screen-xl mx-auto '>
+            <div className='flex flex-col lg:flex-row pt-20 lg:pt-28 max-w-screen-xl mx-auto '>
                 <div className="lg:mt-12 font-Inter basis-full md:basis-7/12 flex flex-col content-center lg:pl-8 relative">
                     <p className='ml-4 lg:ml-0 text-base lg:text-2xl font-medium text-[#414141]'>
                         Stocks
@@ -56,7 +56,7 @@ export default function StocksHeroSection({ homePage }) {
                     <Image
                         placeholder="blur"
                         src={hero}
-                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[60%] mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
+                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[70%] mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
                         alt='demo image'
                     />
                 </div>

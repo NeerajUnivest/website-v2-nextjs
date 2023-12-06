@@ -59,7 +59,7 @@ export default function LogIn({ userData, setUserData, btn, inputRef }) {
     }, [modal])
 
     return (
-        <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-[2] shadow-[0px_0px_4px_rgba(255,255,255,0.6)]'>
+        <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-[2] shadow-[0px_0px_4px_rgba(255,255,255,0.6)] block md:hidden'>
             {userData?.authToken && !modal ?
                 <IconBtn className='select-none w-full py-1.5 rounded-full font-Inter text-base border bg-white border-primary text-black font-semibold shadow'
                     onClick={() => {

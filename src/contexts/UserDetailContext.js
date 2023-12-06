@@ -9,7 +9,7 @@ const UserDetailProvider = createContext();
 
 const UserDetailContext = (props) => {
     const inputRef = useRef(null)
-    const [btn, setBtn] = useState({ show: false, beforeLogin: '', afterLogin: '' })
+    const [btn, setBtn] = useState(null)
     const [userData, setUserData] = useState({})
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const UserDetailContext = (props) => {
         <UserDetailProvider.Provider value={{ inputRef, btn, setBtn, userData, setUserData }}>
             {props.children}
 
-            {btn.show && <LogIn inputRef={inputRef} btn={btn} userData={userData} setUserData={setUserData} />}
+            {btn?.show && <LogIn inputRef={inputRef} btn={btn} userData={userData} setUserData={setUserData} />}
         </UserDetailProvider.Provider>
     )
 }
