@@ -7,6 +7,8 @@ import axiosInterceptorInstance from '../axiosInterceptorInstance';
 import ActivePlanSection from '@/components/ProPage2/ActivePlanSection';
 import RequestSubmittedSection from '@/components/ElitePage2/RequestSubmittedSection';
 import { AiFillInfoCircle } from 'react-icons/ai';
+import { FaceBook } from '../FaceBook';
+import Actions from '../Actions';
 
 const customStyles = {
     content: {
@@ -60,7 +62,10 @@ export default function LogIn({ userData, setUserData, btn, inputRef }) {
         <div className='fixed bottom-0 w-full px-4 py-3 bg-black z-[2] shadow-[0px_0px_4px_rgba(255,255,255,0.6)]'>
             {userData?.authToken && !modal ?
                 <IconBtn className='select-none w-full py-1.5 rounded-full font-Inter text-base border bg-white border-primary text-black font-semibold shadow'
-                    onClick={() => window.open('https://univest.onelink.me/VC6b/investwithunivest', '_blank')}>
+                    onClick={() => {
+                        FaceBook.track('CompleteRegistration')
+                        Actions.downloadNow(btn?.isProPage);
+                    }}>
                     {btn?.afterLogin}
                 </IconBtn>
 
@@ -93,7 +98,7 @@ export default function LogIn({ userData, setUserData, btn, inputRef }) {
                                 (btn.isProPage ?
                                     <ActivePlanSection /> :
                                     <RequestSubmittedSection />)
-                                : <LogInBf setUserData={setUserData} setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />}
+                                : <LogInBf isProPage={btn?.isProPage} setUserData={setUserData} setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />}
                         </Suspense>
                     </ReactModal>
                 </>}

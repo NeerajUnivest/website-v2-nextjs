@@ -11,9 +11,12 @@ import { popUp } from '@/elements/PopUp/SEBIPopUp';
 import TrialCountdownSection from "./TrialCountdown";
 import { UserDetailProvider } from "@/contexts/UserDetailContext";
 import { useContext } from "react";
+import axiosInterceptorInstance from "@/elements/axiosInterceptorInstance";
+import Actions from "@/elements/Actions";
+import axios from "axios";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function ProAndPlusHeroSection({ homePage, start_at, isDark = false, }) {
+export default function ProAndPlusHeroSection({ isDark = false, }) {
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
     const userDetail = useContext(UserDetailProvider)
     return (
@@ -36,12 +39,10 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                             </span>
                         </div>
                         <div>
-                            <div >
-                                <p className="text-center text-sm lg:text-3xl font-bold text-white">SEBI Registered - INA000017639</p>
-                                <div className=" flex justify-center items-center" onClick={() => popUp.open()}>
-                                    <p className="text-center text-[10px] lg:text-3xl font-semibold text-white" >Uniapps, a wholly owned subsidiary of Univest </p>
-                                    <Image className="w-2 ml-1" src={infoIcon} alt='appAndPlay' />
-                                </div>
+                            <p className="text-center text-sm lg:text-3xl font-bold text-white">SEBI Registered - INA000017639</p>
+                            <div className=" flex justify-center items-center" onClick={() => popUp.open()}>
+                                <p className="text-center text-[10px] lg:text-3xl font-semibold text-white" >Uniapps, a wholly owned subsidiary of Univest </p>
+                                <Image className="w-2 ml-1" src={infoIcon} alt='appAndPlay' />
                             </div>
                         </div>
                     </div>
@@ -84,7 +85,7 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                             </div>
                         </div>
 
-                        {!userDetail?.userData?.subscriptionState &&
+                        {(!userDetail?.userData?.subscriptionState || userDetail?.userData?.subscriptionState === 'FREE') &&
                             <div className="whitespace-nowrap border rounded-lg bg-neutral-900 flex flex-row justify-between p-3">
                                 <div className="flex flex-row gap-[2px] items-center">
                                     <Image className="w-14 mt-1 mr-1" src={freeIcon} alt='demo image' />
@@ -93,7 +94,33 @@ export default function ProAndPlusHeroSection({ homePage, start_at, isDark = fal
                                     </div>
                                 </div>
                                 <button className="text-black text-xs not-italic font-extrabold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4"
-                                    onClick={() => userDetail?.inputRef?.current?.focus()}>Activate now</button>
+                                    onClick={() => {
+                                        if (userDetail?.userData?.subscriptionState === 'FREE') {
+                                            axios.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {}
+                                                , {
+                                                    headers: {
+                                                        'Authorization': `Bearer ${Actions.getCookie("auth_token")}`,
+                                                        'device-name': Actions.getDeviceName(),
+                                                        'device-id': Actions.generateUniqueDeviceID()
+                                                    }
+                                                }).then(res => {
+                                                    if (res.data?.data) {
+                                                        let uD = {
+                                                            ...userDetail?.userData,
+                                                            subscriptionState: res.data?.data?.subscriptionState,
+                                                            expiryDate: res.data?.data?.expiryDate
+                                                        }
+                                                        userDetail?.setUserData(uD)
+                                                        Actions.setCookie("user_details", JSON.stringify(uD), 1)
+                                                        FaceBook.track('StartTrial')
+                                                    } else {
+                                                        alert('.............')
+                                                    }
+                                                })
+                                        } else {
+                                            userDetail?.inputRef?.current?.focus()
+                                        }
+                                    }}>Activate now</button>
                             </div>}
                     </div>
                 </div>

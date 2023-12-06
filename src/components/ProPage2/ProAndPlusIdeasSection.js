@@ -120,7 +120,10 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
             `}</style>
 
             <div className=" m-auto mx-4">
-                <p className=" text-[color:var(--neutral-300,#DFDFDF)] text-center text-xs not-italic font-normal leading-5">Disclaimer: Lorem ipsum dolor sit amet consectetur. Erat pretium scelerisque aliquet nisi nec viverra. </p>
+                <p className=" text-[color:var(--neutral-300,#DFDFDF)] text-center text-xs not-italic font-normal leading-5">
+                    Past performance does not guarantee any future returns.<br />
+                    All investments are subject to market risk
+                </p>
             </div>
 
             <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 mx-4">

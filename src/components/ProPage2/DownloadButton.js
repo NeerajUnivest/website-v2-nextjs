@@ -1,11 +1,20 @@
+import { UserDetailProvider } from "@/contexts/UserDetailContext"
+import Actions from "@/elements/Actions"
+import { FaceBook } from "@/elements/FaceBook"
 
 
 export default function DownloadButton() {
+    const userDetail = useContext(UserDetailProvider)
 
     return (
         <>
-            <div className="font-Inter relative w-full text-black text-center buy-button pt-4 hover:animate-none">
-                <div className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2">Download the app now</div>
+            <div className="font-Inter relative w-full text-black text-center buy-button pt-4 hover:animate-none"
+                onClick={() => {
+                    Actions.downloadNow(userDetail?.btn?.isProPage);
+                    FaceBook.track('CompleteRegistration')
+
+                }}>
+                <div className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2 whitespace-nowrap">Download the app now</div>
                 <div className="buttont">.</div>
                 <div className="buttonb">.</div>
             </div>

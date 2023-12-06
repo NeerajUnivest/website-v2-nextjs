@@ -18,7 +18,7 @@ import { UserDetailProvider } from "@/contexts/UserDetailContext"
 const isProPlus = (subscriptionState) => {
     return (subscriptionState === 'PRO_PLUS' || subscriptionState === 'PRO_PLUS_AUTO_RENEW_CANCELLED' || subscriptionState === 'PRO_PLUS_NEAR_EXPIRY')
 }
-function ActivePlanSection({ isBottom = true }) {
+function ActivePlanSection() {
     const userDetail = useContext(UserDetailProvider)
     const data = userDetail?.userData;
 
@@ -39,29 +39,23 @@ function ActivePlanSection({ isBottom = true }) {
                 <TrialCountdownSection className='px-0' endTime={data?.expiryDate} />
             </section>
         )
-    } else if (data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED') {
+    } else if (data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED' || data?.subscriptionState === 'PLANS_EXPIRED') {
         return (
-            <section className="flex flex-col items-center gap-4  pt-5 pb-2 px-4 rounded-[12px_12px_0px_0px] bg-[#383838]  " >
+            <section className="flex flex-col items-center gap-4 px-4 py-6 rounded-[12px_12px_0px_0px] bg-[#383838] -m-5 " >
                 <div className="flex flex-col justify-center items-center gap-2">
-                    <p className="text-[color:var(--error-500,#EB4E2C)] text-xl not-italic font-bold leading-8"> {data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED' ? 'Plan' : 'Plan'} expired</p>
+                    <p className="text-[color:var(--error-500,#EB4E2C)] text-xl not-italic font-bold leading-8"> {data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED' ? 'Trial' : 'Plan'} expired</p>
                     <p className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Choose a plan to continue</p>
                 </div>
                 <BenefitsSection />
                 <div className="flex justify-between items-center gap-3 self-stretch">
-                    <div style={{ background: 'var(--gradient-3, linear-gradient(0deg, #FF8415 -37.42%, #FFCA3F 65.82%))' }} className=" text-black flex flex-col justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
-                        <div className="flex flex-row justify-center items-center gap-[2px]">
-                            <p className="text-xs not-italic font-extrabold leading-5 bg-clip-text">Buy PR</p>
-                            <Image className="w-3 h-3" src={proIcon} alt='demo image' />
-                        </div>
-                        <p className="text-[10px] not-italic font-semibold leading-4">Starts @ ₹199/mo*</p>
+                    <div style={{ background: 'var(--gradient-3, linear-gradient(0deg, #FF8415 -37.42%, #FFCA3F 65.82%))' }} className="basis-1/2 text-black flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
+                        <p className="text-xs not-italic font-extrabold leading-5 bg-clip-text">Buy PR</p>
+                        <Image className="w-3 h-3" src={proIcon} alt='demo image' />
                     </div>
-                    <div style={{ background: 'var(--pro-2, linear-gradient(309deg, #1A379E -1.44%, #C379FE 101.36%))' }} className=" text-white text-xs not-italic font-extrabold leading-5 bg-clip-textflex flex-col justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
-                        <div className="flex flex-row justify-center items-center gap-[2px]">
-                            <p >Buy PR</p>
-                            <Image className="w-3 h-3" src={proPlusIcon} alt='demo image' />
-                            <span className="italic">Plus</span>
-                        </div>
-                        <p className="text-[10px] not-italic font-semibold leading-4">Starts @ ₹199/mo*</p>
+                    <div style={{ background: 'var(--pro-2, linear-gradient(309deg, #1A379E -1.44%, #C379FE 101.36%))' }} className="basis-1/2 text-white text-xs not-italic font-extrabold leading-5 bg-clip-text flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
+                        <p >Buy PR</p>
+                        <Image className="w-3 h-3" src={proPlusIcon} alt='demo image' />
+                        <span className="italic">Plus</span>
                     </div>
                 </div>
             </section>
@@ -69,7 +63,7 @@ function ActivePlanSection({ isBottom = true }) {
     } else {
         return (
             <section className="flex flex-col items-center gap-4 bg-white" >
-                <Image className="w-2/3" src={isProPlus(data?.subscriptionState) ? welcome_pro_plus : welcome_pro} alt="demo" />
+                <Image className="w-1/2" src={isProPlus(data?.subscriptionState) ? welcome_pro_plus : welcome_pro} alt="demo" />
                 <div className="text-[color:var(--neutral-900,#202020)] text-center text-[26.529px] not-italic font-bold leading-[42.447px] flex flex-row gap-2 ">
                     <div className="flex justify-center items-center">
                         <p>Univest PR</p>
@@ -109,7 +103,7 @@ function ActivePlanSection({ isBottom = true }) {
                             </div>
                         </div>
                     </div>
-                    {isBottom ? <DownloadButton /> : ''}
+                    <DownloadButton />
                 </div>
             </section>
         )

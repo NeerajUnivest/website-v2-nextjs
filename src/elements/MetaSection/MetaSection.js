@@ -114,7 +114,7 @@ var f=d.getElementsByTagName(s)[0],
             }}
         />
 
-        <Script src="https://www.facebook.com/tr?id=428181756128634&ev=PageView&noscript=1" />
+        {/* <Script src="https://www.facebook.com/tr?id=428181756128634&ev=PageView&noscript=1" /> */}
 
         <script
             type="application/ld+json"

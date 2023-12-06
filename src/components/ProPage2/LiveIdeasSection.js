@@ -22,7 +22,7 @@ export default function IdeasSectionLive({ isDark = false }) {
                     <div className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Live trade ideas</div>
                     <div className=" bg-white text-green-600 flex items-center gap-2 border border-[color:var(--success-600,#26A649)] px-3 py-0.5 rounded-[20px] border-solid ">
                         <div className="bg-green-600 w-1.5 h-1.5 rounded-md"></div>
-                        <div className="text-[color:var(--success-600,#26A649)] text-center text-sm not-italic font-bold leading-6"> {data?.data?.list.length} Live</div>
+                        <div className="text-[color:var(--success-600,#26A649)] text-center text-sm not-italic font-bold leading-6"> {data?.data?.list?.length} Live</div>
                     </div>
                 </div>
                 <div className="">
@@ -44,7 +44,7 @@ export default function IdeasSectionLive({ isDark = false }) {
                             modules={[Autoplay]}
                             className="IdeasSectionLive"
                         >
-                            {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
+                            {data?.data?.list?.map((ele, i) =>
                                 <SwiperSlide key={`${ele.id}-${i}`} >
                                     <div className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed  rounded-lg border-[#BADDFA] bg-cover">
                                         {ele?.term === 'FUTURES' && <div className=" text-[color:var(--Pearl-White,#FFF)] text-[8px] not-italic font-medium leading-3   flex justify-center items-center gap-0.5 px-1 py-0 rounded-sm bg-gradient-to-br from-[#E75325] to-[#F69723] absolute mt-1 ml-[100px] ">New</div>}
@@ -115,7 +115,7 @@ export default function IdeasSectionLive({ isDark = false }) {
                 }
             `}</style>
                 <p className="whitespace-normal mx-4 text-[#DFDFDF] text-center text-xs not-italic font-normal leading-5">
-                    Lorem ipsum dolor sit amet consectetur. Erat pretium scelerisque aliquet nisi nec viverra.
+                    Unlock these ideas with Free Trial. <span className="uni-wise-gradient2 font-bold">Activate Now</span>
                 </p>
             </section>
             <div className="w-full h-1 shrink-0 bg-[#414141]"></div>

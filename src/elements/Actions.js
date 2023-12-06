@@ -51,7 +51,7 @@ let Actions = {
             fingerprint += window.screen.width + 'x' + window.screen.height;
         }
         const uniqueID = btoa(fingerprint);
-        return uniqueID;
+        return Actions.getCookie('_ga') ?? uniqueID;
     },
     getDeviceName: () => {
         const userAgent = navigator.userAgent.toLowerCase();
@@ -82,6 +82,13 @@ let Actions = {
             return (val / 1000).toFixed(2) + 'K';
         } else {
             return (val / 1000).toFixed(2);
+        }
+    },
+    downloadNow: (isProPage) => {
+        if (isProPage) {
+            window.open('https://univest.onelink.me/fN1T/p45lthtg', '_blank')
+        } else {
+            window.open('https://univest.onelink.me/fN1T/bkyef08z', '_blank')
         }
     }
 };

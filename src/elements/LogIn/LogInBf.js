@@ -8,6 +8,8 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import axiosInterceptorInstance from '../axiosInterceptorInstance';
 import Actions from '../Actions';
+import axios from 'axios';
+import { FaceBook } from '../FaceBook';
 
 const OtpInput = dynamic(
     () => import('react18-input-otp'),
@@ -15,7 +17,7 @@ const OtpInput = dynamic(
 )
 
 
-export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserData }) {
+export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserData, isProPage }) {
     const [otp, setOtp] = useState('')
     const [error, setError] = useState(null)
     const [disabled, setDisabled] = useState(true)
@@ -34,7 +36,8 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
             'countryCode': 91,
             'otp': otp,
             'referralCode': null,
-            'logoutAllDevices': false
+            'logoutAllDevices': false,
+            'userInterest': isProPage ? 'web-pro' : 'web-elite'
         }).then(res => {
             if (res.data?.data?.authToken) {
                 // setModal(false)
@@ -50,16 +53,21 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
     const getUserInfo = (data) => {
         axiosInterceptorInstance.get(`resources/users/user-info-v2`)
             .then(ress => {
-                if (ress.data?.data?.subscriptionState === 'FREE') {
-                    axiosInterceptorInstance.put(`/resources/user-subscription/activate-trial-v2`, {}
+                if (ress.data?.data?.subscriptionState === 'FREE' && !isProPage) {
+                    FaceBook.track('ViewContent')
+                }
+                if (ress.data?.data?.subscriptionState === 'FREE' && isProPage) {
+                    axios.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {}
                         , {
                             headers: {
+                                'Authorization': `Bearer ${Actions.getCookie("auth_token")}`,
                                 'device-name': Actions.getDeviceName(),
                                 'device-id': Actions.generateUniqueDeviceID()
                             }
                         }).then(res => {
                             if (res.data?.data) {
                                 getUserInfo(data)
+                                FaceBook.track('StartTrial')
                             } else {
                                 alert('.............')
                             }

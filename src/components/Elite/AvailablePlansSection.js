@@ -9,6 +9,7 @@ import giftIcon from '@/assets/icons/giftBox_icon.png'
 import { UserDetailProvider } from "@/contexts/UserDetailContext";
 import { useContext } from "react";
 import { planSectionPopUp } from "@/elements/PopUp/PlanSectionPopUp";
+import Actions from "@/elements/Actions";
 // import recommend_tag from '../../assets/images/elite/recommend_tag.png';
 // import { popUp } from "@/elements/PopUp/PopUp";
 
@@ -49,7 +50,9 @@ export default function AvailablePlansSection() {
                 {cardData.map(ele => <AvailablePlansCard key={ele.id} data={ele} />)}
             </div>
             <div className="mx-4">
-                <IconTextBtn icon={giftIcon} textClass='rounded-md text-xs text-white font-semibold blackGradient py-2 w-full justify-center' iconClass='h-4 w-4 mr-2' text='Instant cashbacks on each investment' />
+                <IconTextBtn
+                    onClick={() => Actions.downloadNow(false)}
+                    icon={giftIcon} textClass='rounded-md text-xs text-white font-semibold blackGradient py-2 w-full justify-center' iconClass='h-4 w-4 mr-2' text='Instant cashbacks on each investment' />
             </div>
         </section>
     )

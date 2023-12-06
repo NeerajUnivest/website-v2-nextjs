@@ -20,7 +20,7 @@ import DownloadAppSection from '@/components/ProPage2/DownloadAppSection'
 import { UserDetailProvider } from '@/contexts/UserDetailContext'
 import BenefitsSection from '@/components/ProPage2/BenefitsSection'
 import ActivePlanSection from '@/components/ProPage2/ActivePlanSection'
-import Actions from '@/elements/Actions'
+import { isMobile } from 'react-device-detect';
 
 
 export default function Pro({ pageName, data }) {
@@ -41,7 +41,8 @@ export default function Pro({ pageName, data }) {
             title='Stock market investment ideas by SEBI Reg. Investment Advisor Uniapps'
             desc='Univest PRO is a advisory subscription for best stock market advisory and trading tips, market screeners, portfolio review and additional cashback on Elite investments'
             keyWords='bombay stock exchange, Indian stock market, bse, national stock exchange, Nifty, nse, sensex, stock exchange, stock market, stock research tool, smart investment, investment ideas, stock market tips' />
-        <ProAndPlusHeroSection homePage={false} start_at={data?.start_at} />
+        {isMobile ? <ProAndPlusHeroSection homePage={false} start_at={data?.start_at} />
+            : <ProHeroSection homePage={false} start_at={data?.start_at} />}
         <ProAndPlusIdeasSection isDark={true} />
         <ClosedIdeasSection isDark={true} />
         <LiveIdeasSection isDark={true} />

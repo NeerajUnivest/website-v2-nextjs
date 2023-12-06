@@ -86,7 +86,9 @@ export default function InvestCalcSection() {
             <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="font-Inter flex flex-col gap-8 py-6 px-4">
                 <div className="flex flex-col items-start gap-4 m-auto">
                     <p className="text-black text-xl not-italic font-bold leading-8">Create wealth</p>
-                    <p className=" text-[#606060] text-center text-xs not-italic font-medium leading-5">Lorem ipsum wdhiuh jsoqhi hdiwebib shihiwxh qzsbixib xiwbxiub hsihsixwhd diwehixil xwibciwbcwic xjlqjxhcxie</p>
+                    <p className=" text-[#606060] text-center text-xs not-italic font-medium leading-5">
+                        Maximize your earnings by diversifying your investments with minimal risk.
+                    </p>
                 </div>
                 <div className=" w-full bg-[#F6F8FF] flex flex-col items-center gap-4 py-4 px-3 rounded-xl m-auto ">
                     <div className=" w-full bg-white flex justify-between items-center border border-[color:var(--gradient-1,#61B2F3)] px-4 py-3 rounded-xl border-solid">

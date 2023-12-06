@@ -14,6 +14,7 @@ import { UserDetailProvider } from '@/contexts/UserDetailContext'
 import MetaSection from '@/elements/MetaSection/MetaSection'
 import { Mixpanel } from '@/elements/Mixpanel'
 import { useContext, useEffect } from 'react'
+import { isMobile } from 'react-device-detect';
 
 const data = [
     {
@@ -49,13 +50,15 @@ export default function Elite() {
             title='Elite: Earn higher returns with Registered P2P lending '
             desc='Elite gives you the opportunity to get returns up to 12% through short-term investment in Registered NBFC P2P lending to people with the high credit score.'
             keyWords='High returns, Safe investments, Double returns than FD, Registered, P2P lending, Low risk investments, Trusted investments, Safe returns' />
-        <EliteHeroSectionNew homePage={false} />
-        <AvailablePlansSection />
-        <CallBackSection />
-        <InvestCalcSection />
+        {isMobile ? <>
+            <EliteHeroSectionNew homePage={false} />
+            <AvailablePlansSection />
+            <CallBackSection />
+            <InvestCalcSection />
+        </> : <EliteHeroSection />}
         <WhyShouldSection homePage={false} />
         <HowItWork />
-        {/* <EarnExtraSection /> */}
+        {!isMobile && <EarnExtraSection />}
         <DownloadAppSection />
         <EliteFAQSection data={data} />
         <PartneredWithSection />
