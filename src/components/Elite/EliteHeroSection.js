@@ -1,6 +1,6 @@
 import Image from "next/image";
-import heroHome from '../../assets/images/hero_image_elite_home-min.png';
-import hero from '../../assets/images/hero_image_elite-min.png';
+import elite_hero from '../../assets/images/elite_hero.png';
+import elite_hero_home from '../../assets/images/elite_hero_home.png';
 import univest_elite from '../../assets/images/univest_elite.png';
 import HeroSearchBox from "@/elements/HeroSearchBox";
 import Marquee from "react-fast-marquee";
@@ -25,10 +25,10 @@ export default function EliteHeroSection({ homePage }) {
                         alt='demo image'
                     />
                     <div className='mt-4 lg:mt-8 ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020] whitespace-nowrap'>
-                        Earn up to{homePage ? <br className="lg:hidden" /> : <br />} <span className="text-[#437587] font-black">12% p.a.</span> with Elite.
+                        Earn up to <span className="text-[#437587] font-black">12%</span>
                     </div>
                     <div className='ml-4 lg:ml-0 text-[28px] lg:text-[52px] font-semibold text-[#202020]'>
-                        Withdraw anytime
+                        per annum
                     </div>
                     {homePage &&
                         <div className='mt-8 ml-4 lg:ml-0  grid grid-cols-2 lg:grid-cols-5 justify-items-start gap-y-4 text-black'>
@@ -57,12 +57,12 @@ export default function EliteHeroSection({ homePage }) {
                         <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-28 lg:left-8' onClick={() => router.push('/elite')} /> :
                         <HeroSearchBox />}
                 </div>
-                <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-20 lg:mt-10' : 'mt-6'}`}>
-                    <div className='rounded-full absolute left-10 lg:left-3 top-[100px] bg-gradient-to-r from-[#62606022] to-[#0914328c] h-[300px] w-[300px] lg:h-[500px] lg:w-[500px] blur-3xl opacity-50' />
+                <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-20  lg:mt-10' : 'mt-0'}`}>
+                    <div className='rounded-full absolute left-10 lg:left-3 top-[120px] bg-gradient-to-r from-[#62606022] to-[#0914328c] h-[300px] w-[300px] lg:h-[300px] lg:w-[300px] blur-3xl opacity-50' />
                     <Image
                         placeholder="blur"
-                        src={homePage ? heroHome : hero}
-                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[50%]  mr-8 lg:mr-0' : 'mx-auto w-[80%]'}`}
+                        src={homePage ? elite_hero_home : elite_hero}
+                        className={`lg:w-[500px] lg:min-w-[500px] object-contain z-[1] ${homePage ? 'ml-auto w-[50%]  mr-8 lg:mr-0' : 'mx-auto w-[80%] '}`}
                         alt='demo image'
                     />
                 </div>

@@ -92,9 +92,9 @@ export default function ScreenersSection({ isDark }) {
             `}</style>
             </section>
             {isDark ?
-                <div className="w-full h-1 shrink-0 bg-[#414141]" />
+                <div className="w-full h-1 lg:mt-20 shrink-0 bg-[#414141]" />
                 :
-                <div className="w-full h-1 shrink-0 bg-[#F5F5F5]" />
+                <div className="w-full h-1 lg:mt-20 shrink-0 bg-[#F5F5F5]" />
             }
         </>
     )

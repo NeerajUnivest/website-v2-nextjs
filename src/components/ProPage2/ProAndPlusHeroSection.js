@@ -12,7 +12,6 @@ import { UserDetailProvider } from "@/contexts/UserDetailContext";
 import { useContext } from "react";
 import axiosInterceptorInstance from "@/elements/axiosInterceptorInstance";
 import Actions from "@/elements/Actions";
-import axios from "axios";
 import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
 
@@ -97,14 +96,8 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                             <button className="text-black text-xs not-italic font-extrabold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4"
                                 onClick={() => {
                                     if (userDetail?.userData?.subscriptionState === 'FREE') {
-                                        axios.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {}
-                                            , {
-                                                headers: {
-                                                    'Authorization': `Bearer ${Actions.getCookie("auth_token")}`,
-                                                    'device-name': Actions.getDeviceName(),
-                                                    'device-id': Actions.generateUniqueDeviceID()
-                                                }
-                                            }).then(res => {
+                                        axiosInterceptorInstance.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {})
+                                            .then(res => {
                                                 if (res.data?.data) {
                                                     let uD = {
                                                         ...userDetail?.userData,
@@ -115,7 +108,13 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                                                     Actions.setCookie("user_details", JSON.stringify(uD), 1)
                                                     FaceBook.track('StartTrial')
                                                 } else {
-                                                    alert('.............')
+                                                    let uD = {
+                                                        ...userDetail?.userData,
+                                                        subscriptionState: 'TRIAL_PRO_PLUS_EXPIRED',
+                                                    }
+                                                    userDetail?.setUserData(uD)
+                                                    Actions.setCookie("user_details", JSON.stringify(uD), 1)
+                                                    FaceBook.track('StartTrial')
                                                 }
                                             })
                                     } else {

@@ -9,7 +9,11 @@ const axiosInterceptorInstance = axios.create({
 axiosInterceptorInstance.interceptors.request.use(
     (config) => {
         if (Actions.getCookie("auth_token")) {
-            if (config.headers) config.headers = { 'Authorization': `Bearer ${Actions.getCookie("auth_token")}` };
+            if (config.headers) config.headers = {
+                'Authorization': `Bearer ${Actions.getCookie("auth_token")}`,
+                'device-name': Actions.getDeviceName(),
+                'device-id': Actions.generateUniqueDeviceID()
+            };
         }
         return config;
     },

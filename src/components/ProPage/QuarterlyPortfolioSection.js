@@ -17,7 +17,7 @@ const data = [
 
 export default function QuarterlyPortfolioSection() {
     return (
-        <section className="font-Inter " id='QuarterlyPortfolio'>
+        <section className="font-Inter py-8 lg:py-20" id='QuarterlyPortfolio'>
             <div className='max-w-screen-xl pt-5 mx-auto px-4 lg:px-8 overflow-hidden'>
                 <div className="flex flex-col lg:flex-row justify-between items-center lg:mb-6">
                     <p className={`text-center text-xl lg:text-3xl font-extrabold text-white `}>

@@ -55,24 +55,6 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
             .then(ress => {
                 if (ress.data?.data?.subscriptionState === 'FREE' && !isProPage) {
                     FaceBook.track('ViewContent')
-                }
-                if (ress.data?.data?.subscriptionState === 'FREE' && isProPage) {
-                    axios.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {}
-                        , {
-                            headers: {
-                                'Authorization': `Bearer ${Actions.getCookie("auth_token")}`,
-                                'device-name': Actions.getDeviceName(),
-                                'device-id': Actions.generateUniqueDeviceID()
-                            }
-                        }).then(res => {
-                            if (res.data?.data) {
-                                getUserInfo(data)
-                                FaceBook.track('StartTrial')
-                            } else {
-                                alert('.............')
-                            }
-                        })
-                } else {
                     axiosInterceptorInstance.post(`resources/faircent`,
                         {
                             leadType: 'elite',
@@ -81,6 +63,18 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                             minAmount: 25000,
                             investmentDuration: 0
                         })
+                }
+                if (ress.data?.data?.subscriptionState === 'FREE' && isProPage) {
+                    axiosInterceptorInstance.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {})
+                        .then(res => {
+                            if (res.data?.data) {
+                                getUserInfo(data)
+                                FaceBook.track('StartTrial')
+                            } else {
+                                getUserInfo(data)
+                            }
+                        })
+                } else {
                     let uD = {
                         ...data,
                         subscriptionState: ress.data?.data?.subscriptionState,
@@ -148,7 +142,7 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                     {error ? 'Please enter correct OTP.' : 'This is required'}
                 </div>
             </div>
-            <div className='flex flex-row justify-between '>
+            <div className='flex flex-row justify-between mb-10'>
                 <div className="basis-1/2 flex items-center justify-start">
                     <button disabled={disabled} type="button" className='whitespace-nowrap rounded-md py-3 text-[12px] leading-[20px] text-[#00439D] disabled:text-[#BCBCBC] outline-none font-semibold'
                         onClick={handleResend}>

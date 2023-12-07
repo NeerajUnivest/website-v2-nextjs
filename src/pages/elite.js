@@ -59,11 +59,11 @@ export default function Elite() {
         <div className="hidden md:block">
             <EliteHeroSection />
         </div>
-        <WhyShouldSection homePage={false} />
-        <HowItWork />
         <div className="hidden md:block">
             <EarnExtraSection />
         </div>
+        <WhyShouldSection homePage={false} />
+        <HowItWork />
         <DownloadAppSection />
         <EliteFAQSection data={data} />
         <PartneredWithSection />

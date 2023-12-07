@@ -20,10 +20,10 @@ export default function CallBackSection() {
                         <Image className="w-6" src={callIcon} alt="demo" />
                         <input className='w-[calc(100%-90px)] caret-primary text-[#747474] font-semibold p-2' type='tel' placeholder='Enter mobile number'
                             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" inputMode="tel"
-                            onClick={() => userDetail?.inputRef?.current?.focus()}
+                            onClick={() => setTimeout(() => userDetail?.inputRef?.current?.focus(), 100)}
                         />
                         <BlackButton className=' whitespace-nowrap px-3 lg:px-6 h-full text-sm font-semibold' text='Get callback'
-                            onClick={() => userDetail?.inputRef?.current?.focus()}
+                            onClick={() => setTimeout(() => userDetail?.inputRef?.current?.focus(), 100)}
                         />
                     </div>
                 </div>

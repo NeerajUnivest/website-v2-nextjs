@@ -5,19 +5,20 @@ import Slider from 'react-rangeslider'
 
 // To include the default styles
 import 'react-rangeslider/lib/index.css'
+import loanBf from '@/assets/loanBf.png'
 
 import HighChartTest from './HighChartTest'
 import Image from 'next/image'
 import usersIcon from '@/assets/icons/users_icon.png'
-import loanBf from '@/assets/loanBf.png'
 import ReactModal from "react-modal"
 import { isMobile } from 'react-device-detect';
 import { AiFillInfoCircle } from 'react-icons/ai'
 import { BlackButton, IconBtn } from '@/elements/Button/Button'
 import axiosInterceptorInstance from '@/elements/axiosInterceptorInstance'
+import Actions from '@/elements/Actions'
 
 
-export function LoanBf() {
+export function LoanBf({ setModal }) {
     const [data, setData] = useState({
         name: '',
         contactNumber: '',
@@ -28,7 +29,7 @@ export function LoanBf() {
         name: false,
         contactNumber: false,
     })
-    const [apply, setApply] = useState(false)
+    const [apply, setApply] = useState(Actions.getCookie('apply_loan') === 'true' ? true : false)
 
 
 
@@ -36,18 +37,21 @@ export function LoanBf() {
         if (data.name?.length > 3) {
             if (data.contactNumber?.length === 10) {
                 axiosInterceptorInstance.post(`/resources/users/interested-in-loans`, data)
-                    .then(res => setApply(true))
+                    .then(res => {
+                        Actions.setCookie('apply_loan', true, 1)
+                        setApply(true)
+                    })
             } else {
-                setError(pre => ({ ...pre, contactNumber: '10 digit' }))
+                setError(pre => ({ ...pre, contactNumber: 'Please enter a valid mobile number' }))
             }
         } else {
-            setError(pre => ({ ...pre, name: '3 se jada' }))
+            setError(pre => ({ ...pre, name: 'Please enter a valid name' }))
         }
     }
 
     if (apply) {
         return (
-            <section className="flex flex-col items-center gap-4 whitespace-nowrap font-Inter " >
+            <section className="pt-6 pb-10 px-4 flex flex-col items-center gap-4 whitespace-nowrap font-Inter " >
                 <div className='flex justify-center items-center shrink-0 p-4 border-2 border-neutral-500  rounded-full bg-neutral-700'>
                     <Image className='w-10 transform -scale-x-100' src={loanBf} alt='demo' />
                 </div>
@@ -56,20 +60,22 @@ export function LoanBf() {
                     <p>During weekdays, expect a response within 48 hours.</p>
                     <p>On weekend, we’ll call back on next working day.</p>
                 </div>
-                <p className='text-[color:var(--neutral-800,#414141)] text-center text-[10px] not-italic font-medium leading-4'><span className='text-black font-bold'>Working hours:</span> Monday to Friday, 10:00 AM to 6:30 PM. </p>
-                <BlackButton className={'w-full py-2 mx-auto font-bold mt-4 rounded-lg text-sm'} text={'Download the app now'} />
+                <BlackButton className={'w-full py-2 mx-auto font-bold mt-4 rounded-lg text-sm'} text={'Okay'}
+                    onClick={() => {
+                        setModal(false)
+                    }} />
             </section>
         )
     } else {
         return (
-            <>
+            <div className='pt-6 pb-16 px-4 bg-[length:80px_80px] bg-no-repeat bg-[#F9FAFF] bg-right-top' style={{ backgroundImage: `url(${loanBf.src})` }}>
                 <span className=" text-base font-semibold text-black">
                     Fill in details to get in touch
                 </span>
                 <div className="font-Inter block mt-6 relative">
                     <span className="absolute -top-1 left-3 px-1 block text-[10px] leading-[10px] font-semibold text-[#202020] bg-white">
                         Enter your Name</span>
-                    <input type="text" className={`border px-4 h-11 py-2 w-full rounded-md text-[14px] font-medium text-[#414141] ${error.name ? 'border-[#EB4E2C]' : 'focus:border-[#00439D]'}`} value={data?.name}
+                    <input type="text" autoFocus className={`border px-4 h-11 py-2 w-full rounded-md text-[14px] font-medium text-[#414141] ${error.name ? 'border-[#EB4E2C]' : 'focus:border-[#00439D]'}`} value={data?.name}
                         pattern="[a-z]*"
                         onChange={(e) => {
                             setError(pre => ({ ...pre, name: false }))
@@ -130,7 +136,7 @@ export function LoanBf() {
                 <IconBtn className='w-full text-sm text-white font-semibold bg-black rounded-lg py-2.5 mt-6' onClick={handleSubmit} >
                     Submit
                 </IconBtn>
-            </>
+            </div>
         )
     }
 }

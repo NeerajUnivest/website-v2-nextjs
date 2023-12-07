@@ -5,8 +5,6 @@ import { useState } from "react";
 
 
 export default function HighChartTest({ pdData = [], uniwiseData = [] }) {
-    console.log(pdData, uniwiseData);
-
     if (pdData.length > 1) return (
         <>
             <HighchartsReact

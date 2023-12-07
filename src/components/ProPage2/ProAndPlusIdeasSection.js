@@ -31,7 +31,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 
     return (
-        <section id="Ideas" className={` font-Inter  flex flex-col gap-8 max-w-screen-xl py-6 lg:py-20 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
+        <section id="Ideas" className={` font-Inter  flex flex-col gap-8 md:gap-20 max-w-screen-xl py-6 lg:py-20 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="">
                 {isLoading ?
                     <div className="IdeasSectionHit flex pt-8">

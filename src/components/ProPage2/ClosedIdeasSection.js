@@ -6,6 +6,7 @@ import { useGetAxios } from '@/hooks/useGetAxios';
 import ReactPaginate from 'react-paginate';
 import Actions from '@/elements/Actions';
 import { IconBtn } from '@/elements/Button/Button';
+import moment from 'moment';
 
 
 export default function ClosedIdeasSection({ homePage, start_at, isDark = false }) {
@@ -113,21 +114,29 @@ export function ClosedIdeasSectionTable({ closedIdeas }) {
                             </div>
                         </td>
                         <td className='text-xs md:text-sm font-semibold leading-[18px] items-center pl-4 px-2 border border-x-0 border-neutral-100  '>
-                            ₹{Actions.putComma(item.entryPrice)}</td>
+                            ₹{Actions.putComma(item.entryPrice)}
+                        </td>
                         <td style={{ color: `${item.netGain < 0 ? '#EB4E2C' : '#26A649'}` }} className='text-xs md:text-sm font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            {item.term === 'FUTURES' ? '₹' : ''}{item.netGain.toFixed(0)}{item.term !== 'FUTURES' ? '%' : ''}</td>
+                            {item.term === 'FUTURES' ? `₹${Actions.putComma(item.netGain)}` : `${Actions.putComma(item.netGain)}%`}
+                        </td>
                         <td style={{ color: `${item.hit === 'MISS' ? '#EB4E2C' : '#26A649'}` }} className='text-xs md:text-sm font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            {item.hit?.replace('P.', '')} </td>
+                            {item.hit?.replace('P.', '')}
+                        </td>
                         <td className='text-xs md:text-sm font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            ₹{Actions.putComma(item.closurePrice)}</td>
+                            ₹{Actions.putComma(item.closurePrice)}
+                        </td>
                         <td className='text-xs md:text-sm font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            ₹{Actions.putComma(item.ltpPrice)}</td>
+                            ₹{Actions.putComma(item.ltpPrice)}
+                        </td>
                         <td className='text-xs md:text-sm font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            {item.entryDate}</td>
+                            {moment(item.entryDate, 'DD-MM-YYYY').format('DD MMM YY')}
+                        </td>
                         <td className='text-xs md:text-sm font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            {item.exitDate}</td>
+                            {moment(item.exitDate, 'DD-MM-YYYY').format('DD MMM YY')}
+                        </td>
                         <td className='text-xs md:text-sm font-semibold leading-[18px] items-center px-2 border border-x-0  border-neutral-100'>
-                            ₹{Actions.putComma(item.targetPrice)}</td>
+                            ₹{Actions.putComma(item.targetPrice)}
+                        </td>
                     </tr>)}
         </tbody>
     )

@@ -42,6 +42,9 @@ export default function EarnExtraSection() {
     return (
         <section className=' bg-gradient-to-b from-[#d3cce301] to-[#d3cce3a4] py-[72px] font-Inter'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
+                <p className='ml-4 lg:ml-0 mb-3 lg:mb-10 text-base lg:text-4xl text-black font-semibold lg:font-extrabold'>
+                    Multiply your wealth
+                </p>
                 <div className='font-Inter mx-0 lg:mx-auto lg:w-[75%] py-2 px-3 lg:py-5 lg:px-10 flex justify-between w-auto rounded-lg lg:rounded-2xl border-2 lg:border-4 border-[#A192C3]'>
                     <div>
                         <p className='text-xs lg:text-xl text-black'>
@@ -100,7 +103,7 @@ export default function EarnExtraSection() {
                 <hr className='w-full mt-20 mb-6 lg:mt-28 lg:mb-10 bg-[#BCBCBC] lg:h-[1px]' />
                 <div className='flex justify-between font-Inter'>
                     <div className='text-base lg:text-2xl font-medium text-black'>
-                    Plan duration
+                        Plan duration
                     </div>
                     <div className='text-base lg:text-2xl font-bold text-black'>
                         {formatPeriod(value.period) + ' months'}

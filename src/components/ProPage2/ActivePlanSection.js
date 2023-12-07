@@ -48,12 +48,12 @@ function ActivePlanSection() {
                 </div>
                 <BenefitsSection />
                 <div className="flex justify-between items-center gap-3 self-stretch">
-                    <div style={{ background: 'var(--gradient-3, linear-gradient(0deg, #FF8415 -37.42%, #FFCA3F 65.82%))' }} className="basis-1/2 text-black flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
-                        <p className="text-xs not-italic font-extrabold leading-5 bg-clip-text">Buy PR</p>
+                    <div className="proGradient basis-1/2 text-black text-xs not-italic font-extrabold  flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
+                        <span>Buy PR</span>
                         <Image className="w-3 h-3" src={proIcon} alt='demo image' />
                     </div>
-                    <div style={{ background: 'var(--pro-2, linear-gradient(309deg, #1A379E -1.44%, #C379FE 101.36%))' }} className="basis-1/2 text-white text-xs not-italic font-extrabold leading-5 bg-clip-text flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
-                        <p >Buy PR</p>
+                    <div className="proPlusGradient basis-1/2 text-white text-xs not-italic font-extrabold leading-5 bg-clip-text flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
+                        <span>Buy PR</span>
                         <Image className="w-3 h-3" src={proPlusIcon} alt='demo image' />
                         <span className="italic">Plus</span>
                     </div>

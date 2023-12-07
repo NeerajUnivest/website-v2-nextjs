@@ -9,7 +9,6 @@ import 'react-rangeslider/lib/index.css'
 import HighChartTest from './HighChartTest'
 import Image from 'next/image'
 import usersIcon from '@/assets/icons/users_icon.png'
-import loanBf from '@/assets/loanBf.png'
 import ReactModal from "react-modal"
 import { isMobile } from 'react-device-detect';
 import { AiFillInfoCircle } from 'react-icons/ai'
@@ -22,20 +21,16 @@ import Actions from '@/elements/Actions'
 const customStyles = {
     content: {
         top: 'auto',
-        left: isMobile ? '0' : '50%',
-        right: isMobile ? '0' : 'auto',
-        bottom: isMobile ? '0' : '50%',
-        transform: isMobile ? '' : 'translate(-50%, 50%)',
-        width: isMobile ? '100%' : '780px',
-        height: isMobile ? 'auto' : '404px',
+        left: '0px',
+        right: '0px',
+        bottom: '0px',
+        width: '100%',
+        height: 'auto',
         backgroundColor: '#fff',
         borderRadius: isMobile ? '12px 12px 1px 1px' : '20px',
         borderColor: 'transparent',
-        background: `url(${loanBf.src})`,
         backgroundSize: '80px 80px',
-        backgroundPosition: 'top right',
-        backgroundColor: '#F9FAFF',
-        backgroundRepeat: 'no-repeat'
+        padding: '0px',
     },
     overlay: {
         height: '100vh',
@@ -169,7 +164,7 @@ export default function InvestCalcSection() {
                 style={customStyles}
             >
                 <Suspense fallback={<div className='bg-white h-64' />}>
-                    <LoanBf />
+                    <LoanBf setModal={setModal} />
                 </Suspense>
             </ReactModal>
         </>
