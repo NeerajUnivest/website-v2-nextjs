@@ -67,7 +67,7 @@ export default function UserFeedbacksSection({ isDark = false }) {
         <section className={`font-Inter max-w-screen-xl pb-6 lg:pb-10 pt-5 lg:pt-24 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center justify-center lg:justify-between my-10">
                 <div className="">
-                    <p className={`hidden lg:flex font-medium text-base lg:text-4xl mb-3 whitespace-pre  ${isDark ? 'text-white' : 'text-black'}`}>Trusted by<span className='font-extrabold'> 400k+ users</span></p>
+                    <p className={`hidden lg:flex font-medium text-base lg:text-4xl mb-3 whitespace-pre  ${isDark ? 'text-white' : 'text-black'}`}>Trusted by<span className='font-extrabold'> 800k+ users</span></p>
                     <p className={`font-extrabold lg:font-semibold text-xl lg:text-2xl ${isDark ? 'text-[#bcbcbc]' : 'text-[#414141]'}`}>Read what they say about us</p>
                 </div>
                 {/* <Image src={isDark ? ratingLg_light : ratingLg} className='h-[40px] w-[232px] lg:h-[66px] lg:w-[364px]' alt='rating' /> */}

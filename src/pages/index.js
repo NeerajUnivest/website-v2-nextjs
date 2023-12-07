@@ -15,7 +15,7 @@ import axios from "axios";
 const data = [
   {
     question: "What does the Univest app do",
-    answer: "Univest is a one-stop investment platform that is trusted by 400K+ users. It helps people exit their bad stock market investments and provides them with alternative investment options in stock market and also non market linked high fixed return income products under the Elite program where they can earn upto 12% p.a."
+    answer: "Univest is a one-stop investment platform that is trusted by 800k+ users. It helps people exit their bad stock market investments and provides them with alternative investment options in stock market and also non market linked high fixed return income products under the Elite program where they can earn upto 12% p.a."
   },
   {
     question: "Is Univest SEBI registered?",

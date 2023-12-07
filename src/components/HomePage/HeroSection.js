@@ -61,7 +61,7 @@ export default function HeroSection({ start_at }) {
                         <Image src={users} className=' h-[48px] w-[112px]' alt='rating' />
                         <p className='ml-4 text-base text-black font-medium'>
                             Trusted by<br />
-                            <b>400k+ </b>Indians
+                            <b>800k+ </b>Indians
                         </p>
                         <Link rel="noreferrer" target="_blank" href="https://apps.apple.com/us/app/univest-empowering-wealth/id6443753518" className='mx-7' >
                             <BsApple color='#202020' size={36} />

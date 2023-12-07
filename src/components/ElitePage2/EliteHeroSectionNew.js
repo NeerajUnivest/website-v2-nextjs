@@ -42,8 +42,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                                 <Image className="w-10" src={verifiedIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">3.5 Lac+</p>
-                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Active users</p>
+                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">3 lac+</p>
+                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Investors</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -51,8 +51,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                                 <Image className="w-10" src={briefcaseIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">1,200 Cr+</p>
-                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Portfolios connected</p>
+                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">4,000 Cr+</p>
+                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Loans funded</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -60,8 +60,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                                 <Image className="w-10" src={groupIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">500k+</p>
-                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Trusted Indians</p>
+                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">7.96 lacs+</p>
+                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Avg. investment </p>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -69,8 +69,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                                 <Image className="w-10" src={targetingIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">82.4%+</p>
-                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Active users</p>
+                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">4,000 Cr+</p>
+                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Loans funded</p>
                             </div>
                         </div>
                     </div>
