@@ -55,7 +55,7 @@ export default function EliteHeroSection({ homePage }) {
                         </div>}
                     {homePage ?
                         <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-28 lg:left-8' onClick={() => router.push('/elite')} /> :
-                        <HeroSearchBox />}
+                        <HeroSearchBox type='web-elite' />}
                 </div>
                 <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-20  lg:mt-10' : 'mt-0'}`}>
                     <div className='rounded-full absolute left-10 lg:left-3 top-[120px] bg-gradient-to-r from-[#62606022] to-[#0914328c] h-[300px] w-[300px] lg:h-[300px] lg:w-[300px] blur-3xl opacity-50' />

@@ -61,7 +61,7 @@ export default function WhyShouldSection({ homePage }) {
     const [ref, inView] = useInView()
 
     return (
-        <section className={`font-Inter mt-8 py-16 lg:py-24 relative overflow-hidden ${homePage && 'bg-[#C9DDE6]'}`} ref={ref}>
+        <section className={`font-Inter mt-8 py-4 lg:py-16 relative overflow-hidden ${homePage && 'bg-[#C9DDE6]'}`} ref={ref}>
             {!homePage && <div className='rounded-full absolute right-[-20vw] top-[20vh] bg-gradient-to-r from-[#c1eef4] to-[#fff] h-[20vh] w-[40vw] blur-3xl opacity-50' />}
 
             <div className=' max-w-screen-xl mx-auto lg:px-8'>

@@ -48,7 +48,7 @@ export default function ProHeroSection({ homePage, start_at }) {
                     </div>
                     {homePage ?
                         <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-36 lg:left-8 text-white border-white' onClick={() => router.push('/pro')} /> :
-                        <HeroSearchBox isDark={true} />}
+                        <HeroSearchBox type='web-pro' isDark={true} />}
                 </div>
                 <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-12 lg:mt-4' : 'mt-6'}`}>
                     <div className='rounded-full absolute left-10 lg:left-3 top-[100px] bg-gradient-to-r from-[#62606022] to-[#0914328c] h-[300px] w-[300px] lg:h-[500px] lg:w-[500px] blur-3xl opacity-50' />

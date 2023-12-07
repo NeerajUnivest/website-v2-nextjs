@@ -1,5 +1,5 @@
 
-function RatioBar({ percent }) {
+function RatioBar({ percent = 100 }) {
     return (
         <div className="overall font-Inter">
             <div className="green" style={{ width: `${percent}%` }}></div>

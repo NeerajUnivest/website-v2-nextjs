@@ -66,7 +66,7 @@ export default function AvailablePlansSection() {
 export function AvailablePlansCard({ data }) {
     const userDetail = useContext(UserDetailProvider)
     return (
-        <div className="pb-4 border-2 border-[#E4EEF3] rounded-xl overflow-hidden w-[156px] min-w-[156px] font-Inter flex flex-col  bg-white gap-2"
+        <div className="pb-4 border-2 border-[#E4EEF3] rounded-xl overflow-hidden w-[148px] min-w-[148px] font-Inter flex flex-col  bg-white gap-2"
             onClick={() => {
                 if (userDetail?.userData?.authToken) {
                     planSectionPopUp.open('elite')

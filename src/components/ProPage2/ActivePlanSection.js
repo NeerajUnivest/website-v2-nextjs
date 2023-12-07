@@ -14,6 +14,7 @@ import { memo, useContext, useEffect } from "react"
 import TrialCountdownSection from "./TrialCountdown"
 import BenefitsSection from "./BenefitsSection"
 import { UserDetailProvider } from "@/contexts/UserDetailContext"
+import Actions from "@/elements/Actions"
 
 const isProPlus = (subscriptionState) => {
     return (subscriptionState === 'PRO_PLUS' || subscriptionState === 'PRO_PLUS_AUTO_RENEW_CANCELLED' || subscriptionState === 'PRO_PLUS_NEAR_EXPIRY')
@@ -41,21 +42,29 @@ function ActivePlanSection() {
         )
     } else if (data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED' || data?.subscriptionState === 'PLANS_EXPIRED') {
         return (
-            <section className="flex flex-col items-center gap-4 px-4 py-6 rounded-[12px_12px_0px_0px] bg-[#383838] -m-5 " >
+            <section className="font-Inter flex flex-col items-center gap-4 px-4 py-6 rounded-[12px_12px_0px_0px] bg-[#383838] -m-5 " >
                 <div className="flex flex-col justify-center items-center gap-2">
                     <p className="text-[color:var(--error-500,#EB4E2C)] text-xl not-italic font-bold leading-8"> {data?.subscriptionState === 'TRIAL_PRO_PLUS_EXPIRED' ? 'Trial' : 'Plan'} expired</p>
-                    <p className="text-[color:var(--Pearl-White,#FFF)] text-xl not-italic font-extrabold leading-8">Choose a plan to continue</p>
+                    {data?.notAbleStartTrial &&
+                        <p className="text-[#FFF] text-[10px] font-semibold">Trial can be availed only once per device</p>}
+                    <p className="text-[#FFF] text-xl not-italic font-extrabold leading-8">Choose a plan to continue</p>
                 </div>
                 <BenefitsSection />
                 <div className="flex justify-between items-center gap-3 self-stretch">
-                    <div className="proGradient basis-1/2 text-black text-xs not-italic font-extrabold  flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
-                        <span>Buy PR</span>
-                        <Image className="w-3 h-3" src={proIcon} alt='demo image' />
+                    <div className="proGradient basis-1/2 py-[5px] rounded-lg flex flex-col items-center">
+                        <div className=" text-black text-xs not-italic font-extrabold  flex justify-center items-center gap-0.5">
+                            <span>Buy PR</span>
+                            <Image className="w-3 h-3" src={proIcon} alt='demo image' />
+                        </div>
+                        <span className="text-[10px] font-semibold">Starts @ ₹{Actions.putComma(data?.proPlanStartAt ?? 0, 0)}/mo*</span>
                     </div>
-                    <div className="proPlusGradient basis-1/2 text-white text-xs not-italic font-extrabold leading-5 bg-clip-text flex justify-center items-center gap-0.5 self-stretch px-7 py-[5px] rounded-lg">
-                        <span>Buy PR</span>
-                        <Image className="w-3 h-3" src={proPlusIcon} alt='demo image' />
-                        <span className="italic">Plus</span>
+                    <div className="proPlusGradient basis-1/2 py-[5px] rounded-lg flex flex-col items-center">
+                        <div className=" text-white text-xs not-italic font-extrabold flex justify-center items-center gap-0.5 ">
+                            <span>Buy PR</span>
+                            <Image className="w-3 h-3" src={proPlusIcon} alt='demo image' />
+                            <span className="italic">Plus</span>
+                        </div>
+                        <span className="text-[10px] font-semibold text-white">Starts @ ₹{Actions.putComma(data?.proPlusPlanStartAt ?? 0, 0)}/mo*</span>
                     </div>
                 </div>
             </section>

@@ -14,6 +14,7 @@ import axiosInterceptorInstance from "@/elements/axiosInterceptorInstance";
 import Actions from "@/elements/Actions";
 import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
@@ -96,7 +97,14 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                             <button className="text-black text-xs not-italic font-extrabold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4"
                                 onClick={() => {
                                     if (userDetail?.userData?.subscriptionState === 'FREE') {
-                                        axiosInterceptorInstance.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {})
+                                        axios.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {},
+                                            {
+                                                headers: {
+                                                    'Authorization': `Bearer ${Actions.getCookie("auth_token")}`,
+                                                    'device-name': Actions.getDeviceName(),
+                                                    'device-id': Actions.generateUniqueDeviceID()
+                                                }
+                                            })
                                             .then(res => {
                                                 if (res.data?.data) {
                                                     let uD = {
@@ -126,8 +134,10 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                     {homePage && <div className="h-20" />}
                 </div>
             </div>
-            {homePage &&
-                <ExploreMore className='absolute bottom-16 left-4 lg:bottom-36 lg:left-8 text-white border-white' onClick={() => router.push('/pro')} />}
-        </div>
+            {
+                homePage &&
+                <ExploreMore className='absolute bottom-16 left-4 lg:bottom-36 lg:left-8 text-white border-white' onClick={() => router.push('/pro')} />
+            }
+        </div >
     )
 }

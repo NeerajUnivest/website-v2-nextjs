@@ -6,12 +6,12 @@ import { toast } from "./Toast/Toast";
 import axios from "axios";
 import { Mixpanel } from "./Mixpanel";
 
-export default function HeroSearchBox({ isDark = false }) {
+export default function HeroSearchBox({ isDark = false, type }) {
     const [number, setNumber] = useState('')
     const [error, setError] = useState(null)
     const submit = () => {
         if (number.length === 10) {
-            axios.get(`${process.env.apiBaseURL}/resources/website/get-phone-call/${number}`)
+            axios.get(`${process.env.apiBaseURL}/resources/website/get-phone-call/${number}?type=${type}`)
                 .then(res => {
                     toast.notify(res.data?.message)
                     setNumber('')

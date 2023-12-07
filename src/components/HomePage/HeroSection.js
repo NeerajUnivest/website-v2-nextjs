@@ -55,7 +55,7 @@ export default function HeroSection({ start_at }) {
             <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>
                 <div className="lg:px-8 pb-3 lg:pb-8 max-w-screen-xl mx-auto flex items-end justify-between h-full">
                     <div className="flex flex-col w-full lg:w-auto">
-                        <HeroSearchBox />
+                        <HeroSearchBox type='web' />
                     </div>
                     <div className="hidden lg:flex items-center">
                         <Image src={users} className=' h-[48px] w-[112px]' alt='rating' />

@@ -4,6 +4,7 @@ import callbackIcon from '@/assets/icons/phone_icon.png'
 import callIcon from '@/assets/icons/call_icon.png'
 import { useContext } from "react";
 import { UserDetailProvider } from "@/contexts/UserDetailContext";
+import { planSectionPopUp } from "@/elements/PopUp/PlanSectionPopUp";
 
 
 
@@ -16,14 +17,23 @@ export default function CallBackSection() {
                 <Image className="w-20" src={callbackIcon} alt="demo" />
                 <div className="flex flex-col justify-center items-center gap-3 w-full">
                     <p className="text-[color:var(--neutral-900,#202020)] text-base not-italic font-semibold leading-7">Connect with wealth advisor</p>
-                    <div className='pl-4  w-full h-11 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-sm lg:text-base font-medium'>
-                        <Image className="w-6" src={callIcon} alt="demo" />
-                        <input className='w-[calc(100%-90px)] caret-primary text-[#747474] font-semibold p-2' type='tel' placeholder='Enter mobile number'
-                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" inputMode="tel"
-                            onClick={() => setTimeout(() => userDetail?.inputRef?.current?.focus(), 100)}
-                        />
-                        <BlackButton className=' whitespace-nowrap px-3 lg:px-6 h-full text-sm font-semibold' text='Get callback'
-                            onClick={() => setTimeout(() => userDetail?.inputRef?.current?.focus(), 100)}
+                    <div className='w-full h-11 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-sm lg:text-base font-medium'>
+                        {!userDetail?.userData?.authToken &&
+                            <>
+                                <Image className="w-6 ml-4" src={callIcon} alt="demo" />
+                                <input className='w-[calc(100%-90px)] caret-primary text-[#747474] font-semibold p-2' type='tel' placeholder='Enter mobile number'
+                                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" inputMode="tel"
+                                    onClick={() => setTimeout(() => userDetail?.inputRef?.current?.focus(), 100)}
+                                />
+                            </>}
+                        <BlackButton className='w-full whitespace-nowrap px-3 lg:px-6 h-full text-sm font-semibold' text='Get callback'
+                            onClick={() => {
+                                if (userDetail?.userData?.authToken) {
+                                    planSectionPopUp.open('elite')
+                                } else {
+                                    setTimeout(() => userDetail?.inputRef?.current?.focus(), 100)
+                                }
+                            }}
                         />
                     </div>
                 </div>

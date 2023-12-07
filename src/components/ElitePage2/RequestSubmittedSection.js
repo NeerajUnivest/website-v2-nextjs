@@ -19,8 +19,6 @@ export default function RequestSubmittedSection() {
                 <p>On weekend, we’ll call back on next working day.</p>
             </div>
 
-            <p className=" text-[color:var(--neutral-800,#414141)] text-center text-[10px] not-italic font-medium leading-4"><span className="text-black font-bold">Working hours:</span> Monday to Friday, 10:00 AM to 6:30 PM. </p>
-
             <div className="m-4 relative flex w-full flex-col justify-center items-center gap-4  border-[color:var(--neutral-500,#9D9D9D)] pt-8 pb-4 px-3 rounded-xl border border-neutral-500 bg-[#191616]">
                 <div className=" absolute top-[-20px] inline-flex items-start gap-2.5 border-[color:var(--alert-50,#FFFDFA)] px-4 py-1.5 rounded-[20px] border-[1.5px] border-solid bg-[#02A79C] ">
                     <p className="text-[color:var(--Pearl-White,#FFF)] text-center text-sm not-italic font-bold leading-6">Invest in 3 easy steps</p>

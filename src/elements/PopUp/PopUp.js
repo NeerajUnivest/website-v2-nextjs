@@ -38,7 +38,7 @@ const PopUp = () => {
 
     const submit = () => {
         if (number.length === 10) {
-            axios.get(`${process.env.apiBaseURL}/resources/website/get-phone-call/${number}`)
+            axios.get(`${process.env.apiBaseURL}/resources/website/get-phone-call/${number}?type=web`)
                 .then(res => {
                     toast.notify(res.data?.message)
                     setNumber('')

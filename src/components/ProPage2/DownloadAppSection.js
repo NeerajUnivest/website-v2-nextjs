@@ -18,7 +18,7 @@ export default function DownloadAppSection({ isDark = false }) {
                     onClick={() => Actions.downloadNow(false)} />
                 <div className='mx-auto bg-[#FFF] flex flex-row justify-center items-center gap-2 px-5 py-1 rounded-lg'>
                     <Image className='w-5' src={usersIcon} alt='demo' />
-                    <p className='text-black text-xs font-normal '>Trust users by<span className='font-bold'> 8 lac+ Indians</span></p>
+                    <p className='text-black text-xs font-normal '>Trusted by<span className='font-bold'> 8 lac+ Indians</span></p>
                 </div>
             </div>
         </section >

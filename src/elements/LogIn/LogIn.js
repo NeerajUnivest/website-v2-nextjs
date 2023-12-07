@@ -98,7 +98,7 @@ export default function LogIn({ userData, setUserData, btn, inputRef }) {
                                 (btn.isProPage ?
                                     <ActivePlanSection /> :
                                     <RequestSubmittedSection />)
-                                : <LogInBf isProPage={btn?.isProPage} setUserData={setUserData} setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />}
+                                : <LogInBf isProPage={btn?.isProPage} userData={userData} setUserData={setUserData} setModal={setModal} number={number} inputRef={inputRef} sendOtp={sendOtp} />}
                         </Suspense>
                     </ReactModal>
                 </>}

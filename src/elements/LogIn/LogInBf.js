@@ -10,6 +10,7 @@ import axiosInterceptorInstance from '../axiosInterceptorInstance';
 import Actions from '../Actions';
 import axios from 'axios';
 import { FaceBook } from '../FaceBook';
+import { Mixpanel } from '../Mixpanel';
 
 const OtpInput = dynamic(
     () => import('react18-input-otp'),
@@ -17,12 +18,13 @@ const OtpInput = dynamic(
 )
 
 
-export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserData, isProPage }) {
+export default function LogInBf({ setModal, number, inputRef, sendOtp, userData, setUserData, isProPage }) {
     const [otp, setOtp] = useState('')
     const [error, setError] = useState(null)
     const [disabled, setDisabled] = useState(true)
     const [btnClicked, setDtnClicked] = useState(false)
     const [showCountDown, setShowCountDown] = useState(true);
+    const [tempData, setTempData] = useState({});
     const handleResend = () => {
         sendOtp()
         setDisabled(true)
@@ -53,6 +55,8 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
     const getUserInfo = (data) => {
         axiosInterceptorInstance.get(`resources/users/user-info-v2`)
             .then(ress => {
+                let proPlanStartAt = Math.min(...ress.data?.data?.proSubscriptions?.map(ele => ele?.perMonthPrice))
+                let proPlusPlanStartAt = Math.min(...ress.data?.data?.proPlusSubscriptions?.map(ele => ele?.perMonthPrice))
                 if (ress.data?.data?.subscriptionState === 'FREE' && !isProPage) {
                     FaceBook.track('ViewContent')
                     axiosInterceptorInstance.post(`resources/faircent`,
@@ -65,24 +69,45 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, setUserDa
                         })
                 }
                 if (ress.data?.data?.subscriptionState === 'FREE' && isProPage) {
-                    axiosInterceptorInstance.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {})
+                    axios.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {}
+                        , {
+                            headers: {
+                                'Authorization': `Bearer ${Actions.getCookie("auth_token")}`,
+                                'device-name': Actions.getDeviceName(),
+                                'device-id': Actions.generateUniqueDeviceID()
+                            }
+                        })
                         .then(res => {
                             if (res.data?.data) {
                                 getUserInfo(data)
                                 FaceBook.track('StartTrial')
                             } else {
-                                getUserInfo(data)
+                                Mixpanel.track('unable_to_start_trial')
+                                setTempData({
+                                    ...data,
+                                    notAbleStartTrial: true,
+                                    subscriptionState: 'TRIAL_PRO_PLUS_EXPIRED',
+                                })
                             }
+                        }).catch(err => {
+                            setTempData({
+                                ...data,
+                                notAbleStartTrial: true,
+                                subscriptionState: 'TRIAL_PRO_PLUS_EXPIRED',
+                            })
                         })
                 } else {
-                    let uD = {
+                    setTempData({
                         ...data,
                         subscriptionState: ress.data?.data?.subscriptionState,
                         expiryDate: ress.data?.data?.expiryDate
-                    }
-                    setUserData(uD)
-                    Actions.setCookie("user_details", JSON.stringify(uD), 1)
+                    })
                 }
+
+            })
+            .finally(() => {
+                setUserData({ ...tempData, proPlanStartAt, proPlusPlanStartAt })
+                Actions.setCookie("user_details", JSON.stringify({ ...tempData, proPlanStartAt, proPlusPlanStartAt }), 1)
             })
     }
 

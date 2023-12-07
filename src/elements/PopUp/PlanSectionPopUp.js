@@ -71,9 +71,6 @@ const PlanSectionPopUp = ({ type }) => {
                             journey by following the steps provided below.
                         </div>
 
-                        <p className=" text-[#414141] text-center text-[10px] font-medium leading-4">
-                            <span className="text-black font-bold">Working hours:</span> Monday to Friday, 10:00 AM to 6:30 PM.
-                        </p>
 
                         <div className="m-4 relative flex w-full flex-col justify-center items-center gap-4 border border-[#9D9D9D] pt-8 pb-4 px-3 rounded-xl  bg-[#191616]">
                             <div className=" absolute top-[-20px] inline-flex items-start gap-2.5 border-[color:var(--alert-50,#FFFDFA)] px-4 py-1.5 rounded-[20px] border-[1.5px] border-solid bg-[#02A79C] ">

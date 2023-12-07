@@ -86,7 +86,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
             <style >{`
                 .IdeasSectionHit {
                     border-radius: 24px;
-                    border: 2px solid var(--neutral-700, #606060);
+                    border: 2px solid #606060;
                 width: 100%;
                 /* padding: 20px 0px; */
                 }

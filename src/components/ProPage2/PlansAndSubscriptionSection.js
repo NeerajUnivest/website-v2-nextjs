@@ -8,6 +8,8 @@ import sebi_new_logo_white from '../../assets/images/sebi_logo_new 1.png';
 import yashpal_arora from '@/assets/images/yashpal_arora.png';
 import ketan_sonalkar from '@/assets/images/ketan_sonalkar.png';
 import sagar_wadhwa from '@/assets/images/sagar_wadhwa.png';
+import vaibhav from '@/assets/images/vaibhav.png';
+import Ankit from '@/assets/images/Ankit.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from "swiper";
 import { useContext, useEffect, useState } from "react";
@@ -50,7 +52,8 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
 
                         <div className='max-w-screen-xl mx-auto lg:px-8 overflow-hidden'>
                             <div className="flex gap-3 lg:gap-6 justify-between mt-4 lg:mt-6">
-                                {data?.pro_plans_list?.map((ele, i) => <PlansCard key={ele.planId} planName={ele.planName} data={ele} />)}
+                                {data?.pro_plans_list?.filter(f => !f.planId?.includes('plan_000') && !f.planId?.includes('timesprime_3'))
+                                    .map(ele => <PlansCard key={ele.planId} planName={ele.planName} data={ele} />)}
                             </div>
                         </div>
                     </div>
@@ -67,7 +70,7 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
 
                         <div className='max-w-screen-xl mx-auto lg:px-8 overflow-hidden'>
                             <div className="flex gap-3 lg:gap-6 justify-between mt-4 lg:mt-6">
-                                {data?.pro_plus_plans_list?.map((ele, i) => <PlansCard isPlus={true} key={ele.planId} planName={ele.planName} data={ele} />)}
+                                {data?.pro_plus_plans_list?.map(ele => <PlansCard isPlus={true} key={ele.planId} planName={ele.planName} data={ele} />)}
                             </div>
                         </div>
                     </div>
@@ -114,7 +117,6 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                                 spaceBetween: 32,
                             },
                             1024: {
-                                autoplay: false,
                                 slidesPerView: 3,
                                 centeredSlides: false,
                                 spaceBetween: 32,
@@ -129,10 +131,9 @@ export default function PlandAndSubscriptionSection({ isDark = false }) {
                         {[
                             { name: 'Ketan Sonalkar ', img: ketan_sonalkar, disc: 'SEBI registered advisor' },
                             { name: 'Yashpal Arora ', img: yashpal_arora, disc: 'Senior consultant' },
-                            { name: 'Sagar Wadhwa ', img: sagar_wadhwa, disc: 'Senior Research Analyst' },
-                            { name: 'Ketan Sonalkar', img: ketan_sonalkar, disc: 'SEBI registered advisor' },
-                            { name: 'Yashpal Arora', img: yashpal_arora, disc: 'Senior consultant' },
-                            { name: 'Sagar Wadhwa', img: sagar_wadhwa, disc: 'Senior Research Analyst' },
+                            { name: 'Sagar Wadhwa ', img: sagar_wadhwa, disc: 'Senior research analyst' },
+                            { name: 'Ankit Kumar Jaiswal', img: Ankit, disc: 'Sr. equity research analyst' },
+                            { name: 'Vaibhave Monga', img: vaibhav, disc: 'Equity research analyst' }
                         ]?.map(ele =>
                             <SwiperSlide key={ele.name}>
                                 <AdvisoryTeamCard data={ele} isDark={isDark} />
@@ -161,9 +162,10 @@ export function PlansCard({ data, planName, isPlus }) {
             }
         }}
             className={`font-Inter relative border-2 ${isPlus ? (planName !== '6 months' ? 'border-[#F2EEFF]' : 'border-[#D3C3FF]') : (planName !== '6 months' ? 'border-[#FFEDD1]' : 'border-[#FFC970]')} rounded-xl  w-full font-Inter flex flex-col font-extrabold bg-white `}>
-            <div className={`${planName.includes('12') ? '' : 'hidden'} absolute left-[-5px] top-6 md:top-10 bg-gradient-to-br from-[#141E30] to-[#333] px-1 py-0.5 rounded-[0px_2px_2px_0px`}>
-                <p className="text-white text-[8px] md:text-xs not-italic font-extrabold leading-3">Recommended</p>
-            </div>
+            {data?.recommended &&
+                <div className={`absolute left-[-5px] top-6 md:top-10 bg-gradient-to-br from-[#141E30] to-[#333] px-1 py-0.5 rounded-[0px_2px_2px_0px`}>
+                    <p className="text-white text-[8px] md:text-xs not-italic font-extrabold leading-3">Recommended</p>
+                </div>}
             <p className={` ${isPlus ? (planName !== '6 months' ? 'bg-[#F2EEFF] font-semibold' : 'bg-[#D3C3FF] font-extrabold ') : (planName !== '6 months' ? 'bg-[#FFEDD1] font-semibold' : 'bg-[#FFC970] font-extrabold')}  py-1.5 lg:py-2.5 text-[14px] lg:text-lg text-center rounded-t-lg`}>
                 {planName}
             </p>
@@ -192,7 +194,7 @@ export function AdvisoryTeamCard({ data, isDark }) {
             />
             <div className="self-center ml-5">
                 <p className={isDark ? 'font-semibold text-sm lg:text-xl text-white' : 'font-semibold text-sm lg:text-xl text-black'}>{data.name}</p>
-                <p className={isDark ? "ont-medium text-xs lg:text-base text-[#dfdfdf]" : "font-medium text-xs lg:text-base text-[#747474]"}>{data.disc}</p>
+                <p className={isDark ? "ont-medium text-xs lg:text-base text-[#dfdfdf] line-clamp-1" : " line-clamp-1 font-medium text-xs lg:text-base text-[#747474]"}>{data.disc}</p>
             </div>
         </div>
     )

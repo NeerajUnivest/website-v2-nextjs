@@ -35,6 +35,7 @@ export default function IdeasSectionLive({ isDark = false }) {
                         : <Swiper
                             grabCursor={true}
                             initialSlide={0}
+                            centeredSlides={true}
                             slidesPerView='auto'
                             spaceBetween={0}
                             autoplay={{
@@ -104,6 +105,11 @@ export default function IdeasSectionLive({ isDark = false }) {
 
 
                 @media (min-width: 768px) {
+
+                    .IdeasSectionLive {
+                    border-radius: 24px;
+                    border: 2px solid #606060;
+                }
 
                 .IdeasSectionLive .swiper-wrapper {
                 height: 350px;
