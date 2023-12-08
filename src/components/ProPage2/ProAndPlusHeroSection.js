@@ -129,15 +129,11 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                                         userDetail?.inputRef?.current?.focus()
                                     }
                                 }}>Activate now</button>
-                        </div> : homePage && <div className="h-10" />}
+                        </div> : homePage && <ExploreMore className='absolute bottom-24 left-4 lg:bottom-36 lg:left-8 text-white border-white' onClick={() => router.push('/pro')} />}
 
-                    {homePage && <div className="h-20" />}
+                    {homePage && <div className="h-36" />}
                 </div>
             </div>
-            {
-                homePage &&
-                <ExploreMore className='absolute bottom-16 left-4 lg:bottom-36 lg:left-8 text-white border-white' onClick={() => router.push('/pro')} />
-            }
         </div >
     )
 }

@@ -9,7 +9,6 @@ import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { popUp } from "@/elements/PopUp/SEBIPopUp";
-import { popUp as ComingSoonPopUp } from "@/elements/PopUp/ComingSoonPopUp";
 
 export default function StocksHeroSection({ homePage }) {
     const router = useRouter();
@@ -48,7 +47,7 @@ export default function StocksHeroSection({ homePage }) {
                             </div>
                         </div>}
                     {homePage ?
-                        <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-24 lg:left-8' onClick={() => ComingSoonPopUp.open()} />
+                        <ExploreMore className='absolute -bottom-16 left-4 lg:bottom-24 lg:left-8' onClick={() => router.push('/stocks')} />
                         : <HeroSearchBox type='web' />}
                 </div>
                 <div className={`basis-full md:basis-5/12 flex content-center relative ${homePage ? 'mt-14 lg:mt-4' : 'mt-6'}`}>

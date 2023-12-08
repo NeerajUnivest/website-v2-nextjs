@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { GoSearch } from 'react-icons/go';
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useRouter } from 'next/router';
-import { popUp as ComingSoonPopUp } from './PopUp/ComingSoonPopUp';
 import { MdPerson } from "react-icons/md";
 import { UserDetailProvider } from '@/contexts/UserDetailContext';
 import Actions from './Actions';
@@ -35,9 +34,9 @@ export default function NavBar() {
                         </div>
                     </>}
                 <div className="hidden text-base font-semibold lg:flex flex-row items-center w-auto text-black">
-                    <div onClick={() => ComingSoonPopUp.open()} className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/stocks' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
+                    <Link href='/stocks' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/stocks' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
                         Stocks
-                    </div>
+                    </Link>
                     <Link href='/elite' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/elite' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
                         Elite
                     </Link>
@@ -71,10 +70,10 @@ export default function NavBar() {
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Home
                 </Link>
-                <div onClick={() => { setIsOpen(false); ComingSoonPopUp.open() }}
+                <Link href='/stocks' onClick={() => setIsOpen(false)}
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Stocks
-                </div>
+                </Link>
                 <Link href='/elite' onClick={() => setIsOpen(false)}
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Elite

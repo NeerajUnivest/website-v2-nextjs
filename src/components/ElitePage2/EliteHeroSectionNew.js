@@ -93,7 +93,7 @@ export default function EliteHeroSectionNew({ homePage }) {
                 : <Image src={heroBG} alt='demo' className="absolute bottom-0" />}
 
             {homePage &&
-                <ExploreMore className='absolute bottom-16 left-6 lg:bottom-36 lg:left-8 text-black border-black' onClick={() => router.push('/elite')} />}
+                <ExploreMore className='absolute bottom-24 left-6 lg:bottom-36 lg:left-8 text-black border-black' onClick={() => router.push('/elite')} />}
         </div>
     )
 }

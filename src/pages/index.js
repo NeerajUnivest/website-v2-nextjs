@@ -7,9 +7,10 @@ import ProductSection from "@/components/HomePage/ProductSection";
 import WhyUnivestSection from "@/components/HomePage/WhyUnivestSection";
 import WhyShouldSection from "@/components/Elite/WhyShouldSection";
 import MetaSection from "@/elements/MetaSection/MetaSection";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
 import axios from "axios";
+import { UserDetailProvider } from "@/contexts/UserDetailContext";
 
 
 const data = [
@@ -32,12 +33,16 @@ const data = [
 ]
 
 export default function HomePage({ planData }) {
+  const userDetail = useContext(UserDetailProvider)
+
   useEffect(() => {
     Mixpanel.track(
       'page_viewed',
       {
         'page': 'web_home',
       });
+    userDetail.setBtn({})
+
   }, [])
   return (<>
     <MetaSection

@@ -64,6 +64,7 @@ function IconTextBtn({ text, textClass, onClick, icon, iconClass }) {
 function IconBtn(props) {
     return (
         <motion.button
+            id={props.id}
             className={props.className}
             onTap={props.onClick}
             whileTap={{ scale: 0.95 }}

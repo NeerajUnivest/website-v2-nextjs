@@ -24,7 +24,6 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
     const [disabled, setDisabled] = useState(true)
     const [btnClicked, setDtnClicked] = useState(false)
     const [showCountDown, setShowCountDown] = useState(true);
-    const [tempData, setTempData] = useState({});
     const handleResend = () => {
         sendOtp()
         setDisabled(true)
@@ -50,6 +49,11 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
             }
         }).catch(e => { setError(true) })
             .finally(f => setDtnClicked(false))
+    }
+
+    const setUserInfo = (data) => {
+        setUserData(data);
+        Actions.setCookie("user_details", JSON.stringify(data), 1)
     }
 
     const getUserInfo = (data) => {
@@ -83,31 +87,33 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
                                 FaceBook.track('StartTrial')
                             } else {
                                 Mixpanel.track('unable_to_start_trial')
-                                setTempData({
+                                setUserInfo({
                                     ...data,
+                                    proPlanStartAt,
+                                    proPlusPlanStartAt,
                                     notAbleStartTrial: true,
                                     subscriptionState: 'TRIAL_PRO_PLUS_EXPIRED',
                                 })
                             }
                         }).catch(err => {
-                            setTempData({
+                            setUserInfo({
                                 ...data,
+                                proPlanStartAt,
+                                proPlusPlanStartAt,
                                 notAbleStartTrial: true,
                                 subscriptionState: 'TRIAL_PRO_PLUS_EXPIRED',
                             })
                         })
                 } else {
-                    setTempData({
+                    setUserInfo({
                         ...data,
+                        proPlanStartAt,
+                        proPlusPlanStartAt,
                         subscriptionState: ress.data?.data?.subscriptionState,
                         expiryDate: ress.data?.data?.expiryDate
                     })
                 }
 
-            })
-            .finally(() => {
-                setUserData({ ...tempData, proPlanStartAt, proPlusPlanStartAt })
-                Actions.setCookie("user_details", JSON.stringify({ ...tempData, proPlanStartAt, proPlusPlanStartAt }), 1)
             })
     }
 
@@ -120,7 +126,7 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
                     signal: ac.signal
                 })
                 .then((otp) => {
-                    setOtp(otp);
+                    setOtp(otp?.code);
                     ac.abort();
                 })
                 .catch((err) => {
@@ -173,10 +179,12 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
                         onClick={handleResend}>
                         Resend OTP
                     </button>
-                    {showCountDown && <CustomCountDown sec={10} onComplete={() => { setDisabled(false); setShowCountDown(false) }} />}
+                    {showCountDown && <CustomCountDown sec={30} onComplete={() => { setDisabled(false); setShowCountDown(false) }} />}
                 </div>
                 <div className="basis-1/2">
-                    <button disabled={(otp.length !== 6) || btnClicked} type="button" className='rounded-md w-full py-3 bg-[#202020] disabled:bg-[#BCBCBC] text-[#FFFFFF] text-[14px] leading-[24px] outline-none font-semibold'
+                    <button
+                        id={isProPage ? "ProOtpVerified" : "EliteOtpVerified"}
+                        disabled={(otp.length !== 6) || btnClicked} type="button" className='rounded-md w-full py-3 bg-[#202020] disabled:bg-[#BCBCBC] text-[#FFFFFF] text-[14px] leading-[24px] outline-none font-semibold'
                         onClick={handleVerify}>
                         {btnClicked ? <Image src={loader} alt='icon' className='h-6 object-contain mx-auto' /> : 'Verify OTP'}
                     </button>

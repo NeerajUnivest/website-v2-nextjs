@@ -9,7 +9,8 @@ export default function DownloadButton() {
 
     return (
         <>
-            <div className="font-Inter relative w-full text-black text-center buy-button pt-4 hover:animate-none"
+            <button className="font-Inter relative w-full text-black text-center buy-button pt-4 hover:animate-none"
+                id={userDetail?.btn?.isProPage ? "ProDownloadButtonClick" : "EliteDownloadButtonClick"}
                 onClick={() => {
                     Actions.downloadNow(userDetail?.btn?.isProPage);
                     FaceBook.track('CompleteRegistration')
@@ -18,7 +19,7 @@ export default function DownloadButton() {
                 <div className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2 whitespace-nowrap">Download the app now</div>
                 <div className="buttont">.</div>
                 <div className="buttonb">.</div>
-            </div>
+            </button>
 
             <style>
                 {`
