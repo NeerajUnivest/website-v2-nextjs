@@ -131,7 +131,7 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                                 }}>Activate now</button>
                         </div> : homePage && <ExploreMore className='absolute bottom-24 left-4 lg:bottom-36 lg:left-8 text-white border-white' onClick={() => router.push('/pro')} />}
 
-                    {homePage && <div className="h-36" />}
+                    {homePage && <div className="h-20" />}
                 </div>
             </div>
         </div >

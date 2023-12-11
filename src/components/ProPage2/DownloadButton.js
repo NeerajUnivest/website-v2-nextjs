@@ -16,9 +16,9 @@ export default function DownloadButton() {
                     FaceBook.track('CompleteRegistration')
 
                 }}>
-                <div className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2 whitespace-nowrap">Download the app now</div>
-                <div className="buttont">.</div>
-                <div className="buttonb">.</div>
+                <div id={userDetail?.btn?.isProPage ? "ProDownloadButtonClick" : "EliteDownloadButtonClick"} className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2 whitespace-nowrap">Download the app now</div>
+                <div id={userDetail?.btn?.isProPage ? "ProDownloadButtonClick" : "EliteDownloadButtonClick"} className="buttont">.</div>
+                <div id={userDetail?.btn?.isProPage ? "ProDownloadButtonClick" : "EliteDownloadButtonClick"} className="buttonb">.</div>
             </button>
 
             <style>
