@@ -54,7 +54,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                     >
                         {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
                             <SwiperSlide key={`${ele.id}-${i}`} >
-                                <div className="overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] ">
+                                <div className="font-Inter overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] ">
                                     <div className=" h-full flex flex-col justify-between border-2 rounded-t-lg border-[#BADDFA] border-b-transparent">
                                         <div className="flex justify-center gap-2 px-2 py-1 border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA] mr-2 ml-2 mt-0">
                                             <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : "#00439D"} size={10} /></div>
@@ -69,14 +69,14 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                                                     className='object-contain w-[24px] md:w-6'
                                                     alt={ele.stockName}
                                                 />}
-                                            <p className="self-center ml-1 font-semibold text-sm md:text-base text-black">{ele.stockName}</p>
+                                            <p className="self-center ml-1 font-semibold text-sm md:text-sm text-black">{ele.stockName}</p>
                                         </div>
                                         <div className="text-[10px] md:text-xs font-bold mb-3 text-center text-black">
                                             Target hit in {GetDays(ele.createdAt)} days
                                         </div>
                                     </div>
                                     <div className=" p-2 bg-[#26A649] text-center rounded-bl-lg rounded-br-lg ">
-                                        <p className="text-white text-xs md:text-sm not-italic font-bold leading-5"> Net gain: {((ele?.targetPrice - ele?.suggestedPrice) * 100 / ele?.targetPrice)?.toFixed(2)}%</p>
+                                        <p className="text-white text-xs md:text-sm not-italic font-bold leading-5"> Net gain: {ele?.netGain?.toFixed(2)}%</p>
                                     </div>
                                 </div>
                             </SwiperSlide>)}
