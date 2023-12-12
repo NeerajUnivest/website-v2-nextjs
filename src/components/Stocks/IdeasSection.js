@@ -15,6 +15,17 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { popUp } from '../../elements/PopUp/SEBIPopUp';
 
 
+const getClass = (term) => {
+    switch (term) {
+        case 'SHORT':
+            return 'text-[#98520B] border-[#98520B]';
+        case 'MEDIUM':
+            return 'text-[#00439D] border-[#00439D]';
+        case 'LONG':
+            return 'text-[#005251] border-[#005251]';
+    }
+}
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function IdeasSection({ isDark = false }) {
     const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
@@ -98,8 +109,13 @@ export default function IdeasSection({ isDark = false }) {
                             >
                                 {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
                                     <SwiperSlide key={`${ele.id}-${i}`} >
-                                        <div className="overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] " style={{ backgroundImage: `url(${mini_trade_card.src})` }} >
-                                            <span className="mt-9 ml-3 text-[8px] font-medium text-[#606060]">
+                                        <div className="overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] "
+                                        //  style={{ backgroundImage: `url(${mini_trade_card.src})` }} 
+                                        >
+                                            <div className={`mt-3 ml-3 text-[8px] font-medium border w-[50px] rounded-full text-center ${getClass(ele.term)}`}>
+                                                {ele.term}
+                                            </div>
+                                            <span className="ml-3 text-[8px] font-medium text-[#606060]">
                                                 Shared on {moment(ele.createdAt).format("DD MMM YYYY")}
                                             </span>
                                             <div className="flex ml-3">
@@ -122,7 +138,7 @@ export default function IdeasSection({ isDark = false }) {
                                                 Target hit
                                             </div>
                                             <div className="mb-2 text-[#747474] text-[10px] text-center">
-                                                Net gain <span className="text-[#26A649] text-sm font-extrabold">{((ele?.targetPrice - ele?.suggestedPrice) * 100 / ele?.targetPrice)?.toFixed(2)}%</span>
+                                                Net gain <span className="text-[#26A649] text-sm font-extrabold">{ele?.netGain?.toFixed(2)}%</span>
                                             </div>
                                         </div>
                                     </SwiperSlide>)}

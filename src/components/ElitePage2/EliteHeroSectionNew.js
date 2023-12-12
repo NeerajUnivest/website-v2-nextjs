@@ -51,8 +51,8 @@ export default function EliteHeroSectionNew({ homePage }) {
                                 <Image className="w-10" src={briefcaseIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">40 lac+</p>
-                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Borrowers</p>
+                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">100%</p>
+                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Payouts honoured</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -70,7 +70,7 @@ export default function EliteHeroSectionNew({ homePage }) {
                             </div>
                             <div className="flex flex-col gap-1">
                                 <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">4,000 Cr+</p>
-                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">Loans funded</p>
+                                <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">AUM</p>
                             </div>
                         </div>
                     </div>
