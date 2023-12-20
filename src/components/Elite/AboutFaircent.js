@@ -48,7 +48,7 @@ export default function AboutFaircent() {
                         </div>
                         <div className='p-3 lg:p-5 bg-[#DE7F61] w-full flex flex-col rounded-xl'>
                             <p className='text-base lg:text-2xl font-extrabold text-[#FFFFFF]'>
-                                4,000 Crores+
+                                3,900 Crores+
                             </p>
                             <p className='mt-1 lg:mt-2 text-xs lg:text-xl font-medium text-[#FFFFFF]'>
                                 loans funded so far

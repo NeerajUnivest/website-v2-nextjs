@@ -150,7 +150,7 @@ export default function InvestCalcSection() {
                 </div>
                 <div className=' bg-[#FFF] flex justify-center items-start gap-2 self-stretch px-2.5 py-1 rounded-lg'>
                     <Image className='w-5' src={usersIcon} alt='demo' />
-                    <p className='whitespace-nowrap text-xs not-italic font-normal leading-6'><span className='text-black font-bold'>2.5 lac+</span> users have invested <span className='text-[#0862BC] font-bold'>4,000+ crores</span></p>
+                    <p className='whitespace-nowrap text-xs not-italic font-normal leading-6'><span className='text-black font-bold'>2.5 lac+</span> users have invested <span className='text-[#0862BC] font-bold'>4,900+ crores</span></p>
                 </div>
             </section>
             <p className='text-black text-center text-base not-italic font-bold leading-7 mt-4'>

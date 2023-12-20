@@ -69,7 +69,7 @@ export default function EliteHeroSectionNew({ homePage }) {
                                 <Image className="w-10" src={targetingIcon} alt="demo" />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">4,000 Cr+</p>
+                                <p className="text-[color:var(--neutral-900,#202020)]  text-sm not-italic font-extrabold leading-[153%]">3,900 Cr+</p>
                                 <p className="text-[color:var(--neutral-800,#414141)] text-[10px] not-italic font-semibold leading-4">AUM</p>
                             </div>
                         </div>

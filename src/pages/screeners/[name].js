@@ -76,11 +76,11 @@ export async function getServerSideProps(context) {
     }
     return {
         props: {
-            screenersCategories: data?.screenersCategories,
-            screenersList: data?.screenersList,
+            screenersCategories: data?.screenersCategories?.filter(f => !f.isFutureStockScreenerCategory),
+            screenersList: data?.screenersList?.filter(f => !f.isFutureStock),
             screenerDetails,
             name,
-            codeList: data?.screenersList?.map(ele => ele?.code)
+            codeList: data?.screenersList?.filter(f => !f.isFutureStock)?.map(ele => ele?.code)
         }
     };
 }

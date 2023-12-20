@@ -6,7 +6,7 @@ import ScreenerCard from "./ScreenerCard";
 export default function ScreenersList({ data }) {
     return (
         <div className='relative mb-10'>
-            {data?.screenersCategories?.map((cat, i) =>
+            {data?.screenersCategories?.filter(f => !f.isFutureStockScreenerCategory)?.map((cat, i) =>
                 <div className='font-Inter flex flex-col mt-4  lg:mt-6' key={i}>
                     <div className='ml-4 lg:ml-32 font-semibold text-[#00439D] text-[16px] leading-[20px] lg:text-[32px] lg:leading-[40px]'>
                         {cat.categoryTitle}
