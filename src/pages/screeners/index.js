@@ -11,7 +11,7 @@ import { Mixpanel } from '@/elements/Mixpanel';
 export default function Screeners({ data }) {
     useEffect(() => {
         Mixpanel.track(
-            'page_viewed',
+            '$pageview',
             {
                 'page': 'screeners_home',
             }

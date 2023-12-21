@@ -24,7 +24,7 @@ import { Mixpanel } from "@/elements/Mixpanel";
 export default function Stocks() {
     useEffect(() => {
         Mixpanel.track(
-            'page_viewed',
+            '$pageview',
             {
                 'page': 'stocks_home',
             }

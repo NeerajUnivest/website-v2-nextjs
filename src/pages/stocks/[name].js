@@ -26,7 +26,7 @@ export default function StockDetails({ stockDetails }) {
     const { finCode, symbol, compName } = stockDetails;
     useEffect(() => {
         Mixpanel.track(
-            'page_viewed',
+            '$pageview',
             {
                 'page': 'stock_details',
             }

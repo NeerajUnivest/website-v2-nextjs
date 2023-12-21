@@ -37,7 +37,7 @@ export default function HomePage({ planData }) {
 
   useEffect(() => {
     Mixpanel.track(
-      'page_viewed',
+      '$pageview',
       {
         'page': 'web_home',
       });

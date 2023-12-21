@@ -47,7 +47,7 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                         </div>
                     </div>
                 </div>
-                {userDetail?.userData?.subscriptionState === 'TRIAL_PRO_PLUS' &&
+                {userDetail?.userData?.subscriptionState === 'TRIAL_PRO_PLUS' && !homePage &&
                     <TrialCountdownSection className='px-4' endTime={userDetail?.userData?.expiryDate} />}
 
                 <div className="px-3 flex flex-col gap-6">
@@ -126,10 +126,14 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                                                 }
                                             })
                                     } else {
-                                        userDetail?.inputRef?.current?.focus()
+                                        if (homePage) {
+                                            router.push('/pro')
+                                        } else {
+                                            userDetail?.inputRef?.current?.focus()
+                                        }
                                     }
                                 }}>Activate now</button>
-                        </div> : homePage && <ExploreMore className='absolute bottom-24 left-4 lg:bottom-36 lg:left-8 text-white border-white' onClick={() => router.push('/pro')} />}
+                        </div> : homePage && <ExploreMore className='lg:absolute lg:bottom-36 lg:left-8 text-white border-white w-40 lg:w-48' onClick={() => router.push('/pro')} />}
 
                     {homePage && <div className="h-20" />}
                 </div>

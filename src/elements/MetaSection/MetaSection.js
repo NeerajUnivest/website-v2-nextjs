@@ -88,7 +88,7 @@ export default function MetaSection({ title, desc, keyWords }) {
             <meta name="twitter:description" content={desc ?? "Best financial tools to analyse Indian stocks to research better, exit bad investments and invest smarter. Invest in high return plans with Elite and earn upto 12%"} />
 
             <meta property="og:locale" content="en_US" />
-            <meta property="og:url" content="https://www.univest.in" />
+            <meta property="og:url" content="https://univest.in" />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://storage.googleapis.com/app-assets-univest/website-assets/UnivestLogo.jpg" />
             <meta property="og:site_name" content="Univest" />

@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export default function AboutUs() {
     useEffect(() => {
         Mixpanel.track(
-            'page_viewed',
+            '$pageview',
             {
                 'page': 'about_us',
             }

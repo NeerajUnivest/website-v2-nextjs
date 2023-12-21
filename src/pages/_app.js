@@ -13,7 +13,7 @@ const inter = Inter({
 
 export default function App({ Component, pageProps }) {
   return (
-    <main id='main_container' className={`${inter.variable} min-w-[346px] ${pageProps?.pageName == 'pro' && 'bg-gradient-to-t from-[#222832] to-[#343434]'}`}>
+    <main id='main_container' className={`${inter.variable} min-w-[346px] ${pageProps?.pageName == 'pro' ? 'bg-gradient-to-t from-[#222832] to-[#343434]' : ''}`}>
       {/* <TopBanner /> */}
       <UserDetailContext>
         <NavBar />

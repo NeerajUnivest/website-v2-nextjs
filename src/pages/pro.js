@@ -27,7 +27,7 @@ export default function Pro({ pageName, data }) {
     const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
         Mixpanel.track(
-            'page_viewed',
+            '$pageview',
             {
                 'page': 'pro_home',
             }

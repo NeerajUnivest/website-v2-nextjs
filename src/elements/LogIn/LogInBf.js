@@ -41,6 +41,12 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
             'userInterest': isProPage ? 'web-pro' : 'web-elite'
         }).then(res => {
             if (res.data?.data?.authToken) {
+                Mixpanel.identify(`${res.data?.data?.id}`,
+                    {
+                        "email": `${res.data?.data?.email ?? ""}`,
+                        "name": `${res.data?.data?.firstName ?? ""}`,
+                        "contact": `${res.data?.data?.contactNumber ?? ""}`
+                    })
                 // setModal(false)
                 Actions.setCookie("auth_token", res.data?.data?.authToken, 1)
                 getUserInfo(res.data?.data)
@@ -181,7 +187,7 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
                     </button>
                     {showCountDown && <CustomCountDown sec={30} onComplete={() => { setDisabled(false); setShowCountDown(false) }} />}
                 </div>
-                <div className="basis-1/2">
+                <div className="basis-1/2 text-left">
                     <button
                         id={isProPage ? "ProOtpVerified" : "EliteOtpVerified"}
                         disabled={(otp.length !== 6) || btnClicked} type="button" className='rounded-md w-full py-3 bg-[#202020] disabled:bg-[#BCBCBC] text-[#FFFFFF] text-[14px] leading-[24px] outline-none font-semibold'

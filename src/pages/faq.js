@@ -86,7 +86,7 @@ function GeneralFAQs() {
     const [active, setActive] = useState(-1);
     useEffect(() => {
         Mixpanel.track(
-            'page_viewed',
+            '$pageview',
             {
                 'page': 'faq',
             }

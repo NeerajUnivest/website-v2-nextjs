@@ -37,7 +37,7 @@ export default function Elite() {
     const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
         Mixpanel.track(
-            'page_viewed',
+            '$pageview',
             {
                 'page': 'elite_home',
             }
