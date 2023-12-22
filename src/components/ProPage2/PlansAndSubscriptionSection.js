@@ -18,6 +18,7 @@ import BenefitsSection from "./BenefitsSection";
 import { UserDetailProvider } from "@/contexts/UserDetailContext";
 import { planSectionPopUp } from "@/elements/PopUp/PlanSectionPopUp";
 import Actions from "@/elements/Actions";
+import { Mixpanel } from "@/elements/Mixpanel";
 
 
 export default function PlandAndSubscriptionSection({ isDark = false }) {
@@ -155,6 +156,10 @@ export function PlansCard({ data, planName, isPlus }) {
     const userDetail = useContext(UserDetailProvider)
     return (
         <div onClick={() => {
+            Mixpanel.track('plan_clicked', {
+                'plan_name': planName,
+                'is_pro_plus': isPlus
+            })
             if (userDetail?.userData?.authToken) {
                 planSectionPopUp.open(isPlus)
             } else {

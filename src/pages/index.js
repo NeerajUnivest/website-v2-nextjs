@@ -36,13 +36,10 @@ export default function HomePage({ planData }) {
   const userDetail = useContext(UserDetailProvider)
 
   useEffect(() => {
-    Mixpanel.track(
-      '$pageview',
-      {
-        'page': 'web_home',
-      });
+    Mixpanel.pageView({
+      'page': 'web_home',
+    });
     userDetail.setBtn({})
-
   }, [])
   return (<>
     <MetaSection

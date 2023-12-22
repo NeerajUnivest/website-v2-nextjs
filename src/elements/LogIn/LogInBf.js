@@ -29,6 +29,10 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
         setDisabled(true)
         setError(false)
         setShowCountDown(true)
+        Mixpanel.track('cta_clicked', {
+            'page': isProPage ? 'web_pro_page' : 'web_elite_page',
+            'cta_text': 'resend'
+        })
     }
     const handleVerify = () => {
         setDtnClicked(true)
@@ -45,7 +49,8 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
                     {
                         "email": `${res.data?.data?.email ?? ""}`,
                         "name": `${res.data?.data?.firstName ?? ""}`,
-                        "contact": `${res.data?.data?.contactNumber ?? ""}`
+                        "contact": `${res.data?.data?.contactNumber ?? ""}`,
+                        "subscriptionState": `${res.data?.data?.subscriptionState ?? ""}`
                     })
                 // setModal(false)
                 Actions.setCookie("auth_token", res.data?.data?.authToken, 1)
@@ -55,6 +60,11 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
             }
         }).catch(e => { setError(true) })
             .finally(f => setDtnClicked(false))
+
+        Mixpanel.track('cta_clicked', {
+            'page': isProPage ? 'web_pro_page' : 'web_elite_page',
+            'cta_text': 'verify'
+        })
     }
 
     const setUserInfo = (data) => {
@@ -137,7 +147,7 @@ export default function LogInBf({ setModal, number, inputRef, sendOtp, userData,
                 })
                 .catch((err) => {
                     ac.abort();
-                    console.log(err);
+                    // console.log(err);
                 });
         }
     }, [])

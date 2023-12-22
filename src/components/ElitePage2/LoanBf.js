@@ -16,6 +16,7 @@ import { AiFillInfoCircle } from 'react-icons/ai'
 import { BlackButton, IconBtn } from '@/elements/Button/Button'
 import axiosInterceptorInstance from '@/elements/axiosInterceptorInstance'
 import Actions from '@/elements/Actions'
+import { Mixpanel } from '@/elements/Mixpanel'
 
 
 export function LoanBf({ setModal }) {
@@ -47,6 +48,11 @@ export function LoanBf({ setModal }) {
         } else {
             setError(pre => ({ ...pre, name: 'Please enter a valid name' }))
         }
+        Mixpanel.track('cta_clicked', {
+            'cta_clicked': 'submit',
+            'page': 'web_loan_page',
+            'widget': 'bottom_sticky'
+        })
     }
 
     if (apply) {

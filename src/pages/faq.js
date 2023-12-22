@@ -85,11 +85,9 @@ let data = [
 function GeneralFAQs() {
     const [active, setActive] = useState(-1);
     useEffect(() => {
-        Mixpanel.track(
-            '$pageview',
-            {
-                'page': 'faq',
-            }
+        Mixpanel.pageView({
+            'page': 'faq',
+        }
         )
     }, [])
     return (

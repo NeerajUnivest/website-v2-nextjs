@@ -25,12 +25,12 @@ export default function StockDetails({ stockDetails }) {
     const [activeChartType, setActiveChartType] = useState(1);
     const { finCode, symbol, compName } = stockDetails;
     useEffect(() => {
-        Mixpanel.track(
-            '$pageview',
-            {
-                'page': 'stock_details',
-            }
-        )
+        Mixpanel.pageView({
+            'page': 'stock_details',
+            'finCode': finCode,
+            'symbol': symbol,
+            'compName': compName
+        })
     }, [])
     if (finCode !== '') {
         return (<>

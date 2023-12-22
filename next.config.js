@@ -35,7 +35,7 @@ const nextConfig = {
     },
     // {
     //   source: '/:path*',
-    //   statusCode: 404,
+    //   missing: [{ type: 'header', key: ':path*', value: '/screeners\\/*' }],
     //   destination: 'https://univest.in/blog/:path*',
     //   permanent: true,
     // },

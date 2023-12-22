@@ -1,6 +1,7 @@
 import { UserDetailProvider } from "@/contexts/UserDetailContext"
 import Actions from "@/elements/Actions"
 import { FaceBook } from "@/elements/FaceBook"
+import { Mixpanel } from "@/elements/Mixpanel"
 import { useContext } from "react"
 
 
@@ -14,7 +15,10 @@ export default function DownloadButton() {
                 onClick={() => {
                     Actions.downloadNow(userDetail?.btn?.isProPage);
                     FaceBook.track('CompleteRegistration')
-
+                    Mixpanel.track('screener_clicked', {
+                        'cta_clicked': 'download_app',
+                        'page': userDetail?.btn?.isProPage ? 'web_pro_page' : 'web_elite_page',
+                    })
                 }}>
                 <div id={userDetail?.btn?.isProPage ? "ProDownloadButtonClick" : "EliteDownloadButtonClick"} className="absolute text-sm font-extrabold left-1/2 translate-y-1/3 -translate-x-1/2 whitespace-nowrap">Download the app now</div>
                 <div id={userDetail?.btn?.isProPage ? "ProDownloadButtonClick" : "EliteDownloadButtonClick"} className="buttont">.</div>

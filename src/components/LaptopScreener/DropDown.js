@@ -42,7 +42,7 @@ export default function DropDown({ screenersCategories, screenersList, selected,
 
     const handleDropdown = (cat) => {
         setShow(cat.categoryId)
-        console.log(screenersList, cat);
+        // console.log(screenersList, cat);
         router.push(`/screeners/${screenersList?.filter(f => f.categoryId === cat.categoryId)[0]?.code}`)
     }
     return (<div className=' sticky top-[60px] py-10 ml-4'>

@@ -36,11 +36,9 @@ const data = [
 export default function Elite() {
     const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
-        Mixpanel.track(
-            '$pageview',
-            {
-                'page': 'elite_home',
-            }
+        Mixpanel.pageView({
+            'page': 'web_elite_page',
+        }
         )
         userDetail.setBtn({ show: true, beforeLogin: 'Get started', afterLogin: 'Start investing', isProPage: false })
     }, [])

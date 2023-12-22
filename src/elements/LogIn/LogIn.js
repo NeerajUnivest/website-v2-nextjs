@@ -9,6 +9,7 @@ import RequestSubmittedSection from '@/components/ElitePage2/RequestSubmittedSec
 import { AiFillInfoCircle } from 'react-icons/ai';
 import { FaceBook } from '../FaceBook';
 import Actions from '../Actions';
+import { Mixpanel } from '../Mixpanel';
 
 const customStyles = {
     content: {
@@ -40,8 +41,22 @@ export default function LogIn({ userData, setUserData, btn, inputRef }) {
         if (number.length === 10 && IndNum.test(number)) {
             axiosInterceptorInstance.get(`api/auth/send-otp?type=web&countryCode=91&contactNumber=${number}`)
             setModal(true)
+            Mixpanel.track('cta_clicked', {
+                'cta_text': btn?.beforeLogin,
+                'page': btn?.isProPage ? 'web_pro_page' : 'web_elite_page',
+                'phone_filled': true,
+                'widget': 'bottom_sticky'
+            })
+            Mixpanel.pageView({
+                'page': 'web_otp_page'
+            })
         } else if (number.length === 0) {
             inputRef.current?.focus()
+            Mixpanel.track('cta_clicked', {
+                'page': btn?.isProPage ? 'web_pro_page' : 'web_elite_page',
+                'phone_filled': false,
+                'widget': 'bottom_sticky'
+            })
             setError('Mobile number is required')
         } else {
             inputRef.current?.focus()
@@ -66,6 +81,11 @@ export default function LogIn({ userData, setUserData, btn, inputRef }) {
                     onClick={() => {
                         FaceBook.track('CompleteRegistration')
                         Actions.downloadNow(btn?.isProPage);
+                        Mixpanel.track('cta_clicked', {
+                            'cta_clicked': btn?.afterLogin,
+                            'page': btn?.isProPage ? 'web_pro_page' : 'web_elite_page',
+                            'widget': 'bottom_sticky'
+                        })
                     }}>
                     {btn?.afterLogin}
                 </IconBtn>

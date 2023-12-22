@@ -10,6 +10,7 @@ import onlyProPlusIcon from "../../assets/images/only_with_pro_plus.png"
 import axiosInterceptorInstance from "@/elements/axiosInterceptorInstance";
 import { useEffect, useState } from "react";
 import Actions from "@/elements/Actions";
+import { Mixpanel } from "@/elements/Mixpanel";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -138,7 +139,13 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 
 export function IdeasTermCard({ data }) {
     return (
-        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" w-full md:w-[232px] relative aspect-square  rounded-xl  mx-auto md:mx-0 flex flex-col justify-center bg-cover overflow-hidden">
+        <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" w-full md:w-[232px] relative aspect-square  rounded-xl  mx-auto md:mx-0 flex flex-col justify-center bg-cover overflow-hidden"
+            onClick={() => {
+                Mixpanel.track('duration_collection_clicked', {
+                    'duration_type': data?.term?.toLowerCase(),
+                    'page': 'web_pro_page',
+                })
+            }}>
             {data?.newStocksCount > 0 &&
                 <div className={` absolute top-0 right-0 bg-gradient-to-r from-[#E75325] to-[#F69723] px-2 md:px-3 py-0.5 md:py-1 rounded-[0px_8px_0px_4px] whitespace-nowrap text-white text-[10px] font-medium md:text-sm md:font-semibold`}>
                     {data?.newStocksCount} New ideas

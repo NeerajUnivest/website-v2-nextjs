@@ -10,11 +10,9 @@ import { Mixpanel } from '@/elements/Mixpanel';
 
 export default function Screeners({ data }) {
     useEffect(() => {
-        Mixpanel.track(
-            '$pageview',
-            {
-                'page': 'screeners_home',
-            }
+        Mixpanel.pageView({
+            'page': 'screeners_home',
+        }
         )
     }, [])
     return (

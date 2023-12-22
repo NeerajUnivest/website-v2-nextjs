@@ -26,12 +26,9 @@ import { isMobile } from 'react-device-detect';
 export default function Pro({ pageName, data }) {
     const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
-        Mixpanel.track(
-            '$pageview',
-            {
-                'page': 'pro_home',
-            }
-        )
+        Mixpanel.pageView({
+            'page': 'web_pro_page',
+        })
         userDetail.setBtn({ show: true, beforeLogin: 'Activate trial', afterLogin: 'Download the app now', isProPage: true })
     }, [])
 

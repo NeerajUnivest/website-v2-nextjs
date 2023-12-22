@@ -7,11 +7,9 @@ import { useEffect } from "react";
 
 export default function AboutUs() {
     useEffect(() => {
-        Mixpanel.track(
-            '$pageview',
-            {
-                'page': 'about_us',
-            }
+        Mixpanel.pageView({
+            'page': 'about_us',
+        }
         )
     }, [])
     return (

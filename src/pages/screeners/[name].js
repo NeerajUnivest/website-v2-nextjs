@@ -19,12 +19,10 @@ const getScreenerDetails = async (screenerCode) => {
 
 export default function ScreenerPage({ name, screenersCategories, screenersList, screenerDetails, codeList }) {
     useEffect(() => {
-        Mixpanel.track(
-            '$pageview',
-            {
-                'page': 'screeners',
-                'screener_code': name
-            }
+        Mixpanel.pageView({
+            'page': 'screeners',
+            'screener_code': name
+        }
         )
     }, [name])
 

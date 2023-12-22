@@ -15,6 +15,7 @@ import Actions from "@/elements/Actions";
 import { ExploreMore } from "@/elements/Button/Button";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { Mixpanel } from "@/elements/Mixpanel";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
@@ -96,6 +97,9 @@ export default function ProAndPlusHeroSection({ homePage, isDark = false, }) {
                             </div>
                             <button className="text-black text-xs not-italic font-extrabold leading-5 bg-white rounded-2xl flex justify-center items-center pl-4 pr-4"
                                 onClick={() => {
+                                    Mixpanel.track('activate_protrial_clicked', {
+                                        'page': homePage ? 'web_home' : 'web_pro_page',
+                                    })
                                     if (userDetail?.userData?.subscriptionState === 'FREE') {
                                         axios.put(`${process.env.apiBaseURL}/resources/user-subscription/activate-trial-v2`, {},
                                             {

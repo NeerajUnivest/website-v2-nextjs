@@ -11,8 +11,7 @@ export default function PageNotFound() {
 
     useEffect(() => {
         if (location.includes('/stocks') || location.includes('/screeners')) {
-            Mixpanel.track(
-                '$pageview',
+            Mixpanel.pageView(
                 {
                     'page': '404',
                 }

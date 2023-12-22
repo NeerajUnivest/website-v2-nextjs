@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import Actions from '@/elements/Actions';
 import { IconBtn } from '@/elements/Button/Button';
 import moment from 'moment';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 
 export default function ClosedIdeasSection({ homePage, start_at, isDark = false }) {
@@ -15,16 +16,16 @@ export default function ClosedIdeasSection({ homePage, start_at, isDark = false 
 
     const [itemOffset, setItemOffset] = useState(0);
     const endOffset = itemOffset + 10;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = closedIdeas?.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(closedIdeas?.length / 10);
 
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
         const newOffset = (event.selected * 10) % closedIdeas?.length;
-        console.log(
-            `User requested page number ${event.selected}, which is offset ${newOffset}`
-        );
+        // console.log(
+        //     `User requested page number ${event.selected}, which is offset ${newOffset}`
+        // );
         setItemOffset(newOffset);
     };
 
@@ -36,6 +37,11 @@ export default function ClosedIdeasSection({ homePage, start_at, isDark = false 
     const router = useRouter();
     const handleClick = (n) => {
         setActive(n)
+        Mixpanel.track('chip_clicked', {
+            'chip_type': 'duration',
+            'chip_text': n?.toLowerCase(),
+            'page': 'web_pro_page',
+        })
     }
     return (
         <>

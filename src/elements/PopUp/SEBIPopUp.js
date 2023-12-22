@@ -4,9 +4,17 @@ import { createRoot } from 'react-dom/client';
 import ReactModal from "react-modal"
 
 import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
+import { useEffect } from "react";
+import { Mixpanel } from "../Mixpanel";
 
 
 const SEBIPopUp = () => {
+    useEffect(() => {
+        Mixpanel.track('info_clicked', {
+            'chip_type': 'SEBI',
+        })
+    }, [])
+
 
     return (
         <ReactModal
