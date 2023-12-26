@@ -4,7 +4,7 @@ import Actions from "./Actions";
 // mixpanel.init('2e2810ad9467d0511f1c8c08cd48fa1c',
 //     { debug: true }
 // );
-let env_check = process.env.NODE_ENV !== 'production';
+let env_check = process.env.NODE_ENV === 'production';
 
 const getUserStatus = () => {
     let user_details = Actions.getCookie("user_details") ? JSON.parse(Actions.getCookie("user_details")) : ({ subscriptionState: "GUEST" });
