@@ -50,6 +50,9 @@ export default function NavBar() {
                         onClick={() => window.open('https://univest.in/blogs', '_self')}>
                         Blogs
                     </div>
+                    <Link href='/calculators' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/calculators' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
+                        Calculators
+                    </Link>
                     {width > 976 && <SearchBar forPhone={false} />}
                 </div>
             </div>
@@ -90,6 +93,10 @@ export default function NavBar() {
                     className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
                     Blogs
                 </div>
+                <Link href='/calculators' onClick={() => setIsOpen(false)}
+                    className="w-full ml-4 my-2 py-2 px-4 rounded items-center justify-center hover:bg-[#ffffff20]">
+                    Calculator
+                </Link>
 
                 {userDetail?.userData?.authToken &&
                     <div onClick={() => {

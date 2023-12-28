@@ -1,9 +1,16 @@
 import React from 'react'
+import PageNotFound from "../404";
+import CalculatorDetails from '@/components/Calculators/CalculatorDetails';
 
-export default function Calculators({ name }) {
-    return (
-        <div>Calculators {name}</div>
-    )
+export default function CalculatorsPage({ name }) {
+    if (name) {
+        return (
+            <CalculatorDetails name={name} />
+        )
+    } else {
+        return <PageNotFound />
+    }
+
 }
 
 export async function getServerSideProps(ctx) {
