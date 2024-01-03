@@ -54,12 +54,12 @@ export default function HeroSection({ start_at }) {
             </Swiper>
             <div className="absolute bottom-[-50px] lg:bottom-[-100px] z-[2] bg-no-repeat h-[110px] lg:h-[180px] w-full xxl:h-[220px] bg-cover" style={{ backgroundImage: `url(${heroBG.src})` }}>
                 <div className="lg:px-8 pb-3 lg:pb-8 max-w-screen-xl mx-auto flex items-end justify-between h-full">
-                    <div className="flex flex-col w-full lg:w-auto">
+                    <div className="hidden lg:flex flex-col w-full lg:w-auto">
                         <HeroSearchBox type='web' />
                     </div>
-                    <div className="hidden lg:flex items-center">
-                        <Image src={users} className=' h-[48px] w-[112px]' alt='rating' />
-                        <p className='ml-4 text-base text-black font-medium'>
+                    <div className="flex items-center px-3 lg:px-0">
+                        <Image src={users} className=' object-contain w-28' alt='rating' />
+                        <p className='ml-2 lg:ml-4 text-xs lg:text-base text-black font-medium'>
                             Trusted by<br />
                             <b>800k+ </b>Indians
                         </p>
