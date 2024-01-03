@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 
-export default function TrackYourReturnsSection({ monthlyInvestment, returnRate, timePeriod, totalValue }) {
+function TrackYourReturnsSection({ data, param1, param2, param3, totalValue }) {
 
     const [options, setOptions] = useState(null);
-    const estimatedReturn = totalValue - (monthlyInvestment * (timePeriod * 12));
-    // console.log('Invested:', investedAmount, ' Total:', totalValue);
 
-    const filterData = (n = 0) => {
+    useEffect(() => {
         setOptions({
             colors: ['#F5F5F5', '#953723'],
             chart: {
@@ -74,20 +72,19 @@ export default function TrackYourReturnsSection({ monthlyInvestment, returnRate,
                 data: [{
                     name: 'Invested amount',
                     // y: data[n]?.promoters !== 0 && data[n]?.promoters
-                    y: (monthlyInvestment * (timePeriod * 12))
+                    y: (param1 * (param3 * 12))
                 },
                 {
                     name: 'Estimated returns',
                     // y: data[n]?.foreignInstitutions !== 0 && data[n]?.foreignInstitutions
-                    y: estimatedReturn
+                    y: eval(data?.estimatedReturn)
                 }]
             }]
         })
-    }
-    useEffect(() => {
-        filterData(0)
-    }, [monthlyInvestment, returnRate, timePeriod]);
+    }, [param1, param2, param3]);
 
+
+    console.log(eval(data?.estimatedReturn), options?.series[0]?.data?.[0].y, options?.series[0]?.data?.[1].y);
     return (
         <section className='flex w-full lg:w-2/5 flex-col items-start gap-3 border border-[color:var(--Neutral-900,#202020)] p-3 rounded-2xl border-solid'>
             <p className='text-base not-italic font-bold leading-7 bg-clip-text'>Track your returns</p>
@@ -113,25 +110,28 @@ export default function TrackYourReturnsSection({ monthlyInvestment, returnRate,
                             </div>
                         </div>
                     </div>
-                    <p className='text-[color:var(--Neutral-600,#747474)] text-[8px] not-italic font-medium leading-3 lg:text-[10px]'>*This amount is calculated on {returnRate.toFixed(1)}% p.a. for the span of {timePeriod.toFixed(0)} yrs.</p>
+                    <p className='text-[color:var(--Neutral-600,#747474)] text-[8px] not-italic font-medium leading-3 lg:text-[10px]'>*This amount is calculated on {param2?.toFixed(1)}% p.a. for the span of {param3?.toFixed(0)} yrs.</p>
                 </div>
                 <div className='flex w-full flex-col items-center gap-3 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-lg border-solid bg-[#FCFCFC]'>
                     <div className='flex w-full justify-between items-center'>
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Invested amount</p>
-                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{(monthlyInvestment * (timePeriod * 12)).toFixed(0)}</p>
+                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{(param1 * (param3 * 12))?.toFixed(0)}</p>
                     </div>
                     <div className='h-px self-stretch bg-[#DFDFDF]'></div>
                     <div className='flex w-full justify-between items-center'>
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Estimated returns</p>
-                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{estimatedReturn.toFixed(0)}</p>
+                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{eval(data?.estimatedReturn)?.toFixed(0)}</p>
                     </div>
                     <div className='h-px self-stretch bg-[#DFDFDF]'></div>
                     <div className='flex w-full justify-between items-center'>
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Total value</p>
-                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{totalValue.toFixed(0)}</p>
+                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{totalValue?.toFixed(0)}</p>
                     </div>
                 </div>
             </div>
         </section>
     )
 }
+
+
+export default memo(TrackYourReturnsSection)

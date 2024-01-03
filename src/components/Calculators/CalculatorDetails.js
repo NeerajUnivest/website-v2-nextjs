@@ -13,6 +13,7 @@ import AmortizationDetailSetion from './AmortizationDetailSetion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import calcData from '@/pages/calculators/calculatorsJsonData';
+import Actions from '@/elements/Actions';
 
 
 export default function CalculatorDetails({ name, data }) {
@@ -36,19 +37,20 @@ export default function CalculatorDetails({ name, data }) {
         },
     ]
     console.log({ data });
-    const [monthlyInvestmentValue, setMonthlyInvestmentValue] = useState(1000)
-    const [returnRateValue, setReturnRateValue] = useState(10)
-    const [timePeriodValue, setTimePeriodValue] = useState(3)
     const [calcType, setCalcType] = useState('');
     // const formatAmount = value => amountLabels[value]
 
-    const totalValue = (monthlyInvestmentValue, returnRateValue, timePeriodValue) => monthlyInvestmentValue * ((Math.pow((1 + ((returnRateValue / 12) / 100)), (timePeriodValue * 12)) - 1) / ((returnRateValue / 12) / 100)) * (1 + ((returnRateValue / 12) / 100));
+    const [param1, setParam1] = useState(data?.param1);
+    const [param2, setParam2] = useState(data?.param2);
+    const [param3, setParam3] = useState(data?.param3);
+
+
 
     useEffect(() => {
         setCalcType(name)
     }, [name])
 
-    console.log({ calcType });
+    console.log({ calcType: data?.option });
 
     return (
         <>
@@ -57,13 +59,13 @@ export default function CalculatorDetails({ name, data }) {
                     <div className=' overflow-hidden hidden lg:flex lg:flex-col border-2 border-solid lg:rounded-xl border-[color:var(--Neutral-200,#EDEDED)] '>
                         <div className='flex w-80 items-center gap-4 px-3 py-4  '>
                             <Image onClick={() => push('/calculators')} src={backIcon} alt='demo' className='w-4 h-4' />
-                            <p className='text-[color:var(--Neutral-900,#202020)] text-xl not-italic font-semibold leading-8'>Calculators home</p>
+                            <p className='text-black text-xl not-italic font-semibold leading-8'>Calculators home</p>
                         </div>
                         {['SIP', 'Lumpsum', 'FD', 'Compound interest'].map((ele, i) =>
                             <Link key={i} href={`${ele}`} >
                                 <div className={`${name == ele ? 'bg-[#ECF6FE]' : ''} py-[22px] relative border-t-[1px] border-[color:var(--Neutral-300,#DFDFDF)] border-solid items-center justify-start flex pl-3 pr-12 `}>
                                     <Image src={sipImage} alt='demo' className=' w-[48px] h-[48px] bottom-0 right-0 absolute ' />
-                                    <p className='text-[color:var(--Neutral-900,#202020)] text-base not-italic font-semibold leading-7'>{ele} calculator</p>
+                                    <p className='text-black text-base not-italic font-semibold leading-7'>{ele} calculator</p>
                                 </div>
                             </Link>
                         )}
@@ -73,98 +75,91 @@ export default function CalculatorDetails({ name, data }) {
                             <div className='relative px-4 py-[17px] lg:rounded-2xl overflow-hidden lg:px-[22px] lg:py-6' style={{ background: 'linear-gradient(180deg, #F4C1B6 0%, rgba(244, 193, 182, 0.00) 100%)' }} >
                                 <Image src={sipImage} alt='demo' className=' w-[56px] h-[56px] bottom-0 right-0 absolute lg:w-[88px] lg:h-[88px]' />
                                 <div className='inline-flex flex-col items-start gap-0.5 lg:gap-2'>
-                                    <p className='text-[color:var(--Neutral-900,#202020)] text-base not-italic font-bold leading-7 lg:text-2xl'>{name} calculator</p>
-                                    <p className='text-[color:var(--Neutral-800,#414141)] text-center text-xs not-italic font-medium leading-5 lg:text-xl'>Optimize your investment strategy accurately</p>
+                                    <p className='text-black text-base not-italic font-bold leading-7 lg:text-2xl'>{name} calculator</p>
+                                    <p className='text-[#414141] text-center text-xs not-italic font-medium leading-5 lg:text-xl'>Optimize your investment strategy accurately</p>
                                 </div>
                             </div>
                             <div className='mt-4 mx-4 flex flex-col gap-4 lg:flex-row lg:mt-10 lg:mx-0 lg:gap-8'>
-                                <div className='w-full lg:w-3/5 flex flex-col gap-4 border border-[color:var(--Neutral-900,#202020)] pt-0 pb-3  rounded-xl border-solid m-auto overflow-hidden lg:gap-6 lg:pb-4'>
+                                <div className='w-full lg:w-3/5 flex flex-col gap-4 border border-black pt-0 pb-3  rounded-xl border-solid m-auto overflow-hidden lg:gap-6 lg:pb-4'>
                                     <div className='flex w-full justify-between items-center px-4 py-2 bg-black'>
                                         <p className='text-[color:var(--Neutral-300,#DFDFDF)] text-xs not-italic font-bold leading-5 lg:text-base'>Total value</p>
-                                        <p className='text-[color:var(--Pearl-White,#FFF)] text-base not-italic font-extrabold leading-7 lg:text-2xl'>₹{totalValue(monthlyInvestmentValue, returnRateValue, timePeriodValue).toFixed(0)}</p>
+                                        <p className='text-[color:var(--Pearl-White,#FFF)] text-base not-italic font-extrabold leading-7 lg:text-2xl'>₹{Actions.putComma(eval(data?.f), 0)}</p>
                                     </div>
                                     <div className='flex flex-col items-center gap-4 w-full px-3 '>
                                         {(name == 'SIP' || name == 'Lumpsum') && <div className='flex w-full flex-col justify-center items-center gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-xl border-solid'>
-                                            <div className='flex items-start gap-6 text-[color:var(--Neutral-900,#202020)] text-xs not-italic font-bold leading-5'>
+                                            <div className='flex items-start gap-6 text-black text-xs not-italic font-bold leading-5'>
                                                 <div className='flex items-center gap-2'>
                                                     <input type='radio' id='SIP' name='type' checked={calcType == 'SIP'} value={calcType} onClick={() => setCalcType('SIP')} />
-                                                    <label className='text-[color:var(--Neutral-900,#202020)] text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='SIP'>SIP</label>
+                                                    <label className='text-black text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='SIP'>SIP</label>
                                                 </div>
                                                 <div className='flex items-center gap-2'>
                                                     <input type='radio' id='Lumpsum' name='type' checked={calcType == 'Lumpsum'} value={calcType} onClick={() => setCalcType('Lumpsum')} />
-                                                    <label className='text-[color:var(--Neutral-900,#202020)] text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='Lumpsum'>Lumpsum</label>
+                                                    <label className='text-black text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='Lumpsum'>Lumpsum</label>
                                                 </div>
                                             </div>
                                         </div>}
                                         <div className='flex w-full flex-col items-start gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] pt-3 pb-2 px-3 rounded-xl border-solid'>
                                             <div className='flex justify-between items-center self-stretch'>
-                                                <p className='text-[color:var(--Neutral-900,#202020)] text-xs not-italic font-bold leading-5 lg:text-sm'>Monthly investment</p>
+                                                <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider1?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>₹ {monthlyInvestmentValue.toFixed(0)}</p>
+                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>₹ {Actions.putComma(param1, 0)}</p>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
                                                 <Slider
-                                                    step={500}
+                                                    {...data?.option?.slider1 ?? {}}
                                                     tooltip={false}
-                                                    min={500}
-                                                    max={1000000}
-                                                    value={monthlyInvestmentValue}
-                                                    // format={formatAmount}
-                                                    onChange={(v) => setMonthlyInvestmentValue(v)}
+                                                    value={param1}
+                                                    onChange={(v) => setParam1(v)}
                                                 />
                                             </div>
                                         </div>
                                         <div className='flex w-full flex-col items-start gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] pt-3 pb-2 px-3 rounded-xl border-solid'>
                                             <div className='flex justify-between items-center self-stretch'>
-                                                <p className='text-[color:var(--Neutral-900,#202020)] text-xs not-italic font-bold leading-5 lg:text-sm'>Expected return rate (p.a.)</p>
+                                                <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider2?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{returnRateValue.toFixed(0)}%</p>
+                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{Actions.putComma(param2, 0)}%</p>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
                                                 <Slider
-                                                    step={0.1}
+                                                    {...data?.option?.slider2 ?? {}}
                                                     tooltip={false}
-                                                    min={1}
-                                                    max={30}
-                                                    value={returnRateValue}
+                                                    value={param2}
                                                     // format={formatAmount}
-                                                    onChange={(v) => setReturnRateValue(v)}
+                                                    onChange={(v) => setParam2(v)}
                                                 />
                                             </div>
                                         </div>
                                         <div className='flex w-full flex-col items-start gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] pt-3 pb-2 px-3 rounded-xl border-solid'>
                                             <div className='flex justify-between items-center self-stretch'>
-                                                <p className='text-[color:var(--Neutral-900,#202020)] text-xs not-italic font-bold leading-5 lg:text-sm'>Time period</p>
+                                                <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider3?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{timePeriodValue} yr(s)</p>
+                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{Actions.putComma(param3, 0)} yr(s)</p>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
                                                 <Slider
-                                                    step={1}
+                                                    {...data?.option?.slider3 ?? {}}
                                                     tooltip={false}
-                                                    min={1}
-                                                    max={40}
-                                                    value={timePeriodValue}
+                                                    value={param3}
                                                     // format={formatAmount}
-                                                    onChange={(v) => setTimePeriodValue(v)}
+                                                    onChange={(v) => setParam3(v)}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <TrackYourReturnsSection monthlyInvestment={monthlyInvestmentValue} returnRate={returnRateValue} timePeriod={timePeriodValue} totalValue={totalValue(monthlyInvestmentValue, returnRateValue, timePeriodValue)} />
+                                <TrackYourReturnsSection data={data} param1={param1} param2={param2} param3={param3} totalValue={eval(data?.f)} />
                             </div>
                         </div>
-                        {(name == 'SIP' && calcType == 'SIP') && <FutureValueSection monthlyInvestment={monthlyInvestmentValue} returnRate={returnRateValue} timePeriod={timePeriodValue} />}
+                        {(name == 'SIP' && calcType == 'SIP') && <FutureValueSection monthlyInvestment={param1} returnRate={param2} timePeriod={param3} />}
                         <ReturnCompareSection />
                         {false && <AmortizationDetailSetion />}
                         <ExtraDetailsSection />
                         <div className='flex flex-col items-start gap-3 lg:hidden mx-4'>
                             <div className='flex w-full justify-between items-center'>
-                                <p className='text-[color:var(--Neutral-900,#202020)] text-base not-italic font-bold leading-7'>More calculators</p>
+                                <p className='text-black text-base not-italic font-bold leading-7'>More calculators</p>
                                 <p onClick={() => push('/calculators')} className='text-[color:var(--Primary-900,#00439D)] text-xs not-italic font-semibold leading-5'>View all</p>
                             </div>
                             <div className=' w-full grid grid-cols-2 items-center gap-4'>
@@ -172,7 +167,7 @@ export default function CalculatorDetails({ name, data }) {
                                     <Link key={i} href={`/calculators/${ele}`} >
                                         <div className=' relative px-3 py-3 w-full border border-[color:var(--Neutral-300,#DFDFDF)] rounded-xl border-solid'>
                                             <Image src={sipImage} alt='demo' className=' w-[40px] h-[40px] bottom-0 right-0 absolute ' />
-                                            <p className='text-[color:var(--Neutral-900,#202020)] text-base not-italic font-semibold leading-7'>{ele} <br /> calculator</p>
+                                            <p className='text-black text-base not-italic font-semibold leading-7'>{ele} <br /> calculator</p>
                                         </div>
                                     </Link>
                                 )}
@@ -182,6 +177,15 @@ export default function CalculatorDetails({ name, data }) {
                     </div>
                 </div>
             </section >
+
+            <style>
+                {`
+                .rangeslider__fill {
+    background: ${data?.color} !important;
+}
+                
+                `}
+            </style>
         </>
     )
 }
