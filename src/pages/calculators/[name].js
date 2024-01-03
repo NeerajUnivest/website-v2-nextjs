@@ -1,11 +1,12 @@
 import React from 'react'
 import PageNotFound from "../404";
 import CalculatorDetails from '@/components/Calculators/CalculatorDetails';
+import calcData from './calculatorsJsonData';
 
-export default function CalculatorsPage({ name }) {
-    if (name) {
+export default function CalculatorsPage({ name, data }) {
+    if (data) {
         return (
-            <CalculatorDetails name={name} />
+            <CalculatorDetails name={name} data={data} />
         )
     } else {
         return <PageNotFound />
@@ -20,7 +21,8 @@ export async function getServerSideProps(ctx) {
 
     return {
         props: {
-            name: name
+            name: name,
+            data: calcData.filter(f => f.title === name)?.[0]
         }
     }
 }

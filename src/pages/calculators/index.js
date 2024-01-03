@@ -3,17 +3,8 @@ import React from 'react'
 import sipImage from '@/assets/Images/calculators/sip.png';
 import calcImage from '@/assets/Images/calculators/calc.png'
 import Image from 'next/image';
+import calcData from './calculatorsJsonData';
 
-const data = [
-    { title: 'SIP', name: 'SIP<br/>caclulator', desc: 'Optimize your investment<br/>strategy accurately', icon: sipImage, color: '#F4C1B6' },
-    { title: 'Lumpsum', name: 'Lumpsum<br/>caclulator', desc: 'Precise estimates for<br/>one-time payments', icon: sipImage, color: '#F4C1B6' },
-    { title: 'FD', name: 'FD<br/>caclulator', desc: 'Accurate insights into<br/>FD returns', icon: sipImage, color: '#F4C1B6' },
-    { title: 'Compound interest', name: 'Compound<br/>interest caclulator', desc: 'Understand how<br/>interest grows exponentially', icon: sipImage, color: '#F4C1B6' },
-    { title: 'SIP', name: 'SIP<br/>caclulator', desc: 'Optimize your investment<br/>strategy accurately', icon: sipImage, color: '#F4C1B6' },
-    { title: 'Lumpsum', name: 'Lumpsum<br/>caclulator', desc: 'Precise estimates for<br/>one-time payments', icon: sipImage, color: '#F4C1B6' },
-    { title: 'FD', name: 'FD<br/>caclulator', desc: 'Accurate insights into<br/>FD returns', icon: sipImage, color: '#F4C1B6' },
-    { title: 'Compound interest', name: 'Compound<br/>interest caclulator', desc: 'Understand how<br/>interest grows exponentially', icon: sipImage, color: '#F4C1B6' }
-]
 export default function Calculators() {
     return (
         <>
@@ -28,8 +19,8 @@ export default function Calculators() {
                     </div>
                 </div>
                 <div className='mx-4 py-2 mt-12 grid grid-cols-2 items-center gap-4 lg:grid-cols-4 lg:mx-20 lg:gap-x-10 lg:gap-y-8'>
-                    {data?.map(ele =>
-                        <CalculatorsCard ele={ele} />
+                    {calcData?.map((ele, i) =>
+                        <CalculatorsCard key={i} ele={ele} />
                     )}
                 </div>
             </section>
