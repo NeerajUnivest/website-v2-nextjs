@@ -8,17 +8,25 @@ import { Autoplay } from "swiper";
 import { FaClock } from "react-icons/fa";
 import onlyProPlusIcon from "../../assets/images/only_with_pro_plus.png"
 import axiosInterceptorInstance from "@/elements/axiosInterceptorInstance";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Actions from "@/elements/Actions";
 import { Mixpanel } from "@/elements/Mixpanel";
+import { planSectionPopUp } from "@/elements/PopUp/PlanSectionPopUp";
+import { UserDetailProvider } from "@/contexts/UserDetailContext";
+import { useGetAxios } from "@/hooks/useGetAxios";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 export default function ProAndPlusIdeasSection({ isDark = false }) {
+    const userDetail = useContext(UserDetailProvider)
 
     const [datas, setData] = useState({})
+    const { fetchData, data, loading: isLoading } = useGetAxios('')
 
-    const { data, isLoading } = useSWR(`${process.env.apiBaseURL}/resources/trade-cards/hit`, fetcher)
+    useEffect(() => {
+        fetchData(`resources/trade-cards/hit`)
+    }, [])
+
     const GetDays = (startDate) => {
         const timeEnd = moment(Date.now());
         const diff = timeEnd.diff(startDate);
@@ -30,7 +38,13 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
             .then(res => setData(res?.data))
     }, [])
 
-
+    const handleClick = () => {
+        if (userDetail?.userData?.authToken) {
+            planSectionPopUp.open('pro')
+        } else {
+            userDetail?.inputRef?.current?.focus()
+        }
+    }
     return (
         <section id="Ideas" className={` font-Inter  flex flex-col gap-8 md:gap-20 max-w-screen-xl py-6 lg:py-20 mx-auto lg:px-8 ${!isDark && 'bg-white'}`}>
             <div className="">
@@ -55,7 +69,14 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
                     >
                         {[...data?.data?.list, ...data?.data?.list,]?.map((ele, i) =>
                             <SwiperSlide key={`${ele.id}-${i}`} >
-                                <div className="font-Inter overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] ">
+                                <div className="font-Inter overflow-hidden flex flex-col justify-between h-full w-full bg-fixed bg-[length:144px_164px] "
+                                    onClick={() => {
+                                        handleClick()
+                                        Mixpanel.track('card_clicked', {
+                                            'stock_name': ele.stockName?.toLowerCase(),
+                                            'page': 'web_pro_page',
+                                        })
+                                    }}>
                                     <div className=" h-full flex flex-col justify-between border-2 rounded-t-lg border-[#BADDFA] border-b-transparent">
                                         <div className="flex justify-center gap-2 px-2 py-1 border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA] mr-2 ml-2 mt-0">
                                             <div className="flex items-center justify-center"><FaClock color={ele.term === 'SHORT' ? "#B43C30" : ele.term === 'LONG' ? "#005251" : "#00439D"} size={10} /></div>
@@ -129,7 +150,7 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
             </p>
 
             <div className=" grid grid-cols-2 gap-4 md:flex md:justify-between md:gap-0 mx-4 md:mx-0">
-                {datas.configs?.map(ele => <IdeasTermCard key={ele.term} data={ele} />)}
+                {datas.configs?.map(ele => <IdeasTermCard key={ele.term} data={ele} handleClick={handleClick} />)}
             </div>
 
         </section>
@@ -137,10 +158,11 @@ export default function ProAndPlusIdeasSection({ isDark = false }) {
 }
 
 
-export function IdeasTermCard({ data }) {
+export function IdeasTermCard({ data, handleClick }) {
     return (
         <div style={{ backgroundImage: `url(${data?.largeImage})`, color: data?.textColor }} className=" w-full md:w-[232px] relative aspect-square  rounded-xl  mx-auto md:mx-0 flex flex-col justify-center bg-cover overflow-hidden"
             onClick={() => {
+                handleClick()
                 Mixpanel.track('duration_collection_clicked', {
                     'duration_type': data?.term?.toLowerCase(),
                     'page': 'web_pro_page',
