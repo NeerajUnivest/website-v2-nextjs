@@ -1,17 +1,9 @@
 
 import { Suspense, useState } from 'react'
-// Using an ES6 transpiler like Babel
-import Slider from 'react-rangeslider'
-
 // To include the default styles
-import 'react-rangeslider/lib/index.css'
 import loanBf from '@/assets/loanBf.png'
 
-import HighChartTest from './HighChartTest'
 import Image from 'next/image'
-import usersIcon from '@/assets/icons/users_icon.png'
-import ReactModal from "react-modal"
-import { isMobile } from 'react-device-detect';
 import { AiFillInfoCircle } from 'react-icons/ai'
 import { BlackButton, IconBtn } from '@/elements/Button/Button'
 import axiosInterceptorInstance from '@/elements/axiosInterceptorInstance'
@@ -51,7 +43,8 @@ export function LoanBf({ setModal }) {
         Mixpanel.track('cta_clicked', {
             'cta_clicked': 'submit',
             'page': 'web_loan_page',
-            'widget': 'bottom_sticky'
+            'loan_reason': data.reason,
+            'loan_amount': data.loanAmount,
         })
     }
 

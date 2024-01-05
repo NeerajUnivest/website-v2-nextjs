@@ -4,8 +4,17 @@ import moment from "moment";
 let env_check = process.env.NODE_ENV === 'production';
 
 let Actions = {
-    toStockDetail: (symbol, compName) => {
+    toStockDetailOld: (symbol, compName) => {
         return `/stocks/${encodeURIComponent(symbol)}~${encodeURIComponent(compName?.replaceAll(' ', '-'))}`
+    },
+    toStockDetail: (symbol, compName) => {
+        const lowerCase = (text) => text?.toLowerCase();
+        const repl = (text) => text?.replaceAll(' ', '-')?.replaceAll(/([.])+/g, '');
+        return `/stocks/${encodeURIComponent(lowerCase(symbol))}/${encodeURIComponent(repl(lowerCase(compName)))}-share-price-today`
+    },
+    toScreener: (code) => {
+        const repl = (text) => text?.toLowerCase()?.replaceAll('_', '-');
+        return `/screeners/${repl(code)}`
     },
     setCookie: (cname, cvalue, exdays) => {
         const d = new Date();

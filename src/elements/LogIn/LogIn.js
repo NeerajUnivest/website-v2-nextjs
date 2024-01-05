@@ -15,14 +15,14 @@ import Image from 'next/image';
 const customStyles = {
     content: {
         top: 'auto',
-        left: isMobile ? '0' : '50%',
-        right: isMobile ? '0' : 'auto',
-        bottom: isMobile ? '0' : '50%',
-        transform: isMobile ? '' : 'translate(-50%, 50%)',
-        width: isMobile ? '100%' : '780px',
-        height: isMobile ? 'auto' : '404px',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        transform: '',
+        width: '100%',
+        height: 'auto',
         backgroundColor: '#fff',
-        borderRadius: isMobile ? '12px 12px 1px 1px' : '20px',
+        borderRadius: '12px 12px 1px 1px',
         borderColor: 'transparent',
     },
     overlay: {

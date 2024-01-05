@@ -5,15 +5,17 @@ import premium from '../../assets/icn/premium.png';
 import Image from 'next/image';
 import axios from 'axios';
 import MetaSection from '@/elements/MetaSection/MetaSection';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Mixpanel } from '@/elements/Mixpanel';
+import { UserDetailProvider } from '@/contexts/UserDetailContext';
 
 export default function Screeners({ data }) {
+    const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
         Mixpanel.pageView({
             'page': 'screeners_home',
-        }
-        )
+        })
+        userDetail.setBtn({ show: false, beforeLogin: '', afterLogin: '', isProPage: false, page: 'screeners_home' })
     }, [])
     return (
         <>

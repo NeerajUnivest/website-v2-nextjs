@@ -78,9 +78,9 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
             <div className={`mt-2 mr-auto overflow-hidden`}>
                 <div className={`flex flex-row ease-in-out duration-500 relative top-0 ${!isVisible && 'top-14 opacity-0'}`}>
                     <div>
-                        <div className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
+                        <h1 className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
                             {data?.nseSymbol ?? data?.bseSymbol}
-                        </div>
+                        </h1>
                         <div className='flex flex-row'>
                             <div className='font-Inter font-extrabold text-[12px] text-black leading-[20px]'><span
                                 className='font-Robert'>₹</span>
@@ -104,9 +104,9 @@ function StocksHeader({ name, activeChartType, setActiveChartType }) {
                                 <Image src={data.logoUrl} alt='stock logo' width={44} height={44} />}
                         </div>
                         <div>
-                            <div className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
-                                {data.bseSymbol}
-                            </div>
+                            <h1 className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
+                                {data?.nseSymbol ?? data.bseSymbol}
+                            </h1>
                             <div className='font-Inter font-medium text-[12px] text-[#858585] leading-[20px]'>
                                 {data.compName && data.compName.length > 25 ? data.compName.slice(0, 25) + '...' : data.compName}
                             </div>

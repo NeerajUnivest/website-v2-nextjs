@@ -10,8 +10,9 @@ import ResultsSection from "@/components/Stocks/ResultsSection";
 import NewsSection from "@/components/Stocks/NewsSection";
 import BrokersSection from "@/components/Stocks/BrokersSection";
 import MetaSection from "@/elements/MetaSection/MetaSection";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
+import { UserDetailProvider } from "@/contexts/UserDetailContext";
 
 // const BrokersSection = dynamic(() => import('@/components/Stocks/BrokersSection'))
 // const NewsSection = dynamic(() => import('@/components/Stocks/NewsSection'))
@@ -22,12 +23,14 @@ import { Mixpanel } from "@/elements/Mixpanel";
 // const MarketsSection = dynamic(() => import('@/components/Stocks/MarketsSection'))
 
 export default function Stocks() {
+    const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
         Mixpanel.pageView(
             {
                 'page': 'stocks_home',
             }
         )
+        userDetail.setBtn({ show: false, beforeLogin: 'Get started', afterLogin: 'Download the app now', isProPage: false, page: 'stocks_home' })
     }, [])
     return (<>
         <MetaSection

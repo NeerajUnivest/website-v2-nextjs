@@ -40,7 +40,7 @@ export default function Elite() {
             'page': 'web_elite_page',
         }
         )
-        userDetail.setBtn({ show: true, beforeLogin: 'Get started', afterLogin: 'Start investing', isProPage: false })
+        userDetail.setBtn({ show: true, beforeLogin: 'Get started', afterLogin: 'Start investing', isProPage: false, page: 'web_elite_page' })
     }, [])
     return (<>
         <MetaSection

@@ -82,9 +82,9 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                                 </div>}
                         </div>
                         <div>
-                            <div className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
+                            <h1 className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
                                 {data?.bseSymbol}
-                            </div>
+                            </h1>
                             <div className='font-Inter font-medium text-[12px] text-[#858585] leading-[20px]'>
                                 {data?.compName && data?.compName?.length > 25 ? data?.compName?.slice(0, 25) + '...' : data?.compName}
                             </div>

@@ -8,12 +8,13 @@ import { useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
 import PageNotFound from "../404";
 import { StompSessionProvider, } from "react-stomp-hooks";
+import Actions from "@/elements/Actions";
 const getScreenersList = async () => {
-    let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
-    return res
+    let ress1 = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
+    return ress1
 }
 const getScreenerDetails = async (screenerCode) => {
-    let ress = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${screenerCode}`)
+    let ress = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${screenerCode?.toUpperCase()?.replaceAll('-', '_')}`)
     return ress
 }
 
@@ -56,15 +57,15 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
 
 
 export async function getServerSideProps(context) {
-    const { query } = context;
+    const { query, res } = context;
     const { name } = query;
 
     // let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
     // let ress = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${name}`)
 
-    const [res, ress] = await Promise.all([getScreenersList(), getScreenerDetails(name)]);
+    const [ress1, ress] = await Promise.all([getScreenersList(), getScreenerDetails(name)]);
 
-    const data = res.data?.data?.list
+    const data = ress1.data?.data?.list
     var screenerDetails = {}
 
     if (ress.data?.screenerDetail) {
@@ -72,12 +73,18 @@ export async function getServerSideProps(context) {
     } else {
         screenerDetails = null
     }
+    if (data?.screenersList?.filter(f => !f.isFutureStock)?.map(ele => ele?.code)?.includes(name)) {
+        res.writeHead(301, {
+            location: Actions.toScreener(name)
+        });
+        res.end();
+    }
     return {
         props: {
             screenersCategories: data?.screenersCategories?.filter(f => !f.isFutureStockScreenerCategory),
             screenersList: data?.screenersList?.filter(f => !f.isFutureStock),
             screenerDetails,
-            name,
+            name: name?.toUpperCase()?.replaceAll('-', '_'),
             codeList: data?.screenersList?.filter(f => !f.isFutureStock)?.map(ele => ele?.code)
         }
     };

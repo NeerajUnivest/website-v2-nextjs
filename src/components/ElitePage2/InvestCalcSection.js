@@ -16,6 +16,7 @@ import { BlackButton, IconBtn } from '@/elements/Button/Button'
 import axiosInterceptorInstance from '@/elements/axiosInterceptorInstance'
 import { LoanBf } from './LoanBf'
 import Actions from '@/elements/Actions'
+import { Mixpanel } from '@/elements/Mixpanel'
 
 
 const customStyles = {
@@ -76,6 +77,15 @@ export default function InvestCalcSection() {
         }
     }, [modal])
 
+    const handleChipClick = (rate, times) => {
+        setValue({ ...value, rate, times })
+        Mixpanel.track('cta_clicked', {
+            'cta_text': rate + '_percent_plan',
+            'page': 'web_elite_page',
+            'widget': 'calculator'
+        })
+    }
+
     return (
         <>
             <section style={{ background: 'linear-gradient(180deg, #FFF 0%, #E3EBFF 100%)' }} className="font-Inter flex flex-col gap-8 py-6 px-4">
@@ -87,7 +97,7 @@ export default function InvestCalcSection() {
                 </div>
                 <div className=" w-full bg-[#F6F8FF] flex flex-col items-center gap-4 py-4 px-3 rounded-xl m-auto ">
                     <div className=" w-full bg-white flex justify-between items-center border border-[color:var(--gradient-1,#61B2F3)] px-4 py-3 rounded-xl border-solid">
-                        <p className="text-black text-base not-italic font-bold leading-7">Interest earned</p>
+                        <p className="text-black text-base not-italic font-bold leading-7">Total earnings</p>
                         <p className="text-[color:var(--primary-800,#0862BC)] text-2xl not-italic font-extrabold leading-10">₹{CI(amountToRupee?.[value.amount], value.rate, 1, value.times)?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</p>
                     </div>
                     {/* Calc*/}
@@ -109,17 +119,24 @@ export default function InvestCalcSection() {
                                 value={value.amount}
                                 labels={amountLabels}
                                 format={formatAmount}
-                                onChange={(v) => setValue({ ...value, amount: v })}
+                                onChange={(v) => {
+                                    setValue({ ...value, amount: v })
+                                    Mixpanel.track('cta_clicked', {
+                                        'cta_text': v,
+                                        'page': 'web_elite_page',
+                                        'widget': 'calculator'
+                                    })
+                                }}
                             />
                         </div>
 
                         <div className='flex flex-col items-start gap-3 rounded-xl'>
                             <p className='text-black text-sm not-italic font-semibold leading-6'>If you invest in</p>
                             <div className='flex items-start gap-2 self-stretch whitespace-nowrap'>
-                                <button onClick={() => setValue({ ...value, rate: 10, times: 4 })} className={value.rate === 10 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>3 mon</button>
-                                <button onClick={() => setValue({ ...value, rate: 11, times: 2 })} className={value.rate === 11 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>6 mon</button>
-                                <button onClick={() => setValue({ ...value, rate: 12, times: 1 })} className={value.rate === 12 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>12 mon</button>
-                                <button onClick={() => setValue({ ...value, rate: 8.25, times: 4 })} className={value.rate === 8.25 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>No lock-in</button>
+                                <button onClick={() => handleChipClick(10, 4)} className={value.rate === 10 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>3 mon</button>
+                                <button onClick={() => handleChipClick(11, 2)} className={value.rate === 11 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>6 mon</button>
+                                <button onClick={() => handleChipClick(12, 1)} className={value.rate === 12 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>12 mon</button>
+                                <button onClick={() => handleChipClick(8.25, 4)} className={value.rate === 8.25 ? 'flex justify-center items-center gap-2.5 flex-[1_0_0] rounded px-2 py-1 bg-black text-white text-xs not-italic font-bold leading-5 ' : ' bg-white flex justify-center items-center gap-2.5 flex-[1_0_0] rounded border border-[color:var(--neutral-700,#606060)] px-2 py-1 border-solid text-[color:var(--neutral-700,#606060)] text-xs not-italic font-medium leading-5 '}>No lock-in</button>
                             </div>
                         </div>
 
@@ -155,7 +172,13 @@ export default function InvestCalcSection() {
             </section>
             <p className='text-black text-center text-base not-italic font-bold leading-7 mt-4'>
                 Looking for a loan?
-                <span className='text-primary ml-1' onClick={() => setModal(true)}> Click here</span>
+                <span className='text-primary ml-1' onClick={() => {
+                    setModal(true)
+                    Mixpanel.track('cta_clicked', {
+                        'cta_text': 'need_loan',
+                        'page': 'web_elite_page',
+                    })
+                }}> Click here</span>
             </p>
             <ReactModal
                 isOpen={modal}

@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import newSquare from '../../assets/icn/newSquare.webp';
 import premium from '../../assets/icn/premium.png';
-import arrowUp from '../../assets/icn/arrowUp.png'
-import arrowDown from '../../assets/icn/arrowDown.png'
-import arrowLeft from '../../assets/icn/arrowLeft.webp'
 import { useEffect } from 'react';
 import DownloadNow from '../../elements/DownloadNow/DownloadNow';
 import Image from 'next/image'
@@ -11,6 +8,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { BsArrowLeft } from 'react-icons/bs';
 import { SlArrowDown } from 'react-icons/sl'
+import Actions from '@/elements/Actions';
 
 const activeStyle = {
     backgroundColor: '#F3F9FE',
@@ -43,7 +41,7 @@ export default function DropDown({ screenersCategories, screenersList, selected,
     const handleDropdown = (cat) => {
         setShow(cat.categoryId)
         // console.log(screenersList, cat);
-        router.push(`/screeners/${screenersList?.filter(f => f.categoryId === cat.categoryId)[0]?.code}`)
+        router.push(Actions.toScreener(screenersList?.filter(f => f.categoryId === cat.categoryId)[0]?.code))
     }
     return (<div className=' sticky top-[60px] py-10 ml-4'>
         <div className='m-4 font-Inter border-[2px] rounded-lg overflow-hidden'>
@@ -64,7 +62,7 @@ export default function DropDown({ screenersCategories, screenersList, selected,
                     </div>
                     <div className={`ease-in-out duration-500 overflow-y-auto no-scrollbar ${show === cat.categoryId ? 'max-h-[275px]' : 'max-h-0 '}`}>
                         {screenersList?.filter(f => f.categoryId === cat.categoryId)?.map((ele, i) =>
-                            <Link href={`/screeners/${ele.code}`} key={i}
+                            <Link href={Actions.toScreener(ele.code)} key={i}
                                 style={name === ele.code ? activeStyle : anActiveStyle}>
                                 <div className='relative h-8 w-8 m-0'>
                                     <Image src={ele.imageUrl} width={32} height={32} alt={ele.code} className='max-h-8 max-w-8 ' />
