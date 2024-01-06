@@ -18,6 +18,7 @@ import MetaSection from '@/elements/MetaSection/MetaSection';
 import { Mixpanel } from '@/elements/Mixpanel';
 import PageNotFound from "../404";
 import Actions from "@/elements/Actions";
+import StockFAQSection from "@/components/Stocks/StockFAQSection";
 
 
 
@@ -51,11 +52,11 @@ export default function StockDetails({ stockDetails }) {
                     </>
                         : <>
                             <StocksHeader name={stockDetails?.finCode} activeChartType={activeChartType} setActiveChartType={setActiveChartType} />
-                            <ExpertVerdictPhone />
                         </>}
                     <StockGraph activeChartType={activeChartType} name={stockDetails?.finCode} />
                     {stockDetails?.finCode && (stockDetails?.finCode < 100000000) &&
                         <>
+                            <ExpertVerdictPhone name={stockDetails?.finCode} activeChartType={activeChartType} />
                             <KeyIndicatorCard name={stockDetails?.finCode} />
                             <FinancialIndicator name={stockDetails?.finCode} />
                             <CompanyFinancial name={stockDetails?.finCode} />
@@ -63,6 +64,8 @@ export default function StockDetails({ stockDetails }) {
                             <PeerComparison name={stockDetails?.finCode} />
                             {/* <News name={stockDetails?.finCode} /> */}
                             <AllEvents name={stockDetails?.finCode} />
+                            <StockFAQSection name={stockDetails?.finCode} symbol={stockDetails?.symbol} />
+
                         </>}
                 </div>
             </div>

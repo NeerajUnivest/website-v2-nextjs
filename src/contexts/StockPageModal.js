@@ -15,11 +15,10 @@ const customStyles = (isPhone) => ({
         transform: !isPhone && 'translate(-50%, 50%)',
         width: isPhone ? '100%' : '600px',
         padding: isPhone ? 0 : '20px',
-        borderRadius: !isPhone && '20px',
         borderTopLeftRadius: '20px',
         borderTopRightRadius: '20px',
-        borderBottomRightRadius: '0px',
-        borderBottomRightRadius: '0px',
+        borderBottomRightRadius: isPhone ? '0px' : '20px',
+        borderBottomLeftRadius: isPhone ? '0px' : '20px',
     },
     overlay: {
         backgroundColor: '#20202099',
@@ -59,7 +58,7 @@ const ModalContext = (props) => {
                             {title}
                         </div>
                         <button onClick={closeModalHandler}>
-                            <Image src={closeIcon} alt="close" className='w-[14px] h-[14px]' />
+                            <Image src={closeIcon} alt="close" className='w-4 lg:w-6 object-contain' />
                         </button>
                     </div>
                     <div className='overflow-y-auto mt-4 px-4 font-medium font-Inter text-[12px] leading-[18px] h-[50vh]'>
