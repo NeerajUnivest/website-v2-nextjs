@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 import Image from 'next/image';
-import sipImage from '@/assets/Images/calculators/sip.png';
+import sipImage from '@/assets/images/calculators/sip.png';
 import backIcon from '@/assets/icn/arrowLeft.webp';
 import TrackYourReturnsSection from './TrackYourReturnsSection';
 import FutureValueSection from './FutureValueSection';

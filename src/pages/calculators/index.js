@@ -1,7 +1,7 @@
 import CalculatorsCard from '@/components/Calculators/CalculatorsCard'
 import React from 'react'
-import sipImage from '@/assets/Images/calculators/sip.png';
-import calcImage from '@/assets/Images/calculators/calc.png'
+import sipImage from '@/assets/images/calculators/sip.png';
+import calcImage from '@/assets/images/calculators/calc.png'
 import Image from 'next/image';
 import calcData from './calculatorsJsonData';
 

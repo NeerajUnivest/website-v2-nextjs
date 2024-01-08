@@ -1,9 +1,9 @@
-import sipImage from '@/assets/Images/calculators/sip.png';
-import lumpsumImage from '@/assets/Images/calculators/lumpsum.png'
-import fdImage from '@/assets/Images/calculators/fd.png'
-import compundImage from '@/assets/Images/calculators/compound_interest.png'
-import mutualFundImage from '@/assets/Images/calculators/mutual_fund.png'
-import ppfImage from '@/assets/Images/calculators/ppf.png'
+import sipImage from '@/assets/images/calculators/sip.png';
+import lumpsumImage from '@/assets/images/calculators/lumpsum.png'
+import fdImage from '@/assets/images/calculators/fd.png'
+import compundImage from '@/assets/images/calculators/compound_interest.png'
+import mutualFundImage from '@/assets/images/calculators/mutual_fund.png'
+import ppfImage from '@/assets/images/calculators/ppf.png'
 
 
 const calcData = [
