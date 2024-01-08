@@ -1,16 +1,25 @@
 import React, { memo, useEffect, useState } from 'react'
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import Actions from '@/elements/Actions';
 
 
-function TrackYourReturnsSection({ data, param1, param2, param3, totalValue }) {
+function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, color, outputs }) {
 
     const [options, setOptions] = useState(null);
 
+    const [piePercentage, setPiePercentage] = useState(0);
+
+
     useEffect(() => {
+
+        setPiePercentage((eval(outputs[1]?.formula) / totalValue) * 100);
+
         setOptions({
-            colors: ['#F5F5F5', '#953723'],
+            colors: ['#F5F5F5', color],
             chart: {
+                marginTop: 0,
+                marginBottom: 0,
                 marginLeft: 0,
                 marginRight: 0,
                 spacingLeft: 0,
@@ -72,61 +81,73 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue }) {
                 data: [{
                     name: 'Invested amount',
                     // y: data[n]?.promoters !== 0 && data[n]?.promoters
-                    y: (param1 * (param3 * 12))
+                    y: eval(outputs[0]?.formula)
                 },
                 {
                     name: 'Estimated returns',
                     // y: data[n]?.foreignInstitutions !== 0 && data[n]?.foreignInstitutions
-                    y: eval(data?.estimatedReturn)
+                    y: eval(outputs[1]?.formula)
                 }]
             }]
         })
-    }, [param1, param2, param3]);
+    }, [param1, param2, param3, color]);
 
 
-    console.log(eval(data?.estimatedReturn), options?.series[0]?.data?.[0].y, options?.series[0]?.data?.[1].y);
+    // console.log(eval(data?.estimatedReturn), options?.series[0]?.data?.[0].y, options?.series[0]?.data?.[1].y);
     return (
         <section className='flex w-full lg:w-2/5 flex-col items-start gap-3 border border-[color:var(--Neutral-900,#202020)] p-3 rounded-2xl border-solid'>
             <p className='text-base not-italic font-bold leading-7 bg-clip-text'>Track your returns</p>
-            <div className='w-full flex flex-col justify-center items-center gap-4'>
-                <div className='h-px self-stretch bg-[#EDEDED]'></div>
-                <div className='flex flex-col justify-center items-center gap-3'>
-                    <div className='flex justify-center items-center px-[38px] lg:px-[21px] pt-1 pb-0'>
-                        <div className='p-2 w-full'>
-                            <HighchartsReact
-                                containerProps={{ style: { height: "190px", width: '100%' } }}
-                                options={options}
-                                highcharts={Highcharts}
-                            />
+            <div className='h-px self-stretch bg-[#EDEDED]'></div>
+            <div className='w-full h-full flex flex-col justify-between items-center'>
+                <div className=' m-auto flex flex-col justify-center items-center gap-3'>
+                    <div className='flex h-full justify-center items-center px-[38px] lg:px-[21px] pb-0'>
+                        <div className=' w-full'>
+                            <div className='relative'>
+                                <p className={`text-[color:var(--Neutral-900,#202020)] text-center ${piePercentage <= 99.9 ? 'text-[16px]' : 'text-[14px]'} not-italic font-extrabold leading-[29.684px] absolute  top-[40%] left-[40%] `}> {piePercentage.toFixed(1)}%</p>
+                                <HighchartsReact
+                                    containerProps={{ style: { height: "144px", width: '100%', marginLeft: '0px' } }}
+                                    options={options}
+                                    highcharts={Highcharts}
+                                />
+                            </div>
                             <div className='flex items-center justify-between gap-6'>
                                 <div className='flex items-center gap-2'>
                                     <div className='w-3 h-3 border border-[color:var(--Neutral-300,#DFDFDF)] bg-[#F5F5F5] rounded-sm border-solid'></div>
-                                    <p className='text-[color:var(--Neutral-900,#202020)] text-[10px] not-italic font-medium leading-4 lg:text-xs'>Invested amount</p>
+                                    <p className='text-[color:var(--Neutral-900,#202020)] text-[10px] not-italic font-medium leading-4 lg:text-xs'>{outputs[0]?.name}</p>
                                 </div>
                                 <div className='flex items-center gap-2'>
-                                    <div className='w-3 h-3 border border-[color:var(--Neutral-300,#953723)] bg-[#953723] rounded-sm border-solid'></div>
-                                    <p className='text-[color:var(--Neutral-900,#202020)] text-[10px] not-italic font-medium leading-4 lg:text-xs'>Estimated returns</p>
+                                    <div style={{ border: color, backgroundColor: color }} className={`w-3 h-3 border rounded-sm border-solid`}></div>
+                                    <p className='text-[color:var(--Neutral-900,#202020)] text-[10px] not-italic font-medium leading-4 lg:text-xs'>{outputs[1]?.name}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <p className='text-[color:var(--Neutral-600,#747474)] text-[8px] not-italic font-medium leading-3 lg:text-[10px]'>*This amount is calculated on {param2?.toFixed(1)}% p.a. for the span of {param3?.toFixed(0)} yrs.</p>
                 </div>
-                <div className='flex w-full flex-col items-center gap-3 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-lg border-solid bg-[#FCFCFC]'>
-                    <div className='flex w-full justify-between items-center'>
+                <div className='flex w-full flex-col items-center gap-3 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-lg border-solid bg-[#FCFCFC] mt-4'>
+                    {/* <div className='flex w-full justify-between items-center'>
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Invested amount</p>
-                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{(param1 * (param3 * 12))?.toFixed(0)}</p>
+                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma((param1 * (param3 * 12)), 0)}</p>
                     </div>
                     <div className='h-px self-stretch bg-[#DFDFDF]'></div>
                     <div className='flex w-full justify-between items-center'>
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Estimated returns</p>
-                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{eval(data?.estimatedReturn)?.toFixed(0)}</p>
+                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(eval(data?.estimatedReturn), 0)}</p>
                     </div>
                     <div className='h-px self-stretch bg-[#DFDFDF]'></div>
                     <div className='flex w-full justify-between items-center'>
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Total value</p>
-                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{totalValue?.toFixed(0)}</p>
-                    </div>
+                        <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(totalValue, 0)}</p>
+                    </div> */}
+                    {outputs?.map((ele, i) => {
+                        return <>
+                            <div className={` ${i == 0 ? 'hidden' : ''} h-px self-stretch bg-[#DFDFDF]`}></div>
+                            <div className='flex w-full justify-between items-center'>
+                                <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>{ele?.name}</p>
+                                <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(eval(ele?.formula), 0)}</p>
+                            </div>
+                        </>
+                    })}
                 </div>
             </div>
         </section>

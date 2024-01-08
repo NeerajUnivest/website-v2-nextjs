@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import Actions from '@/elements/Actions';
 
 export default function FutureValueSection({ monthlyInvestment, returnRate, timePeriod }) {
 
@@ -34,7 +35,10 @@ export default function FutureValueSection({ monthlyInvestment, returnRate, time
                 marginRight: 0,
                 spacingLeft: 0,
                 spacingRight: 0,
-                backgroundColor: 'transparent'
+                backgroundColor: 'transparent',
+                dataLabels: {
+                    enabled: true
+                }
             },
             title: {
                 text: null,
@@ -51,6 +55,42 @@ export default function FutureValueSection({ monthlyInvestment, returnRate, time
                 },
                 labels: {
                     enabled: false,
+                },
+                stackLabels: {
+                    enabled: true,
+                    formatter: function () {
+                        let color = '';
+                        var val = this.total;
+                        // duration === 0 ? val = this.y / 10 : val = this.y / 10000000
+                        // if (this.y >= 0) {
+                        //     color = 'black';
+                        // } else {
+                        //     color = '#DD2C2C';
+                        // }
+                        if (val <= -100000) {
+                            val = (val / 100000)?.toFixed(2) + 'L';
+                        } else if (val <= -1000) {
+                            val = (val / 1000)?.toFixed(2) + 'k';
+                        } else if (val > -1000 && val < 1000) {
+                            val = val.toFixed(2);
+                        } else if (val >= 1000 && val < 100000) {
+                            val = (val / 1000)?.toFixed(2) + 'k';
+                        } else if (val >= 100000) {
+                            val = (val / 100000)?.toFixed(2) + 'L';
+                        }
+
+                        return '<span style="font-size:12px; color:' + color + '">' + val + '</span>';
+                    },
+                    // formatter: function () {
+                    //     return this.total + 'k';
+                    // },
+                    style: {
+                        fontSize: 12,
+                        fontFamily: "'Inter', 'sans-serif'",
+                        fontWidth: 'extrabold',
+                        color: '#232A31',
+                        textOutline: 0
+                    },
                 }
             },
             legend: {
@@ -75,7 +115,7 @@ export default function FutureValueSection({ monthlyInvestment, returnRate, time
                 data: totalGains,
                 color: '#953723',
                 dataLabels: {
-                    enabled: true,
+                    enabled: false,
                     crop: false,
                     overflow: 'none',
                     color: 'black',
@@ -92,76 +132,6 @@ export default function FutureValueSection({ monthlyInvestment, returnRate, time
                 color: '#F5F5F5'
             }]
         });
-
-        // setOptions({
-        //     colors: ['#F5F5F5', '#953723'],
-        //     chart: {
-        //         type: 'pie',
-        //         backgroundColor: 'transparent',
-        //         // events: {
-        //         //   render: setTimeout(function () {
-        //         //     window.dispatchEvent(new Event('resize'));
-        //         //   }, 1000)
-        //         // }
-        //     },
-        //     title: {
-        //         text: null,
-        //     },
-        //     exporting: {
-        //         enabled: false,
-        //     },
-        //     tooltip: {
-        //         enabled: false,
-        //     },
-        //     plotOptions: {
-        //         pie: {
-        //             allowPointSelect: false,
-        //             cursor: 'pointer',
-        //             connectorAllowed: false,
-        //             dataLabels: {
-        //                 /*  crookedDistance: '70%',*/
-        //                 // connectorShape: 'crookedLine',
-        //                 /* connectorPadding: 0, */
-        //                 /* distance: "-30%", */
-        //                 // alignTo: 'connectors',
-        //                 // alignTo: 'plotEdges',
-        //                 enabled: false,
-        //                 // connectorColor: '#000000',
-        //                 // connectorAllowed: false,
-        //                 /* format: '{point.name}: {y} %', */
-        //                 fontFamily: "'Inter', sans-serif",
-        //                 formatter: function () {
-        //                     return '<div style="><div style="font-size: 12px; font-weight: 500; width: 0px;">' +
-        //                         this.point.name + '</div><br><div style="font-size: 10px; font-weight: 400; ">' +
-        //                         this.y + '%</div></div>';
-        //                 },
-        //                 style: {
-        //                     fontFamily: "'Inter', 'sans-serif'",
-        //                     textOutline: 0
-        //                 },
-        //             },
-        //             showInLegend: false
-        //         }
-        //     },
-        //     credits: {
-        //         enabled: false,
-        //     },
-        //     series: [{
-        //         name: 'Returns',
-        //         colorByPoint: true,
-        //         innerSize: '50%',
-        //         data: [{
-        //             name: 'Invested amount',
-        //             // y: data[n]?.promoters !== 0 && data[n]?.promoters
-        //             y: 30
-        //         },
-        //         {
-        //             name: 'Estimated returns',
-        //             // y: data[n]?.foreignInstitutions !== 0 && data[n]?.foreignInstitutions
-        //             y: 60
-        //         }]
-        //     }]
-        // })
     }
     useEffect(() => {
         filterData(0)
@@ -171,7 +141,7 @@ export default function FutureValueSection({ monthlyInvestment, returnRate, time
         <section className='flex flex-col items-start gap-4 border border-[color:var(--Neutral-900,#202020)] p-3 lg:p-4 rounded-xl lg:rounded-2xl border-solid mx-4 lg:mx-0'>
             <div className='flex w-full justify-between items-center'>
                 <p className='text-[color:var(--Neutral-900,#202020)] text-base lg:text-2xl not-italic font-bold leading-7' >Future value of SIP</p>
-                <p className='text-[color:var(--Neutral-500,#9D9D9D)] text-xs lg:text-sm not-italic font-medium leading-5'>SIP amount ₹{totalValue(monthlyInvestment, returnRate, timePeriod).toFixed(0)}</p>
+                <p className='text-[color:var(--Neutral-500,#9D9D9D)] text-xs lg:text-sm not-italic font-medium leading-5'>SIP amount ₹{Actions.putComma(totalValue(monthlyInvestment, returnRate, timePeriod), 0)}</p>
             </div>
             <div style={{ marginBottom: '10px' }} className='w-full'>
                 <HighchartsReact

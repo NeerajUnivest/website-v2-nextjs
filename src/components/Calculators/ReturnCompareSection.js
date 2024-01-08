@@ -5,9 +5,11 @@ import HighchartsReact from "highcharts-react-official";
 import { BlackButton } from '@/elements/Button/Button';
 import { useRouter } from 'next/navigation';
 
-export default function ReturnCompareSection() {
+export default function ReturnCompareSection({ type }) {
 
     const { push } = useRouter();
+    const [grad1, setGrad1] = useState('#FF8415')
+    const [grad2, setGrad2] = useState('#FFCA3F')
 
     const amountToRupee = {
         '1': 25000,
@@ -24,6 +26,15 @@ export default function ReturnCompareSection() {
 
     const [options, setOptions] = useState(null);
     const filterData = (n = 0) => {
+
+        let grad1 = '#FF8415';
+        let grad2 = '#FFCA3F'
+
+        if (type == 'Elite') {
+            grad1 = '#6BBDE1';
+            grad2 = '#6BBDE1';
+        }
+
         setOptions({
             chart: {
                 type: 'areaspline',
@@ -110,7 +121,19 @@ export default function ReturnCompareSection() {
                 data: [
                     0, 10, 22, 35, 41, 57, 62
                 ],
-                color: '#FFCA3F',
+                color: grad1,
+                fillColor: {
+                    linearGradient: {
+                        x1: 0,
+                        x2: 0,
+                        y1: 0,
+                        y2: 1
+                    },
+                    stops: [
+                        [0, grad1],
+                        [1, grad2]
+                    ]
+                },
                 dataLabels: {
                     crop: true,
                 },
@@ -128,7 +151,7 @@ export default function ReturnCompareSection() {
                 showInLegend: false,
                 name: 'Other SIP',
                 data: [
-                    0, 8, 16, 27, 39, 44, 55
+                    0, 8, 10, 14, 16, 18, 20
                 ],
                 color: '#fff',
                 dataLabels: {
@@ -146,18 +169,18 @@ export default function ReturnCompareSection() {
     }
     useEffect(() => {
         filterData(0)
-    }, []);
+    }, [type]);
 
     return (
-        <section className='flex flex-col justify-center items-center gap-6 px-4 py-3 lg:gap-8 lg:p-4 ' style={{ background: 'var(--Gradient-2, linear-gradient(0deg, #141E30 -37.42%, #333 65.82%))' }}>
+        <section className=' lg:rounded-2xl flex flex-col justify-center items-center gap-6 px-4 py-3 lg:gap-8 lg:p-4 ' style={{ background: 'var(--Gradient-2, linear-gradient(0deg, #141E30 -37.42%, #333 65.82%))' }}>
             <div className='flex flex-col justify-center items-center lg:items-start gap-4 self-stretch'>
                 <p className='text-[color:var(--Pearl-White,#FFF)] text-base lg:text-2xl not-italic font-bold leading-7'>Your returns compared with Univest</p>
                 <div className='h-px self-stretch bg-[#606060]'></div>
                 <div className='flex items-start gap-3 self-stretch'>
                     <div className='flex items-center gap-4 flex-[1_0_0] pr-0'>
-                        <div className='w-1.5 h-12 rounded-3xl' style={{ background: 'var(--Gradient-3, linear-gradient(0deg, #FF8415 -37.42%, #FFCA3F 65.82%))' }} ></div>
+                        <div className={`w-1.5 h-12 rounded-3xl ${type == 'PRO' ? 'bg-gradient-to-tr from-[#FF8415] to-[#FFCA3F] ' : 'bg-[#6BBDE1]'} `}></div>
                         <div className='flex  flex-col items-start gap-1'>
-                            <p className='text-base lg:text-xl uni-wise-gradient2 not-italic font-bold leading-7 bg-clip-text'>Univest PRO</p>
+                            <p className={`text-base lg:text-xl ${type == 'PRO' ? 'uni-wise-gradient2' : 'text-[#6BBDE1]'} not-italic font-bold leading-7 bg-clip-text`}>Univest {type}</p>
                             <p className='self-stretch text-[color:var(--Neutral-300,#DFDFDF)] text-sm not-italic font-bold leading-6'>123</p>
                         </div>
                     </div>
