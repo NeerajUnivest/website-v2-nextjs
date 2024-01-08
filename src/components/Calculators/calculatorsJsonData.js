@@ -9,7 +9,7 @@ import ppfImage from '@/assets/images/calculators/ppf.png'
 const calcData = [
     {
         title: 'SIP',
-        name: 'SIP<br/>caclulator',
+        name: 'SIP<br/>calculator',
         desc: 'Optimize your investment<br/>strategy accurately',
         icon: sipImage,
         bgColor: '#F4C1B6',
@@ -80,7 +80,7 @@ const calcData = [
     },
     {
         title: 'Lumpsum',
-        name: 'Lumpsum<br/>caclulator',
+        name: 'Lumpsum<br/>calculator',
         desc: 'Precise estimates for<br/>one-time payments',
         icon: lumpsumImage,
         bgColor: '#F4C1B6',
@@ -151,7 +151,7 @@ const calcData = [
     },
     {
         title: 'FD',
-        name: 'FD<br/>caclulator',
+        name: 'FD<br/>calculator',
         desc: 'Accurate insights into<br/>FD returns',
         icon: fdImage,
         bgColor: '#FEEBB9',
@@ -222,7 +222,7 @@ const calcData = [
     },
     {
         title: 'Compound interest',
-        name: 'Compound<br/>interest caclulator',
+        name: 'Compound<br/>interest calculator',
         desc: 'Understand how interest<br/>grows exponentially',
         icon: compundImage,
         bgColor: '#F6DDFF',
@@ -316,7 +316,7 @@ const calcData = [
     },
     {
         title: 'PPF',
-        name: 'PPF<br/>caclulator',
+        name: 'PPF<br/>calculator',
         desc: 'Accurate insights into<br/>FD returns',
         icon: ppfImage,
         bgColor: '#FEEBB9',
@@ -387,7 +387,7 @@ const calcData = [
     },
     {
         title: 'Mutual Fund',
-        name: 'Mutual<br/>Fund caclulator',
+        name: 'Mutual<br/>Fund calculator',
         desc: 'Accurate insights into<br/>FD returns',
         icon: mutualFundImage,
         bgColor: '#FEEBB9',
@@ -458,7 +458,7 @@ const calcData = [
     },
     {
         title: 'NPS',
-        name: 'NPS<br/>caclulator',
+        name: 'NPS<br/>calculator',
         desc: 'Accurate insights into<br/>FD returns',
         icon: fdImage,
         bgColor: '#FEEBB9',
@@ -533,7 +533,7 @@ const calcData = [
     },
     {
         title: 'Home Loan',
-        name: 'Home Loan<br/>EMI caclulator',
+        name: 'Home Loan<br/>EMI calculator',
         desc: 'Accurate insights into<br/>FD returns',
         icon: fdImage,
         bgColor: '#FEEBB9',
