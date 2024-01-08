@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import PageNotFound from "../404";
 import CalculatorDetails from '@/components/Calculators/CalculatorDetails';
 import calcData from '../../components/Calculators/calculatorsJsonData';
+import { UserDetailProvider } from '@/contexts/UserDetailContext';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 export default function CalculatorsPage({ name, data }) {
+    const userDetail = useContext(UserDetailProvider)
+    useEffect(() => {
+        Mixpanel.pageView(
+            {
+                'page': name?.toLowerCase(),
+            }
+        )
+        userDetail.setBtn({ show: false, beforeLogin: 'Get started', afterLogin: 'Download the app now', isProPage: false, page: 'calculators_home' })
+    }, [])
+
+
     if (data) {
         return (
             <CalculatorDetails name={name} data={data} />

@@ -1,11 +1,22 @@
 import CalculatorsCard from '@/components/Calculators/CalculatorsCard'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import sipImage from '@/assets/images/calculators/sip.png';
 import calcImage from '@/assets/images/calculators/calc.png'
 import Image from 'next/image';
 import calcData from '../../components/Calculators/calculatorsJsonData';
+import { UserDetailProvider } from '@/contexts/UserDetailContext';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 export default function Calculators() {
+    const userDetail = useContext(UserDetailProvider)
+    useEffect(() => {
+        Mixpanel.pageView(
+            {
+                'page': 'calculators_home',
+            }
+        )
+        userDetail.setBtn({ show: false, beforeLogin: 'Get started', afterLogin: 'Download the app now', isProPage: false, page: 'calculators_home' })
+    }, [])
     return (
         <>
             <section className='font-Inter relative overflow-hidden pt-12 pb-12 lg:pt-32' style={{ background: 'linear-gradient(180deg, #EFF7FF 0%, rgba(239, 247, 255, 0.00) 100%)' }}  >
