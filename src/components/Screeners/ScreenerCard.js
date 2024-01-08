@@ -6,10 +6,11 @@ import tilesProBG from '../../assets/images/tilesProBG.png';
 import tilesProBGLg from '../../assets/images/tilesProBGLg.png';
 import tilesNonProBG from '../../assets/images/tilesNonProBG.png';
 import { Mixpanel } from '@/elements/Mixpanel';
+import Actions from '@/elements/Actions';
 
 export default function ScreenerCard({ ele }) {
     return (<>
-        <Link href={`screeners/${ele?.code}`} onClick={() => {
+        <Link href={Actions.toScreener(ele?.code)} onClick={() => {
             Mixpanel.track('screener_clicked', {
                 'cta_clicked': 'submit',
                 'page': 'screeners',

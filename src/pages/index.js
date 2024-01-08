@@ -39,7 +39,7 @@ export default function HomePage({ planData }) {
     Mixpanel.pageView({
       'page': 'web_home',
     });
-    userDetail.setBtn({})
+    userDetail.setBtn({ show: true, beforeLogin: 'Get started', afterLogin: 'Download the app now', isProPage: true, page: 'web_home' })
   }, [])
   return (<>
     <MetaSection

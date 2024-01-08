@@ -11,6 +11,7 @@ import { useContext } from "react";
 import { planSectionPopUp } from "@/elements/PopUp/PlanSectionPopUp";
 import Actions from "@/elements/Actions";
 import { FaceBook } from "@/elements/FaceBook";
+import { Mixpanel } from "@/elements/Mixpanel";
 // import recommend_tag from '../../assets/images/elite/recommend_tag.png';
 // import { popUp } from "@/elements/PopUp/PopUp";
 
@@ -68,6 +69,10 @@ export function AvailablePlansCard({ data }) {
     return (
         <div className="pb-4 border-2 border-[#E4EEF3] rounded-xl overflow-hidden w-[148px] min-w-[148px] font-Inter flex flex-col  bg-white gap-2"
             onClick={() => {
+                Mixpanel.track('plan_clicked', {
+                    "plan_name": data.name?.replaceAll(' ', '_')?.toLowerCase(),
+                    'page': 'web_elite_page',
+                })
                 if (userDetail?.userData?.authToken) {
                     planSectionPopUp.open('elite')
                 } else {

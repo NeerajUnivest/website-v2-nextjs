@@ -4,10 +4,11 @@ import Link from 'next/link';
 import tilesProBG from '../../assets/images/tilesProBG.png';
 import tilesProBGLg from '../../assets/images/tilesProBGLg.png';
 import tilesNonProBG from '../../assets/images/tilesNonProBG.png';
+import Actions from '@/elements/Actions';
 
 export default function IdeasCard({ ele }) {
     return (<>
-        <Link href={`screeners/${ele?.code}`}>
+        <Link href={Actions.toScreener(ele?.code)}>
             <div className={`font-Inter bg-white w-[120px] min-w-[120px] h-[132px] bg-[100%_100%] lg:w-[200px] lg:min-w-[200px] lg:h-[156px] rounded-[12px] md:rounded-[16px] p-3 lg:px-5 lg:py-4 relative overflow-hidden shadow-md z-[1] ${!ele.premium ? 'tilesNonProBG' : 'tilesScreener'}`}
             //  style={{ backgroundImage: `url(${ele.premium ? tilesProBG.src : tilesNonProBG.src})` }}
             >

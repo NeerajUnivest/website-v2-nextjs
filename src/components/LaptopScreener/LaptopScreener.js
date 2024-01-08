@@ -32,9 +32,9 @@ export default function LaptopScreener({ data, name }) {
                         {data.title}
                         <span className='ml-4 text-[16px] leading-[28px] text-[#414141] font-medium'>{data.list?.length} Stocks</span>
                     </h1>
-                    <span className='text-[16px] leading-[28px] text-[#202020] font-medium'>
+                    <h2 className='text-[16px] leading-[28px] text-[#202020] font-medium'>
                         <b>Entry criterion : </b> {data.description}
-                    </span>
+                    </h2>
                 </div>
                 <div className='w-20 mx-4 flex flex-col justify-center items-center'>
                     <Image src={data.imageUrl} width={56} height={56} alt='logo' className='max-h-14 max-w-14 ' />

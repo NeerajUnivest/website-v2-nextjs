@@ -12,6 +12,7 @@ import proIcon from '../../assets/images/proIcon.png';
 import { BlackButton } from '@/elements/Button/Button';
 import { popUp } from '@/elements/PopUp/PopUp'
 import forEmpty from '../../assets/images/forEmpty.webp'
+import Actions from '@/elements/Actions';
 
 let activeStyle = {
   lineHeight: '21px',
@@ -47,11 +48,11 @@ export default function PhoneScreener({ name, screenersList, data, codeList }) {
 
   const handleSwipe = n => {
     if (n === 0 && codeList?.indexOf(name) > 0) {
-      router.replace(`/screeners/${codeList[codeList?.indexOf(name) - 1]}`)
+      router.replace(Actions.toScreener(codeList[codeList?.indexOf(name) - 1]))
     } else if (n === 2 && codeList?.indexOf(name) < codeList?.length - 1) {
-      router.replace(`/screeners/${codeList[codeList?.indexOf(name) + 1]}`)
+      router.replace(Actions.toScreener(codeList[codeList?.indexOf(name) + 1]))
     } else if (n === 1 && codeList?.indexOf(name) === 0) {
-      router.replace(`/screeners/${codeList[1]}`)
+      router.replace(Actions.toScreener(codeList[1]))
     }
   }
 
@@ -61,7 +62,7 @@ export default function PhoneScreener({ name, screenersList, data, codeList }) {
         {screenersList?.filter(e => e?.categoryId)?.map((ele, i) =>
           <Link key={i}
             id={ele.code}
-            href={`/screeners/${ele.code}`}
+            href={Actions.toScreener(ele.code)}
             style={name === ele.code ? activeStyle : passiveStyle}
           > {ele.title}
           </Link>)}

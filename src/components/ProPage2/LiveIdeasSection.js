@@ -2,14 +2,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import moment from "moment/moment";
 import { FaClock } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Autoplay } from "swiper";
 import { useGetAxios } from "@/hooks/useGetAxios";
 import locked_icon from '@/assets/icons/icon_locked.png'
 import Image from "next/image";
 import Actions from "@/elements/Actions";
+import { UserDetailProvider } from "@/contexts/UserDetailContext";
+import { planSectionPopUp } from "@/elements/PopUp/PlanSectionPopUp";
+import { Mixpanel } from "@/elements/Mixpanel";
 
 export default function IdeasSectionLive({ isDark = false }) {
+    const userDetail = useContext(UserDetailProvider)
     const { fetchData, data, loading } = useGetAxios('')
 
     useEffect(() => {
@@ -47,7 +51,18 @@ export default function IdeasSectionLive({ isDark = false }) {
                         >
                             {data?.data?.list?.map((ele, i) =>
                                 <SwiperSlide key={`${ele.id}-${i}`} >
-                                    <div className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed  rounded-lg border-[#BADDFA] bg-cover">
+                                    <div onClick={() => {
+                                        Mixpanel.track('card_clicked', {
+                                            "is": ele.id,
+                                            'page': 'web_pro_page',
+                                        })
+                                        if (userDetail?.userData?.authToken) {
+                                            planSectionPopUp.open('pro')
+                                        } else {
+                                            userDetail?.inputRef?.current?.focus()
+                                        }
+                                    }}
+                                        className=" relative overflow-hidden flex flex-col justify-between h-full w-full bg-fixed  rounded-lg border-[#BADDFA] bg-cover">
                                         <div className=" h-full flex flex-col mx-2 gap-2 md:gap-4">
                                             <div className=" border-l-[1px] border-r-[1px] border-b-[1px] rounded-bl-xl rounded-br-xl border-[#BADDFA]  mt-0">
                                                 <div className={`flex flex-row items-center justify-center gap-[4px] py-[2px] ${ele?.term === 'FUTURES' ? 'pr-3' : ''} `}>

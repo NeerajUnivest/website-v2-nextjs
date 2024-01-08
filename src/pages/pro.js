@@ -29,7 +29,7 @@ export default function Pro({ pageName, data }) {
         Mixpanel.pageView({
             'page': 'web_pro_page',
         })
-        userDetail.setBtn({ show: true, beforeLogin: 'Activate trial', afterLogin: 'Download the app now', isProPage: true })
+        userDetail.setBtn({ show: true, beforeLogin: 'Activate trial', afterLogin: 'Download the app now', isProPage: true, page: 'web_pro_page' })
     }, [])
 
     // return <ActivePlanSection />

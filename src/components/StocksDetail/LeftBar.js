@@ -3,7 +3,7 @@ import axios from "axios";
 import moment from 'moment/moment';
 import redArrow from '../../assets/icn/redArrow.png';
 import greenArrow from '../../assets/icn/greenArrow.png';
-import expertVerdictPhone from "../../assets/images/expertVerdictPhone.webp";
+// import expertVerdictPhone from "../../assets/images/expertVerdictPhone.webp";
 import DownloadNow from '../../elements/DownloadNow/DownloadNow';
 import Image from 'next/image'
 
@@ -69,7 +69,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
 
     return <div className=' bg-white z-[9] sticky top-[74px] lg:top-[94px] pt-2'>
         <div className='mx-4 relative lg:pb-8'>
-            <div className='mt-3 border border-1 p-2 rounded-md'>
+            <div className='mt-3 mb-6 border border-1 p-2 rounded-md'>
                 {data?.compName ?
                     <div className='flex flex-row'>
                         <div className='h-11 w-11 grid place-content-center mr-3'>
@@ -82,9 +82,9 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                                 </div>}
                         </div>
                         <div>
-                            <div className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
+                            <h1 className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
                                 {data?.bseSymbol}
-                            </div>
+                            </h1>
                             <div className='font-Inter font-medium text-[12px] text-[#858585] leading-[20px]'>
                                 {data?.compName && data?.compName?.length > 25 ? data?.compName?.slice(0, 25) + '...' : data?.compName}
                             </div>
@@ -125,7 +125,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                     </button>
                 </div>}
             </div>
-            <Image src={expertVerdictPhone} alt='kjvd' className='cursor-pointer w-full my-3' />
+            {/* <Image src={expertVerdictPhone} alt='kjvd' className='cursor-pointer w-full my-3' /> */}
             <DownloadNow />
         </div>
     </div>

@@ -10,18 +10,19 @@ import { AiFillInfoCircle } from 'react-icons/ai';
 import { FaceBook } from '../FaceBook';
 import Actions from '../Actions';
 import { Mixpanel } from '../Mixpanel';
+import Image from 'next/image';
 
 const customStyles = {
     content: {
         top: 'auto',
-        left: isMobile ? '0' : '50%',
-        right: isMobile ? '0' : 'auto',
-        bottom: isMobile ? '0' : '50%',
-        transform: isMobile ? '' : 'translate(-50%, 50%)',
-        width: isMobile ? '100%' : '780px',
-        height: isMobile ? 'auto' : '404px',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        transform: '',
+        width: '100%',
+        height: 'auto',
         backgroundColor: '#fff',
-        borderRadius: isMobile ? '12px 12px 1px 1px' : '20px',
+        borderRadius: '12px 12px 1px 1px',
         borderColor: 'transparent',
     },
     overlay: {
@@ -34,6 +35,7 @@ const customStyles = {
 
 export default function LogIn({ userData, setUserData, btn, inputRef }) {
     const [number, setNumber] = useState('')
+    const [f, setF] = useState(false)
     const [modal, setModal] = useState(false)
     const [error, setError] = useState(null)
     const sendOtp = () => {
@@ -91,13 +93,25 @@ export default function LogIn({ userData, setUserData, btn, inputRef }) {
                 </IconBtn>
 
                 : <>
+                    {f && <div className='fixed top-0 right-0 left-0 bottom-0 bg-[rgba(32, 32, 32, 0.80)] backdrop-blur-sm -z-[10]' />}
+                    {f &&
+                        <div className='bg-white w-screen -mx-4 mb-4 -mt-10 p-4 rounded-t-2xl shadow-[2px_0px_10px_rgba(0,0,0,.3)] z-10'>
+                            <Image src={btn?.isProPage ?
+                                'https://storage.googleapis.com/app-assets-univest/website-assets/pro_bf_before_login.png'
+                                : 'https://storage.googleapis.com/app-assets-univest/website-assets/elite_bf_before_login.png'} alt='banner' width={360} height={200} className='w-full' />
+                        </div>}
+
                     <div className={`pl-4 pr-1 w-full h-11 flex items-center bg-[#FFF] rounded-full text-sm lg:text-base font-medium ${error ? 'border border-app-red' : 'border border-[#606060]'}`}>
                         <input ref={inputRef} className='w-[calc(100%-90px)] caret-primary text-[#747474] font-semibold' type='tel' placeholder='Enter your mobile number'
                             value={number} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" inputMode="tel" onChange={(e) => {
                                 setNumber(e.target.value)
                                 setError(null)
                             }}
-                            onBlur={() => setError(null)} />
+                            onFocus={() => setF(true)}
+                            onBlur={() => {
+                                setF(false)
+                                setError(null)
+                            }} />
                         <BlackButton className='whitespace-nowrap px-3 lg:px-6 h-9 ml-auto text-sm font-semibold' text={btn?.beforeLogin} onClick={sendOtp} />
                     </div>
                     {error &&

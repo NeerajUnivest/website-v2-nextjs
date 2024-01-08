@@ -57,7 +57,7 @@ export default function ScreenersSection({ isDark }) {
                         Explore by categories
                     </div>
                     <div className="w-full grid grid-cols-2 lg:grid-flow-col grid-flow-row lg:grid-rows-1 gap-4">
-                        {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className={isDark ? ' bg-black border-white text-white' : ' bg-white border-black text-black'} />)}
+                        {data?.data?.list?.screenersCategories?.filter(f => !f.isFutureStockScreenerCategory)?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className={isDark ? ' bg-black border-white text-white' : ' bg-white border-black text-black'} />)}
                     </div>
                     <BlackButton onClick={() => push('/screeners')} text='View all' className='px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
                 </div>
@@ -65,7 +65,7 @@ export default function ScreenersSection({ isDark }) {
                     <div className={`text-sm lg:text-base font-semibold mr-8 ${isDark ? 'text-white' : 'text-black'}`}>
                         Explore by categories
                     </div>
-                    {data?.data?.list?.screenersCategories?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className={isDark ? ' bg-black border-white text-white' : ' bg-white border-black text-black'} />)}
+                    {data?.data?.list?.screenersCategories?.filter(f => !f.isFutureStockScreenerCategory)?.map(ele => <ScreenerCategoryChip key={ele.categoryId} text={ele.categoryTitle} onClick={() => push('/screeners')} className={isDark ? ' bg-black border-white text-white' : ' bg-white border-black text-black'} />)}
                     <BlackButton onClick={() => push('/screeners')} text='View all' className='ml-auto px-6 lg:px-8 py-2 text-sm lg:text-base font-extrabold' />
                 </div>
 
