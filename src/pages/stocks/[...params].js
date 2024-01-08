@@ -62,7 +62,7 @@ export default function StockDetails({ stockDetails }) {
                             <CompanyFinancial name={stockDetails?.finCode} />
                             <ShareHolding name={stockDetails?.finCode} />
                             <PeerComparison name={stockDetails?.finCode} />
-                            {/* <News name={stockDetails?.finCode} /> */}
+                            <News name={stockDetails?.finCode} />
                             <AllEvents name={stockDetails?.finCode} />
                             <StockFAQSection name={stockDetails?.finCode} symbol={stockDetails?.symbol} />
 
@@ -80,7 +80,8 @@ export async function getServerSideProps({ query, res }) {
     // console.log(query);
     const paramsOld = params?.[0].split('~')
     let resp = await axios.get(`${process.env.apiBaseURL}/resources/stock-details/symbol-fincode?symbol=${encodeURIComponent(params?.[0])}`)
-    // console.log(Actions.toStockDetailOld(paramsOld[0], paramsOld[1]),);
+    // console.log(Actions.toStockDetailOld(paramsOld[0], paramsOld[1]));
+    // console.log(Actions.toStockDetailOld(paramsOld[0], paramsOld[1]) === `/stocks/${params?.[0]}`);
     if (Actions.toStockDetailOld(paramsOld[0], paramsOld[1]) === `/stocks/${params?.[0]}`) {
         res.writeHead(301, {
             location: Actions.toStockDetail(paramsOld[0], paramsOld[1])
