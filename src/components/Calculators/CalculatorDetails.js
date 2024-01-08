@@ -103,7 +103,7 @@ export default function CalculatorDetails({ name, data }) {
                                         <p className='text-[color:var(--Neutral-300,#DFDFDF)] text-xs not-italic font-bold leading-5 lg:text-base'>Total value</p>
                                         <p className='text-[color:var(--Pearl-White,#FFF)] text-base not-italic font-extrabold leading-7 lg:text-2xl'>₹{Actions.putComma(eval(data?.title == 'SIP' || data?.title == 'Lumpsum' ? customOutput[2]?.formula : data?.totalValueFormula), 0)}</p>
                                     </div>
-                                    <div className=' m-auto flex flex-col items-center gap-4 w-full px-3 '>
+                                    <div className=' m-auto flex flex-col items-center gap-4 w-full px-3 pt-4 lg:pt-0 '>
                                         {(name == 'SIP' || name == 'Lumpsum') && <div className='mt-3 lg:mt-4 flex w-full flex-col justify-center items-center gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-xl border-solid'>
                                             <div className='flex items-start gap-6 text-black text-xs not-italic font-bold leading-5'>
                                                 <div className='flex items-center gap-2'>
