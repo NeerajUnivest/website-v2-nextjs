@@ -3,7 +3,7 @@ import React from 'react'
 import sipImage from '@/assets/images/calculators/sip.png';
 import calcImage from '@/assets/images/calculators/calc.png'
 import Image from 'next/image';
-import calcData from './calculatorsJsonData';
+import calcData from '../../components/Calculators/calculatorsJsonData';
 
 export default function Calculators() {
     return (

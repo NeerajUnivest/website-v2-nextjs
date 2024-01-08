@@ -1,7 +1,7 @@
 import React from 'react'
 import PageNotFound from "../404";
 import CalculatorDetails from '@/components/Calculators/CalculatorDetails';
-import calcData from './calculatorsJsonData';
+import calcData from '../../components/Calculators/calculatorsJsonData';
 
 export default function CalculatorsPage({ name, data }) {
     if (data) {

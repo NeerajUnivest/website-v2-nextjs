@@ -12,7 +12,7 @@ import EliteFAQSection from '../Elite/EliteFAQSection';
 import AmortizationDetailSetion from './AmortizationDetailSetion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import calcData from '@/pages/calculators/calculatorsJsonData';
+import calcData from '@/components/Calculators/calculatorsJsonData';
 import Actions from '@/elements/Actions';
 
 
