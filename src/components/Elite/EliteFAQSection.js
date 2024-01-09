@@ -9,7 +9,7 @@ export default function EliteFAQSection({ data }) {
     return (
         <section className='py-12 font-Inter bg-gradient-to-br from-[#E4EEF301] to-[#E0ECF247]'>
             <div className='max-w-screen-xl mx-auto px-4 lg:px-8'>
-                <p className='text-center text-xl lg:text-3xl font-extrabold text-black'>
+                <p className='text-center text-xl lg:text-3xl font-extrabold text-black list-outside'>
                     FAQs
                 </p>
                 <div className='flex flex-col py-8 gap-4 lg:gap-8'>

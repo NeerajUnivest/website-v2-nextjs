@@ -103,7 +103,7 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
                     <div className='flex h-full justify-center items-center px-[38px] lg:px-[21px] pb-0'>
                         <div className=' w-full'>
                             <div className='relative'>
-                                <p className={`text-[color:var(--Neutral-900,#202020)] text-center ${piePercentage <= 99.9 ? 'text-[16px]' : 'text-[14px]'} not-italic font-extrabold leading-[29.684px] absolute  top-[40%] left-[40%] `}> {piePercentage.toFixed(1)}%</p>
+                                <p className={`text-[color:var(--Neutral-900,#202020)] text-center ${piePercentage <= 99.9 ? 'text-[16px]' : 'text-[14px]'} not-italic font-extrabold leading-[29.684px] absolute  top-[40%] left-[40%] `}> {!isNaN(piePercentage) ? (piePercentage.toFixed(1)) : '0.0'}%</p>
                                 <HighchartsReact
                                     containerProps={{ style: { height: "144px", width: '100%', marginLeft: '0px' } }}
                                     options={options}
@@ -122,7 +122,7 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
                             </div>
                         </div>
                     </div>
-                    <p className='text-[color:var(--Neutral-600,#747474)] text-[8px] not-italic font-medium leading-3 lg:text-[10px]'>*This amount is calculated on {param2?.toFixed(1)}% p.a. for the span of {param3?.toFixed(0)} yrs.</p>
+                    <p className='text-[color:var(--Neutral-600,#747474)] text-[8px] not-italic font-medium leading-3 lg:text-[10px]'>*This amount is calculated on {Actions.putComma(param2, 1)}% p.a. for the span of {Actions.putComma(param3, 0)} yrs.</p>
                 </div>
                 <div className='flex w-full flex-col items-center gap-3 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-lg border-solid bg-[#FCFCFC] mt-4'>
                     {/* <div className='flex w-full justify-between items-center'>

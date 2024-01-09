@@ -4,6 +4,7 @@ import CalculatorDetails from '@/components/Calculators/CalculatorDetails';
 import calcData from '../../components/Calculators/calculatorsJsonData';
 import { UserDetailProvider } from '@/contexts/UserDetailContext';
 import { Mixpanel } from '@/elements/Mixpanel';
+import MetaSection from '@/elements/MetaSection/MetaSection';
 
 export default function CalculatorsPage({ name, data }) {
     const userDetail = useContext(UserDetailProvider)
@@ -18,9 +19,13 @@ export default function CalculatorsPage({ name, data }) {
 
 
     if (data) {
-        return (
+        return (<>
+            <MetaSection
+                title={data?.metaTitle}
+                desc={data?.metaDesc}
+                keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
             <CalculatorDetails name={name} data={data} />
-        )
+        </>)
     } else {
         return <PageNotFound />
     }

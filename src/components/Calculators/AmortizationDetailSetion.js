@@ -42,11 +42,11 @@ export default function AmortizationDetailSetion() {
                     <table className="table w-full border-collapse swiper-no-swiping">
                         <thead>
                             <tr className='h-10 text-center '>
-                                <th className='sticky -left-[0px] bg-gradient-to-br from-[#ECF1F3] to-[#F1F4EE] text-[10px] lg:text-sm md:text-sm text-[color:var(--Neutral-900,#202020)] text-center font-bold min-w-[30px] pl-2'>Month</th>
-                                <th className='px-2 text-[10px] lg:text-sm md:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px] '>Principal paid</th>
-                                <th className='px-2 text-[10px] lg:text-sm md:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px]'>Interest charged</th>
-                                <th className='px-2 text-[10px] lg:text-sm md:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px]'>Total payment</th>
-                                <th className='px-2 text-[10px] lg:text-sm md:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px]'>Balance</th>
+                                <th className='sticky -left-[0px] bg-gradient-to-br from-[#ECF1F3] to-[#F1F4EE] text-[10px] lg:text-sm text-[color:var(--Neutral-900,#202020)] text-center font-bold min-w-[30px] pl-2'>Month</th>
+                                <th className='px-2 text-[10px] lg:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px] '>Principal paid</th>
+                                <th className='px-2 text-[10px] lg:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px]'>Interest charged</th>
+                                <th className='px-2 text-[10px] lg:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px]'>Total payment</th>
+                                <th className='px-2 text-[10px] lg:text-sm text-[color:var(--Neutral-900,#202020)] font-bold border border-x-0 border-neutral-100  min-w-[30px]'>Balance</th>
                             </tr>
                         </thead>
                         <AmortizationDetailTable amortizationData={amortizationData} />
@@ -69,16 +69,16 @@ export function AmortizationDetailTable({ amortizationData }) {
                         <td className='pt-2 sticky -left-[0px] text-center font-bold  bg-gradient-to-br from-[#ECF1F3] to-[#F1F4EE] text-[10px] lg:text-xs leading-[18px]  px-2 min-w-[70px] lg:min-w-[100px] border border-neutral-100 cursor-pointer'>
                             {item.month}
                         </td>
-                        <td className='text-xs md:text-sm font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
+                        <td className='text-[10px] lg:text-xs font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
                             ₹{Actions.putComma(item.principalPaid)}
                         </td>
-                        <td className='text-xs md:text-sm font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
+                        <td className='text-[10px] lg:text-xs  font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
                             ₹{Actions.putComma(item.interestCharged)}
                         </td>
-                        <td className='text-xs md:text-sm font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
+                        <td className='text-[10px] lg:text-xs  font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
                             ₹{Actions.putComma(item.totalPayment)}
                         </td>
-                        <td className='text-xs md:text-sm font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
+                        <td className='text-[10px] lg:text-xs font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
                             ₹{Actions.putComma(item.balance)}
                         </td>
                     </tr>)}

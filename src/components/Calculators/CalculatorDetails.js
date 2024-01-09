@@ -72,9 +72,9 @@ export default function CalculatorDetails({ name, data }) {
 
     return (
         <>
-            <section className='font-Inter relative overflow-hidden pt-20 pb-12 lg:mx-20 lg:pt-32' >
-                <div className='inline-flex items-start gap-10 w-full'>
-                    <div className='w-1/4 overflow-hidden hidden lg:flex lg:flex-col border-2 border-solid lg:rounded-xl border-[color:var(--Neutral-200,#EDEDED)] '>
+            <section className='font-Inter relative  pt-20 pb-12 lg:mx-20 lg:pt-32' >
+                <div className='inline-flex gap-10 w-full'>
+                    <div className=' sticky top-[100px] self-start w-1/4 overflow-auto hidden lg:flex lg:flex-col border-2 border-solid lg:rounded-xl border-[color:var(--Neutral-200,#EDEDED)] '>
                         <div className='flex w-80 items-center gap-4 px-3 py-4  '>
                             <Image onClick={() => push('/calculators')} src={backIcon} alt='demo' className='w-4 h-4' />
                             <p className='text-black text-xl not-italic font-semibold leading-8'>Calculators home</p>
@@ -88,7 +88,7 @@ export default function CalculatorDetails({ name, data }) {
                             </Link>
                         )}
                     </div>
-                    <div className=' flex flex-col gap-8 w-full'>
+                    <div className=' flex flex-col gap-8 w-full lg:w-3/4 '>
                         <div className=' lg:w-full'>
                             <div className='relative px-4 py-[17px] lg:rounded-2xl overflow-hidden lg:px-[22px] lg:py-6' style={{ background: `linear-gradient(180deg, ${data?.bgColor} 0%, rgba(244, 193, 182, 0.00) 100%)` }} >
                                 <Image src={data?.icon} alt='demo' className=' w-[56px] h-[56px] bottom-0 right-0 absolute lg:w-[88px] lg:h-[88px]' />
@@ -98,13 +98,13 @@ export default function CalculatorDetails({ name, data }) {
                                 </div>
                             </div>
                             <div className='  mt-4 mx-4 flex flex-col gap-4 lg:flex-row lg:mt-10 lg:mx-0 lg:gap-8'>
-                                <div className={`h-half w-full ${data?.title != 'EPF' ? 'lg:w-3/5' : ''}  flex flex-col border border-black  pb-3 lg:pb-4  rounded-xl border-solid  overflow-hidden `}>
+                                <div className={`h-half w-full ${data?.title != 'EPF' ? 'lg:w-3/5' : ''}  flex flex-col border border-black  pb-3  ${(name == 'SIP' || name == 'Lumpsum') ? 'lg:pb-4' : 'lg:pb-0'}  rounded-xl border-solid  overflow-hidden `}>
                                     <div className='flex w-full justify-between items-center  px-4 py-2 bg-black'>
-                                        <p className='text-[color:var(--Neutral-300,#DFDFDF)] text-xs not-italic font-bold leading-5 lg:text-base'>Total value</p>
+                                        <p className='text-[color:var(--Neutral-300,#DFDFDF)] text-xs not-italic font-bold leading-5 lg:text-base'>{data?.totalValueText}</p>
                                         <p className='text-[color:var(--Pearl-White,#FFF)] text-base not-italic font-extrabold leading-7 lg:text-2xl'>₹{Actions.putComma(eval(data?.title == 'SIP' || data?.title == 'Lumpsum' ? customOutput[2]?.formula : data?.totalValueFormula), 0)}</p>
                                     </div>
                                     <div className=' m-auto flex flex-col items-center gap-4 w-full px-3 pt-4 lg:pt-0 '>
-                                        {(name == 'SIP' || name == 'Lumpsum') && <div className='mt-3 lg:mt-4 flex w-full flex-col justify-center items-center gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-xl border-solid'>
+                                        {(name == 'SIP' || name == 'Lumpsum') && <div className=' lg:mt-4 flex w-full flex-col justify-center items-center gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-xl border-solid'>
                                             <div className='flex items-start gap-6 text-black text-xs not-italic font-bold leading-5'>
                                                 <div className='flex items-center gap-2'>
                                                     <input type='radio' id='SIP' name='type' checked={calcType == 'SIP'} value={calcType} onClick={() => setCalcType('SIP')} />
@@ -134,11 +134,12 @@ export default function CalculatorDetails({ name, data }) {
                                                 </div>
                                             </div>
                                         })} */}
-                                        {data?.param1 && <div className='flex w-full flex-col items-start gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] pt-3 pb-2 px-3 rounded-xl border-solid'>
+                                        {data?.param1 && <div className={`flex w-full flex-col items-start gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] ${(name != 'SIP' || name != 'Lumpsum') ? 'pt-3' : ''}  pb-2 px-3 rounded-xl border-solid`}>
                                             <div className='flex justify-between items-center self-stretch'>
                                                 <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider1?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider1?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param1, 0)}{data?.option?.slider1?.type == 'percentage' ? ' %' : ''}{data?.option?.slider1?.type == 'duration' ? ' yr(s)' : ''}</p>
+                                                    {/* <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider1?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param1, 0)}{data?.option?.slider1?.type == 'percentage' ? ' %' : ''}{data?.option?.slider1?.type == 'duration' ? ' yr(s)' : ''}</p> */}
+                                                    <span className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider1?.type == 'number' ? '₹ ' : ''} <input onInput={(e) => e.target.value = e.target.value.slice(0, (data?.option?.slider1?.max + '').length)} type='number' onWheel={event => event.currentTarget.blur()} value={data?.option?.slider1?.type == 'percentage' ? Number.parseFloat(param1) : param1} onChange={e => setParam1(e.target.value)} className={` ${data?.option?.slider1.type == 'duration' ? 'w-[60px]' : 'w-[80px]'} text-black text-right text-xs not-italic font-semibold leading-5 bg-transparent`} /> {data?.option?.slider1?.type == 'percentage' ? ' %' : ''}{data?.option?.slider1?.type == 'duration' ? ' yr(s)' : ''}</span>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
@@ -154,7 +155,8 @@ export default function CalculatorDetails({ name, data }) {
                                             <div className='flex justify-between items-center self-stretch'>
                                                 <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider2?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider2?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param2, 0)}{data?.option?.slider2?.type == 'percentage' ? ' %' : ''}{data?.option?.slider2?.type == 'duration' ? ' yr(s)' : ''}</p>
+                                                    {/* <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider2?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param2, 0)}{data?.option?.slider2?.type == 'percentage' ? ' %' : ''}{data?.option?.slider2?.type == 'duration' ? ' yr(s)' : ''}</p> */}
+                                                    <span className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider2?.type == 'number' ? '₹ ' : ''} <input onInput={(e) => e.target.value = e.target.value.slice(0, (data?.option?.slider2?.max + '').length)} type='number' onWheel={event => event.currentTarget.blur()} value={data?.option?.slider2?.type == 'percentage' ? Number.parseFloat(param2) : param2} onChange={e => setParam2(e.target.value)} className={` ${data?.option?.slider2.type == 'duration' ? 'w-[60px]' : 'w-[80px]'} text-black text-right text-xs not-italic font-semibold leading-5 bg-transparent`} /> {data?.option?.slider2?.type == 'percentage' ? ' %' : ''}{data?.option?.slider2?.type == 'duration' ? ' yr(s)' : ''}</span>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
@@ -171,7 +173,8 @@ export default function CalculatorDetails({ name, data }) {
                                             <div className='flex justify-between items-center self-stretch'>
                                                 <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider3?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider3?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param3, 0)}{data?.option?.slider3?.type == 'percentage' ? ' %' : ''}{data?.option?.slider3?.type == 'duration' ? ' yr(s)' : ''}</p>
+                                                    {/* <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider3?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param3, 0)}{data?.option?.slider3?.type == 'percentage' ? ' %' : ''}{data?.option?.slider3?.type == 'duration' ? ' yr(s)' : ''}</p> */}
+                                                    <span className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider3?.type == 'number' ? '₹ ' : ''} <input onInput={(e) => e.target.value = e.target.value.slice(0, (data?.option?.slider3?.max + '').length)} type='number' onWheel={event => event.currentTarget.blur()} value={data?.option?.slider3?.type == 'percentage' ? Number.parseFloat(param3) : param3} onChange={e => setParam3(e.target.value)} className={` ${data?.option?.slider3.type == 'duration' ? 'w-[60px]' : 'w-[80px]'} text-black text-right text-xs not-italic font-semibold leading-5 bg-transparent`} /> {data?.option?.slider3?.type == 'percentage' ? ' %' : ''}{data?.option?.slider3?.type == 'duration' ? ' yr(s)' : ''}</span>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
@@ -188,7 +191,8 @@ export default function CalculatorDetails({ name, data }) {
                                             <div className='flex justify-between items-center self-stretch'>
                                                 <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider4?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider4?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param4, 0)}{data?.option?.slider4?.type == 'percentage' ? ' %' : ''}{data?.option?.slider4?.type == 'duration' ? ' yr(s)' : ''}</p>
+                                                    {/* <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider4?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param4, 0)}{data?.option?.slider4?.type == 'percentage' ? ' %' : ''}{data?.option?.slider4?.type == 'duration' ? ' yr(s)' : ''}</p> */}
+                                                    <span className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider4?.type == 'number' ? '₹ ' : ''} <input onInput={(e) => e.target.value = e.target.value.slice(0, (data?.option?.slider4?.max + '').length)} type='number' onWheel={event => event.currentTarget.blur()} value={data?.option?.slider4?.type == 'percentage' ? Number.parseFloat(param4) : param4} onChange={e => setParam4(e.target.value)} className={` ${data?.option?.slider4.type == 'duration' ? 'w-[60px]' : 'w-[80px]'} text-black text-right text-xs not-italic font-semibold leading-5 bg-transparent`} /> {data?.option?.slider4?.type == 'percentage' ? ' %' : ''}{data?.option?.slider4?.type == 'duration' ? ' yr(s)' : ''}</span>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
@@ -205,7 +209,8 @@ export default function CalculatorDetails({ name, data }) {
                                             <div className='flex justify-between items-center self-stretch'>
                                                 <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider5?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider5?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param5, 0)}{data?.option?.slider5?.type == 'percentage' ? ' %' : ''}{data?.option?.slider5?.type == 'duration' ? ' yr(s)' : ''}</p>
+                                                    {/* <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider5?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param5, 0)}{data?.option?.slider5?.type == 'percentage' ? ' %' : ''}{data?.option?.slider5?.type == 'duration' ? ' yr(s)' : ''}</p> */}
+                                                    <span className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider5?.type == 'number' ? '₹ ' : ''} <input onInput={(e) => e.target.value = e.target.value.slice(0, (data?.option?.slider5?.max + '').length)} type='number' onWheel={event => event.currentTarget.blur()} value={data?.option?.slider5?.type == 'percentage' ? Number.parseFloat(param5) : param5} onChange={e => setParam5(e.target.value)} className={` ${data?.option?.slider5.type == 'duration' ? 'w-[60px]' : 'w-[80px]'} text-black text-right text-xs not-italic font-semibold leading-5 bg-transparent`} /> {data?.option?.slider5?.type == 'percentage' ? ' %' : ''}{data?.option?.slider5?.type == 'duration' ? ' yr(s)' : ''}</span>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
@@ -222,7 +227,8 @@ export default function CalculatorDetails({ name, data }) {
                                             <div className='flex justify-between items-center self-stretch'>
                                                 <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider6?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
-                                                    <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider6?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param6, 0)}{data?.option?.slider6?.type == 'percentage' ? ' %' : ''}{data?.option?.slider6?.type == 'duration' ? ' yr(s)' : ''}</p>
+                                                    {/* <p className='text-black text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider6?.type == 'number' ? '₹ ' : ''}{Actions.putComma(param6, 0)}{data?.option?.slider6?.type == 'percentage' ? ' %' : ''}{data?.option?.slider6?.type == 'duration' ? ' yr(s)' : ''}</p> */}
+                                                    <span className='text-[color:var(--Neutral-900,#202020)] text-right text-xs not-italic font-semibold leading-5'>{data?.option?.slider6?.type == 'number' ? '₹ ' : ''} <input onInput={(e) => e.target.value = e.target.value.slice(0, (data?.option?.slider6?.max + '').length)} type='number' onWheel={event => event.currentTarget.blur()} value={data?.option?.slider6?.type == 'percentage' ? Number.parseFloat(param6) : param6} onChange={e => setParam6(e.target.value)} className={` ${data?.option?.slider6.type == 'duration' ? 'w-[60px]' : 'w-[80px]'} text-black text-right text-xs not-italic font-semibold leading-5 bg-transparent`} /> {data?.option?.slider6?.type == 'percentage' ? ' %' : ''}{data?.option?.slider6?.type == 'duration' ? ' yr(s)' : ''}</span>
                                                 </div>
                                             </div>
                                             <div className='max-w-screen-xl mx-auto w-full flex flex-col gap-4 '>
@@ -241,10 +247,10 @@ export default function CalculatorDetails({ name, data }) {
                             </div>
                         </div>
                         {(calcType == 'SIP') && <FutureValueSection monthlyInvestment={param1} returnRate={param2} timePeriod={param3} />}
-                        <ReturnCompareSection type={data?.chartType} />
+                        {!data?.amortization && <ReturnCompareSection type={data?.chartType} param1={param1} param2={param2} param3={param3} totalValueFormula={data?.totalValueFormula} proValueFormula={data?.proValueFormula} />}
                         {data?.amortization && <AmortizationDetailSetion />}
                         <ExtraDetailsSection data={data?.extraDetails} />
-                        <div className='flex flex-col items-start gap-3 lg:hidden mx-4'>
+                        <div className='flex flex-col items-start gap-3  lg:hidden mx-4'>
                             <div className='flex w-full justify-between items-center'>
                                 <p className='text-black text-base not-italic font-bold leading-7'>More calculators</p>
                                 <p onClick={() => push('/calculators')} className='text-[color:var(--Primary-900,#00439D)] text-xs not-italic font-semibold leading-5'>View all</p>
@@ -254,7 +260,7 @@ export default function CalculatorDetails({ name, data }) {
                                     <Link key={i} href={`/calculators/${ele?.title}`} >
                                         <div className=' relative px-3 py-3 w-full border border-[color:var(--Neutral-300,#DFDFDF)] rounded-xl border-solid'>
                                             <Image src={ele?.icon} alt='demo' className=' w-[40px] h-[40px] bottom-0 right-0 absolute ' />
-                                            <p className='text-black text-base not-italic font-semibold leading-7'>{ele?.title} <br /> calculator</p>
+                                            <p className='text-black text-base not-italic font-semibold leading-7'>{ele?.title}<br />calculator</p>
                                         </div>
                                     </Link>
                                 )}
