@@ -59,11 +59,32 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
 export async function getServerSideProps(context) {
     const { query, res } = context;
     const { name } = query;
+    var changeName = null;
 
     // let res = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
     // let ress = await axios.get(`${process.env.apiBaseURL}/resources/screeners/${name}`)
 
-    const [ress1, ress] = await Promise.all([getScreenersList(), getScreenerDetails(name)]);
+    const temp = {
+        "FUNDAMENTAL_STRONG_STOCKS": "fundamentally-strong-stocks",
+        "MULTI_BAGGER_STOCKS": "multibagger-stocks",
+        "HIGH_DIVIDEND_STOCKS": "highest-dividend-paying-stocks",
+        "52WK_HIGH": "52-week-high",
+        "52WK_LOW": "52-week-low"
+    }
+    if (Object.keys(temp).filter(f => f === name).length > 0) {
+        res.writeHead(301, {
+            location: `/screeners/${temp[name] ?? ''}`
+        });
+        res.end();
+    } else if (Object.values(temp).filter(f => f === name).length > 0) {
+        Object.entries(temp).map(([k, v]) => {
+            if (v === name) {
+                changeName = k;
+            }
+        })
+    }
+    console.log(changeName);
+    const [ress1, ress] = await Promise.all([getScreenersList(), getScreenerDetails(changeName ?? name)]);
 
     const data = ress1.data?.data?.list
     var screenerDetails = {}
@@ -84,7 +105,7 @@ export async function getServerSideProps(context) {
             screenersCategories: data?.screenersCategories?.filter(f => !f.isFutureStockScreenerCategory),
             screenersList: data?.screenersList?.filter(f => !f.isFutureStock),
             screenerDetails,
-            name: name?.toUpperCase()?.replaceAll('-', '_'),
+            name: (changeName ?? name)?.toUpperCase()?.replaceAll('-', '_'),
             codeList: data?.screenersList?.filter(f => !f.isFutureStock)?.map(ele => ele?.code)
         }
     };

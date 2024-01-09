@@ -13,7 +13,14 @@ let Actions = {
         return `/stocks/${encodeURIComponent(lowerCase(symbol))}/${encodeURIComponent(repl(lowerCase(compName)))}-share-price-today`
     },
     toScreener: (code) => {
-        const repl = (text) => text?.toLowerCase()?.replaceAll('_', '-');
+        const temp = {
+            "FUNDAMENTAL_STRONG_STOCKS": "fundamentally-strong-stocks",
+            "MULTI_BAGGER_STOCKS": "multibagger-stocks",
+            "HIGH_DIVIDEND_STOCKS": "highest-dividend-paying-stocks",
+            "52WK_HIGH": "52-week-high",
+            "52WK_LOW": "52-week-low"
+        }
+        const repl = (text) => temp[code] ?? text?.toLowerCase()?.replaceAll('_', '-');
         return `/screeners/${repl(code)}`
     },
     setCookie: (cname, cvalue, exdays) => {

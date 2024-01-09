@@ -40,7 +40,7 @@ const PopUp = () => {
         if (number.length === 10) {
             axios.get(`${process.env.apiBaseURL}/resources/website/get-phone-call/${number}?type=web`)
                 .then(res => {
-                    toast.notify(res.data?.message)
+                    toast.notify('Download app from link sent on your phone')
                     setNumber('')
                     popUp.close()
                 })
