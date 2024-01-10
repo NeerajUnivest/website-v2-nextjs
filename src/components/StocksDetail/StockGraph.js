@@ -41,7 +41,7 @@ const options = {
             style: {
                 padding: 5,
                 fontSize: 9,
-                fontFamily: "'Inter', 'sans-serif'",
+                // fontFamily: "'Inter', 'sans-serif'",
                 fontWidth: 'semibold',
                 color: '#232A31'
             }
@@ -61,7 +61,7 @@ const options = {
             style: {
                 fontSize: 10,
                 color: '#232A31',
-                fontFamily: "'Inter', 'sans-serif'",
+                // fontFamily: "'Inter', 'sans-serif'",
                 fontWidth: 'semibold',
             }
         }

@@ -86,7 +86,7 @@ export default function FutureValueSection({ monthlyInvestment, returnRate, time
                     // },
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Inter', 'sans-serif'",
+                        // fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'extrabold',
                         color: '#232A31',
                         textOutline: 0

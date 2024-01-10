@@ -260,7 +260,7 @@ export default function CalculatorDetails({ name, data }) {
                                     <Link key={i} href={`/calculators/${ele?.title}`} >
                                         <div className=' relative px-3 py-3 w-full border border-[color:var(--Neutral-300,#DFDFDF)] rounded-xl border-solid'>
                                             <Image src={ele?.icon} alt='demo' className=' w-[40px] h-[40px] bottom-0 right-0 absolute ' />
-                                            <p className='text-black text-base not-italic font-semibold leading-7'>{ele?.title}<br />calculator</p>
+                                            <p className='line-clamp-2 text-black text-base not-italic font-semibold leading-7'>{ele?.title}<br />calculator</p>
                                         </div>
                                     </Link>
                                 )}

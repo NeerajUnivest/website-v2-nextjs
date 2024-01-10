@@ -41,7 +41,7 @@ function FllCard(props) {
                     y: 30,
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Inter', 'sans-serif'",
+                        // fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'semibold',
                         color: '#979797',
 
@@ -104,7 +104,7 @@ function FllCard(props) {
                     },
                     style: {
                         fontSize: 12,
-                        fontFamily: "'Inter', 'sans-serif'",
+                        // fontFamily: "'Inter', 'sans-serif'",
                         fontWidth: 'semibold',
                         color: '#232A31',
                         textOutline: 0

@@ -57,7 +57,7 @@ function OverallCard({ data, quarter }) {
                                 this.y + '%</div></div>';
                         },
                         style: {
-                            fontFamily: "'Inter', 'sans-serif'",
+                            // fontFamily: "'Inter', 'sans-serif'",
                             textOutline: 0
                         },
                     },
