@@ -21,9 +21,10 @@ export default function Calculators() {
     return (
         <>
             <MetaSection
-                title='Financial Planning Calculators - Univest | Calculate Your Investment'
-                desc='Take your Investment strategy to the next level using Univest online Financial planning Calculators for different investment methods. Choose the best investment option achieve your financial goals.'
-                keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
+                title='Financial Calculators - Plan Your Finances with Univest!'
+                desc='Explore our range of Financial Calculators. Perfect for budgeting, investments, loans, and savings planning. Simplify your financial calculations now!'
+            // keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' 
+            />
 
             <section className='font-Inter relative overflow-hidden pt-12 pb-12 lg:pt-32' style={{ background: 'linear-gradient(180deg, #EFF7FF 0%, rgba(239, 247, 255, 0.00) 100%)' }}  >
                 <div className=' hidden lg:flex justify-center items-center gap-8 self-stretch mx-20 py-0'>
@@ -35,7 +36,7 @@ export default function Calculators() {
                         <p className='self-stretch text-[color:var(--Neutral-600,#747474)] text-xl not-italic font-medium leading-8'>Empower your financial journey with calculators – where precision meets simplicity. Plan smarter, achieve more.</p>
                     </div>
                 </div>
-                <div className='mx-4 py-2 mt-12 grid grid-cols-2 items-center gap-4 lg:grid-cols-4 lg:mx-20 lg:gap-x-10 lg:gap-y-8'>
+                <div className='mx-4 py-2 mt-12 grid grid-cols-2 items-center gap-4 md:flex lg:mx-20 lg:gap-x-10 lg:gap-y-8'>
                     {calcData?.map((ele, i) =>
                         <CalculatorsCard key={i} ele={ele} />
                     )}

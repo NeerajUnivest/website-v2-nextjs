@@ -9,6 +9,7 @@ import ppfImage from '@/assets/images/calculators/ppf.png'
 const calcData = [
     {
         title: 'SIP',
+        url: 'sip-calculator',
         name: 'SIP<br/>calculator',
         desc: 'Optimize your investment<br/>strategy accurately',
         metaTitle: 'Best SIP Calculator Online - Measure Returns on SIP Investments',
@@ -137,6 +138,7 @@ const calcData = [
     },
     {
         title: 'Lumpsum',
+        url: 'lumpsum-calculator',
         name: 'Lumpsum<br/>calculator',
         desc: 'Precise estimates for<br/>one-time payments',
         metaTitle: 'Best Lumpsum Investment Plan Calculator Online India - Univest',
@@ -337,6 +339,7 @@ const calcData = [
     // },
     {
         title: 'Compound interest',
+        url: 'compound-interest-calculator',
         name: 'Compound<br/>interest calculator',
         desc: 'Understand how interest<br/>grows exponentially',
         metaTitle: 'Best Compound Interest Calculators Online India - Univest',

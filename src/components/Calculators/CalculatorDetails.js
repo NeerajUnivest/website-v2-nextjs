@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import calcData from '@/components/Calculators/calculatorsJsonData';
 import Actions from '@/elements/Actions';
 import { Mixpanel } from '@/elements/Mixpanel';
+import { AiOutlineRight } from 'react-icons/ai';
 
 
 export default function CalculatorDetails({ name, data }) {
@@ -93,17 +94,43 @@ export default function CalculatorDetails({ name, data }) {
     return (
         <>
             <section className='font-Inter relative  pt-20 pb-12 lg:mx-20 lg:pt-32' >
-                <div className='inline-flex gap-10 w-full'>
+                <div className='inline-flex gap-10 w-full relative'>
+                    <nav className="w-full mx-4 absolute -top-8 hidden md:block">
+                        <ol className="list-reset flex">
+                            <li>
+                                <Link
+                                    href="/"
+                                    className="text-primary text-xs font-medium"
+                                >Home</Link>
+                            </li>
+                            <li className=" flex items-end mb-1 px-2">
+                                <AiOutlineRight color='#707070' size={14} />
+                            </li>
+                            <li>
+                                <Link
+                                    href="/calculators"
+                                    className="text-primary text-xs font-medium"
+                                >Calculators</Link>
+                            </li>
+                            <li className=" flex items-end mb-1 px-2">
+                                <AiOutlineRight color='#707070' size={14} />
+                            </li>
+                            <li>
+                                <span className="text-primary text-xs font-medium">{data?.title}
+                                </span>
+                            </li>
+                        </ol>
+                    </nav>
                     <div className=' sticky top-[100px] self-start w-1/4 overflow-auto hidden lg:flex lg:flex-col border-2 border-solid lg:rounded-xl border-[color:var(--Neutral-200,#EDEDED)] '>
                         <div className='flex w-80 items-center gap-4 px-3 py-4  '>
                             <Image onClick={() => push('/calculators')} src={backIcon} alt='demo' className='w-4 h-4' />
                             <p className='text-black text-xl not-italic font-semibold leading-8'>Calculators home</p>
                         </div>
                         {calcData?.map((ele, i) =>
-                            <Link key={i} href={`${ele?.title}`} >
-                                <div className={`${name == ele?.title ? 'bg-[#ECF6FE]' : ''} py-[22px] relative border-t-[1px] border-[color:var(--Neutral-300,#DFDFDF)] border-solid items-center justify-start flex pl-3 pr-12 `}>
-                                    <Image src={ele?.icon} alt='demo' className={`${name == ele?.title ? 'w-[48px] h-[48px] opacity-70' : 'w-[40px] h-[40px]'} bottom-0 right-0 absolute opacity-40`} />
-                                    <p className='text-black text-base not-italic font-semibold leading-7'>{ele?.title} calculator</p>
+                            <Link key={i} href={`${ele?.url}`} >
+                                <div className={`${name == ele?.url ? 'bg-[#ECF6FE]' : ''} py-[22px] relative border-t-[1px] border-[color:var(--Neutral-300,#DFDFDF)] border-solid items-center justify-start flex pl-3 pr-12 `}>
+                                    <Image src={ele?.icon} alt='demo' className={`${name == ele?.url ? 'w-[48px] h-[48px] opacity-70' : 'w-[40px] h-[40px]'} bottom-0 right-0 absolute opacity-40`} />
+                                    <p className='text-black text-base not-italic font-semibold leading-7 line-clamp-1'>{ele?.title} calculator</p>
                                 </div>
                             </Link>
                         )}
@@ -113,7 +140,7 @@ export default function CalculatorDetails({ name, data }) {
                             <div className='relative px-4 py-[17px] lg:rounded-2xl overflow-hidden lg:px-[22px] lg:py-6' style={{ background: `linear-gradient(180deg, ${data?.bgColor} 0%, rgba(244, 193, 182, 0.00) 100%)` }} >
                                 <Image src={data?.icon} alt='demo' className=' w-[56px] h-[56px] bottom-0 right-0 absolute lg:w-[88px] lg:h-[88px]' />
                                 <div className='inline-flex flex-col items-start gap-0.5 lg:gap-2'>
-                                    <p className='text-black text-base not-italic font-bold leading-7 lg:text-2xl'>{name} calculator</p>
+                                    <p className='text-black text-base not-italic font-bold leading-7 lg:text-2xl'>{data?.title} calculator</p>
                                     <p className='text-[#414141] text-center text-xs not-italic font-medium leading-5 lg:text-xl'>Optimize your investment strategy accurately</p>
                                 </div>
                             </div>
@@ -318,8 +345,8 @@ export default function CalculatorDetails({ name, data }) {
                                 <p onClick={() => push('/calculators')} className='text-[color:var(--Primary-900,#00439D)] text-xs not-italic font-semibold leading-5'>View all</p>
                             </div>
                             <div className=' w-full grid grid-cols-2 items-center gap-4'>
-                                {calcData?.filter(ele => ele?.title != name)?.map((ele, i) =>
-                                    <Link key={i} href={`/calculators/${ele?.title}`} >
+                                {calcData?.filter(ele => ele?.url != name)?.map((ele, i) =>
+                                    <Link key={i} href={`/calculators/${ele?.url}`} >
                                         <div className=' relative px-3 py-3 w-full border border-[color:var(--Neutral-300,#DFDFDF)] rounded-xl border-solid'>
                                             <Image src={ele?.icon} alt='demo' className=' w-[40px] h-[40px] bottom-0 right-0 absolute ' />
                                             <p className='line-clamp-2 text-black text-base not-italic font-semibold leading-7'>{ele?.title}<br />calculator</p>

@@ -124,7 +124,7 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
                     </div>
                     <p className='text-[color:var(--Neutral-600,#747474)] text-[8px] not-italic font-medium leading-3 lg:text-[10px]'>*This amount is calculated on {Actions.putComma(param2, 1)}% p.a. for the span of {Actions.putComma(param3, 0)} yrs.</p>
                 </div>
-                <div className='flex w-full flex-col items-center gap-3 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-lg border-solid bg-[#FCFCFC] mt-4'>
+                <div className='flex w-full flex-col items-center gap-2 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-lg border-solid bg-[#FCFCFC] mt-4'>
                     {/* <div className='flex w-full justify-between items-center'>
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Invested amount</p>
                         <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma((param1 * (param3 * 12)), 0)}</p>
@@ -139,15 +139,11 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
                         <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>Total value</p>
                         <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(totalValue, 0)}</p>
                     </div> */}
-                    {outputs?.map((ele, i) => {
-                        return <>
-                            <div className={` ${i == 0 ? 'hidden' : ''} h-px self-stretch bg-[#DFDFDF]`}></div>
-                            <div className='flex w-full justify-between items-center'>
-                                <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>{ele?.name}</p>
-                                <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(eval(ele?.formula), 0)}</p>
-                            </div>
-                        </>
-                    })}
+                    {outputs?.map((ele, i) =>
+                        <div key={i} className={`flex w-full justify-between items-center ${i !== 2 && 'border-b border-[#DFDFDF] pb-1.5'} `}>
+                            <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>{ele?.name}</p>
+                            <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(eval(ele?.formula), 0)}</p>
+                        </div>)}
                 </div>
             </div>
         </section>

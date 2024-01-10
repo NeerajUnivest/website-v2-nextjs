@@ -7,7 +7,7 @@ import { Mixpanel } from '@/elements/Mixpanel';
 export default function CalculatorsCard({ ele }) {
     return (
         <>
-            <Link href={`calculators/${ele.title}`} onClick={() => {
+            <Link href={`calculators/${ele.url}`} onClick={() => {
                 Mixpanel.track('cta_clicked', {
                     // 'cta_clicked': 'submit',
                     'page': 'calculators',

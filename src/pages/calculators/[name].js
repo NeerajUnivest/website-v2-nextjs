@@ -41,7 +41,7 @@ export async function getServerSideProps(ctx) {
     return {
         props: {
             name: name,
-            data: calcData?.filter(f => f.title === name)?.[0] ?? null
+            data: calcData?.filter(f => f.url === name)?.[0] ?? null
         }
     }
 }
