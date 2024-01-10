@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Mixpanel } from "@/elements/Mixpanel";
 import PageNotFound from "../404";
 import { StompSessionProvider, } from "react-stomp-hooks";
+import sreenersData from '../../components/Screeners/sreenersData.json'
 import Actions from "@/elements/Actions";
 const getScreenersList = async () => {
     let ress1 = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
@@ -31,8 +32,9 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
         return (
             <>
                 <MetaSection
-                    title={`${name?.replaceAll('_', ' ')} | Univest`}
-                    desc={screenerDetails?.description}
+                    title={sreenersData[name]?.META?.title ?? `${name?.replaceAll('_', ' ')} | Univest`}
+                    desc={sreenersData[name]?.META?.desc ?? screenerDetails?.description}
+                    schema={sreenersData[name]?.META?.schema}
                     keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
 
                 <section className='lg:pt-24 font-Inter'>
@@ -43,8 +45,28 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
                                 <div className='col-span-12 lg:col-span-3'>
                                     <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} />
                                 </div>
-                                <LaptopScreener data={screenerDetails} name={name} />
+                                <div className='col-span-12 lg:col-span-9'>
+                                    <LaptopScreener data={screenerDetails} name={name} />
+                                    {sreenersData[name]?.BOTTOM?.map((ele, j) =>
+                                        <div key={j} className='font-Inter mx-4 my-8 hidden md:block'>
+                                            {ele.title && <h2 className="text-xl leading-8 font-extrabold">{ele.title}</h2>}
+                                            {ele.disc && <p className="text-base leading-7 font-medium text-[#414141]">{ele.disc}</p>}
+                                            {ele.list && <ul className="font-Inter list-decimal pl-5 list-outside text-justify">
+                                                {ele.list?.map((ele, i) =>
+                                                    <li key={i} className="text-base leading-7 font-normal text-[#414141]" dangerouslySetInnerHTML={{ __html: ele }} />)}
+                                            </ul>}
+                                        </div>)}
+                                </div>
                             </div>
+                            {sreenersData[name]?.BOTTOM?.map((ele, j) =>
+                                <div key={j} className='font-Inter mx-4 my-8 md:hidden block'>
+                                    {ele.title && <h2 className="text-base leading-7 font-extrabold">{ele.title}</h2>}
+                                    {ele.disc && <p className="text-sm leading-6 font-medium text-[#414141]">{ele.disc}</p>}
+                                    {ele.list && <ul className="font-Inter list-decimal pl-5 list-outside text-justify">
+                                        {ele.list?.map((ele, i) =>
+                                            <li key={i} className="text-sm leading-6 font-normal text-[#414141]" dangerouslySetInnerHTML={{ __html: ele }} />)}
+                                    </ul>}
+                                </div>)}
                         </div>
                     </StompSessionProvider>
                 </section>

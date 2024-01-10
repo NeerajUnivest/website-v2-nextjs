@@ -22,9 +22,7 @@ export default function ScreenerCard({ ele }) {
             >
                 {/* {ele.premium && <Image src={proIconScrenner} className='absolute top-0 right-0 w-14 lg:w-20 object-contain' alt='logo' />} */}
                 <Image width={40} height={40} placeholder='empty' src={ele?.imageUrl} alt={ele?.title} className='h-[32px] w-[32px] lg:h-[40px] lg:w-[40px]' />
-                <div className='line-clamp-2 w-2/3 text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px] font-semibold mt-4'>
-                    {ele?.title}
-                </div>
+                <div className='line-clamp-2 lg:w-[75%] text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px] font-semibold mt-4' dangerouslySetInnerHTML={{ __html: ele?.title?.split(' ')?.length < 3 ? ele?.title?.replace(' ', '<br/>') : ele?.title }} />
                 <div className='flex items-center justify-between text-[10px] leading-16px] lg:text-[12px] lg:leading-[20px] text-[#606060] font-medium mt-1'>
                     {ele?.stocksCount} stocks
                     {ele?.newFlag && <div className='rounded px-2 lg:px-3 text-[10px] lg:text-xs text-white bg-app-red'>New</div>}

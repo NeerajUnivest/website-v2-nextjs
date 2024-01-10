@@ -17,7 +17,8 @@ export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
     const { width } = useWindowSize();
-    const { route } = useRouter();
+    const { route, asPath } = useRouter();
+    console.log(asPath);
     return (
         <nav className={`bg-[rgba(252,252,252,0.4)] text-white fixed left-0 right-0 top-0 lg:top-3 z-10`} >
             <div className={`font-Inter max-w-screen-xl mx-auto flex items-center lg:justify-between lg:px-8 flex-wrap backdrop-blur-sm ${showSearchBar ? ' p-2' : ' p-4'}`}>
@@ -34,7 +35,7 @@ export default function NavBar() {
                         </div>
                     </>}
                 <div className="hidden text-base font-semibold lg:flex flex-row items-center w-auto text-black">
-                    <Link href='/stocks' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/stocks' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
+                    <Link href='/stocks' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${asPath.includes('/stocks') ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
                         Stocks
                     </Link>
                     <Link href='/elite' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/elite' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
@@ -43,7 +44,7 @@ export default function NavBar() {
                     <Link href='/pro' className={`mx-4 px-3 py-2  hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/pro' ? 'bg-gradient-to-t from-[#FF8415] to-[#FFCA3F]' : ''}`}>
                         Pro
                     </Link>
-                    <Link href='/screeners' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${route === '/screeners' ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
+                    <Link href='/screeners' className={`mx-4 px-3 py-2 hover:opacity-75 rounded-lg duration-200 ease-in-out ${asPath.includes('/screeners') ? 'bg-gradient-to-t from-[#222832] to-[#343434] text-white' : ''}`}>
                         Screeners
                     </Link>
                     <div className={`mx-4 px-3 py-2 rounded-lg duration-200 ease-in-out hover:bg-gradient-to-t hover:from-[#222832] hover:to-[#343434] hover:text-white cursor-pointer`}
