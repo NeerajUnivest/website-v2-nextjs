@@ -147,7 +147,7 @@ export default function CalculatorDetails({ name, data }) {
                                 </div>
                             </div>
                             <div className='  mt-4 mx-4 flex flex-col gap-4 lg:flex-row lg:mt-10 lg:mx-0 lg:gap-8'>
-                                <div className={`h-half w-full ${data?.title != 'EPF' ? 'lg:w-3/5' : ''}  flex flex-col border border-black  pb-3  ${(name == 'SIP' || name == 'Lumpsum') ? 'lg:pb-4' : 'lg:pb-0'}  rounded-xl border-solid  overflow-hidden `}>
+                                <div className={`h-half w-full ${data?.title != 'EPF' ? 'lg:w-3/5' : ''}  flex flex-col border border-black  pb-3  ${(name == 'sip-calculator' || name == 'lumpsum-calculator') ? 'lg:pb-4' : 'lg:pb-0'}  rounded-xl border-solid  overflow-hidden `}>
                                     <div className='flex w-full justify-between items-center  px-4 py-2 bg-black'>
                                         <p className='text-[color:var(--Neutral-300,#DFDFDF)] text-xs not-italic font-bold leading-5 lg:text-base'>{data?.totalValueText}</p>
                                         <p className='text-[color:var(--Pearl-White,#FFF)] text-base not-italic font-extrabold leading-7 lg:text-2xl'>₹{Actions.putComma(eval(data?.title == 'SIP' || data?.title == 'Lumpsum' ? customOutput[2]?.formula : data?.totalValueFormula), 0)}</p>
