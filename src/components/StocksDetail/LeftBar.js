@@ -6,6 +6,9 @@ import greenArrow from '../../assets/icn/greenArrow.png';
 // import expertVerdictPhone from "../../assets/images/expertVerdictPhone.webp";
 import DownloadNow from '../../elements/DownloadNow/DownloadNow';
 import Image from 'next/image'
+import Link from 'next/link';
+import { FaAngleLeft } from 'react-icons/fa';
+import { AiOutlineRight } from 'react-icons/ai';
 
 
 
@@ -68,6 +71,32 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
     }
 
     return <div className=' bg-white z-[9] sticky top-[74px] lg:top-[94px] pt-2'>
+        <nav className="w-full mx-4 ">
+            <ol className="list-reset flex">
+                <li>
+                    <Link
+                        href="/"
+                        className="text-primary text-xs font-medium"
+                    >Home</Link>
+                </li>
+                <li className=" flex items-end mb-1 px-2">
+                    <AiOutlineRight color='#707070' size={14} />
+                </li>
+                <li>
+                    <Link
+                        href="/stocks"
+                        className="text-primary text-xs font-medium"
+                    >Stocks</Link>
+                </li>
+                <li className=" flex items-end mb-1 px-2">
+                    <AiOutlineRight color='#707070' size={14} />
+                </li>
+                <li>
+                    <span className="text-primary text-xs font-medium">{data?.nseSymbol ?? data?.bseSymbol}
+                    </span>
+                </li>
+            </ol>
+        </nav>
         <div className='mx-4 relative lg:pb-8'>
             <div className='mt-3 mb-6 border border-1 p-2 rounded-md'>
                 {data?.compName ?
@@ -83,7 +112,7 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                         </div>
                         <div>
                             <h1 className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
-                                {data?.bseSymbol}
+                                {data?.nseSymbol ?? data?.bseSymbol}
                             </h1>
                             <div className='font-Inter font-medium text-[12px] text-[#858585] leading-[20px]'>
                                 {data?.compName && data?.compName?.length > 25 ? data?.compName?.slice(0, 25) + '...' : data?.compName}

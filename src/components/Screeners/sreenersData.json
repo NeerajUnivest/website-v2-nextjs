@@ -1,0 +1,104 @@
+{
+    "FUNDAMENTAL_STRONG_STOCKS": {
+        "META": {
+            "title": "Best Fundamentally Strong Stocks in India 2024 - Univest",
+            "desc": "Describing fundamentally strong stocks in India involves highlighting their financial base, factors like substantial earnings growth, debt-to-equity ratio, and returns.",
+            "schema": {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How do fundamentally strong stocks remain profitable during market downturns?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Since these stocks have strong foundations backed by impressive returns, efficient management and a positive growth curve, market lows can be easily managed."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is the debt-to-equity ratio?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The debt-to-equity ratio is a financial metric used to assess the proportion of the debt in comparison to the equity funds invested in the company."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How can I get company financials?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The company financials and key metrics can be accessed on the official website of the respective company. Alternatively, these details are also available on the web portals of NSE and BSE."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are fundamentally strong stocks registered on the NSE and BSE?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, all stocks including the ones with a solid foundation are registered on National Stock Exchange (NSE) and Bombay Stock Exchange (BSE)."
+                        }
+                    }
+                ]
+            }
+        },
+        "BOTTOM": [
+            {
+                "title": null,
+                "disc": "The Indian Stock Market is a dynamic platform that offers investors the opportunity to invest their funds in listed shares of various companies to become stakeholders, earn dividends and thus, pave their way through the journey of wealth creation. While there are numerous profitable stocks available in the Indian Stock Market, it is imperative to include some best fundamentally strong stocks in India to offset any potential losses incurred during downturns in the market"
+            },
+            {
+                "title": "Factors influencing Indian Stock Markets:",
+                "disc": null,
+                "list": [
+                    "<b>Global Events:</b> Positive developments worldwide can encourage investors to participate in the stock market. However, global events like economic crises or conflicts between countries might lead to a huge amount of uncertainty in financial markets. These uncertainties and increased risk probabilities can make beginner-level investors risk-averse.",
+                    "<b>Economic Indicators:</b> Various economic indicators like changes in GDP growth, Interest rates, employment rates, etc. can lead to fluctuations in the financial market trends.",
+                    "<b>Government Policies:</b> Government policies include monetary policy, fiscal policy and other important regulations with respect to the Indian Stock Market. Favourable government regulations and policies can positively contribute to positive market trends. However, unfavourable or fluctuating policies of the government might create confusion or pessimism among investors.",
+                    "<b>Company Performance:</b> Company performance is directly proportionate to the investment patterns in the stock market. If the company performs well and the revenue growth increases, it creates an optimistic feeling among the investors. However, if a company underperforms, there will be a feeling of pessimism among investors with respect to market trends.",
+                    "<b>Inflation & Exchange rates:</b> Inflation rates have a direct impact on the purchasing power of the funds, thus influencing investment decisions and stock market trends. On the other hand, constant changes in exchange rates can lead to chaotic international relations of the companies, further leading to instability in the stock market.",
+                    "<b>Political Environment:</b> Political instability or wars can significantly bring down the performance of companies, thus negatively impacting the stock market.",
+                    "<b>Natural Disasters:</b> Natural disasters can bring a massive downturn in various sectors like insurance companies, agriculture-based companies, etc."
+                ]
+            },
+            {
+                "title": "Fundamentally Strong Stocks In India",
+                "disc": "Fundamentally strong stocks in India are the stocks of companies that have a strong financial background backed by substantial growth in earnings of the company and its performance abilities despite adverse variations in the market trends. These are the stocks that will continue to perform well even if other sectors in the stock market are underperforming. One of the most intelligent investing strategies is the inclusion of these stocks in the portfolio of an investor, which will help maintain a balance during bearish trends in the market."
+            },
+            {
+                "title": "Ideal Portfolio Creation - Importance of Top Fundamentally Strong Stocks",
+                "disc": "An ideal investment portfolio of an investor must have a few fundamentally strong stocks. This is because of the following reasons:",
+                "list": [
+                    "<b>Risk Mitigation:</b> One of the most significant advantages of including fundamentally strong stocks in an investor’s portfolio is that these stocks are considered to be resilient and well-performing during downtrends in the market, thus contributing to risk mitigation. This resilience is backed by impressive and con",
+                    "<b>Sustained Growth Potential:</b> Stocks with strong fundamentals massively contribute to long-term growth potential and accumulation of wealth.",
+                    "<b>Consistency in Returns:</b> Companies with fundamentally strong stocks usually have stable returns and expertise in reducing the overall volatility of a portfolio, thus ensuring stability with consistent returns for investors.",
+                    "<b>Hedge against Inflation:</b> Inflation reduces the purchasing power of funds. However, these stocks are well-recognised for withstanding the effects of inflation by ensuring an optimum level of performance and stable returns.",
+                    "<b>Long term perspective:</b> Rational investors with an aim to accumulate wealth in the long run often prefer these stocks, and are less likely to get influenced by short-term fluctuations in the market, thus making wise investment decisions.",
+                    "<b>Regular Source of Income:</b> Since fundamentally strong companies have a good performance in the industry, most of them aim to maintain their market reputation and investor loyalty by distributing dividends regularly. It is extremely beneficial for investors as they are provided with a regular source of dividend income."
+                ]
+            },
+            {
+                "title": "How to identify fundamentally strong stocks using Fundamental Analysis?",
+                "disc": "Fundamental analysis is a holistic approach to evaluating a company’s performance by an extensive evaluation of qualitative as well as quantitative factors. The method is aimed at interpreting and analysing the performance and underlying health of a company to promote rational and well-informed decisions with respect to purchasing stocks of a company."
+            },
+            {
+                "title": "Factors to consider in Fundamental Analysis:",
+                "disc": "There are various components and factors to be kept in consideration while performing a financial analysis of a company. Some of them are described below:"
+            },
+            {
+                "title": "Tips for investors to create a well-balanced portfolio",
+                "disc": null,
+                "list": [
+                    "The first and foremost step to building a well-balanced portfolio is to be clear about one’s financial goals, investment tenure and risk appetite. Having these identified, it will be easier to build a personalised portfolio accordingly.",
+                    "Diversification is the key! To make a balanced portfolio, investors must diversify their portfolio by allocating their investment funds across separate asset classes.",
+                    "Perform a thorough fundamental analysis to identify the stocks with a strong foundation to help minimise the overall volatility in the portfolio during market downturns.",
+                    "It is imperative to review the portfolio periodically and make adjustments as and when required to maximise returns from the invested funds.",
+                    "Staying updated with the market trends and fluctuations in the market is the most important step to make rational and well-informed decisions."
+                ]
+            },
+            {
+                "title": "Conclusion:",
+                "disc": "As you proceed to move ahead towards your financial goals by creating a well-balanced portfolio of fundamentally strong stocks, it is advised to thoroughly do the necessary research and stay informed of the latest trends in the market in order to make intelligent investment decisions. "
+            }
+        ]
+    }
+}

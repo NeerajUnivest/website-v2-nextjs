@@ -136,10 +136,10 @@ export default function HeroSearchBox({ isDark = false, type }) {
     }
     return (<>
         <div className="mx-4 lg:mx-0">
-            <p className={`mt-10 lg:mt-14 mb-1 mx-1 text-sm lg:text-base font-medium ${isDark ? 'text-white' : 'text-[#414141]'}`}>
+            {/* <p className={`mt-10 lg:mt-14 mb-1 mx-1 text-sm lg:text-base font-medium ${isDark ? 'text-white' : 'text-[#414141]'}`}>
                 Connect with wealth advisor today
-            </p>
-            <div className='w-full sm:w-[460px] h-10 lg:h-14 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-xs lg:text-base font-medium'>
+            </p> */}
+            <div className='mt-10 lg:mt-14 w-full sm:w-[460px] h-10 lg:h-14 flex items-center bg-[#FFF] rounded-full border border-[#606060] text-xs lg:text-base font-medium'>
                 {/* {!userDetail?.userData?.authToken &&
                     <>
                         <BsTelephone className='h-4 lg:h-14 ml-4 lg:ml-6' color="#747474" size={24} />

@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Script from "next/script";
 
-export default function MetaSection({ title, desc, keyWords }) {
-    const schema = {
+export default function MetaSection({ title, desc, keyWords, schema }) {
+    const defaultSchema = {
         "@context": "http://schema.org",
         "@type": "Organization",
         "url": "https://univest.in/",
@@ -118,7 +118,7 @@ var f=d.getElementsByTagName(s)[0],
 
         <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema ?? defaultSchema) }}
         />
     </>)
 }

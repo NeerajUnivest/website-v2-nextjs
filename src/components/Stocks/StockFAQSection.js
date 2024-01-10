@@ -27,7 +27,7 @@ export default function StockFAQSection({ name, symbol }) {
             answer: `Our expert verdict states that ${data?.companyPrices?.compName} is in ${data?.companyPrices?.shortTermVerdict} zone for Short term and is in ${data?.companyPrices?.longTermVerdict} zone for Long term.`
         }, {
             question: `Should I buy ${data?.companyPrices?.compName} share now?`,
-            answer: `As per our verdict, ${data?.companyPrices?.compName} is in the ${data?.companyPrices?.shortTermVerdict} zone zone for Short term.`
+            answer: `As per our verdict, ${data?.companyPrices?.compName} is in the ${data?.companyPrices?.shortTermVerdict} zone for Short term.`
         }, {
             question: `Should I buy ${data?.companyPrices?.compName} shares for the long term?`,
             answer: `As per our verdict, ${data?.companyPrices?.compName} is in ${data?.companyPrices?.longTermVerdict} zone for Long term.`
