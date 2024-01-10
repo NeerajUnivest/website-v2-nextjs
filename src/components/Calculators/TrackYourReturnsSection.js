@@ -64,7 +64,7 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
                                 this.y + '%</div></div>';
                         },
                         style: {
-                            fontFamily: "'Inter', 'sans-serif'",
+                            // fontFamily: "'Inter', 'sans-serif'",
                             textOutline: 0
                         },
                     },

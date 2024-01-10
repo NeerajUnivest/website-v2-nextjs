@@ -37,7 +37,7 @@ function FinancialCard({ heading, name, indicator, pos, metric }) {
                                 y: 30,
                                 style: {
                                     fontSize: 12,
-                                    fontFamily: "'Inter', 'sans-serif'",
+                                    // fontFamily: "'Inter', 'sans-serif'",
                                     fontWidth: 'semibold',
                                     color: '#979797',
 
@@ -97,7 +97,7 @@ function FinancialCard({ heading, name, indicator, pos, metric }) {
                                 },
                                 style: {
                                     fontSize: 12,
-                                    fontFamily: "'Roboto', 'sans-serif'",
+                                    // fontFamily: "'Roboto', 'sans-serif'",
                                     fontWidth: 'semibold',
                                     color: '#232A31',
                                     textOutline: 0

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function ExtraDetailCard({ heading, content, active, setActive, i }) {
     return (
-        <div className={`ease-in-out duration-300 border rounded-xl cursor-pointer bg-white ${active === i ? 'border-[#00439D] border-2' : 'border-[#dfdfdf]'} `}
+        <div className={`ease-in-out duration-300 border rounded-xl cursor-pointer bg-white ${active === i ? 'border-black border-1' : 'border-[#dfdfdf]'} `}
             onClick={() => setActive(active === i ? -1 : i)}>
             <div className='flex flex-row p-3'>
                 {/* <div className='mr-3 mt-1.5 h-1 w-1 lg:h-2 lg:w-2 bg-[#202020] rounded-full' /> */}
