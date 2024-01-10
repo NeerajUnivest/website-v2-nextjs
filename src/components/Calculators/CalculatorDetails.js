@@ -267,7 +267,7 @@ export default function CalculatorDetails({ name, data }) {
                             </div>
                         </div>
                         {(calcType == 'SIP') && <FutureValueSection monthlyInvestment={param1} returnRate={param2} timePeriod={param3} />}
-                        {!data?.amortization && <ReturnCompareSection type={data?.chartType} param1={param1} param2={param2} param3={param3} totalValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customOutput[2]?.formula) : data?.totalValueFormula} proValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customProValueFormula) : data?.proValueFormula} />}
+                        {!data?.amortization && <ReturnCompareSection name={name} type={data?.chartType} param1={param1} param2={param2} param3={param3} totalValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customOutput[2]?.formula) : data?.totalValueFormula} proValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customProValueFormula) : data?.proValueFormula} />}
                         {data?.amortization && <AmortizationDetailSetion />}
                         <ExtraDetailsSection data={data?.extraDetails} />
                         <div className='flex flex-col items-start gap-3  lg:hidden mx-4'>

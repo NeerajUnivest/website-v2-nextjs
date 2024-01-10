@@ -6,7 +6,7 @@ import { BlackButton } from '@/elements/Button/Button';
 import { useRouter } from 'next/navigation';
 import { Mixpanel } from '@/elements/Mixpanel';
 
-export default function ReturnCompareSection({ type, param1, param2, param3, totalValueFormula, proValueFormula }) {
+export default function ReturnCompareSection({ name, type, param1, param2, param3, totalValueFormula, proValueFormula }) {
 
     const { push } = useRouter();
     const [grad1, setGrad1] = useState('#FF8415')
@@ -209,7 +209,7 @@ export default function ReturnCompareSection({ type, param1, param2, param3, tot
                     Mixpanel.track('cta_clicked', {
                         // 'cta_clicked': 'submit',
                         'page': 'calculators',
-                        'calculator': ele?.title?.toLowerCase(),
+                        'calculator': name.toLowerCase(),
                         'cta_text': 'pro'
                     })
                     push('/pro')
