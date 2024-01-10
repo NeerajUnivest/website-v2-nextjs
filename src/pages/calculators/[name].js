@@ -7,14 +7,15 @@ import { Mixpanel } from '@/elements/Mixpanel';
 import MetaSection from '@/elements/MetaSection/MetaSection';
 
 export default function CalculatorsPage({ name, data }) {
-    const userDetail = useContext(UserDetailProvider)
+    // const userDetail = useContext(UserDetailProvider)
     useEffect(() => {
         Mixpanel.pageView(
             {
-                'page': name?.toLowerCase(),
+                'page': 'calculators',
+                'calculator': name?.toLowerCase()
             }
         )
-        userDetail.setBtn({ show: false, beforeLogin: 'Get started', afterLogin: 'Download the app now', isProPage: false, page: 'calculators_home' })
+        // userDetail.setBtn({ show: false, beforeLogin: 'Get started', afterLogin: 'Download the app now', isProPage: false, page: 'calculators_home' })
     }, [])
 
 

@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import calcData from '@/components/Calculators/calculatorsJsonData';
 import Actions from '@/elements/Actions';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 
 export default function CalculatorDetails({ name, data }) {
@@ -29,6 +30,23 @@ export default function CalculatorDetails({ name, data }) {
     const [param6, setParam6] = useState(data?.param6);
 
     const [customOutput, setCustomOutput] = useState(data?.outputs);
+    const [customProValueFormula, setCustomProValFormula] = useState(data?.proValueFormula);
+
+    useEffect(() => {
+        Mixpanel.pageView(
+            {
+                'page': 'calculators',
+                'calculator': name?.toLowerCase()
+            }
+        )
+    }, [])
+
+    const handleSliderChange = () => {
+        Mixpanel.track('slider_used', {
+            'page': 'calculators',
+            'calculator': name?.toLowerCase()
+        })
+    }
 
     useEffect(() => {
         setCalcType(name)
@@ -49,6 +67,7 @@ export default function CalculatorDetails({ name, data }) {
                     formula: ` param1 * ((Math.pow((1 + ((param2 / 12) / 100)), (param3 * 12)) - 1) / ((param2 / 12) / 100)) * (1 + ((param2 / 12) / 100))`
                 }
             ])
+            setCustomProValFormula('param1 * ((Math.pow((1 + ((30 / 12) / 100)), (param3 * 12)) - 1) / ((30 / 12) / 100)) * (1 + ((30 / 12) / 100))');
         }
         if (calcType == 'Lumpsum') {
             setCustomOutput([
@@ -65,6 +84,7 @@ export default function CalculatorDetails({ name, data }) {
                     formula: `param1 * (Math.pow((1+param2/100), param3 ))`
                 }
             ])
+            setCustomProValFormula('param1 * (Math.pow((1+30/100), param3 ))');
         }
     }, [calcType])
     // console.log({ data });
@@ -247,7 +267,7 @@ export default function CalculatorDetails({ name, data }) {
                             </div>
                         </div>
                         {(calcType == 'SIP') && <FutureValueSection monthlyInvestment={param1} returnRate={param2} timePeriod={param3} />}
-                        {!data?.amortization && <ReturnCompareSection type={data?.chartType} param1={param1} param2={param2} param3={param3} totalValueFormula={data?.totalValueFormula} proValueFormula={data?.proValueFormula} />}
+                        {!data?.amortization && <ReturnCompareSection type={data?.chartType} param1={param1} param2={param2} param3={param3} totalValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customOutput[2]?.formula) : data?.totalValueFormula} proValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customProValueFormula) : data?.proValueFormula} />}
                         {data?.amortization && <AmortizationDetailSetion />}
                         <ExtraDetailsSection data={data?.extraDetails} />
                         <div className='flex flex-col items-start gap-3  lg:hidden mx-4'>

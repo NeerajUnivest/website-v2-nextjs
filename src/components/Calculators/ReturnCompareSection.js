@@ -4,6 +4,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { BlackButton } from '@/elements/Button/Button';
 import { useRouter } from 'next/navigation';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 export default function ReturnCompareSection({ type, param1, param2, param3, totalValueFormula, proValueFormula }) {
 
@@ -204,7 +205,15 @@ export default function ReturnCompareSection({ type, param1, param2, param3, tot
                         highcharts={Highcharts}
                     />
                 </div>
-                <BlackButton onClick={() => push('/pro')} className={' py-[6px] lg:py-2 px-8 lg:px-12 mx-auto font-bold mt-4 text-xs lg:text-base'} text='Explore Univest Pro' />
+                <BlackButton onClick={() => {
+                    Mixpanel.track('cta_clicked', {
+                        // 'cta_clicked': 'submit',
+                        'page': 'calculators',
+                        'calculator': ele?.title?.toLowerCase(),
+                        'cta_text': 'pro'
+                    })
+                    push('/pro')
+                }} className={' py-[6px] lg:py-2 px-8 lg:px-12 mx-auto font-bold mt-4 text-xs lg:text-base'} text='Explore Univest Pro' />
             </div>
         </section>
     )
