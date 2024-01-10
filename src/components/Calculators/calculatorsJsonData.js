@@ -739,7 +739,7 @@ const calcData = [
     //         },
     //         {
     //             name: 'Monthly EMI',
-    //             formula: ` param1 * ((Math.pow((1 + ((param2 / 12) / 100)), (param3 * 12)) - 1) / ((param2 / 12) / 100)) * (1 + ((param2 / 12) / 100))`
+    //             formula: ` ( param1 * (param2/1200) * ( Math.pow(1+(param2/1200) ,(param3*12) ) ) ) / ( ( Math.pow( 1+(param2/1200) , (param3*12) ) ) - 1 )`
     //         }
     //     ],
     //     option: {

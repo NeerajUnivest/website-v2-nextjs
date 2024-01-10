@@ -33,6 +33,8 @@ export default function CalculatorDetails({ name, data }) {
     const [customOutput, setCustomOutput] = useState(data?.outputs);
     const [customProValueFormula, setCustomProValFormula] = useState(data?.proValueFormula);
 
+    console.log({ name });
+
     useEffect(() => {
         Mixpanel.pageView(
             {
@@ -53,7 +55,7 @@ export default function CalculatorDetails({ name, data }) {
         setCalcType(name)
     }, [name])
     useEffect(() => {
-        if (calcType == 'SIP') {
+        if (calcType == 'sip-calculator') {
             setCustomOutput([
                 {
                     name: 'Invested Amount',
@@ -70,7 +72,7 @@ export default function CalculatorDetails({ name, data }) {
             ])
             setCustomProValFormula('param1 * ((Math.pow((1 + ((30 / 12) / 100)), (param3 * 12)) - 1) / ((30 / 12) / 100)) * (1 + ((30 / 12) / 100))');
         }
-        if (calcType == 'Lumpsum') {
+        if (calcType == 'lumpsum-calculator') {
             setCustomOutput([
                 {
                     name: 'Total Investment',
@@ -151,15 +153,15 @@ export default function CalculatorDetails({ name, data }) {
                                         <p className='text-[color:var(--Pearl-White,#FFF)] text-base not-italic font-extrabold leading-7 lg:text-2xl'>₹{Actions.putComma(eval(data?.title == 'SIP' || data?.title == 'Lumpsum' ? customOutput[2]?.formula : data?.totalValueFormula), 0)}</p>
                                     </div>
                                     <div className=' m-auto flex flex-col items-center gap-4 w-full px-3 pt-4 lg:pt-0 '>
-                                        {(name == 'SIP' || name == 'Lumpsum') && <div className=' lg:mt-4 flex w-full flex-col justify-center items-center gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-xl border-solid'>
+                                        {(name == 'sip-calculator' || name == 'lumpsum-calculator') && <div className=' lg:mt-4 flex w-full flex-col justify-center items-center gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] p-3 rounded-xl border-solid'>
                                             <div className='flex items-start gap-6 text-black text-xs not-italic font-bold leading-5'>
                                                 <div className='flex items-center gap-2'>
-                                                    <input type='radio' id='SIP' name='type' checked={calcType == 'SIP'} value={calcType} onClick={() => setCalcType('SIP')} />
-                                                    <label className='text-black text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='SIP'>SIP</label>
+                                                    <input type='radio' id='sip-calculator' name='type' checked={calcType == 'sip-calculator'} value={calcType} onClick={() => setCalcType('sip-calculator')} />
+                                                    <label className='text-black text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='sip-calculator'>SIP</label>
                                                 </div>
                                                 <div className='flex items-center gap-2'>
-                                                    <input type='radio' id='Lumpsum' name='type' checked={calcType == 'Lumpsum'} value={calcType} onClick={() => setCalcType('Lumpsum')} />
-                                                    <label className='text-black text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='Lumpsum'>Lumpsum</label>
+                                                    <input type='radio' id='lumpsum-calculator' name='type' checked={calcType == 'lumpsum-calculator'} value={calcType} onClick={() => setCalcType('lumpsum-calculator')} />
+                                                    <label className='text-black text-xs not-italic font-bold leading-5 lg:text-base' htmlFor='lumpsum-calculator'>Lumpsum</label>
                                                 </div>
                                             </div>
                                         </div>}
@@ -181,7 +183,7 @@ export default function CalculatorDetails({ name, data }) {
                                                 </div>
                                             </div>
                                         })} */}
-                                        {data?.param1 && <div className={`flex w-full flex-col items-start gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] ${(name != 'SIP' || name != 'Lumpsum') ? 'pt-3' : ''}  pb-2 px-3 rounded-xl border-solid`}>
+                                        {data?.param1 && <div className={`flex w-full flex-col items-start gap-1 border border-[color:var(--Neutral-300,#DFDFDF)] ${(name != 'sip-calculator' || name != 'lumpsum-calculator') ? 'pt-3' : ''}  pb-2 px-3 rounded-xl border-solid`}>
                                             <div className='flex justify-between items-center self-stretch'>
                                                 <p className='text-black text-xs not-italic font-bold leading-5 lg:text-sm'>{data?.option?.slider1?.name}</p>
                                                 <div className='flex justify-end items-center gap-0.5 px-2 py-1 rounded-lg bg-[#F5F5F5]' >
@@ -335,7 +337,7 @@ export default function CalculatorDetails({ name, data }) {
                                 {data?.title != 'EPF' && <TrackYourReturnsSection data={data} param1={param1} param2={param2} param3={param3} totalValue={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (eval(customOutput[2]?.formula)) : eval(data?.totalValueFormula)} color={data?.sliderColor} outputs={data?.title == 'SIP' || data?.title == 'Lumpsum' ? customOutput : data?.outputs} />}
                             </div>
                         </div>
-                        {(calcType == 'SIP') && <FutureValueSection monthlyInvestment={param1} returnRate={param2} timePeriod={param3} />}
+                        {(calcType == 'sip-calculator') && <FutureValueSection monthlyInvestment={param1} returnRate={param2} timePeriod={param3} />}
                         {!data?.amortization && <ReturnCompareSection name={name} type={data?.chartType} param1={param1} param2={param2} param3={param3} totalValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customOutput[2]?.formula) : data?.totalValueFormula} proValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customProValueFormula) : data?.proValueFormula} />}
                         {data?.amortization && <AmortizationDetailSetion />}
                         <ExtraDetailsSection data={data?.extraDetails} />
