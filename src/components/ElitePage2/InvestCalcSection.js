@@ -121,8 +121,10 @@ export default function InvestCalcSection() {
                                 format={formatAmount}
                                 onChange={(v) => {
                                     setValue({ ...value, amount: v })
+                                }}
+                                onChangeComplete={() => {
                                     Mixpanel.track('cta_clicked', {
-                                        'cta_text': v,
+                                        'cta_text': value.amount,
                                         'page': 'web_elite_page',
                                         'widget': 'calculator'
                                     })

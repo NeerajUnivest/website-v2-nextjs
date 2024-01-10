@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import calcData from '@/components/Calculators/calculatorsJsonData';
 import Actions from '@/elements/Actions';
+import { Mixpanel } from '@/elements/Mixpanel';
 
 
 export default function CalculatorDetails({ name, data }) {
@@ -148,6 +149,13 @@ export default function CalculatorDetails({ name, data }) {
                                                     tooltip={false}
                                                     value={param1}
                                                     onChange={(v) => setParam1(v)}
+                                                    onChangeComplete={(e) => {
+                                                        Mixpanel.track('cta_clicked', {
+                                                            'cta_text': param1,
+                                                            'page': 'calculator_detail',
+                                                            'widget': 'calculator'
+                                                        })
+                                                    }}
                                                 />
                                             </div>
                                         </div>}
@@ -166,6 +174,13 @@ export default function CalculatorDetails({ name, data }) {
                                                     value={param2}
                                                     // format={formatAmount}
                                                     onChange={(v) => setParam2(v)}
+                                                    onChangeComplete={(e) => {
+                                                        Mixpanel.track('cta_clicked', {
+                                                            'cta_text': param2,
+                                                            'page': 'calculator_detail',
+                                                            'widget': 'calculator'
+                                                        })
+                                                    }}
                                                 />
                                             </div>
                                         </div>}
@@ -184,6 +199,13 @@ export default function CalculatorDetails({ name, data }) {
                                                     value={param3}
                                                     // format={formatAmount}
                                                     onChange={(v) => setParam3(v)}
+                                                    onChangeComplete={(e) => {
+                                                        Mixpanel.track('cta_clicked', {
+                                                            'cta_text': param3,
+                                                            'page': 'calculator_detail',
+                                                            'widget': 'calculator'
+                                                        })
+                                                    }}
                                                 />
                                             </div>
                                         </div>}
@@ -202,6 +224,13 @@ export default function CalculatorDetails({ name, data }) {
                                                     value={param4}
                                                     // format={formatAmount}
                                                     onChange={(v) => setParam4(v)}
+                                                    onChangeComplete={(e) => {
+                                                        Mixpanel.track('cta_clicked', {
+                                                            'cta_text': param4,
+                                                            'page': 'calculator_detail',
+                                                            'widget': 'calculator'
+                                                        })
+                                                    }}
                                                 />
                                             </div>
                                         </div>}
@@ -220,6 +249,13 @@ export default function CalculatorDetails({ name, data }) {
                                                     value={param5}
                                                     // format={formatAmount}
                                                     onChange={(v) => setParam5(v)}
+                                                    onChangeComplete={(e) => {
+                                                        Mixpanel.track('cta_clicked', {
+                                                            'cta_text': param5,
+                                                            'page': 'calculator_detail',
+                                                            'widget': 'calculator'
+                                                        })
+                                                    }}
                                                 />
                                             </div>
                                         </div>}
@@ -238,6 +274,13 @@ export default function CalculatorDetails({ name, data }) {
                                                     value={param6}
                                                     // format={formatAmount}
                                                     onChange={(v) => setParam6(v)}
+                                                    onChangeComplete={(e) => {
+                                                        Mixpanel.track('cta_clicked', {
+                                                            'cta_text': param6,
+                                                            'page': 'calculator_detail',
+                                                            'widget': 'calculator'
+                                                        })
+                                                    }}
                                                 />
                                             </div>
                                         </div>}

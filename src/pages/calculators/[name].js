@@ -11,7 +11,8 @@ export default function CalculatorsPage({ name, data }) {
     useEffect(() => {
         Mixpanel.pageView(
             {
-                'page': name?.toLowerCase(),
+                'page': 'calculator_detail',
+                'calculator_name': name?.toLowerCase()
             }
         )
         userDetail.setBtn({ show: false, beforeLogin: 'Get started', afterLogin: 'Download the app now', isProPage: false, page: 'calculators_home' })
@@ -40,7 +41,7 @@ export async function getServerSideProps(ctx) {
     return {
         props: {
             name: name,
-            data: calcData.filter(f => f.title === name)?.[0]
+            data: calcData?.filter(f => f.title === name)?.[0] ?? null
         }
     }
 }

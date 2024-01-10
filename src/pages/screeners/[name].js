@@ -49,11 +49,11 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
                                     <LaptopScreener data={screenerDetails} name={name} />
                                     {sreenersData[name]?.BOTTOM?.map((ele, j) =>
                                         <div key={j} className='font-Inter mx-4 my-8 hidden md:block'>
-                                            {ele.title && <h2 className="text-xl leading-8 font-extrabold">{ele.title}</h2>}
-                                            {ele.disc && <p className="text-base leading-7 font-medium text-[#414141]">{ele.disc}</p>}
+                                            {ele.title && <h2 className="text-lg leading-8 font-extrabold">{ele.title}</h2>}
+                                            {ele.disc && <p className="text-sm leading-6 font-medium text-[#414141]">{ele.disc}</p>}
                                             {ele.list && <ul className="font-Inter list-decimal pl-5 list-outside text-justify">
                                                 {ele.list?.map((ele, i) =>
-                                                    <li key={i} className="text-base leading-7 font-normal text-[#414141]" dangerouslySetInnerHTML={{ __html: ele }} />)}
+                                                    <li key={i} className="text-sm leading-6 font-normal text-[#414141]" dangerouslySetInnerHTML={{ __html: ele }} />)}
                                             </ul>}
                                         </div>)}
                                 </div>
@@ -61,10 +61,10 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
                             {sreenersData[name]?.BOTTOM?.map((ele, j) =>
                                 <div key={j} className='font-Inter mx-4 my-8 md:hidden block'>
                                     {ele.title && <h2 className="text-base leading-7 font-extrabold">{ele.title}</h2>}
-                                    {ele.disc && <p className="text-sm leading-6 font-medium text-[#414141]">{ele.disc}</p>}
+                                    {ele.disc && <p className="text-xs leading-5 font-medium text-[#414141]">{ele.disc}</p>}
                                     {ele.list && <ul className="font-Inter list-decimal pl-5 list-outside text-justify">
                                         {ele.list?.map((ele, i) =>
-                                            <li key={i} className="text-sm leading-6 font-normal text-[#414141]" dangerouslySetInnerHTML={{ __html: ele }} />)}
+                                            <li key={i} className="text-xs leading-5 font-normal text-[#414141]" dangerouslySetInnerHTML={{ __html: ele }} />)}
                                     </ul>}
                                 </div>)}
                         </div>
@@ -88,10 +88,14 @@ export async function getServerSideProps(context) {
 
     const temp = {
         "FUNDAMENTAL_STRONG_STOCKS": "fundamentally-strong-stocks",
-        "MULTI_BAGGER_STOCKS": "multibagger-stocks",
+        "fundamental-strong-stocks": "fundamentally-strong-stocks",
+        "multi-bagger-stocks": "multibagger-stocks",
         "HIGH_DIVIDEND_STOCKS": "highest-dividend-paying-stocks",
+        "high-dividend-stocks": "highest-dividend-paying-stocks",
         "52WK_HIGH": "52-week-high",
-        "52WK_LOW": "52-week-low"
+        "52wk-high": "52-week-high",
+        "52WK_LOW": "52-week-low",
+        "52wk-low": "52-week-low",
     }
     if (Object.keys(temp).filter(f => f === name).length > 0) {
         res.writeHead(301, {

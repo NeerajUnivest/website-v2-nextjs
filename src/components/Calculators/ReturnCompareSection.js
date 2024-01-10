@@ -25,7 +25,6 @@ export default function ReturnCompareSection({ type, param1, param2, param3, tot
         let tempOther = [0];
         let tempPro = [0];
         for (let i = 6; i >= 1; i--) {
-            console.log(i, totalVal / i);
             tempOther.push(totalVal / i);
             tempPro.push(proval / i);
         }

@@ -15,10 +15,14 @@ let Actions = {
     toScreener: (code) => {
         const temp = {
             "FUNDAMENTAL_STRONG_STOCKS": "fundamentally-strong-stocks",
-            "MULTI_BAGGER_STOCKS": "multibagger-stocks",
+            "fundamental-strong-stocks": "fundamentally-strong-stocks",
+            "multi-bagger-stocks": "multibagger-stocks",
             "HIGH_DIVIDEND_STOCKS": "highest-dividend-paying-stocks",
+            "high-dividend-stocks": "highest-dividend-paying-stocks",
             "52WK_HIGH": "52-week-high",
-            "52WK_LOW": "52-week-low"
+            "52wk-low": "52-week-high",
+            "52WK_LOW": "52-week-low",
+            "52wk-low": "52-week-low",
         }
         const repl = (text) => temp[code] ?? text?.toLowerCase()?.replaceAll('_', '-');
         return `/screeners/${repl(code)}`
