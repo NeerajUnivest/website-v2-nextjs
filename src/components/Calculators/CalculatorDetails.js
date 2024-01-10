@@ -82,7 +82,7 @@ export default function CalculatorDetails({ name, data }) {
                         {calcData?.map((ele, i) =>
                             <Link key={i} href={`${ele?.title}`} >
                                 <div className={`${name == ele?.title ? 'bg-[#ECF6FE]' : ''} py-[22px] relative border-t-[1px] border-[color:var(--Neutral-300,#DFDFDF)] border-solid items-center justify-start flex pl-3 pr-12 `}>
-                                    <Image src={ele?.icon} alt='demo' className=' w-[48px] h-[48px] bottom-0 right-0 absolute ' />
+                                    <Image src={ele?.icon} alt='demo' className={`${name == ele?.title ? 'w-[48px] h-[48px] opacity-70' : 'w-[40px] h-[40px]'} bottom-0 right-0 absolute opacity-40`} />
                                     <p className='text-black text-base not-italic font-semibold leading-7'>{ele?.title} calculator</p>
                                 </div>
                             </Link>

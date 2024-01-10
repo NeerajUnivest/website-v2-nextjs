@@ -151,6 +151,7 @@ export default function ReturnCompareSection({ type, param1, param2, param3, tot
                     }
                 }
             }, {
+                fillOpacity: 100,
                 marker: {
                     enabled: true,
                 },
