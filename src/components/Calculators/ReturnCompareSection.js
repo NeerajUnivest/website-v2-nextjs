@@ -16,8 +16,8 @@ export default function ReturnCompareSection({ name, type, param1, param2, param
 
     const [options, setOptions] = useState(null);
 
-    const totalVal = Number.parseInt(eval(totalValueFormula).toFixed(0));
-    const proval = Number.parseInt(eval(proValueFormula).toFixed(0));
+    const totalVal = Number.parseInt((eval(totalValueFormula)).toFixed(0));
+    const proval = Number.parseInt((eval(proValueFormula)).toFixed(0));
 
     // console.log({ totalVal });
     // console.log({ proval });

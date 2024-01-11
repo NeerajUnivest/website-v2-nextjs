@@ -10,7 +10,6 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
 
     const [piePercentage, setPiePercentage] = useState(0);
 
-
     useEffect(() => {
 
         setPiePercentage((eval(outputs[1]?.formula) / totalValue) * 100);
@@ -140,7 +139,7 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
                         <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(totalValue, 0)}</p>
                     </div> */}
                     {outputs?.map((ele, i) =>
-                        <div key={i} className={`flex w-full justify-between items-center ${i !== 2 && 'border-b border-[#DFDFDF] pb-1.5'} `}>
+                        <div key={i} className={`flex w-full justify-between items-center ${i !== outputs.length - 1 && 'border-b border-[#DFDFDF] pb-1.5'} `}>
                             <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>{ele?.name}</p>
                             <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(eval(ele?.formula), 0)}</p>
                         </div>)}

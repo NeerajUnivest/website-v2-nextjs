@@ -708,38 +708,39 @@ const calcData = [
     // },
     // {
     //     title: 'Home Loan',
+    //     url: 'home-loan-calculator',
     //     name: 'Home Loan<br/>EMI calculator',
     //     desc: 'Accurate insights into<br/>FD returns',
-    // metaTitle: '',
-    // metaDesc: '',
-    // metaKeyword: '',
+    //     metaTitle: '',
+    //     metaDesc: '',
+    //     metaKeyword: '',
     //     icon: fdImage,
     //     bgColor: '#FEEBB9',
     //     sliderColor: '#957529',
     //     chartType: 'Elite',
     //     amortization: true,
-    //     param1: 100000,
-    //     param2: 1,
-    //     param3: 1,
-    //     totalValueFormula: `param1+param2`,
-    //     totalValueText: 'Total Value',
-    // proValueFormula: '',
+    //     param1: 1000000,
+    //     param2: 6,
+    //     param3: 5,
+    //     totalValueFormula: `(param1*(param2/1200)*(Math.pow(1+(param2/1200),(param3*12))))/((Math.pow(1+(param2/1200),(param3*12)))-1) * ( param3*12 ) `,
+    //     totalValueText: 'Total Amount',
+    //     proValueFormula: 'param1',
     //     outputs: [
     //         {
     //             name: 'Principal Amount',
-    //             formula: `(param1 * (param3 * 12))`
+    //             formula: `param1 `
     //         },
     //         {
     //             name: 'Total Interest',
-    //             formula: 'param1',
+    //             formula: '( (param1*(param2/1200)*(Math.pow(1+(param2/1200),(param3*12))))/((Math.pow(1+(param2/1200),(param3*12)))-1) * ( param3*12 ) ) - param1 ',
     //         },
     //         {
     //             name: 'Total Amount',
-    //             formula: ` param1 * ((Math.pow((1 + ((param2 / 12) / 100)), (param3 * 12)) - 1) / ((param2 / 12) / 100)) * (1 + ((param2 / 12) / 100))`
+    //             formula: `(param1*(param2/1200)*(Math.pow(1+(param2/1200),(param3*12))))/((Math.pow(1+(param2/1200),(param3*12)))-1) * ( param3*12 ) `
     //         },
     //         {
     //             name: 'Monthly EMI',
-    //             formula: ` ( param1 * (param2/1200) * ( Math.pow(1+(param2/1200) ,(param3*12) ) ) ) / ( ( Math.pow( 1+(param2/1200) , (param3*12) ) ) - 1 )`
+    //             formula: ` (param1*(param2/1200)*(Math.pow(1+(param2/1200),(param3*12))))/((Math.pow(1+(param2/1200),(param3*12)))-1)`
     //         }
     //     ],
     //     option: {
@@ -755,7 +756,7 @@ const calcData = [
     //             min: 1,
     //             max: 30,
     //             type: 'percentage',
-    //             step: 0.1
+    //             step: 1
     //         },
     //         slider3: {
     //             name: 'Loan Tenure',

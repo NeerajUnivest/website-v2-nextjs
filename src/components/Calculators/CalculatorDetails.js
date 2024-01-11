@@ -33,8 +33,6 @@ export default function CalculatorDetails({ name, data }) {
     const [customOutput, setCustomOutput] = useState(data?.outputs);
     const [customProValueFormula, setCustomProValFormula] = useState(data?.proValueFormula);
 
-    console.log({ name });
-
     useEffect(() => {
         Mixpanel.pageView(
             {
@@ -339,7 +337,7 @@ export default function CalculatorDetails({ name, data }) {
                         </div>
                         {(calcType == 'sip-calculator') && <FutureValueSection monthlyInvestment={param1} returnRate={param2} timePeriod={param3} />}
                         {!data?.amortization && <ReturnCompareSection name={name} type={data?.chartType} param1={param1} param2={param2} param3={param3} totalValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customOutput[2]?.formula) : data?.totalValueFormula} proValueFormula={data?.title == 'SIP' || data?.title == 'Lumpsum' ? (customProValueFormula) : data?.proValueFormula} />}
-                        {data?.amortization && <AmortizationDetailSetion />}
+                        {data?.amortization && <AmortizationDetailSetion param1={param1} param2={param2} param3={param3} />}
                         <ExtraDetailsSection data={data?.extraDetails} />
                         <div className='flex flex-col items-start gap-3  lg:hidden mx-4'>
                             <div className='flex w-full justify-between items-center'>
