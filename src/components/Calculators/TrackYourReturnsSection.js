@@ -141,7 +141,7 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
                     {outputs?.map((ele, i) =>
                         <div key={i} className={`flex w-full justify-between items-center ${i !== outputs.length - 1 && 'border-b border-[#DFDFDF] pb-1.5'} `}>
                             <p className='text-[color:var(--Neutral-700,#606060)] text-xs not-italic font-medium leading-5'>{ele?.name}</p>
-                            <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(eval(ele?.formula), 0)}</p>
+                            <p className='text-xs not-italic font-bold leading-5 bg-clip-text'>₹{Actions.putComma(!isNaN(eval(ele?.formula)) ? eval(ele?.formula) : 0, 0)}</p>
                         </div>)}
                 </div>
             </div>

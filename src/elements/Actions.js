@@ -16,6 +16,7 @@ let Actions = {
         const temp = {
             "FUNDAMENTAL_STRONG_STOCKS": "fundamentally-strong-stocks",
             "fundamental-strong-stocks": "fundamentally-strong-stocks",
+            "MULTI_BAGGER_STOCKS": "multibagger-stocks",
             "multi-bagger-stocks": "multibagger-stocks",
             "HIGH_DIVIDEND_STOCKS": "highest-dividend-paying-stocks",
             "high-dividend-stocks": "highest-dividend-paying-stocks",

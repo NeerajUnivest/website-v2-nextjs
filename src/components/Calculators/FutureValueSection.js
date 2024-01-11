@@ -141,7 +141,7 @@ export default function FutureValueSection({ monthlyInvestment, returnRate, time
         <section className='flex flex-col items-start gap-4 border border-[color:var(--Neutral-900,#202020)] p-3 lg:p-4 rounded-xl lg:rounded-2xl border-solid mx-4 lg:mx-0'>
             <div className='flex w-full justify-between items-center'>
                 <p className='text-[color:var(--Neutral-900,#202020)] text-base lg:text-2xl not-italic font-bold leading-7' >Future value of SIP</p>
-                <p className='text-[color:var(--Neutral-500,#9D9D9D)] text-xs lg:text-sm not-italic font-medium leading-5'>SIP amount ₹{Actions.putComma(totalValue(monthlyInvestment, returnRate, timePeriod), 0)}</p>
+                <p className='text-[color:var(--Neutral-500,#9D9D9D)] text-xs lg:text-sm not-italic font-medium leading-5'>SIP amount ₹{Actions.putComma((!isNaN(totalValue(monthlyInvestment, returnRate, timePeriod)) ? totalValue(monthlyInvestment, returnRate, timePeriod) : 0), 0)}</p>
             </div>
             <div style={{ marginBottom: '10px' }} className='w-full'>
                 <HighchartsReact

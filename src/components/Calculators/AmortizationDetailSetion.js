@@ -29,7 +29,7 @@ export default function AmortizationDetailSetion({ param1, param2, param3 }) {
 
     const [amortizationData, setAmortizationData] = useState([]);
     const [filteredAmortizationData, setFilteredAmortizationData] = useState([]);
-    const amortizationFormula = ' ( (param2/100) / (param3*12) ) '
+    const amortizationFormula = ' ( (param2/100) / (12) ) '
     const emiFormula = '(param1*(param2/1200)*(Math.pow(1+(param2/1200),(param3*12))))/((Math.pow(1+(param2/1200),(param3*12)))-1)'
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const [yearFilter, setYearFilter] = useState([]);
@@ -72,6 +72,10 @@ export default function AmortizationDetailSetion({ param1, param2, param3 }) {
         temp = amortizationData.filter(ele => ele.year == selectedYear);
         setFilteredAmortizationData(temp);
     }, [amortizationData, selectedYear])
+
+    useEffect(() => {
+        setSelectedYear((new Date().getFullYear()))
+    }, [param3])
 
     return (
         <section className='mx-4 lg:m-0  flex flex-col items-center gap-4  '>
@@ -116,16 +120,16 @@ export function AmortizationDetailTable({ amortizationData }) {
                             {item.month}
                         </td>
                         <td className='text-[10px] lg:text-xs font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
-                            ₹{item.balance > 0 ? Actions.putComma(item.principalPaid, 0) : 0}
+                            ₹{item.principalPaid > 0 ? Actions.putComma((!isNaN(item.principalPaid)) ? item.principalPaid : 0, 0) : 0}
                         </td>
                         <td className='text-[10px] lg:text-xs  font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
-                            ₹{item.balance > 0 ? Actions.putComma(item.interestCharged, 0) : 0}
+                            ₹{item.interestCharged > 0 ? Actions.putComma((!isNaN(item.interestCharged)) ? item.interestCharged : 0, 0) : 0}
                         </td>
                         <td className='text-[10px] lg:text-xs  font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
-                            ₹{Actions.putComma(item.totalPayment, 0)}
+                            ₹{Actions.putComma((!isNaN(item.totalPayment)) ? item.totalPayment : 0, 0)}
                         </td>
                         <td className='text-[10px] lg:text-xs font-semibold leading-[18px] text-center items-center pl-4 px-2 border border-x-0 border-neutral-100 text-[#979797] '>
-                            ₹{item.balance > 0 ? Actions.putComma(item.balance, 0) : 0}
+                            ₹{item.balance > 0 ? Actions.putComma((!isNaN(item.balance)) ? item.balance : 0, 0) : 0}
                         </td>
                     </tr>)}
         </tbody>
