@@ -8,7 +8,7 @@ import { BlackButton } from '@/elements/Button/Button';
 import { popUp } from '@/elements/PopUp/PopUp'
 import forEmpty from '../../assets/images/forEmpty.webp'
 
-export default function LaptopScreener({ data, name }) {
+export default function LaptopScreener({ TOP, data, name }) {
     return (<>
 
         <div className='font-Inter flex flex-row justify-center lg:justify-end my-4 lg:mr-4'>
@@ -28,11 +28,11 @@ export default function LaptopScreener({ data, name }) {
         <div className='rounded-lg m-4 py-3 px-4 flex flex-row justify-between' style={{ backgroundImage: `linear-gradient(90deg, ${data.colorCode}25, ${data.colorCode}50)` }}>
             <div>
                 <h1 className='text-[24px] leading-[40px] text-[#202020] font-semibold'>
-                    {data.title}
+                    {TOP?.title ?? data.title}
                     <span className='ml-4 text-[16px] leading-[28px] text-[#414141] font-medium'>{data.list?.length} Stocks</span>
                 </h1>
                 <h2 className='text-[16px] leading-[28px] text-[#202020] font-medium'>
-                    <b>Entry criterion : </b> {data.description}
+                    {TOP?.desc ?? <> <b>Entry criterion : </b> {data.description}</>}
                 </h2>
             </div>
             <div className='w-20 mx-4 flex flex-col justify-center items-center'>

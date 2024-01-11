@@ -46,7 +46,7 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
                                     <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} />
                                 </div>
                                 <div className='col-span-12 lg:col-span-9'>
-                                    <LaptopScreener data={screenerDetails} name={name} />
+                                    <LaptopScreener data={screenerDetails} name={name} TOP={sreenersData[name]?.TOP ?? {}} />
                                     {sreenersData[name]?.BOTTOM?.map((ele, j) =>
                                         <div key={j} className='font-Inter mx-4 my-8 hidden md:block'>
                                             {ele.title && <h2 className="text-xl leading-9 font-extrabold">{ele.title}</h2>}
