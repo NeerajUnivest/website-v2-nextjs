@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { BsArrowLeft } from 'react-icons/bs';
 import { SlArrowDown } from 'react-icons/sl'
 import Actions from '@/elements/Actions';
+import { AiOutlineRight } from 'react-icons/ai';
 
 const activeStyle = {
     backgroundColor: '#F3F9FE',
@@ -32,7 +33,7 @@ const anActiveStyle = {
     position: 'relative',
     alignItems: 'center'
 }
-export default function DropDown({ screenersCategories, screenersList, selected, name }) {
+export default function DropDown({ screenersCategories, screenersList, selected, name, title }) {
     const router = useRouter();
 
     const [show, setShow] = useState(selected);
@@ -44,6 +45,31 @@ export default function DropDown({ screenersCategories, screenersList, selected,
         router.push(Actions.toScreener(screenersList?.filter(f => f.categoryId === cat.categoryId)[0]?.code))
     }
     return (<div className=' sticky top-[60px] py-10 ml-4'>
+        <nav className="w-full mx-4 absolute top-8 hidden md:block">
+            <ol className="list-reset flex">
+                <li>
+                    <Link
+                        href="/"
+                        className="text-primary text-xs font-medium"
+                    >Home</Link>
+                </li>
+                <li className=" flex items-end mb-1 px-2">
+                    <AiOutlineRight color='#707070' size={14} />
+                </li>
+                <li>
+                    <Link
+                        href="/screeners"
+                        className="text-primary text-xs font-medium"
+                    >Screeners</Link>
+                </li>
+                <li className=" flex items-end mb-1 px-2">
+                    <AiOutlineRight color='#707070' size={14} />
+                </li>
+                <li>
+                    <span className="text-primary text-xs font-medium">{title}</span>
+                </li>
+            </ol>
+        </nav>
         <div className='m-4 font-Inter border-[2px] rounded-lg overflow-hidden'>
             <Link href='/screeners'>
                 <div className='py-2 flex items-center'>

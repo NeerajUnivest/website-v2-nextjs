@@ -12,7 +12,7 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
 
     useEffect(() => {
 
-        setPiePercentage((eval(outputs[1]?.formula) / totalValue) * 100);
+        setPiePercentage((eval(outputs[1]?.formula) / eval(outputs[0]?.formula)) * 100);
 
         setOptions({
             colors: ['#F5F5F5', color],
@@ -76,33 +76,36 @@ function TrackYourReturnsSection({ data, param1, param2, param3, totalValue, col
             series: [{
                 name: 'Returns',
                 colorByPoint: true,
-                innerSize: '50%',
+                innerSize: '60%',
                 data: [{
                     name: 'Invested amount',
                     // y: data[n]?.promoters !== 0 && data[n]?.promoters
-                    y: eval(outputs[0]?.formula)
+                    y: (100 - ((eval(outputs[1]?.formula) / eval(outputs[0]?.formula)) * 100))
                 },
                 {
                     name: 'Estimated returns',
                     // y: data[n]?.foreignInstitutions !== 0 && data[n]?.foreignInstitutions
-                    y: eval(outputs[1]?.formula)
+                    y: ((eval(outputs[1]?.formula) / eval(outputs[0]?.formula)) * 100)
                 }]
             }]
         })
-    }, [param1, param2, param3, color]);
+    }, [param1, param2, param3, color, outputs]);
 
 
     // console.log(eval(data?.estimatedReturn), options?.series[0]?.data?.[0].y, options?.series[0]?.data?.[1].y);
     return (
         <section className='flex w-full lg:w-2/5 flex-col items-start gap-3 border border-[color:var(--Neutral-900,#202020)] p-3 rounded-2xl border-solid'>
-            <p className='text-base not-italic font-bold leading-7 bg-clip-text'>Track your returns</p>
+            <div className='flex w-full justify-between items-center'>
+                <p className='text-base not-italic font-bold leading-7 bg-clip-text'>{data?.emiType ? 'Your interest' : 'Your returns'}</p>
+                <p className='border border-[color:var(--Neutral-900,#202020)] opacity-80 px-2 py-0.5 rounded-lg border-solid text-[color:var(--Neutral-900,#202020)] text-center text-sm not-italic font-bold leading-6'>{!isNaN(piePercentage) ? piePercentage.toFixed(1) : "0"}%</p>
+            </div>
             <div className='h-px self-stretch bg-[#EDEDED]'></div>
             <div className='w-full h-full flex flex-col justify-between items-center'>
                 <div className=' m-auto flex flex-col justify-center items-center gap-3'>
                     <div className='flex h-full justify-center items-center px-[38px] lg:px-[21px] pb-0'>
                         <div className=' w-full'>
                             <div className='relative'>
-                                <p className={`text-[color:var(--Neutral-900,#202020)] text-center ${piePercentage <= 99.9 ? 'text-[16px]' : 'text-[14px]'} not-italic font-extrabold leading-[29.684px] absolute  top-[40%] left-[40%] `}> {!isNaN(piePercentage) ? (piePercentage.toFixed(1)) : '0.0'}%</p>
+                                {/* <p className={`text-[color:var(--Neutral-900,#202020)] text-center ${piePercentage.toFixed(1) <= 99.9 ? 'text-[16px]' : 'text-[14px]'} not-italic font-extrabold leading-[29.684px] absolute  top-[40%] ${piePercentage.toFixed(1) >= 0.0 ? 'left-[41%]' : 'left-[43%]'} `}> {!isNaN(piePercentage) ? (piePercentage.toFixed(1)) : '0.0'}%</p> */}
                                 <HighchartsReact
                                     containerProps={{ style: { height: "144px", width: '100%', marginLeft: '0px' } }}
                                     options={options}

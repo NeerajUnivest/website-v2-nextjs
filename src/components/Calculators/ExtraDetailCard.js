@@ -18,7 +18,7 @@ export default function ExtraDetailCard({ heading, content, active, setActive, i
         //     </div>
         // </div>
         <div className='flex flex-col gap-3'>
-            <p className='font-bold text-sm lg:text-base '>{heading}</p>
+            <h2 className='font-bold text-sm lg:text-base '>{heading}</h2>
             <div className='font-medium text-xs lg:text-sm text-[#202020]' dangerouslySetInnerHTML={{ __html: content }} />
         </div>
     )

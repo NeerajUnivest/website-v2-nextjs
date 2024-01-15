@@ -97,6 +97,9 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                 </li>
             </ol>
         </nav>
+        <h1 className='ml-4 my-2 font-Inter font-semibold text-sm text-[#606060] whitespace-nowrap'>
+            {data?.nseSymbol ?? data?.bseSymbol} stock price today live {(data?.nseLtpPrice && data?.bseLtpPrice) ? "(NSE/BSE)" : (data?.nseLtpPrice ? 'NSE' : 'BSE')}
+        </h1>
         <div className='mx-4 relative lg:pb-8'>
             <div className='mt-3 mb-6 border border-1 p-2 rounded-md'>
                 {data?.compName ?
@@ -111,9 +114,9 @@ function LeftBar({ name, activeChartType, setActiveChartType }) {
                                 </div>}
                         </div>
                         <div>
-                            <h1 className='font-Inter font-extrabold text-[14px] text-[#0D0D0D] leading-[24px]'>
+                            <h2 className='font-Inter font-extrabold text-[14px] text-[#202020] leading-[24px]'>
                                 {data?.nseSymbol ?? data?.bseSymbol}
-                            </h1>
+                            </h2>
                             <div className='font-Inter font-medium text-[12px] text-[#858585] leading-[20px]'>
                                 {data?.compName && data?.compName?.length > 25 ? data?.compName?.slice(0, 25) + '...' : data?.compName}
                             </div>

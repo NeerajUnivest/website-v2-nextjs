@@ -36,7 +36,7 @@ export default function Calculators() {
                         <p className='self-stretch text-[color:var(--Neutral-600,#747474)] text-xl not-italic font-medium leading-8'>Empower your financial journey with calculators – where precision meets simplicity. Plan smarter, achieve more.</p>
                     </div>
                 </div>
-                <div className='mx-4 py-2 mt-12 grid grid-cols-2 items-center gap-4 md:flex lg:mx-20 lg:gap-x-10 lg:gap-y-8'>
+                <div className='mx-4 py-2 mt-12 grid grid-cols-2 items-center gap-4 lg:grid-cols-4 lg:mx-20 lg:gap-x-10 lg:gap-y-8'>
                     {calcData?.map((ele, i) =>
                         <CalculatorsCard key={i} ele={ele} />
                     )}

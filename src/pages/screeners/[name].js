@@ -10,6 +10,7 @@ import PageNotFound from "../404";
 import { StompSessionProvider, } from "react-stomp-hooks";
 import sreenersData from '../../components/Screeners/sreenersData.json'
 import Actions from "@/elements/Actions";
+import ScreenerFAQSection from "@/components/Screeners/ScreenerFAQSection";
 const getScreenersList = async () => {
     let ress1 = await axios.get(`${process.env.apiBaseURL}/resources/screeners/v2`)
     return ress1
@@ -43,7 +44,8 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
                             <PhoneScreener name={name} screenersList={screenersList} data={screenerDetails} codeList={codeList} />
                             <div className='hidden md:grid grid-cols-12 min-h-screen'>
                                 <div className='col-span-12 lg:col-span-3'>
-                                    <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} />
+                                    {/* <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} /> */}
+                                    <DropDown screenersCategories={screenersCategories} screenersList={screenersList} selected={screenerDetails.categoryId} name={name} title={screenerDetails.title} />
                                 </div>
                                 <div className='col-span-12 lg:col-span-9'>
                                     <LaptopScreener data={screenerDetails} name={name} />
@@ -67,6 +69,7 @@ export default function ScreenerPage({ name, screenersCategories, screenersList,
                                             <li key={i} className="text-sm leading-6 font-normal text-[#414141]" dangerouslySetInnerHTML={{ __html: ele }} />)}
                                     </ul>}
                                 </div>)}
+                            <ScreenerFAQSection data={sreenersData[name]?.FAQs ?? []} />
                         </div>
                     </StompSessionProvider>
                 </section>
