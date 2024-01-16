@@ -74,7 +74,7 @@ export default function CalculatorDetails({ name, data }) {
             setCustomOutput([
                 {
                     name: 'Total Investment',
-                    formula: `(param1)`
+                    formula: `param1`
                 },
                 {
                     name: 'Estimated Return',
@@ -130,7 +130,7 @@ export default function CalculatorDetails({ name, data }) {
                             <Link key={i} href={`${ele?.url}`} >
                                 <div className={`${name == ele?.url ? 'bg-[#ECF6FE]' : ''} py-[22px] relative border-t-[1px] border-[color:var(--Neutral-300,#DFDFDF)] border-solid items-center justify-start flex pl-3 pr-12 `}>
                                     <Image src={ele?.icon} alt='demo' className={`${name == ele?.url ? 'w-[48px] h-[48px] opacity-70' : 'w-[40px] h-[40px]'} bottom-0 right-0 absolute opacity-40`} />
-                                    <p className='text-black text-base not-italic font-semibold leading-7 line-clamp-1'>{ele?.title} calculator</p>
+                                    <h1 className='text-black text-base not-italic font-semibold leading-7 line-clamp-1'>{ele?.title} calculator</h1>
                                 </div>
                             </Link>
                         )}
@@ -139,9 +139,10 @@ export default function CalculatorDetails({ name, data }) {
                         <div className=' lg:w-full'>
                             <div className='relative px-4 py-[17px] lg:rounded-2xl overflow-hidden lg:px-[22px] lg:py-6' style={{ background: `linear-gradient(180deg, ${data?.bgColor} 0%, rgba(244, 193, 182, 0.00) 100%)` }} >
                                 <Image src={data?.icon} alt='demo' className=' w-[56px] h-[56px] bottom-0 right-0 absolute lg:w-[88px] lg:h-[88px]' />
-                                <div className='inline-flex flex-col items-start gap-0.5 lg:gap-2'>
-                                    <p className='text-black text-base not-italic font-bold leading-7 lg:text-2xl'>{data?.title} calculator</p>
-                                    <p className='text-[#414141] text-center text-xs not-italic font-medium leading-5 lg:text-xl'>Optimize your investment strategy accurately</p>
+                                <div className='inline-flex flex-col items-start gap-0.5 lg:gap-1'>
+                                    <h1 className='text-black text-base not-italic font-bold leading-7 lg:text-2xl'>{data?.title} calculator</h1>
+                                    <h1 className='text-[color:var(--Neutral-900,#202020)] text-xs  lg:text-xl not-italic font-bold lg:font-extrabold leading-8'>{data?.subTitle}</h1>
+                                    <p className='text-[#414141] text-center text-xs not-italic font-medium leading-5 lg:text-xl'>{data?.desc.replace('<br/>', ' ')}</p>
                                 </div>
                             </div>
                             <div className='  mt-4 mx-4 flex flex-col gap-4 lg:flex-row lg:mt-10 lg:mx-0 lg:gap-8'>
@@ -347,7 +348,7 @@ export default function CalculatorDetails({ name, data }) {
                             <div className=' w-full grid grid-cols-2 items-center gap-4'>
                                 {calcData?.filter(ele => ele?.url != name)?.map((ele, i) =>
                                     <Link key={i} href={`/calculators/${ele?.url}`} >
-                                        <div className=' relative px-3 py-3 w-full border border-[color:var(--Neutral-300,#DFDFDF)] rounded-xl border-solid'>
+                                        <div className=' relative px-3 overflow-hidden py-3 w-full border border-[color:var(--Neutral-300,#DFDFDF)] rounded-xl border-solid'>
                                             <Image src={ele?.icon} alt='demo' className=' w-[40px] h-[40px] bottom-0 right-0 absolute ' />
                                             <p className='line-clamp-2 text-black text-base not-italic font-semibold leading-7'>{ele?.title}<br />calculator</p>
                                         </div>

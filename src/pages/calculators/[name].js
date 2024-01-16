@@ -24,7 +24,9 @@ export default function CalculatorsPage({ name, data }) {
             <MetaSection
                 title={data?.metaTitle}
                 desc={data?.metaDesc}
-                keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks' />
+                schema={data?.metaSchema}
+            // keyWords='stock screener, NSE stocks, stock filter, Indian stock market, stock analysis tool, stock research tool, breakout stocks, multibagger stocks'
+            />
             <CalculatorDetails name={name} data={data} />
         </>)
     } else {

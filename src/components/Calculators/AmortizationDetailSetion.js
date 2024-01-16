@@ -45,6 +45,9 @@ export default function AmortizationDetailSetion({ param1, param2, param3 }) {
         }
         setYearFilter(tempYears);
         let currentMonth = new Date().getMonth() + 2;
+        if (currentMonth > 12) {
+            currentMonth = 1
+        }
         for (let i = 1; i <= param3 * 12; i++) {
             const ic = (currentBalance * eval(amortizationFormula));
             const tp = (eval(emiFormula));

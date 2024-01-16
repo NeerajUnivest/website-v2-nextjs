@@ -211,8 +211,8 @@ export default function ReturnCompareSection({ name, type, param1, param2, param
                         'calculator': name.toLowerCase(),
                         'cta_text': 'pro'
                     })
-                    push('/pro')
-                }} className={' py-[6px] lg:py-2 px-8 lg:px-12 mx-auto font-bold mt-4 text-xs lg:text-base'} text='Explore Univest Pro' />
+                    push('/' + type.toLowerCase())
+                }} className={' py-[6px] lg:py-2 px-8 lg:px-12 mx-auto font-bold mt-4 text-xs lg:text-base'} text={`Explore Univest ${type}`} />
             </div>
         </section>
     )
