@@ -186,12 +186,12 @@ export default function ExpertVerdictPhone({ name, activeChartType, }) {
                                             <div className='font-Inter font-extrabold text-[12px] leading-[16px] text-left ml-2 mr-1'>
                                                 Experts maintain a “{selected[term]}” rating
                                             </div>
-                                            <div className="p-1 flex flex-row items-center">
+                                            {/* <div className="p-1 flex flex-row items-center">
                                                 <Image src={peoples} alt='info' className='h-4 ml-1 min-w-[16px] mr-2' />
                                                 <div className='mt-2 font-Inter font-medium text-[10px] leading-[12px] text-left '>
                                                     <b>{term ? Actions.putComma(data.numberOfUsersViewedShortTerm) : Actions.putComma(data.numberOfUsersViewedLongTerm)}</b> users have seen this verdict
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         : <div className="basis-9/12 grid content-center">
                                             <div className='font-Inter font-normal text-xs lg:text-sm text-left ml-2 mr-1'>
