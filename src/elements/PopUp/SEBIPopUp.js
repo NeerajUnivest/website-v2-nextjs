@@ -6,6 +6,7 @@ import ReactModal from "react-modal"
 import sebi_new_logo from '@/assets/icons/sebi_new_logo.png';
 import { useEffect } from "react";
 import { Mixpanel } from "../Mixpanel";
+import Link from "next/link";
 
 
 const SEBIPopUp = () => {
@@ -42,10 +43,15 @@ const SEBIPopUp = () => {
                 </div>
                 <hr className="h-px my-4 bg-[#9D9D9D] border-0" />
                 <p className='text-xs md:text-base text-black font-medium text-justify'>
-                    Uniapps Global Research Pvt Ltd, a fully owned subsidiary of Univest, is a SEBI registered advisory firm (INA000017639). Led by Ketan Sonalkar, Uniapps has a highly experienced research team with decades of investing experience. Comprising Sr. Consultant Yashpal Arora and Sr. Research Analyst Sagar Wadhwa, they possess the proficiency to perform exhaustive research of fundamentals, technicals, and macroeconomic factors, they uncover investment prospects with substantial return potential across various timeframes.
+                    Uniresearch Global Private Limited, a subsidiary company of Univest Communication Technology Private Limited "Univest", is registered with SEBI as a Research Analyst, reg no. INH000013776. Mr. Yashpal Arora - Research Head, has 40+ years of industry and investing experience, leads a team of analysts possessing 75+ years of experience and proficiency to perform exhaustive research and analysis of fundamentals, technical and economic factors to uncover research/ investment prospects with fair return potential across various timeframes.
+                </p>
+                <p className="text-[10px] md:text-xs text-black font-medium text-justify mt-2">
+                    For more information and updates please refer <Link href="https://stocks.univest.in/terms-and-conditions" className="transition hover:opacity-75 text-primary underline">
+                        terms & conditions
+                    </Link>
                 </p>
                 <p className='text-[10px] md:text-xs text-black mt-4 text-justify'>
-                    <b>Disclaimer:</b> Investment ideas suggested on the Univest app are only for informational/ educational purposes. Univest is acting only as a platform to list these ideas. Markets are subject to risk, investor discretion and diligence is advised.
+                    <b>Disclaimer:</b> Univest is simply acting as a platform provider and inter alia publishes the data and recommendations provided by the SEBI reg. intermediaries such as research analysts. Investment in the securities market is subject to market risks. Read all the related documents carefully before investing. For more detail, kindly refer to univest terms of use, disclosures and disclaimers.
                 </p>
 
             </div>
